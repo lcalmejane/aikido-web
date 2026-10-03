@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI-KIDO – Méthode de construction de Memory Bank pour LLM</title>
-  <meta name="description" content="AI-KIDO est une méthode structurée pour construire et maintenir une Memory Bank (base de connaissances) optimisée pour les LLM au sein d'une équipe humaine.">
-  <meta property="og:title" content="AI-KIDO – Memory Bank pour LLM">
-  <meta property="og:description" content="Capitalisez, structurez et réutilisez la connaissance de vos projets avec une arborescence de Truth Tables optimisée pour les LLM.">
+  <title>AI-KIDO – Memory Bank construction method for LLMs</title>
+  <meta name="description" content="AI-KIDO is a structured method to build and maintain a Memory Bank (knowledge base) optimized for LLMs within a human team.">
+  <meta property="og:title" content="AI-KIDO – Memory Bank for LLMs">
+  <meta property="og:description" content="Capitalize, structure and reuse your project knowledge with a tree of Truth Tables optimized for LLMs.">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <link rel="alternate" hreflang="en" href="https://lcalmejane.github.io/aikido-web/">
+  <link rel="alternate" hreflang="fr" href="https://lcalmejane.github.io/aikido-web/fr/">
+  <link rel="alternate" hreflang="x-default" href="https://lcalmejane.github.io/aikido-web/">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -15,12 +20,16 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="#top">AI<span>-</span>KIDO</a>
-      <nav class="nav" aria-label="Navigation principale">
-        <a href="#philosophie">Philosophie</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#philosophy">Philosophy</a>
         <a href="#structure">Structure</a>
         <a href="#agents">Agents</a>
-        <a href="#demarrer">Démarrer</a>
+        <a href="#start">Get started</a>
         <a href="https://github.com/lcalmejane/aikido">GitHub</a>
+        <span class="lang-switch" role="group" aria-label="Language">
+          <a class="active" href="./" hreflang="en" lang="en" aria-current="true">EN</a>
+          <a href="fr/" hreflang="fr" lang="fr">FR</a>
+        </span>
       </nav>
     </div>
   </header>
@@ -29,55 +38,55 @@
 
     <section class="hero">
       <div class="container">
-        <h1>Une <em>Memory Bank</em> pensée pour les LLM</h1>
+        <h1>A <em>Memory Bank</em> built for LLMs</h1>
         <p class="lead">
-          AI-KIDO est une méthode structurée pour créer et maintenir une base de connaissances
-          hiérarchique, lisible par les humains et exploitable efficacement par les assistants IA.
+          AI-KIDO is a structured method to create and maintain a hierarchical knowledge base,
+          readable by humans and efficiently usable by AI assistants.
         </p>
         <div class="btn-row">
-          <a class="btn primary" href="#demarrer">Démarrer</a>
-          <a class="btn" href="https://github.com/lcalmejane/aikido">Voir sur GitHub</a>
+          <a class="btn primary" href="#start">Get started</a>
+          <a class="btn" href="https://github.com/lcalmejane/aikido">View on GitHub</a>
         </div>
       </div>
     </section>
 
-    <section id="philosophie">
+    <section id="philosophy">
       <div class="container">
-        <h2>Philosophie</h2>
+        <h2>Philosophy</h2>
         <p class="sub">
-          18 règles fondamentales garantissent une base de connaissances robuste, évolutive
-          et cohérente, construite de façon itérative.
+          18 fundamental rules guarantee a robust, scalable and consistent knowledge base,
+          built iteratively.
         </p>
         <div class="grid">
           <article class="card">
             <span class="tag">Navigation</span>
-            <h3>🌳 Arborescence</h3>
-            <p>Navigation récursive depuis un point d'entrée unique.</p>
+            <h3>🌳 Tree structure</h3>
+            <p>Recursive navigation from a single entry point.</p>
           </article>
           <article class="card">
-            <span class="tag">Organisation</span>
-            <h3>📊 Théorie / pratique</h3>
-            <p>Séparation nette entre concepts et techniques, personas et cas d'usage.</p>
+            <span class="tag">Organization</span>
+            <h3>📊 Theory / practice</h3>
+            <p>Clear separation between concepts and techniques, personas and use cases.</p>
           </article>
           <article class="card">
-            <span class="tag">Amélioration</span>
-            <h3>🔄 Auto-alimentation</h3>
-            <p>Amélioration continue à partir des retours d'expérience.</p>
+            <span class="tag">Improvement</span>
+            <h3>🔄 Self-feeding</h3>
+            <p>Continuous improvement based on lessons learned.</p>
           </article>
           <article class="card">
-            <span class="tag">Qualité</span>
-            <h3>⚖️ Équilibrage</h3>
-            <p>Contraintes de taille des fichiers et profondeur limitée à 4 niveaux.</p>
+            <span class="tag">Quality</span>
+            <h3>⚖️ Balancing</h3>
+            <p>File size constraints and a maximum depth of 4 levels.</p>
           </article>
           <article class="card">
-            <span class="tag">Cohérence</span>
-            <h3>🔗 Liens bidirectionnels</h3>
-            <p>Navigation cohérente dans tous les sens entre les documents.</p>
+            <span class="tag">Consistency</span>
+            <h3>🔗 Bidirectional links</h3>
+            <p>Consistent navigation in every direction between documents.</p>
           </article>
           <article class="card">
-            <span class="tag">Équipe</span>
-            <h3>👥 Répartition des rôles</h3>
-            <p>Organisation collaborative appuyée par une matrice RACI.</p>
+            <span class="tag">Team</span>
+            <h3>👥 Role distribution</h3>
+            <p>Collaborative organization backed by a RACI matrix.</p>
           </article>
         </div>
       </div>
@@ -87,14 +96,14 @@
       <div class="container">
         <h2>Structure</h2>
         <p class="sub">
-          Le point d'entrée unique est <code>prompts/index.md</code>. Les points durs
-          (<code>hard_points</code>) font autorité, puis viennent les Truth Tables (<code>gen</code>).
+          The single entry point is <code>prompts/index.md</code>. Hard points
+          (<code>hard_points</code>) are authoritative, followed by the Truth Tables (<code>gen</code>).
         </p>
         <pre><code>prompts/
-├── index.md            # point d'entrée unique
-├── hard_points/        # vérités immuables (priorité absolue)
+├── index.md            # single entry point
+├── hard_points/        # immutable truths (absolute priority)
 │   ├── agents/  commands/  system/  ...
-└── gen/                # Truth Tables du projet
+└── gen/                # project Truth Tables
     ├── concepts/   techniques/
     ├── agents/     personas/
     └── use_cases/</code></pre>
@@ -103,36 +112,36 @@
 
     <section id="agents">
       <div class="container">
-        <h2>Agents internes</h2>
+        <h2>Internal agents</h2>
         <p class="sub">
-          Les agents <code>agent-aikido-*</code> sont à la fois des outils, des agents et des modes.
-          Ils automatisent la maintenance de la Memory Bank.
+          <code>agent-aikido-*</code> agents are tools, agents and modes at the same time.
+          They automate the maintenance of the Memory Bank.
         </p>
         <div class="grid">
-          <article class="card"><h3>Explore Bank / Code / All</h3><p>Recherche dans la documentation, dans le code, ou les deux en parallèle.</p></article>
-          <article class="card"><h3>Truth Evaluator</h3><p>Détermine la source faisant autorité en cas de conflit.</p></article>
-          <article class="card"><h3>Validator &amp; Doc Header</h3><p>Vérifie la conformité des fichiers et gère leurs en-têtes.</p></article>
-          <article class="card"><h3>Balancer &amp; Index</h3><p>Rééquilibre l'arbre et maintient les index à jour.</p></article>
-          <article class="card"><h3>Bank Populate &amp; RACI Delegator</h3><p>Comble les manques et classe les nouveaux documents.</p></article>
-          <article class="card"><h3>Fusion &amp; Update Controller</h3><p>Met à jour AI-KIDO en préservant le contexte local du projet.</p></article>
+          <article class="card"><h3>Explore Bank / Code / All</h3><p>Search the documentation, the code, or both in parallel.</p></article>
+          <article class="card"><h3>Truth Evaluator</h3><p>Determines the authoritative source when sources conflict.</p></article>
+          <article class="card"><h3>Validator &amp; Doc Header</h3><p>Checks file compliance and manages document headers.</p></article>
+          <article class="card"><h3>Balancer &amp; Index</h3><p>Rebalances the tree and keeps indexes up to date.</p></article>
+          <article class="card"><h3>Bank Populate &amp; RACI Delegator</h3><p>Fills the gaps and classifies new documents.</p></article>
+          <article class="card"><h3>Fusion &amp; Update Controller</h3><p>Updates AI-KIDO while preserving the project's local context.</p></article>
         </div>
       </div>
     </section>
 
-    <section id="demarrer" class="alt">
+    <section id="start" class="alt">
       <div class="container">
-        <h2>Démarrer</h2>
-        <p class="sub">Installez AI-KIDO dans votre projet ou mettez à jour une base existante.</p>
-        <pre><code># Initialiser AI-KIDO dans le projet
+        <h2>Get started</h2>
+        <p class="sub">Install AI-KIDO in your project or update an existing base.</p>
+        <pre><code># Initialize AI-KIDO in the project
 /init-aikido
 
-# Mettre à jour une base existante
+# Update an existing base
 /maj-aikido --update
 
-# Audit de conformité
+# Compliance audit
 /analyse-aikido</code></pre>
         <p>
-          Dépôt source :
+          Source repository:
           <a href="https://github.com/lcalmejane/aikido">github.com/lcalmejane/aikido</a>
         </p>
       </div>
@@ -142,8 +151,8 @@
 
   <footer class="site-footer">
     <div class="container">
-      AI-KIDO – Méthode de construction de Memory Bank pour LLM ·
-      <a href="https://github.com/lcalmejane/aikido-web">Code du site</a>
+      AI-KIDO – Memory Bank construction method for LLMs ·
+      <a href="https://github.com/lcalmejane/aikido-web">Site source</a>
     </div>
   </footer>
 
