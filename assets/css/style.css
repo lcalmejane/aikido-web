@@ -360,6 +360,57 @@ section .sub + .sub { margin-top: -0.75rem; }
 .belt-head .tag { margin-bottom: 0.35rem; }
 .belt-head h3 { margin: 0; }
 
+/* Belt cards share one layout: intro, four points, outcome pinned to the bottom */
+.card[class*="belt-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.card .belt-intro {
+  margin: 0 0 0.9rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.belt-list {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.belt-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.belt-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 0.55em;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--belt-edge);
+}
+
+.card .belt-outcome {
+  margin: auto 0 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.card .belt-outcome strong { color: var(--text); }
+
 /* Footer */
 .site-footer {
   border-top: 1px solid var(--border);
