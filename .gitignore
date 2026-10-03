@@ -1,0 +1,13 @@
+# Répertoire de travail local (documentation, matière première, brouillons)
+# Jamais publié sur GitHub Pages
+/workspace/
+
+# macOS
+**/.DS_Store
+
+# Secrets / configuration locale
+.env
+.env.*
+*.local.*
+*.pem
+*.key
