@@ -236,11 +236,8 @@ section .sub + .sub { margin-top: -0.75rem; }
 .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
 .grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
 
-/* 5 cards: three on the first row, two centred on the second */
-.grid.belts { grid-template-columns: repeat(6, 1fr); }
-.grid.belts > * { grid-column: span 2; }
-.grid.belts > :nth-child(4) { grid-column: 2 / span 2; }
-.grid.belts > :nth-child(5) { grid-column: 4 / span 2; }
+/* 6 belts: three per row, two rows */
+.grid.belts { grid-template-columns: repeat(3, 1fr); }
 
 .card {
   background: var(--card);
@@ -267,6 +264,40 @@ section .sub + .sub { margin-top: -0.75rem; }
   border-radius: 999px;
   padding: 0.05rem 0.55rem;
   margin-bottom: 0.6rem;
+}
+
+/* Belt colours: tags on cards and pills on the home page */
+.belt-white  { --belt: #f4f5fb; --belt-edge: #f4f5fb; }
+.belt-yellow { --belt: #f5d547; --belt-edge: #f5d547; }
+.belt-orange { --belt: #f59a3d; --belt-edge: #f59a3d; }
+.belt-green  { --belt: #4cc46a; --belt-edge: #4cc46a; }
+.belt-blue   { --belt: #4f8cff; --belt-edge: #4f8cff; }
+/* Black belt: dark fill with a light edge so it stays visible on a dark theme */
+.belt-black  { --belt: #05060d; --belt-edge: #e8eaf6; }
+
+.card[class*="belt-"] { border-top: 3px solid var(--belt-edge); }
+
+.card[class*="belt-"] .tag,
+.pills li[class*="belt-"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-color: var(--belt-edge);
+  border-color: color-mix(in srgb, var(--belt-edge) 60%, var(--border));
+}
+
+.card[class*="belt-"] .tag { color: var(--text); }
+.pills li[class*="belt-"] { color: var(--text); }
+
+.card[class*="belt-"] .tag::before,
+.pills li[class*="belt-"]::before {
+  content: "";
+  flex: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--belt);
+  border: 1px solid var(--belt-edge);
 }
 
 /* Footer */
@@ -543,10 +574,6 @@ table.data th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-t
   .grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
 
   .grid.belts { grid-template-columns: repeat(2, 1fr); }
-  .grid.belts > *,
-  .grid.belts > :nth-child(4),
-  .grid.belts > :nth-child(5) { grid-column: auto; }
-  .grid.belts > :last-child:nth-child(odd) { grid-column: 1 / -1; }
 
   .steps { grid-template-columns: 1fr; }
 }
@@ -560,7 +587,6 @@ table.data th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-t
   .grid.cols-3,
   .grid.cols-4,
   .grid.belts { grid-template-columns: 1fr; }
-  .grid.belts > :last-child:nth-child(odd) { grid-column: auto; }
 
   .span-bar { flex-direction: column; }
   .span-bar > div { border-left: 0 !important; border-top: 1px solid var(--border); }
