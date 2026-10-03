@@ -1,35 +1,46 @@
 # aikido-web
 
-Site vitrine de la méthode [AI-KIDO](https://github.com/lcalmejane/aikido), publié avec GitHub Pages.
+Showcase website for the [AI-KIDO](https://github.com/lcalmejane/aikido) method, published with GitHub Pages.
 
-URL : https://lcalmejane.github.io/aikido-web/
+URL: https://lcalmejane.github.io/aikido-web/
+
+## Languages
+
+| Language | Path | File |
+|---|---|---|
+| **EN** (default) | `/` | `index.html` |
+| FR | `/fr/` | `fr/index.html` |
+
+Each page has a language switcher (`EN` / `FR`) and `hreflang` tags (`x-default` = EN).
+When adding a page, create both versions: `page.html` (EN) and `fr/page.html` (FR), and keep both switchers pointing to each other.
 
 ## Structure
 
 ```
 aikido-web/
-├── index.html          # page d'accueil
-├── 404.html
-├── .nojekyll           # désactive Jekyll : site statique servi tel quel
-├── assets/css/         # styles
-└── workspace/          # IGNORÉ par Git : documentation et matière de travail
+├── index.html          # home (EN, default)
+├── fr/index.html       # home (FR)
+├── 404.html            # bilingual error page
+├── .nojekyll           # disables Jekyll: static site served as is
+├── assets/css/         # shared styles
+└── workspace/          # IGNORED by Git: documentation and working material
 ```
 
-Le site est en HTML/CSS statique, sans étape de build.
+The site is static HTML/CSS, with no build step.
 
-## Répertoire de travail
+## Working directory
 
-Le dossier `workspace/` est dans le `.gitignore`. Il n'est jamais commité ni publié.
-Il sert à déposer la documentation et la matière brute pour construire le site. Voir `workspace/README.md` (local).
+`workspace/` is listed in `.gitignore`. It is never committed nor published.
+It holds documentation and raw material used to build the site.
 
-## Développement local
+## Local development
 
 ```bash
 python3 -m http.server 8000
-# puis ouvrir http://localhost:8000
+# EN: http://localhost:8000/   FR: http://localhost:8000/fr/
 ```
 
-## Publication
+## Publishing
 
 Settings → Pages → *Deploy from a branch* → `main` / `/ (root)`.
-Chaque push sur `main` republie le site.
+Every push to `main` republishes the site.
