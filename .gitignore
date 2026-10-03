@@ -2,6 +2,9 @@
 # Jamais publié sur GitHub Pages
 /workspace/
 
+# Originaux des images générées (lourds) : seules les versions optimisées sont publiées
+/assets/images/generated/
+
 # macOS
 **/.DS_Store
 
