@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI-KIDO – Méthode de construction de Memory Bank pour LLM</title>
-  <meta name="description" content="AI-KIDO est une méthode structurée pour construire et maintenir une Memory Bank (base de connaissances) optimisée pour les LLM au sein d'une équipe humaine.">
-  <meta property="og:title" content="AI-KIDO – Memory Bank pour LLM">
-  <meta property="og:description" content="Capitalisez, structurez et réutilisez la connaissance de vos projets avec une arborescence de Truth Tables optimisée pour les LLM.">
+  <title>AI-KIDO – Donnez une mémoire à votre IA. Donnez une méthode à votre équipe.</title>
+  <meta name="description" content="AI-KIDO transforme votre façon de travailler avec les assistants IA en une pratique structurée, partagée et durable : une Memory Bank que votre LLM sait parcourir, et un parcours que votre équipe peut apprendre.">
+  <meta property="og:title" content="AI-KIDO – Donnez une mémoire à votre IA. Donnez une méthode à votre équipe.">
+  <meta property="og:description" content="Une Memory Bank que votre LLM sait parcourir, une source de vérité unique pour votre équipe, et un parcours d'apprentissage du premier prompt à la pleine autonomie.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_US">
@@ -21,9 +21,10 @@
     <div class="container">
       <a class="brand" href="#top">AI<span>-</span>KIDO</a>
       <nav class="nav" aria-label="Navigation principale">
+        <a href="#pourquoi">Pourquoi</a>
+        <a href="#fonctionnement">Fonctionnement</a>
+        <a href="#capacites">Capacités</a>
         <a href="#philosophie">Philosophie</a>
-        <a href="#structure">Structure</a>
-        <a href="#agents">Agents</a>
         <a href="#demarrer">Démarrer</a>
         <a href="history.html">Historique</a>
         <a href="https://github.com/lcalmejane/aikido">GitHub</a>
@@ -39,15 +40,156 @@
 
     <section class="hero">
       <div class="container">
-        <h1>Une <em>Memory Bank</em> pensée pour les LLM</h1>
+        <h1>Donnez une <em>mémoire</em> à votre IA.<br>Donnez une méthode à votre équipe.</h1>
         <p class="lead">
-          AI-KIDO est une méthode structurée pour créer et maintenir une base de connaissances
-          hiérarchique, lisible par les humains et exploitable efficacement par les assistants IA.
+          AI-KIDO transforme votre façon de travailler avec les assistants IA en une pratique structurée,
+          partagée et durable : une Memory Bank que votre LLM sait parcourir, et un parcours que votre équipe peut apprendre.
         </p>
         <div class="btn-row">
           <a class="btn primary" href="#demarrer">Démarrer</a>
-          <a class="btn" href="history.html">Lire l'historique</a>
+          <a class="btn" href="#fonctionnement">Voir comment ça marche</a>
           <a class="btn" href="https://github.com/lcalmejane/aikido">Voir sur GitHub</a>
+        </div>
+        <ul class="pills" aria-label="Points forts">
+          <li>Connaissances en arborescence</li>
+          <li>Une seule source de vérité</li>
+          <li>Compatible Claude Code et Roo Code</li>
+          <li>Open source · MIT</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="pourquoi">
+      <div class="container">
+        <h2>L'IA est puissante. Sans méthode, elle est imprévisible.</h2>
+        <p class="sub">
+          Les modèles de langage peuvent transformer votre façon de construire. Mais utilisés au fil de l'eau,
+          ils oublient, se contredisent et laissent chaque développeur avec ses propres habitudes. AI-KIDO remplace
+          l'improvisation par une façon de travailler partagée et durable.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <span class="tag">Elle oublie</span>
+            <h3>Chaque session repart de zéro</h3>
+            <p>Votre assistant dispose d'une mémoire structurée et persistante qu'il parcourt depuis un point d'entrée unique : le contexte est chargé au bon moment et n'a plus à être réexpliqué.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Elle se contredit</span>
+            <h3>Des réponses qui dérivent avec le temps</h3>
+            <p>Les tables de vérité donnent à chaque fait un seul foyer. Quand les sources divergent, la source qui fait autorité est connue et l'écart est repéré tôt.</p>
+          </article>
+          <article class="card">
+            <span class="tag">C'est un sport solitaire</span>
+            <h3>Chacun prompte à sa façon</h3>
+            <p>Un langage commun, des rôles définis et des workflows partagés permettent à toute une équipe de collaborer avec l'IA de la même manière.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Ça ne dure pas</span>
+            <h3>La documentation vieillit le jour où elle est écrite</h3>
+            <p>Des agents internes valident, rééquilibrent et indexent vos connaissances : la Memory Bank suit le rythme du projet.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="fonctionnement" class="alt">
+      <div class="container">
+        <h2>Comment ça marche</h2>
+        <p class="sub">
+          Trois idées, appliquées avec constance. Ensemble, elles transforment des notes éparses en une base
+          de connaissances à laquelle humains et IA peuvent se fier.
+        </p>
+        <ol class="steps">
+          <li>
+            <h3>Structurez vos connaissances</h3>
+            <p>Une arborescence, un point d'entrée. Les connaissances s'organisent en concepts, techniques, personas et cas d'usage : un assistant trouve exactement ce dont il a besoin, et rien de plus.</p>
+          </li>
+          <li>
+            <h3>Décidez ce qui reste ouvert et ce qui est acté</h3>
+            <p>Les tables de vérité restent souples et évoluent avec le projet. Les points durs verrouillent les décisions validées et l'emportent toujours en cas de conflit.</p>
+          </li>
+          <li>
+            <h3>Laissez les agents l'entretenir</h3>
+            <p>Des agents internes recherchent, contrôlent la conformité, arbitrent les conflits, comblent les manques et mettent la base à jour, en préservant le contexte propre à votre projet.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="capacites">
+      <div class="container">
+        <h2>Ce que vous pouvez en faire</h2>
+        <p class="sub">
+          Une boîte à outils complète autour de la méthode, utilisable directement depuis votre assistant IA.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <span class="tag">Mémoire</span>
+            <h3>Un contexte persistant pour votre LLM</h3>
+            <p>Une Memory Bank hiérarchique qui compense les limites du modèle et garde les connaissances de votre projet disponibles d'une session à l'autre.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Recherche</span>
+            <h3>Tout retrouver, dans la doc comme dans le code</h3>
+            <p>Explorez la documentation, le code source, ou les deux en parallèle, avec des plans de recherche adaptés à votre stack technologique.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Confiance</span>
+            <h3>Savoir quelle source l'emporte</h3>
+            <p>Repérez les écarts entre les spécifications et la réalité, et arbitrez grâce à une hiérarchie claire de la vérité.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Qualité</span>
+            <h3>Valider au fil de l'eau</h3>
+            <p>Des contrôles automatiques de conformité sur la structure, les en-têtes et les liens, et un audit complet de votre base quand vous le souhaitez.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Analyse</span>
+            <h3>Comprendre un projet rapidement</h3>
+            <p>Des plans d'analyse, du simple survol à la revue experte approfondie, et un index de projet mis en cache pour la rapidité.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Mises à jour</span>
+            <h3>Rester à jour sans perdre votre travail</h3>
+            <p>Mettez à jour depuis la source officielle et choisissez fichier par fichier de remplacer, fusionner ou ignorer. Les sauvegardes et votre contexte local sont préservés.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Équipe</span>
+            <h3>Organiser qui fait quoi</h3>
+            <p>Des personas spécialisés et une matrice RACI classent chaque document et clarifient les responsabilités au sein de l'équipe.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Intégration</span>
+            <h3>Se branche sur vos outils</h3>
+            <p>Un fichier d'entrée standard pour les agents IA, la prise en charge de Claude Code et Roo Code, et les outils d'équipe comme Jira et Confluence via des serveurs MCP.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="usages" class="alt">
+      <div class="container">
+        <h2>À utiliser là où vous travaillez</h2>
+        <p class="sub">
+          Du projet de week-end à l'organisation multi-projets, en mode standard ou allégé.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <h3>Démarrer un nouveau projet</h3>
+            <p>Initialisez une Memory Bank en quelques minutes et faites-la grandir avec le projet, dès le premier prompt.</p>
+          </article>
+          <article class="card">
+            <h3>L'adopter sur un code existant</h3>
+            <p>Analysez l'existant, structurez-le en tables de vérité et comblez les manques progressivement.</p>
+          </article>
+          <article class="card">
+            <h3>Embarquer toute votre équipe</h3>
+            <p>Une base partagée, des standards communs et des rôles clairs : les résultats restent cohérents d'une personne à l'autre.</p>
+          </article>
+          <article class="card">
+            <h3>Aller au-delà du code</h3>
+            <p>La méthode a déjà été appliquée à l'enseignement, à l'écriture de fiction et à l'observabilité, en plus du logiciel.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -56,8 +198,10 @@
       <div class="container">
         <h2>Philosophie</h2>
         <p class="sub">
-          18 règles fondamentales garantissent une base de connaissances robuste, évolutive
-          et cohérente, construite de façon itérative.
+          Le nom dit tout : « AI » et Aïkido, la voie de l'harmonie des énergies. Plutôt que de lutter contre les
+          limites d'un modèle de langage, on apprend à utiliser son énergie et à transformer ses faiblesses apparentes
+          en atouts. Un petit nombre de règles fondamentales garantit une base de connaissances robuste, évolutive
+          et cohérente.
         </p>
         <div class="grid">
           <article class="card">
@@ -91,10 +235,37 @@
             <p>Organisation collaborative appuyée par une matrice RACI.</p>
           </article>
         </div>
+
+        <blockquote class="quote">
+          Le véritable challenge n'est pas d'apprendre à utiliser l'IA, mais d'apprendre à danser avec elle.
+          <cite>L'esprit d'AI-KIDO</cite>
+        </blockquote>
       </div>
     </section>
 
-    <section id="structure" class="alt">
+    <section id="parcours" class="alt">
+      <div class="container">
+        <h2>Une méthode qui s'apprend, pas seulement un outil qu'on installe</h2>
+        <p class="sub">
+          AI-KIDO est né comme une façon d'apprendre à travailler avec l'IA, et le dépôt est la boîte à outils qui
+          en est issue. Vous progressez par ceintures, de votre premier prompt structuré aux techniques qui prolongent
+          la méthode elle-même, avec des katas concrets et un esprit de dojo fait de patience et de curiosité.
+        </p>
+        <ul class="pills" aria-label="Parcours d'apprentissage">
+          <li>Ceinture blanche · Fondations</li>
+          <li>Ceinture jaune · Expansion</li>
+          <li>Ceinture orange · Maîtrise</li>
+          <li>Ceinture verte · Pratique professionnelle</li>
+          <li>Ceinture bleue à noire · Innovation</li>
+        </ul>
+        <div class="btn-row" style="margin-top:1.75rem">
+          <a class="btn primary" href="history.html">Lire l'histoire</a>
+          <a class="btn" href="history.html#parcours">Explorer le parcours</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="structure">
       <div class="container">
         <h2>Structure</h2>
         <p class="sub">
@@ -112,12 +283,12 @@
       </div>
     </section>
 
-    <section id="agents">
+    <section id="agents" class="alt">
       <div class="container">
-        <h2>Agents internes</h2>
+        <h2>Une Memory Bank qui s'entretient toute seule</h2>
         <p class="sub">
           Les agents <code>agent-aikido-*</code> sont à la fois des outils, des agents et des modes.
-          Ils automatisent la maintenance de la Memory Bank.
+          Ils automatisent la maintenance de la Memory Bank pour que votre équipe se concentre sur la construction.
         </p>
         <div class="grid">
           <article class="card"><h3>Explore Bank / Code / All</h3><p>Recherche dans la documentation, dans le code, ou les deux en parallèle.</p></article>
@@ -130,10 +301,12 @@
       </div>
     </section>
 
-    <section id="demarrer" class="alt">
+    <section id="demarrer">
       <div class="container">
         <h2>Démarrer</h2>
-        <p class="sub">Installez AI-KIDO dans votre projet ou mettez à jour une base existante.</p>
+        <p class="sub">
+          Installez AI-KIDO dans votre projet ou mettez à jour une base existante. Il convient aussi bien aux projets neufs qu'existants.
+        </p>
         <pre><code># Initialiser AI-KIDO dans le projet
 /init-aikido
 
@@ -146,6 +319,19 @@
           Dépôt source :
           <a href="https://github.com/lcalmejane/aikido">github.com/lcalmejane/aikido</a>
         </p>
+      </div>
+    </section>
+
+    <section class="cta alt">
+      <div class="container">
+        <h2>Prêt à travailler avec l'IA, et non contre elle ?</h2>
+        <p class="sub">
+          Commencez avec un seul prompt et un seul point d'entrée. Le reste de la méthode grandit avec vous.
+        </p>
+        <div class="btn-row">
+          <a class="btn primary" href="https://github.com/lcalmejane/aikido">Récupérer AI-KIDO sur GitHub</a>
+          <a class="btn" href="history.html">Lire l'histoire</a>
+        </div>
       </div>
     </section>
 
