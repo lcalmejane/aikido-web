@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-KIDO – Méthode de construction de Memory Bank pour LLM</title>
+  <meta name="description" content="AI-KIDO est une méthode structurée pour construire et maintenir une Memory Bank (base de connaissances) optimisée pour les LLM au sein d'une équipe humaine.">
+  <meta property="og:title" content="AI-KIDO – Memory Bank pour LLM">
+  <meta property="og:description" content="Capitalisez, structurez et réutilisez la connaissance de vos projets avec une arborescence de Truth Tables optimisée pour les LLM.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#top">AI<span>-</span>KIDO</a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#philosophie">Philosophie</a>
+        <a href="#structure">Structure</a>
+        <a href="#agents">Agents</a>
+        <a href="#demarrer">Démarrer</a>
+        <a href="https://github.com/lcalmejane/aikido">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="container">
+        <h1>Une <em>Memory Bank</em> pensée pour les LLM</h1>
+        <p class="lead">
+          AI-KIDO est une méthode structurée pour créer et maintenir une base de connaissances
+          hiérarchique, lisible par les humains et exploitable efficacement par les assistants IA.
+        </p>
+        <div class="btn-row">
+          <a class="btn primary" href="#demarrer">Démarrer</a>
+          <a class="btn" href="https://github.com/lcalmejane/aikido">Voir sur GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophie">
+      <div class="container">
+        <h2>Philosophie</h2>
+        <p class="sub">
+          18 règles fondamentales garantissent une base de connaissances robuste, évolutive
+          et cohérente, construite de façon itérative.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <span class="tag">Navigation</span>
+            <h3>🌳 Arborescence</h3>
+            <p>Navigation récursive depuis un point d'entrée unique.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Organisation</span>
+            <h3>📊 Théorie / pratique</h3>
+            <p>Séparation nette entre concepts et techniques, personas et cas d'usage.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Amélioration</span>
+            <h3>🔄 Auto-alimentation</h3>
+            <p>Amélioration continue à partir des retours d'expérience.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Qualité</span>
+            <h3>⚖️ Équilibrage</h3>
+            <p>Contraintes de taille des fichiers et profondeur limitée à 4 niveaux.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Cohérence</span>
+            <h3>🔗 Liens bidirectionnels</h3>
+            <p>Navigation cohérente dans tous les sens entre les documents.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Équipe</span>
+            <h3>👥 Répartition des rôles</h3>
+            <p>Organisation collaborative appuyée par une matrice RACI.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="structure" class="alt">
+      <div class="container">
+        <h2>Structure</h2>
+        <p class="sub">
+          Le point d'entrée unique est <code>prompts/index.md</code>. Les points durs
+          (<code>hard_points</code>) font autorité, puis viennent les Truth Tables (<code>gen</code>).
+        </p>
+        <pre><code>prompts/
+├── index.md            # point d'entrée unique
+├── hard_points/        # vérités immuables (priorité absolue)
+│   ├── agents/  commands/  system/  ...
+└── gen/                # Truth Tables du projet
+    ├── concepts/   techniques/
+    ├── agents/     personas/
+    └── use_cases/</code></pre>
+      </div>
+    </section>
+
+    <section id="agents">
+      <div class="container">
+        <h2>Agents internes</h2>
+        <p class="sub">
+          Les agents <code>agent-aikido-*</code> sont à la fois des outils, des agents et des modes.
+          Ils automatisent la maintenance de la Memory Bank.
+        </p>
+        <div class="grid">
+          <article class="card"><h3>Explore Bank / Code / All</h3><p>Recherche dans la documentation, dans le code, ou les deux en parallèle.</p></article>
+          <article class="card"><h3>Truth Evaluator</h3><p>Détermine la source faisant autorité en cas de conflit.</p></article>
+          <article class="card"><h3>Validator &amp; Doc Header</h3><p>Vérifie la conformité des fichiers et gère leurs en-têtes.</p></article>
+          <article class="card"><h3>Balancer &amp; Index</h3><p>Rééquilibre l'arbre et maintient les index à jour.</p></article>
+          <article class="card"><h3>Bank Populate &amp; RACI Delegator</h3><p>Comble les manques et classe les nouveaux documents.</p></article>
+          <article class="card"><h3>Fusion &amp; Update Controller</h3><p>Met à jour AI-KIDO en préservant le contexte local du projet.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="demarrer" class="alt">
+      <div class="container">
+        <h2>Démarrer</h2>
+        <p class="sub">Installez AI-KIDO dans votre projet ou mettez à jour une base existante.</p>
+        <pre><code># Initialiser AI-KIDO dans le projet
+/init-aikido
+
+# Mettre à jour une base existante
+/maj-aikido --update
+
+# Audit de conformité
+/analyse-aikido</code></pre>
+        <p>
+          Dépôt source :
+          <a href="https://github.com/lcalmejane/aikido">github.com/lcalmejane/aikido</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      AI-KIDO – Méthode de construction de Memory Bank pour LLM ·
+      <a href="https://github.com/lcalmejane/aikido-web">Code du site</a>
+    </div>
+  </footer>
+
+</body>
+</html>
