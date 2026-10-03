@@ -8,7 +8,7 @@
   --accent-2: #46e0c3;
   --border: #2a3056;
   --radius: 12px;
-  --max: 1120px;
+  --max: 1121px;
 }
 
 * { box-sizing: border-box; }
@@ -147,6 +147,29 @@ pre code { background: none; padding: 0; }
 
 .hero { padding: 5.5rem 0 4.5rem; }
 .page-head { padding: 4rem 0 3rem; }
+
+/* Illustrated hero: dark veil behind the text, lighter towards the edges where the artwork lives */
+.hero {
+  background:
+    radial-gradient(ellipse 65% 78% at 50% 42%, rgba(15, 18, 32, 0.9), rgba(15, 18, 32, 0.38) 100%),
+    linear-gradient(180deg, transparent 72%, var(--bg) 100%),
+    url("../images/H1.webp") center bottom / cover no-repeat,
+    var(--bg);
+}
+
+/* Illustrated page header: the bright ribbon of the artwork runs behind the text, so the veil is
+   stronger in the middle and the text is lightened and given a soft shadow */
+.page-head {
+  background:
+    radial-gradient(ellipse 70% 95% at 50% 50%, rgba(15, 18, 32, 0.82), rgba(15, 18, 32, 0.3) 100%),
+    linear-gradient(180deg, rgba(15, 18, 32, 0.55) 0%, rgba(15, 18, 32, 0.3) 55%, rgba(15, 18, 32, 0.9) 100%),
+    url("../images/H2.webp") center 78% / cover no-repeat,
+    var(--bg);
+}
+
+.page-head h1,
+.page-head p { text-shadow: 0 1px 14px rgba(15, 18, 32, 0.95); }
+.page-head p { color: #c9d0ee; }
 
 .hero h1 {
   font-size: clamp(2.1rem, 5vw, 3.5rem);
@@ -287,6 +310,26 @@ section .sub + .sub { margin-top: -0.75rem; }
 }
 
 .card[class*="belt-"] .tag { padding: 0.15rem 0.75rem; }
+
+/* Belt card header: picture next to the tag and the title */
+.belt-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.belt-head img {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.belt-head .tag { margin-bottom: 0.35rem; }
+.belt-head h3 { margin: 0; }
 
 /* Footer */
 .site-footer {
@@ -498,8 +541,37 @@ section .sub + .sub { margin-top: -0.75rem; }
     var(--bg-alt);
 }
 
+/* Illustrated closing block: strong veil over the bright centre of the picture so the text stays readable.
+   "section.cta" is needed to win over "section.alt" (same specificity, declared earlier). */
+section.cta {
+  background:
+    radial-gradient(ellipse 75% 110% at 50% 45%, rgba(15, 18, 32, 0.86), rgba(15, 18, 32, 0.42) 100%),
+    url("../images/H4.webp") center 62% / cover no-repeat,
+    var(--bg-alt);
+}
+
 .cta h2::after { margin-left: auto; margin-right: auto; }
 .cta .sub { margin-left: auto; margin-right: auto; max-width: 760px; }
+
+/* Quote with its illustration: picture on the left, quote on the right */
+.quote-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 2rem;
+  align-items: center;
+  margin: 2rem 0 0;
+}
+
+.quote-feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.quote-feature .quote { margin: 0; font-size: 1.3rem; }
 
 /* Quote */
 .quote {
@@ -564,6 +636,10 @@ table.data th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-t
   .grid.belts { grid-template-columns: repeat(2, 1fr); }
 
   .steps { grid-template-columns: 1fr; }
+
+  /* Illustrated quote: picture above the text */
+  .quote-feature { grid-template-columns: 1fr; gap: 1.25rem; }
+  .quote-feature img { max-width: 520px; margin: 0 auto; }
 }
 
 /* Phone */
@@ -575,6 +651,16 @@ table.data th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-t
   .grid.cols-3,
   .grid.cols-4,
   .grid.belts { grid-template-columns: 1fr; }
+
+  /* Hero artwork is centred on a narrow screen: a stronger veil keeps the text readable */
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(15, 18, 32, 0.82), rgba(15, 18, 32, 0.55) 100%),
+      url("../images/H1.webp") center bottom / cover no-repeat,
+      var(--bg);
+  }
+
+  .quote-feature .quote { font-size: 1.15rem; }
 
   .span-bar { flex-direction: column; }
   .span-bar > div { border-left: 0 !important; border-top: 1px solid var(--border); }
