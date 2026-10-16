@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kimono – Habillez votre pratique de l'AI-KIDO</title>
+  <meta name="description" content="Découvrez Kimono MCP avec des schémas et un guide pratique : récupérer le dépôt GitHub, démarrer avec Docker ou en stdio natif et connecter votre assistant IA.">
+  <meta property="og:title" content="Kimono – Habillez votre pratique de l'AI-KIDO">
+  <meta property="og:description" content="Quelle que soit votre ceinture, Kimono rend les connaissances et les outils AI-KIDO accessibles par MCP pour pratiquer ensemble, plus sereinement.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image" content="https://lcalmejane.github.io/aikido-web/assets/images/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="en" href="https://lcalmejane.github.io/aikido-web/kimono.html">
+  <link rel="alternate" hreflang="fr" href="https://lcalmejane.github.io/aikido-web/fr/kimono.html">
+  <link rel="alternate" hreflang="x-default" href="https://lcalmejane.github.io/aikido-web/kimono.html">
+  <link rel="icon" href="../favicon.ico?v=2" sizes="any">
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=2">
+  <link rel="stylesheet" href="../assets/css/style.css?v=8">
+</head>
+<body class="kimono-page">
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html"><img class="brand-logo" src="../assets/images/favicon-48.png?v=2" alt="" width="28" height="28">AI<span>-</span>KIDO</a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="#why-kimono">Pourquoi Kimono ?</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#docker">Docker</a>
+        <a href="#native">Installation native</a>
+        <a href="#try">Tester</a>
+        <a href="https://github.com/lcalmejane/kimono-mcp-server">GitHub</a>
+        <span class="lang-switch" role="group" aria-label="Langue">
+          <a href="../kimono.html" hreflang="en" lang="en">EN</a>
+          <a class="active" href="kimono.html" hreflang="fr" lang="fr" aria-current="true">FR</a>
+        </span>
+      </nav>
+    </div>
+  </header>
+  <main id="top">
+    <section class="page-head">
+      <div class="container">
+        <span class="tag">Écosystème AI-KIDO · Serveur MCP</span>
+        <h1>Kimono, pour habiller votre pratique de l'AI-KIDO.</h1>
+        <p>Quelle que soit votre ceinture, enfilez votre Kimono et rejoignez le dojo. En rendant accessibles par MCP les connaissances, commandes, personas, skills et workflows d'AI-KIDO, Kimono habille la méthode pour vous permettre de pratiquer à plusieurs, autour des mêmes repères et plus sereinement.</p>
+        <p>Connectez vos assistants à la même Memory Bank AI-KIDO. Recherchez, retrouvez les instructions et travaillez sur un projet autorisé, sans chat ni LLM embarqué dans le serveur.</p>
+        <div class="btn-row">
+          <a class="btn primary" href="#docker">Tester avec Docker</a>
+          <a class="btn" href="#native">Lancer en natif</a>
+          <a class="btn" href="https://github.com/lcalmejane/kimono-mcp-server">Récupérer le code sur GitHub</a>
+        </div>
+      </div>
+    </section>
+    <section id="why-kimono">
+      <div class="container">
+        <h2>Donnez une référence commune à vos assistants</h2>
+        <p class="sub">Rendez la méthode et les connaissances AI-KIDO accessibles aux clients MCP comme VS Code et Claude Code. Commencez en lecture seule, testez sur votre machine, puis choisissez comment partager la base.</p>
+        <div class="grid cols-3">
+          <article class="card"><span class="tag">Une seule source</span><h3>Ne faites plus circuler des copies obsolètes</h3><p>Exposez documents, commandes, personas, skills et workflows depuis une racine de connaissances configurée. Plusieurs sessions HTTP peuvent partager cette même instance.</p></article>
+          <article class="card"><span class="tag">Inférence locale</span><h3>Retrouvez le sens, pas seulement les mots</h3><p>Les recherches littérales et regex complètent la recherche sémantique locale E5 multilingue avec ONNX Runtime. À l'exécution, l'inférence sémantique ne dépend d'aucune API d'inférence externe.</p></article>
+          <article class="card"><span class="tag">Le client garde la main</span><h3>Gardez votre assistant habituel</h3><p><code>activate</code> et <code>execute</code> renvoient des instructions. Votre client les applique avec ses outils et approbations ; Kimono n'exécute pas de workflow LLM autonome.</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="architecture" class="alt">
+      <div class="container">
+        <h2>Comment les briques se connectent</h2>
+        <p class="sub">Pour un accès partagé : un processus HTTP, une racine de connaissances et un cache privé persistant. Le cache reste en dehors de l'arbre documentaire.</p>
+        <figure class="kimono-diagram">
+          <div class="kimono-flow">
+            <div class="card"><span class="tag">Clients</span><h3>Humains et agents</h3><p>VS Code · Claude Code<br>Autres clients MCP</p></div>
+            <span class="kimono-arrow" aria-hidden="true">→</span>
+            <div class="card"><span class="tag">MCP + jeton Bearer</span><h3>Kimono HTTP</h3><p>Découverte · recherche<br>Actions fichiers / Git sur option</p></div>
+            <span class="kimono-arrow" aria-hidden="true">→</span>
+            <div class="card"><span class="tag">Stockage local</span><h3>Racine AI-KIDO + cache</h3><p>Arbre des connaissances<br>Index de recherche persistants</p></div>
+          </div>
+          <figcaption>Plusieurs clients partagent le même arbre de travail et les mêmes droits sur l'instance. Les recherches synchronisent les index à la demande ; ce n'est pas un watcher permanent.</figcaption>
+        </figure>
+        <h3>Intégrer Kimono à Tatami ou à votre plateforme</h3>
+        <figure class="kimono-diagram">
+          <div class="kimono-flow">
+            <div class="card"><h3>Gestionnaire plateforme</h3><p>Autorisations · routage<br>Secrets · cycle de vie · quotas</p></div>
+            <span class="kimono-arrow" aria-hidden="true">→</span>
+            <div class="card"><h3>Workspace A</h3><p>Kimono A · racine A<br>Cache privé A · jeton A</p></div>
+            <span class="kimono-arrow" aria-hidden="true">+</span>
+            <div class="card"><h3>Workspace B</h3><p>Kimono B · racine B<br>Cache privé B · jeton B</p></div>
+          </div>
+          <figcaption>La plateforme route chaque client vers son instance autorisée, et non du workspace A vers B. Dans l'organisation actuelle de Tatami, un workspace correspond au couple (utilisateur, projet). Le provisionnement dynamique et le routage sont une intégration distincte, pas des fonctions de Kimono.</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section id="download">
+      <div class="container">
+        <h2>1. Récupérer Kimono sur GitHub</h2>
+        <p class="sub">Ouvrez un terminal avec Git installé. Ces commandes créent un nouveau clone ; choisissez un dossier qui ne contient pas déjà un clone de Kimono.</p>
+        <pre><code>git clone https://github.com/lcalmejane/kimono-mcp-server.git
+cd kimono-mcp-server</code></pre>
+        <p>Choisissez ensuite <a href="#docker">Docker Compose</a> pour le runtime et le modèle d'embedding inclus, ou <a href="#native">le mode stdio natif</a> pour une connexion dédiée à un client. GitHub héberge les sources ; GitHub Pages ne peut pas exécuter ce serveur MCP.</p>
+      </div>
+    </section>
+    <section id="docker" class="alt">
+      <div class="container">
+        <h2>2A. Tester avec Docker Compose</h2>
+        <p class="sub"><strong>Recommandé pour un premier essai.</strong> Installez Docker Engine ou Docker Desktop avec Compose v2 et démarrez Docker. Lancez ces commandes depuis le dossier Kimono cloné. Le premier build télécharge les dépendances, ONNX Runtime et le modèle d'embedding : il nécessite Internet et peut prendre du temps.</p>
+        <h3>Préparer la configuration locale</h3>
+        <pre><code>cp .env.example .env
+openssl rand -hex 32</code></pre>
+        <p>Copiez la valeur aléatoire générée dans <code>MCP_AUTH_TOKEN</code> du fichier <code>.env</code>. Pour cet essai, conservez les autres valeurs par défaut ci-dessous ; ne versionnez jamais votre jeton.</p>
+        <pre><code>AIKIDO_HOST_PARENT=./data
+AIKIDO_DIR=aikido
+AIKIDO_WRITABLE=false
+AIKIDO_VOLUME_MODE=ro
+AIKIDO_INCLUDE_SPEC=false
+MCP_PORT=3000</code></pre>
+        <h3>Installer une base AI-KIDO neuve, puis démarrer le serveur</h3>
+        <pre><code>mkdir -p data
+docker compose --profile install run --build --rm install-aikido
+docker compose up --build -d kimono-mcp-server
+docker compose ps
+curl --fail http://127.0.0.1:3000/healthz</code></pre>
+        <p>L'installation clone explicitement AI-KIDO dans <code>./data/aikido</code>. Cette cible doit être absente ou vide ; une cible non vide n'est pas écrasée. Pour une base existante, configurez plutôt son dossier parent et son nom, vérifiez qu'elle contient <code>prompts/index.md</code> ou <code>index.md</code>, et sautez l'installation.</p>
+        <p><strong>Résultat attendu :</strong> un conteneur démarré et un HTTP 200 sur <code>/healthz</code>. Ce test vérifie la vivacité, pas la disponibilité des connaissances ni la fin de l'indexation sémantique. <code>/readyz</code> et <code>/statusz</code> nécessitent votre jeton Bearer. Le conteneur utilise l'UID 1000 : ses dossiers montés doivent être lisibles, et inscriptibles pendant l'installation.</p>
+        <h3>Connecter VS Code en HTTP</h3>
+        <p>Ajoutez cette entrée à la configuration MCP du client. Pour VS Code, fusionnez-la dans <code>.vscode/mcp.json</code>, en conservant les serveurs et les entrées déjà présents. Le jeton demandé est celui défini dans <code>.env</code>.</p>
+        <pre><code>{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "kimono-token",
+      "description": "Jeton MCP Kimono",
+      "password": true
+    }
+  ],
+  "servers": {
+    "kimono": {
+      "type": "http",
+      "url": "http://127.0.0.1:3000/mcp",
+      "headers": {
+        "Authorization": "Bearer ${input:kimono-token}"
+      }
+    }
+  }
+}</code></pre>
+        <p>Démarrez la connexion depuis les contrôles MCP de VS Code et approuvez-la lorsque le client le demande. Les autres clients MCP utilisent la même URL et l'authentification Bearer. Si vous changez <code>MCP_PORT</code>, adaptez aussi l'URL.</p>
+        <h3>Inspecter puis arrêter le test</h3>
+        <pre><code>docker compose logs --tail=100 kimono-mcp-server
+docker compose down</code></pre>
+        <p>Cet arrêt conserve le dossier de connaissances sur l'hôte et le volume nommé du cache. N'ajoutez pas <code>--volumes</code>, sauf si vous souhaitez supprimer les index en cache.</p>
+      </div>
+    </section>
+    <section id="native">
+      <div class="container">
+        <h2>2B. Tester localement en stdio natif</h2>
+        <p class="sub">Alternative à Docker : Node.js 24+, npm, Git et Rust/Cargo sont nécessaires. Ce parcours démarre avec la recherche littérale/regex. La recherche sémantique native exige aussi le helper, les fichiers du modèle et la bibliothèque ONNX de la <a href="https://github.com/lcalmejane/kimono-mcp-server#local-semantic-search">configuration sémantique officielle</a> ; Docker les inclut.</p>
+        <pre><code>cargo install fast-grep --version 0.5.0 --locked
+npm ci
+npm run build
+node dist/cli.js init --root /absolute/path/to/aikido --ref main</code></pre>
+        <p>Remplacez <code>/absolute/path/to/aikido</code> par un nouveau chemin absolu d'installation. La dernière commande clone la base officielle ; pour une base existante, sautez-la. Le binaire de recherche s'appelle <code>fgr</code> et doit être dans le PATH du client.</p>
+        <p>Fusionnez cette entrée dans <code>.vscode/mcp.json</code> de VS Code, en remplaçant les deux chemins absolus :</p>
+        <pre><code>{
+  "servers": {
+    "kimono": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["/absolute/path/to/kimono-mcp-server/dist/cli.js",
+               "serve", "--root", "/absolute/path/to/aikido"]
+    }
+  }
+}</code></pre>
+        <p>Le client lance lui-même le processus. Cette configuration stdio n'utilise ni port HTTP ni jeton Bearer. Lancer séparément la commande depuis plusieurs clients crée plusieurs processus, pas des sessions d'un serveur HTTP commun ; ne partagez jamais un cache entre processus indépendants. Préférez HTTP pour une racine partagée.</p>
+      </div>
+    </section>
+    <section id="try" class="alt">
+      <div class="container">
+        <h2>3. Effectuer les premiers appels MCP</h2>
+        <p class="sub">Depuis votre assistant connecté ou un inspecteur d'outils MCP, choisissez l'outil et fournissez les arguments JSON ci-dessous. Ce sont des appels d'outils, pas des commandes shell. Commencez par la découverte en lecture seule.</p>
+        <div class="grid cols-3">
+          <article class="card"><span class="tag">Découvrir</span><h3><code>aikido</code></h3><pre><code>{"operation":"list"}</code></pre><p>Vous devez retrouver le catalogue des connaissances découvertes dans la racine configurée. Demandez à votre assistant d'en expliquer une commande ou un persona.</p></article>
+          <article class="card"><span class="tag">Rechercher</span><h3><code>aikido_search</code></h3><pre><code>{"mode":"literal",
+ "query":"AI-KIDO",
+ "limit":5}</code></pre><p>Repérez les chemins, numéros de ligne et extraits. Avec la configuration sémantique de Docker, essayez <code>mode: "semantic"</code> et une question en langage naturel.</p></article>
+          <article class="card"><span class="tag">Mode sémantique Docker</span><h3><code>aikido_embed</code></h3><pre><code>{"operation":"info"}</code></pre><p>Consultez le modèle d'embedding actif et ses paramètres de prétraitement. La première recherche sémantique peut être plus longue pendant l'indexation ; la disponibilité seule ne garantit pas un index terminé.</p></article>
+        </div>
+        <p>Pour suivre la progression sémantique sans lancer d'inférence, appelez <code>aikido_index</code> avec <code>{"operation":"status","mode":"semantic"}</code>. Après un redémarrage du serveur, reconnectez le client MCP pour créer une nouvelle session.</p>
+      </div>
+    </section>
+    <section id="safeguards">
+      <div class="container">
+        <h2>Commencer simplement. Garder des limites claires.</h2>
+        <div class="grid cols-3">
+          <article class="card"><h3>Lecture seule d'abord</h3><p>Conservez la protection de la base officielle. Les écritures fichiers/Git sont réservées à des projets ou forks de confiance distincts, explicitement activées avec un montage inscriptible. L'API Git n'est pas une sandbox.</p></article>
+          <article class="card"><h3>Partager en connaissance de cause</h3><p>Tous les clients détenteurs du jeton ont les mêmes droits. Les appels passent par la file du runtime, mais plusieurs appels ne forment pas une transaction. Désignez un coordinateur Git ou isolez les workspaces en écriture.</p></article>
+          <article class="card"><h3>Garder un accès local</h3><p>Compose n'expose que l'interface locale. Un accès distant exige TLS et un reverse proxy authentifié avec autorisation. Séparez jetons, racines et caches pour isoler les workspaces ; ne placez jamais les identifiants dans Git.</p></article>
+        </div>
+        <h3>Si le premier démarrage échoue</h3>
+        <ul>
+          <li><strong>Connexion refusée :</strong> vérifiez que Docker tourne, <code>docker compose ps</code>, le port publié et les logs du serveur.</li>
+          <li><strong>Erreur d'authentification :</strong> vérifiez que le jeton Bearer du client correspond à <code>MCP_AUTH_TOKEN</code>.</li>
+          <li><strong>Racine indisponible :</strong> vérifiez le résultat de l'installation, le chemin configuré, le fichier d'entrée et les permissions pour l'UID 1000.</li>
+          <li><strong>Premier appel sémantique lent :</strong> prévoyez un délai client suffisant et consultez le statut de l'index ; en natif, installez les prérequis sémantiques supplémentaires.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="cta alt">
+      <div class="container">
+        <h2>Essayez-le dès votre prochaine session</h2>
+        <p class="sub">Une base, une connexion en lecture seule et une première recherche suffisent pour découvrir l'intérêt de Kimono. Le dépôt reste la référence pour la configuration et les limites opérationnelles qui évoluent.</p>
+        <div class="btn-row">
+          <a class="btn primary" href="https://github.com/lcalmejane/kimono-mcp-server">Ouvrir Kimono sur GitHub</a>
+          <a class="btn" href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/docs/usage.fr.md">Guide d'usage officiel</a>
+          <a class="btn" href="history.html#kimono-milestone">Retour à l'histoire</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container">AI-KIDO · Kimono MCP · <a href="index.html">La méthode</a> · <a href="https://github.com/lcalmejane/aikido-web">Code du site</a></div></footer>
+</body>
+</html>
