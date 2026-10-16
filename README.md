@@ -15,6 +15,7 @@ URL: https://lcalmejane.github.io/aikido-web/
 |---|---|---|
 | Home | `index.html` | `fr/index.html` |
 | Story (project timeline) | `history.html` | `fr/history.html` |
+| Kimono (diagrams and setup tutorial) | `kimono.html` | `fr/kimono.html` |
 
 Each page has a language switcher (`EN` / `FR`) and `hreflang` tags (`x-default` = EN).
 When adding a page, create both versions: `page.html` (EN) and `fr/page.html` (FR), and keep both switchers pointing to each other.
@@ -34,6 +35,14 @@ aikido-web/
 ```
 
 The site is static HTML/CSS, with no build step.
+
+## Kimono MCP content / Contenu Kimono MCP
+
+- EN: the home page's `#kimono` section introduces standalone use, shared knowledge, local search and platform integration. The story page's `#kimono-milestone` records the 16 October 2026 addition to the ecosystem.
+- FR : la section `#kimono` de l'accueil présente l'usage autonome, les connaissances partagées, la recherche locale et l'intégration plateforme. Le jalon `#kimono-milestone` de l'historique marque l'arrivée dans l'écosystème le 16 octobre 2026.
+- Sources: [Kimono MCP Server](https://github.com/lcalmejane/kimono-mcp-server), [English usage guide](https://github.com/lcalmejane/kimono-mcp-server/blob/main/docs/usage.en.md), [guide français](https://github.com/lcalmejane/kimono-mcp-server/blob/main/docs/usage.fr.md).
+- Keep both languages aligned and reuse the existing theme. These additions do not replace the original content, illustrations or timeline entries.
+- Dedicated pages: `kimono.html` / `fr/kimono.html`, with responsive HTML/CSS architecture diagrams, GitHub checkout, Docker Compose and native stdio walkthroughs, VS Code MCP configuration, first read-only calls and troubleshooting. No diagram library or JavaScript runtime is required.
 
 ## Working directory
 

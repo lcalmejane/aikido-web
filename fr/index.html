@@ -33,6 +33,7 @@
         <a href="#pourquoi">Pourquoi</a>
         <a href="#fonctionnement">Fonctionnement</a>
         <a href="#capacites">Capacités</a>
+        <a href="#kimono">Kimono MCP</a>
         <a href="#philosophie">Philosophie</a>
         <a href="#demarrer">Démarrer</a>
         <a href="history.html">Historique</a>
@@ -334,6 +335,78 @@
           <article class="card"><h3>Balancer &amp; Index</h3><p>Rééquilibre l'arbre et maintient les index à jour.</p></article>
           <article class="card"><h3>Bank Populate &amp; RACI Delegator</h3><p>Comble les manques et classe les nouveaux documents.</p></article>
           <article class="card"><h3>Fusion &amp; Update Controller</h3><p>Met à jour AI-KIDO en préservant le contexte local du projet.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kimono">
+      <div class="container">
+        <span class="tag">Écosystème AI-KIDO · Serveur MCP</span>
+        <h2>Kimono : une base de connaissances, des assistants connectés</h2>
+        <p class="sub">
+          Kimono expose une racine de connaissances AI-KIDO via le Model Context Protocol (MCP).
+          Les humains utilisant un client MCP et les agents connectés peuvent retrouver les mêmes documents, commandes,
+          agents/personas, skills et workflows, les rechercher et agir sur un projet autorisé.
+          Utilisez-le de façon autonome ou comme brique d'une plateforme telle que Tatami.
+        </p>
+        <div class="grid cols-3">
+          <article class="card">
+            <span class="tag">Découvrir</span>
+            <h3>La Memory Bank accessible par MCP</h3>
+            <p><code>aikido</code>, les ressources et les prompts rendent les connaissances accessibles aux clients comme VS Code et Claude Code.
+              <code>aikido_root</code> initialise la racine configurée depuis le dépôt Git officiel ou un dépôt personnalisé.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Rechercher localement</span>
+            <h3>Du texte exact au sens</h3>
+            <p><code>aikido_search</code> propose des recherches littérales, regex, sémantiques ou par vecteur existant.
+              Les embeddings E5 multilingues sont calculés localement avec ONNX Runtime. <code>aikido_embed</code> expose l'identité
+              et les paramètres du modèle actif ; <code>aikido_index</code> maintient les index et suit la progression sémantique.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Agir avec des garde-fous</span>
+            <h3>Édition documentaire et Git structuré</h3>
+            <p><code>aikido_file</code> exige le contenu précédent exact pour modifier ou supprimer un document.
+              <code>aikido_git</code> fournit des opérations structurées sur le projet. L'écriture s'active explicitement sur des projets
+              ou forks de confiance ; l'origine officielle AI-KIDO reste protégée et le push exige l'approbation explicite du client.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Usage autonome</span>
+            <h3>Docker Compose ou stdio natif</h3>
+            <p>Docker Compose est recommandé : Git, outils de recherche Rust, runtime et modèle d'embedding sont inclus.
+              Les clients se connectent au point d'accès HTTP <code>/mcp</code> avec un jeton Bearer.
+              Le mode stdio natif est une alternative pour une connexion dédiée à un seul client, avec ses propres prérequis.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Connaissances partagées</span>
+            <h3>Une instance HTTP, plusieurs clients</h3>
+            <p>Un processus, une racine et un cache persistant offrent une vue commune des connaissances.
+              Les recherches synchronisent l'index à la demande, y compris après des éditions externes, et seuls les chunks modifiés
+              sont ré-embeddés. La lecture seule est la plus simple ; l'écriture partagée exige un coordinateur Git ou des workspaces séparés.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Intégration plateforme</span>
+            <h3>Une brique pour Tatami</h3>
+            <p>Prévoyez une instance par workspace autorisé, avec un cache persistant privé et un jeton distinct.
+              Les points d'accès de santé, disponibilité et statut, ainsi que l'arrêt gracieux, facilitent l'intégration.
+              Provisionnement, autorisations, routage des sessions, secrets et quotas restent à la charge du gestionnaire de plateforme.</p>
+          </article>
+        </div>
+        <p>
+          <strong>Un serveur de connaissances, pas un assistant autonome.</strong> Kimono n'embarque ni chat ni LLM :
+          <code>activate</code> / <code>execute</code> renvoient des instructions que le client applique avec ses propres outils et approbations.
+          Ce n'est pas une plateforme multi-tenant dans un processus unique.
+        </p>
+        <p>
+          <strong>Le partage a ses limites.</strong> Tous les détenteurs du jeton d'une instance ont les mêmes droits.
+          Plusieurs appels ne forment pas une transaction et l'accès Git n'est pas une sandbox. Ne partagez jamais un cache entre processus
+          indépendants ; séparez aussi les clones pour isoler les écritures. Un accès HTTP distant exige TLS et un reverse proxy avec autorisation.
+        </p>
+        <div class="btn-row">
+          <a class="btn primary" href="https://github.com/lcalmejane/kimono-mcp-server">Kimono sur GitHub</a>
+          <a class="btn" href="kimono.html">Découvrir Kimono et le tester pas à pas</a>
+          <a class="btn" href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/docs/usage.fr.md">Guide d'usage autonome et d'intégration</a>
+          <a class="btn" href="history.html#kimono-milestone">Kimono dans la chronologie</a>
         </div>
       </div>
     </section>
