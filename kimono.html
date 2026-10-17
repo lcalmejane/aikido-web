@@ -17,7 +17,8 @@
   <link rel="alternate" hreflang="x-default" href="https://lcalmejane.github.io/aikido-web/kimono.html">
   <link rel="icon" href="favicon.ico?v=2" sizes="any">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="assets/css/style.css?v=8">
+  <link rel="stylesheet" href="assets/css/style.css?v=10">
+  <link rel="preload" as="image" href="assets/images/K1.webp" type="image/webp">
 </head>
 <body class="kimono-page">
   <header class="site-header">
@@ -26,6 +27,7 @@
       <nav class="nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="#why-kimono">Why Kimono?</a>
+        <a href="#kimono">Capabilities</a>
         <a href="#architecture">Architecture</a>
         <a href="#docker">Docker</a>
         <a href="#native">Native setup</a>
@@ -56,6 +58,7 @@
       <div class="container">
         <h2>Give your assistants a common reference</h2>
         <p class="sub">Keep AI-KIDO's method and knowledge available to MCP clients such as VS Code and Claude Code. Start read-only, test on your machine, then choose how to share it.</p>
+        <img class="banner-img" src="assets/images/K2.webp" alt="Practitioners with different belt colours gathered around a shared knowledge tree." width="1600" height="889" loading="lazy" decoding="async">
         <div class="grid cols-3">
           <article class="card"><span class="tag">One source</span><h3>Stop passing around stale copies</h3><p>Expose documents, commands, personas, skills and workflows from one configured knowledge root. Several HTTP sessions can share that same instance.</p></article>
           <article class="card"><span class="tag">Local inference</span><h3>Find meaning, not just words</h3><p>Literal and regex search complement local multilingual E5 semantic search with ONNX Runtime. At runtime, semantic inference needs no external inference API.</p></article>
@@ -63,10 +66,82 @@
         </div>
       </div>
     </section>
+    <section id="kimono">
+      <div class="container">
+        <span class="tag">AI-KIDO ecosystem · MCP server</span>
+        <h2>Kimono: one knowledge base, connected assistants</h2>
+        <p class="sub">
+          Kimono exposes an AI-KIDO knowledge root through the Model Context Protocol (MCP).
+          Humans using MCP clients and connected agents can discover the same documents, commands,
+          agents/personas, skills and workflows, search them and act on an authorized project.
+          Use it on its own or as a building block for a platform such as Tatami.
+        </p>
+        <div class="grid cols-3">
+          <article class="card">
+            <span class="tag">Discover</span>
+            <h3>The Memory Bank, available through MCP</h3>
+            <p><code>aikido</code>, resources and prompts make the knowledge available to clients such as VS Code and Claude Code.
+              <code>aikido_root</code> initializes the configured root from the official or a custom Git repository.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Search locally</span>
+            <h3>From exact text to meaning</h3>
+            <p><code>aikido_search</code> supports literal, regex, semantic and existing-vector searches.
+              Multilingual E5 embeddings run locally with ONNX Runtime. <code>aikido_embed</code> exposes the active model's
+              identity and settings; <code>aikido_index</code> maintains indexes and reports semantic progress.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Act with safeguards</span>
+            <h3>Document edits and structured Git</h3>
+            <p><code>aikido_file</code> requires the exact previous content for updates and deletions.
+              <code>aikido_git</code> provides structured project operations. Writes are opt-in for trusted projects or forks;
+              the official AI-KIDO origin remains protected, and pushing requires explicit client approval.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Standalone</span>
+            <h3>Docker Compose or native stdio</h3>
+            <p>Docker Compose is recommended: Git, Rust search tools, runtime and embedding model are included.
+              Clients connect to the HTTP <code>/mcp</code> endpoint with a bearer token.
+              Native stdio is an alternative for a dedicated single-client connection, with its own prerequisites.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Shared knowledge</span>
+            <h3>One HTTP instance, several clients</h3>
+            <p>One process, one root and one persistent cache provide a common knowledge view.
+              Searches synchronize the index on demand, including external edits, and re-embed only changed chunks.
+              Read-only sharing is simplest; shared writes need a designated Git coordinator or separate workspaces.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Platform integration</span>
+            <h3>A building block for Tatami</h3>
+            <p>Use one instance per authorized workspace, with a private persistent cache and separate token.
+              Health, readiness and status endpoints, plus graceful shutdown, support integration.
+              Provisioning, authorization, session routing, secrets and quotas remain the platform manager's responsibility.</p>
+          </article>
+        </div>
+        <p>
+          <strong>A knowledge server, not an autonomous assistant.</strong> Kimono has no built-in chat UI or LLM:
+          <code>activate</code> / <code>execute</code> return instructions for the client to carry out with its own tools and approvals.
+          It is not a single-process multi-tenant platform.
+        </p>
+        <p>
+          <strong>Sharing has boundaries.</strong> All holders of an instance's token have the same rights.
+          Multiple calls are not a transaction, and Git access is not a sandbox. Never share a cache between independent processes;
+          isolate clones too when writes must be independent. Remote HTTP access requires TLS and an authorized reverse proxy.
+        </p>
+        <div class="btn-row">
+          <a class="btn primary" href="#docker">Try Kimono step by step</a>
+          <a class="btn" href="https://github.com/lcalmejane/kimono-mcp-server">Kimono on GitHub</a>
+          <a class="btn" href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/docs/usage.en.md">Standalone &amp; integration guide</a>
+          <a class="btn" href="history.html#kimono-milestone">Kimono in the timeline</a>
+        </div>
+      </div>
+    </section>
     <section id="architecture" class="alt">
       <div class="container">
         <h2>How the pieces fit together</h2>
         <p class="sub">For shared access: one HTTP process, one knowledge root and one persistent private cache. The cache is outside the knowledge tree.</p>
+        <img class="kimono-illustration" src="assets/images/K3.webp" alt="Several clients connect through Kimono to one knowledge tree and its separate search cache." width="1600" height="889" loading="lazy" decoding="async">
         <figure class="kimono-diagram">
           <div class="kimono-flow">
             <div class="card"><span class="tag">Clients</span><h3>Humans &amp; agents</h3><p>VS Code · Claude Code<br>Other MCP clients</p></div>
@@ -78,6 +153,7 @@
           <figcaption>Several clients share the same working tree and instance-wide permissions. Searches synchronize indexes on demand; this is not a permanent filesystem watcher.</figcaption>
         </figure>
         <h3>Integrating with Tatami or your own platform</h3>
+        <img class="kimono-illustration" src="assets/images/K5.webp" alt="An external platform routes to two separate workspaces, each with its own Kimono instance, knowledge tree and cache." width="1600" height="889" loading="lazy" decoding="async">
         <figure class="kimono-diagram">
           <div class="kimono-flow">
             <div class="card"><h3>Platform manager</h3><p>Authorization · routing<br>Secrets · lifecycle · quotas</p></div>
@@ -97,6 +173,7 @@
         <pre><code>git clone https://github.com/lcalmejane/kimono-mcp-server.git
 cd kimono-mcp-server</code></pre>
         <p>Then choose <a href="#docker">Docker Compose</a> for the bundled runtime and embedding model, or <a href="#native">native stdio</a> for a dedicated client connection. GitHub hosts the source; GitHub Pages cannot run this MCP server.</p>
+        <img class="kimono-illustration" src="assets/images/K4.webp" alt="" width="1280" height="768" loading="lazy" decoding="async">
       </div>
     </section>
     <section id="docker" class="alt">

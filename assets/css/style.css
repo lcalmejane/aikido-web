@@ -79,6 +79,15 @@ pre code { background: none; padding: 0; }
 }
 
 .kimono-diagram { margin: 2rem 0; }
+.kimono-illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
 .kimono-flow {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
@@ -89,6 +98,17 @@ pre code { background: none; padding: 0; }
 .kimono-diagram figcaption { margin-top: 1rem; color: var(--muted); }
 .kimono-page .grid > * { min-width: 0; }
 .kimono-page pre { max-width: 100%; }
+
+.kimono-page #why-kimono .banner-img {
+  filter: saturate(0.65) brightness(0.88);
+}
+
+.kimono-page .page-head {
+  background:
+    linear-gradient(90deg, rgba(15, 18, 32, 0.88), rgba(15, 18, 32, 0.65)),
+    url("../images/K1.webp") center / cover no-repeat,
+    var(--bg);
+}
 
 @media (max-width: 640px) {
   .kimono-flow { grid-template-columns: minmax(0, 1fr); }
