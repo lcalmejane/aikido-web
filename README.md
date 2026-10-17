@@ -38,11 +38,12 @@ The site is static HTML/CSS, with no build step.
 
 ## Kimono MCP content / Contenu Kimono MCP
 
-- EN: the home page's `#kimono` section introduces standalone use, shared knowledge, local search and platform integration. The story page's `#kimono-milestone` records the 16 October 2026 addition to the ecosystem.
-- FR : la section `#kimono` de l'accueil présente l'usage autonome, les connaissances partagées, la recherche locale et l'intégration plateforme. Le jalon `#kimono-milestone` de l'historique marque l'arrivée dans l'écosystème le 16 octobre 2026.
+- EN: the home navigation links directly to `kimono.html`. Its `#kimono` section preserves the capabilities previously shown on the home page: standalone use, shared knowledge, local search and platform integration. The story page's `#kimono-milestone` records the 16 October 2026 addition to the ecosystem.
+- FR : la navigation de l'accueil mène directement à `fr/kimono.html`. Sa section `#kimono` conserve les fonctionnalités auparavant présentées sur l'accueil : usage autonome, connaissances partagées, recherche locale et intégration plateforme. Le jalon `#kimono-milestone` de l'historique marque l'arrivée dans l'écosystème le 16 octobre 2026.
 - Sources: [Kimono MCP Server](https://github.com/lcalmejane/kimono-mcp-server), [English usage guide](https://github.com/lcalmejane/kimono-mcp-server/blob/main/docs/usage.en.md), [guide français](https://github.com/lcalmejane/kimono-mcp-server/blob/main/docs/usage.fr.md).
 - Keep both languages aligned and reuse the existing theme. These additions do not replace the original content, illustrations or timeline entries.
 - Dedicated pages: `kimono.html` / `fr/kimono.html`, with responsive HTML/CSS architecture diagrams, GitHub checkout, Docker Compose and native stdio walkthroughs, VS Code MCP configuration, first read-only calls and troubleshooting. No diagram library or JavaScript runtime is required.
+- Shared Kimono visuals: `assets/images/K1.webp` (header), `K2.webp` (shared practice), `K3.webp` (connected knowledge), `K4.webp` (local setup), `K5.webp` (separate workspaces). Originals stay in the ignored `assets/images/generated/` folder. K3–K5 retain their full aspect ratio without cropping; the accessible HTML diagrams remain in place. K2 keeps its scoped saturation/brightness adjustment.
 
 ## Working directory
 
