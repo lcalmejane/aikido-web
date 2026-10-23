@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create and evolve your AI harness – AI-KIDO</title>
+  <meta name="description" content="Put the AI-KIDO method into practice: create personas, agents, skills and commands, then assemble and improve a harness tailored to your needs.">
+  <meta property="og:title" content="Your needs, your AI harness – AI-KIDO">
+  <meta property="og:description" content="From a real task to a reusable workflow: discover AI-KIDO's creation commands, a practical example and the create, use, improve loop.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:image" content="https://lcalmejane.github.io/aikido-web/assets/images/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="en" href="https://lcalmejane.github.io/aikido-web/harness.html">
+  <link rel="alternate" hreflang="fr" href="https://lcalmejane.github.io/aikido-web/fr/harness.html">
+  <link rel="alternate" hreflang="x-default" href="https://lcalmejane.github.io/aikido-web/harness.html">
+  <link rel="icon" href="favicon.ico?v=2" sizes="any">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=2">
+  <link rel="stylesheet" href="assets/css/style.css?v=13">
+</head>
+<body class="harness-builder">
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html"><img class="brand-logo" src="assets/images/favicon-48.png?v=2" alt="" width="28" height="28">AI<span>-</span>KIDO</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="#building-blocks">Building blocks</a>
+        <a href="#example">Example</a>
+        <a href="#improve">Improve</a>
+        <a href="#start">Get started</a>
+        <a href="kimono.html">Kimono MCP</a>
+        <span class="lang-switch" role="group" aria-label="Language">
+          <a class="active" href="harness.html" hreflang="en" lang="en" aria-current="true">EN</a>
+          <a href="fr/harness.html" hreflang="fr" lang="fr">FR</a>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="page-head">
+      <div class="container">
+        <span class="tag">AI-KIDO in practice · Harness creation</span>
+        <h1>Build your tailored AI harness. Evolve it as your needs change.</h1>
+        <p>A harness brings together the context, roles, tools, workflow and checks needed for a task.
+          AI-KIDO is the method; its tools are the meta-harness that helps you create and assemble those building blocks on demand.</p>
+        <p>Build on the Memory Bank presented on the <a href="index.html">home page</a>:
+          use your knowledge to create expert personas, specialized agents, reusable skills and commands instead of starting from a blank prompt.</p>
+        <div class="btn-row">
+          <a class="btn primary" href="#building-blocks">Discover the creation tools</a>
+          <a class="btn" href="#what-is-a-harness">What is a harness?</a>
+          <a class="btn" href="#example">See a practical example</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="what-is-a-harness" class="alt">
+      <div class="container">
+        <h2>What is a harness, and why does it matter?</h2>
+        <p class="sub">A language model is a powerful engine, but on its own it does not know your project, your rules or how your team works.
+          A harness is everything placed around the model so that it can carry out a given task reliably: the context it reads,
+          the role it plays, the steps it follows, the tools it may use and the checks applied to its results.</p>
+        <div class="grid cols-3">
+          <article class="card">
+            <span class="tag">Without a harness</span>
+            <h3>A capable but unpredictable assistant</h3>
+            <p>You re-explain the context in every session, results depend on how each person phrases the prompt, and nothing guarantees that your rules are applied.</p>
+          </article>
+          <article class="card">
+            <span class="tag">With a harness</span>
+            <h3>A framed, repeatable way of working</h3>
+            <p>The assistant knows where to find the knowledge, which role to take, which workflow to follow and what to verify. The same task produces consistent results, whoever starts it.</p>
+          </article>
+          <article class="card">
+            <span class="tag">With the AI-KIDO meta-harness</span>
+            <h3>A harness for each need, built on demand</h3>
+            <p>Instead of a single fixed harness, AI-KIDO provides the tools to create, combine and improve harnesses from your Memory Bank, for development, documentation, review or any recurring task.</p>
+          </article>
+        </div>
+        <h3 class="harness-components-title">What a harness is made of, and what AI-KIDO provides</h3>
+        <ul class="harness-components">
+          <li><strong>Context</strong> · the <a href="index.html#structure">Memory Bank</a>: one entry point, structured knowledge loaded only when needed.</li>
+          <li><strong>Roles</strong> · <a href="#personas">personas and agents</a> with a defined expertise, scope and instructions.</li>
+          <li><strong>Workflow</strong> · <a href="#commands">commands</a> that make the steps explicit and reusable.</li>
+          <li><strong>Capabilities</strong> · <a href="#skills">skills</a>, and executable tools connected through your assistant or <a href="kimono.html">MCP</a>.</li>
+          <li><strong>Checks</strong> · hard points and <a href="index.html#agents">maintenance agents</a> that validate, rebalance and index the knowledge.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="building-blocks">
+      <div class="container">
+        <h2>Four building blocks for your way of working</h2>
+        <p class="sub">Start from a concrete need. The creation commands guide you through the role, task and instructions to define, while drawing on the knowledge and conventions in your base.</p>
+        <div class="grid cols-4">
+          <article class="card" id="personas">
+            <span class="tag">Roles &amp; agents</span>
+            <h3>Give your AI the right expertise</h3>
+            <p>Create an expert persona or a technical agent with a defined role, scope and instructions. Extend your team of agents when a new need appears.</p>
+            <a class="harness-command" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/create-persona.md"><code>/create-persona</code></a>
+          </article>
+          <article class="card" id="commands">
+            <span class="tag">Commands</span>
+            <h3>Turn recurring work into a workflow</h3>
+            <p>Create a guided command, check for duplicates and integrate relevant agents and best practices. Make the steps explicit and reusable.</p>
+            <a class="harness-command" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/create-command.md"><code>/create-command</code></a>
+          </article>
+          <article class="card" id="skills">
+            <span class="tag">Skills &amp; tools</span>
+            <h3>Package your team's know-how</h3>
+            <p>Create or extend a skill with instructions, metadata and optional scripts or resources. Give your agents reusable capabilities instead of repeating every instruction.</p>
+            <a class="harness-command" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/create-skill.md"><code>/create-skill</code></a>
+          </article>
+          <article class="card" id="compilation">
+            <span class="tag">Composition</span>
+            <h3>Build an agent from a real need</h3>
+            <p>Compile a specialized agent from an existing agent, a command, a use case or a manual configuration. Build on your knowledge base rather than a blank prompt.</p>
+            <a class="harness-command" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/compile-agent-from-use.md"><code>/compile-agent-from-use</code></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="example" class="alt">
+      <div class="container">
+        <span class="tag">Example · Product communication</span>
+        <h2>A product page to prepare every week? Build your own publishing harness.</h2>
+        <p class="sub">Here is one way to combine the building blocks. Your product sources and brand guidelines remain in the Memory Bank; the harness defines how to use them.</p>
+        <ol class="steps">
+          <li><h3>Create</h3><p>Define a product-copywriter persona, a brand-voice skill and a command for reviewing sources, drafting and checking claims.</p></li>
+          <li><h3>Use</h3><p>Your assistant follows the workflow using the product knowledge in the Memory Bank. Your team approves the claims before publication.</p></li>
+          <li><h3>Improve</h3><p>Add a reviewer agent, refine the command after feedback and keep the validated workflow as a use case for the next product.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="improve">
+      <div class="container">
+        <h2>Your harness is a starting point, not a fixed product.</h2>
+        <p class="sub">Add a persona, refine an agent's instructions, extend a skill or create a new command as your needs change. Test the changes on real tasks, then capture the useful workflows as reusable use cases.</p>
+        <div class="harness-evolution">
+          <h3>Optimize commands without changing their purpose</h3>
+          <p><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/optimize-command-with-aikido-agents.md"><code>/optimize-command-with-aikido-agents</code></a>
+            helps replace repetitive command steps with specialist agents while preserving the functional workflow and intended results. Verify the behavior against your own cases.</p>
+        </div>
+        <p>Personas, agents and commands are instruction-defined building blocks run by your host assistant.
+          Executable tools connect through that assistant or <a href="kimono.html">MCP, including Kimono</a>,
+          within the capabilities and permissions available. Skill creation does not by itself connect a new service.</p>
+        <p>The method's <a href="index.html#agents">maintenance agents</a> help keep the underlying knowledge organized,
+          indexed and structurally compliant. Your team remains responsible for approving domain-specific results.</p>
+      </div>
+    </section>
+
+    <section id="start" class="alt">
+      <div class="container">
+        <h2>Start with one task, then build on what works.</h2>
+        <p class="sub"><a href="index.html#start">Initialize AI-KIDO</a> if needed, then invoke the creation commands from your assistant. They guide you through defining your building blocks; they are not shell commands.</p>
+        <pre><code># Create an expert persona or technical agent
+/create-persona
+
+# Turn a recurring task into a command
+/create-command
+
+# Create or extend a reusable skill
+/create-skill
+
+# Compile an agent from an existing building block or use case
+/compile-agent-from-use</code></pre>
+        <div class="btn-row">
+          <a class="btn primary" href="https://github.com/lcalmejane/aikido">Get AI-KIDO on GitHub</a>
+          <a class="btn" href="index.html">Back to the method</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      AI-KIDO – AI Memory Bank Construction Method by Meta-Harness ·
+      <a href="https://github.com/lcalmejane/aikido-web">Site source</a>
+    </div>
+  </footer>
+</body>
+</html>
