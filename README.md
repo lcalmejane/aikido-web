@@ -1,6 +1,6 @@
 # aikido-web
 
-Showcase website for the [AI-KIDO](https://github.com/lcalmejane/aikido) method, published with GitHub Pages.
+Showcase website for [AI-KIDO](https://github.com/lcalmejane/aikido), the AI Memory Bank Construction Method by Meta-Harness, published with GitHub Pages.
 
 URL: https://lcalmejane.github.io/aikido-web/
 
@@ -14,6 +14,7 @@ URL: https://lcalmejane.github.io/aikido-web/
 | Page | EN | FR |
 |---|---|---|
 | Home | `index.html` | `fr/index.html` |
+| Harness creation (tools, example and improvement) | `harness.html` | `fr/harness.html` |
 | Story (project timeline) | `history.html` | `fr/history.html` |
 | Kimono (diagrams and setup tutorial) | `kimono.html` | `fr/kimono.html` |
 
@@ -25,8 +26,10 @@ When adding a page, create both versions: `page.html` (EN) and `fr/page.html` (F
 ```
 aikido-web/
 ├── index.html          # home (EN, default)
+├── harness.html        # creating and evolving harnesses (EN)
 ├── history.html        # history and timeline (EN)
 ├── fr/index.html       # home (FR)
+├── fr/harness.html     # création et évolution de harnais (FR)
 ├── fr/history.html     # history and timeline (FR)
 ├── 404.html            # bilingual error page
 ├── .nojekyll           # disables Jekyll: static site served as is
@@ -35,6 +38,13 @@ aikido-web/
 ```
 
 The site is static HTML/CSS, with no build step.
+
+## Tailored harnesses / Harnais sur mesure
+
+- The EN and FR home pages introduce AI-KIDO as a method for structured knowledge and lasting collaboration with AI, keeping the “AI Memory Bank Construction Method by Meta-Harness” positioning. A “The meta-harness: AI-KIDO in practice” section (`#meta-harness` / `#meta-harnais`, reachable from the navigation and a hero button) offers six teaser cards linking to each section of the harness page; the method / meta-harness / use-case cards and team / integration cards also link there.
+- `harness.html` / `fr/harness.html` open with `#what-is-a-harness` (what a harness is, why it matters, and how its components — context, roles, workflow, capabilities, checks — map to AI-KIDO features), then explain personas and agents (`/create-persona`), commands (`/create-command`), skills (`/create-skill`) and compiled agents (`/compile-agent-from-use`), with links to the canonical command documentation.
+- Both pages use matching `#what-is-a-harness`, `#building-blocks`, `#personas`, `#commands`, `#skills`, `#compilation`, `#example`, `#improve` and `#start` anchors, language switchers and links back to the method. They illustrate the create → use → improve loop with a product-publication example and explain command optimization with `/optimize-command-with-aikido-agents`.
+- Keep AI-KIDO (the method) distinct from its tools (the meta-harness). Do not promise automatic service connections or arbitrary executable-tool generation: execution depends on the host assistant, available tools/MCP and permissions. Retain the existing knowledge-maintenance capabilities and learning path.
 
 ## Kimono MCP content / Contenu Kimono MCP
 
