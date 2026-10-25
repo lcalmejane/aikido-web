@@ -99,6 +99,27 @@ pre code { background: none; padding: 0; }
 .kimono-page .grid > * { min-width: 0; }
 .kimono-page pre { max-width: 100%; }
 
+.product-shot {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.product-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+.product-shot figcaption { margin-top: 1rem; color: var(--muted); font-size: 0.9rem; }
+.kimono-benchmark { min-width: 780px; }
+.kimono-benchmark caption { text-align: left; color: var(--muted); padding-bottom: 1rem; }
+.kimono-benchmark td { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.kimono-benchmark tbody th { text-transform: none; letter-spacing: normal; font-size: 0.95rem; color: var(--text); }
+.kimono-benchmark .metric-gain { color: var(--accent-2); font-weight: 700; }
+.table-wrap:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 4px; }
+
 .kimono-page #why-kimono .banner-img {
   filter: saturate(0.65) brightness(0.88);
 }

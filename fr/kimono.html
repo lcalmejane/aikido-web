@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kimono – Habillez votre pratique de l'AI-KIDO</title>
-  <meta name="description" content="Découvrez Kimono MCP avec des schémas et un guide pratique : récupérer le dépôt GitHub, démarrer avec Docker ou en stdio natif et connecter votre assistant IA.">
-  <meta property="og:title" content="Kimono – Habillez votre pratique de l'AI-KIDO">
-  <meta property="og:description" content="Quelle que soit votre ceinture, Kimono rend les connaissances et les outils AI-KIDO accessibles par MCP pour pratiquer ensemble, plus sereinement.">
+  <title>Kimono MCP – Moins de contexte inutile, plus d'efficacité</title>
+  <meta name="description" content="Avec Kimono MCP, votre assistant trouve les bons passages dans votre code et vos documents. Moins de tokens pendant la recherche, moins d'attente : découvrez les mesures et installez l'extension VS Code.">
+  <meta property="og:title" content="Kimono MCP – Le bon contexte, moins de tokens">
+  <meta property="og:description" content="Recherchez dans votre projet sans tout envoyer au modèle. Des gains mesurés sur la recherche et la préparation de plans, avec une installation simple dans VS Code.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_US">
@@ -17,7 +17,7 @@
   <link rel="alternate" hreflang="x-default" href="https://lcalmejane.github.io/aikido-web/kimono.html">
   <link rel="icon" href="../favicon.ico?v=2" sizes="any">
   <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="../assets/css/style.css?v=10">
+  <link rel="stylesheet" href="../assets/css/style.css?v=11">
   <link rel="preload" as="image" href="../assets/images/K1.webp" type="image/webp">
 </head>
 <body class="kimono-page">
@@ -25,14 +25,11 @@
     <div class="container">
       <a class="brand" href="index.html"><img class="brand-logo" src="../assets/images/favicon-48.png?v=2" alt="" width="28" height="28">AI<span>-</span>KIDO</a>
       <nav class="nav" aria-label="Navigation principale">
-        <a href="index.html">Accueil</a>
+        <a href="index.html">La méthode</a>
         <a href="#why-kimono">Pourquoi Kimono ?</a>
-        <a href="#kimono">Fonctionnalités</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#docker">Docker</a>
-        <a href="#native">Installation native</a>
-        <a href="#try">Tester</a>
-        <a href="https://github.com/lcalmejane/kimono-mcp-server">GitHub</a>
+        <a href="#performance">Gains mesurés</a>
+        <a href="#in-action">En images</a>
+        <a href="#vscode">Démarrer</a>
         <span class="lang-switch" role="group" aria-label="Langue">
           <a href="../kimono.html" hreflang="en" lang="en">EN</a>
           <a class="active" href="kimono.html" hreflang="fr" lang="fr" aria-current="true">FR</a>
@@ -43,255 +40,160 @@
   <main id="top">
     <section class="page-head">
       <div class="container">
-        <span class="tag">Écosystème AI-KIDO · Serveur MCP</span>
-        <h1>Kimono, pour habiller votre pratique de l'AI-KIDO.</h1>
-        <p>Quelle que soit votre ceinture, enfilez votre Kimono et rejoignez le dojo. En rendant accessibles par MCP les connaissances, commandes, personas, skills et workflows d'AI-KIDO, Kimono habille la méthode pour vous permettre de pratiquer à plusieurs, autour des mêmes repères et plus sereinement.</p>
-        <p>Connectez vos assistants à la même Memory Bank AI-KIDO. Recherchez, retrouvez les instructions et travaillez sur un projet autorisé, sans chat ni LLM embarqué dans le serveur.</p>
+        <span class="tag">Kimono MCP · Un outil de la méthode AI-KIDO</span>
+        <h1>Le bon contexte.<br>Moins de tokens. Plus d'efficacité.</h1>
+        <p>Votre assistant n'a pas besoin de tout lire pour vous aider. Kimono retrouve les passages utiles dans votre code et vos documents, pour qu'il se concentre sur votre question plutôt que sur des fichiers entiers.</p>
+        <p><strong>Moins de contexte inutile pendant la recherche, moins d'attente pour avancer.</strong> Utilisez Kimono avec votre assistant habituel, sur un projet existant ou sur votre Memory Bank AI-KIDO.</p>
         <div class="btn-row">
-          <a class="btn primary" href="#docker">Tester avec Docker</a>
-          <a class="btn" href="#native">Lancer en natif</a>
-          <a class="btn" href="https://github.com/lcalmejane/kimono-mcp-server">Récupérer le code sur GitHub</a>
+          <a class="btn primary" href="https://marketplace.visualstudio.com/items?itemName=ai-kido.kimono-rag-mcp">Installer dans VS Code</a>
+          <a class="btn" href="#performance">Voir les gains mesurés</a>
+          <a class="btn" href="#in-action">Découvrir l'interface</a>
         </div>
+        <p class="note">Extension disponible sur la Visual Studio Marketplace · Recherche locale · Vos fichiers restent inchangés en mode RAG</p>
       </div>
     </section>
     <section id="why-kimono">
       <div class="container">
-        <h2>Donnez une référence commune à vos assistants</h2>
-        <p class="sub">Rendez la méthode et les connaissances AI-KIDO accessibles aux clients MCP comme VS Code et Claude Code. Commencez en lecture seule, testez sur votre machine, puis choisissez comment partager la base.</p>
+        <h2>Ne payez pas en contexte ce que votre assistant n'a pas besoin de lire.</h2>
+        <p class="sub">Avant de répondre ou de préparer une modification, un assistant explore le projet. Kimono cible cette phase : retrouver les bonnes sources, puis ne lire que ce qui aide réellement à avancer.</p>
         <img class="banner-img" src="../assets/images/K2.webp" alt="Des pratiquants aux ceintures de différentes couleurs réunis autour d'un arbre de connaissances partagé." width="1600" height="889" loading="lazy" decoding="async">
         <div class="grid cols-3">
-          <article class="card"><span class="tag">Une seule source</span><h3>Ne faites plus circuler des copies obsolètes</h3><p>Exposez documents, commandes, personas, skills et workflows depuis une racine de connaissances configurée. Plusieurs sessions HTTP peuvent partager cette même instance.</p></article>
-          <article class="card"><span class="tag">Inférence locale</span><h3>Retrouvez le sens, pas seulement les mots</h3><p>Les recherches littérales et regex complètent la recherche sémantique locale E5 multilingue avec ONNX Runtime. À l'exécution, l'inférence sémantique ne dépend d'aucune API d'inférence externe.</p></article>
-          <article class="card"><span class="tag">Le client garde la main</span><h3>Gardez votre assistant habituel</h3><p><code>activate</code> et <code>execute</code> renvoient des instructions. Votre client les applique avec ses outils et approbations ; Kimono n'exécute pas de workflow LLM autonome.</p></article>
+          <article class="card"><span class="tag">Votre temps</span><h3>Moins chercher, plus avancer</h3><p>Retrouvez une règle métier, une configuration ou le code d'une fonctionnalité sans ouvrir une succession de fichiers à la main.</p></article>
+          <article class="card"><span class="tag">Votre budget de contexte</span><h3>Envoyer l'utile, pas tout le projet</h3><p>Kimono indique les emplacements pertinents. L'assistant récupère ensuite les passages nécessaires, plutôt que d'accumuler des fichiers entiers dans la conversation.</p></article>
+          <article class="card"><span class="tag">Votre équipe</span><h3>Réutiliser ce qui est déjà connu</h3><p>Rendez votre code, vos documents et vos connaissances AI-KIDO plus faciles à retrouver. La méthode organise la mémoire ; Kimono aide vos assistants à l'exploiter.</p></article>
         </div>
+      </div>
+    </section>
+    <section id="performance" class="alt">
+      <div class="container">
+        <span class="tag">Efficacité · FinOps tokens · TCO</span>
+        <h2>Des gains mesurés sur la recherche et la préparation d'un plan</h2>
+        <p class="sub">Deux tâches, un même corpus et un même modèle : comparaison entre la recherche standard de Copilot et Kimono RAG. Le gain porte ici sur le contexte d'entrée cumulé et le temps écoulé, pas sur une estimation de facture.</p>
+        <div class="table-wrap" role="region" aria-label="Comparaison des performances Kimono" tabindex="0">
+          <table class="data kimono-benchmark">
+            <caption>Recherche standard Copilot → Kimono RAG · Benchmark du 25 octobre 2026</caption>
+            <thead><tr><th scope="col">Phase de travail</th><th scope="col">Tokens d'entrée cumulés</th><th scope="col">Réduction des tokens</th><th scope="col">Temps écoulé</th><th scope="col">Réduction du temps</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Comprendre l'indexation et les règles d'exclusion</th><td>323 368 → 105 223</td><td class="metric-gain">−67,5 %</td><td>111,212 s → 79,077 s</td><td class="metric-gain">−28,9 %</td></tr>
+              <tr><th scope="row">Préparer un plan d'implémentation</th><td>454 796 → 130 244</td><td class="metric-gain">−71,4 %</td><td>175,224 s → 84,034 s</td><td class="metric-gain">−52,0 %</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Gemini 3.8 Flash · Copilot CLI 1.0.103 · RAG lexical local · 51 fichiers identiques · Un essai par méthode et par tâche. Les tokens d'entrée sont cumulés sur les requêtes au modèle, y compris les tokens lus depuis le cache. <a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Consulter le protocole et les résultats détaillés</a>.</p>
+        <div class="grid cols-3">
+          <article class="card"><span class="tag">FinOps tokens</span><h3>Maîtriser le contexte consommé</h3><p>Moins de contenu non pertinent envoyé au modèle, c'est un levier pour maîtriser la consommation pendant les phases d'exploration. Mesurez-le sur vos propres tâches et vos modèles.</p></article>
+          <article class="card"><span class="tag">Efficacité opérationnelle</span><h3>Réduire les allers-retours</h3><p>Sur ces essais, les appels d'outils passent de 22 à 8 pour la recherche et de 30 à 8 pour le plan. L'assistant consacre moins d'échanges à retrouver le contexte.</p></article>
+          <article class="card"><span class="tag">Coût total de possession</span><h3>Relier usage IA et temps d'équipe</h3><p>Le TCO réunit consommation des modèles, temps de travail, mise en place et exploitation. Kimono agit sur la recherche de contexte ; le gain global reste à évaluer dans votre environnement.</p></article>
+        </div>
+        <p><strong>Moins de tokens ne signifie pas automatiquement une facture réduite du même pourcentage.</strong> Le coût dépend du fournisseur, du modèle, du cache et de votre abonnement. Le temps et les ressources nécessaires à l'indexation locale doivent aussi entrer dans votre bilan. Ces deux essais ne garantissent pas les mêmes gains sur tous les projets et ne mesurent pas le TCO complet.</p>
       </div>
     </section>
     <section id="kimono">
       <div class="container">
-        <span class="tag">Écosystème AI-KIDO · Serveur MCP</span>
-        <h2>Kimono : une base de connaissances, des assistants connectés</h2>
-        <p class="sub">
-          Kimono expose une racine de connaissances AI-KIDO via le Model Context Protocol (MCP).
-          Les humains utilisant un client MCP et les agents connectés peuvent retrouver les mêmes documents, commandes,
-          agents/personas, skills et workflows, les rechercher et agir sur un projet autorisé.
-          Utilisez-le de façon autonome ou comme brique d'une plateforme telle que Tatami.
-        </p>
+        <h2>Votre projet, vos questions, votre assistant habituel</h2>
+        <p class="sub">Kimono apporte une recherche locale à votre assistant : c'est le principe du RAG, retrouver les bonnes informations avant de répondre. Aucune réorganisation de votre projet n'est nécessaire pour commencer.</p>
         <div class="grid cols-3">
-          <article class="card">
-            <span class="tag">Découvrir</span>
-            <h3>La Memory Bank accessible par MCP</h3>
-            <p><code>aikido</code>, les ressources et les prompts rendent les connaissances accessibles aux clients comme VS Code et Claude Code.
-              <code>aikido_root</code> initialise la racine configurée depuis le dépôt Git officiel ou un dépôt personnalisé.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Rechercher localement</span>
-            <h3>Du texte exact au sens</h3>
-            <p><code>aikido_search</code> propose des recherches littérales, regex, sémantiques ou par vecteur existant.
-              Les embeddings E5 multilingues sont calculés localement avec ONNX Runtime. <code>aikido_embed</code> expose l'identité
-              et les paramètres du modèle actif ; <code>aikido_index</code> maintient les index et suit la progression sémantique.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Agir avec des garde-fous</span>
-            <h3>Édition documentaire et Git structuré</h3>
-            <p><code>aikido_file</code> exige le contenu précédent exact pour modifier ou supprimer un document.
-              <code>aikido_git</code> fournit des opérations structurées sur le projet. L'écriture s'active explicitement sur des projets
-              ou forks de confiance ; l'origine officielle AI-KIDO reste protégée et le push exige l'approbation explicite du client.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Usage autonome</span>
-            <h3>Docker Compose ou stdio natif</h3>
-            <p>Docker Compose est recommandé : Git, outils de recherche Rust, runtime et modèle d'embedding sont inclus.
-              Les clients se connectent au point d'accès HTTP <code>/mcp</code> avec un jeton Bearer.
-              Le mode stdio natif est une alternative pour une connexion dédiée à un seul client, avec ses propres prérequis.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Connaissances partagées</span>
-            <h3>Une instance HTTP, plusieurs clients</h3>
-            <p>Un processus, une racine et un cache persistant offrent une vue commune des connaissances.
-              Les recherches synchronisent l'index à la demande, y compris après des éditions externes, et seuls les chunks modifiés
-              sont ré-embeddés. La lecture seule est la plus simple ; l'écriture partagée exige un coordinateur Git ou des workspaces séparés.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Intégration plateforme</span>
-            <h3>Une brique pour Tatami</h3>
-            <p>Prévoyez une instance par workspace autorisé, avec un cache persistant privé et un jeton distinct.
-              Les points d'accès de santé, disponibilité et statut, ainsi que l'arrêt gracieux, facilitent l'intégration.
-              Provisionnement, autorisations, routage des sessions, secrets et quotas restent à la charge du gestionnaire de plateforme.</p>
-          </article>
+          <article class="card"><span class="tag">Comprendre l'existant</span><h3>« Où est gérée cette règle ? »</h3><p>Retrouvez le code, les explications et les configurations liés à votre question, même si vous ne connaissez pas le nom du fichier.</p></article>
+          <article class="card"><span class="tag">Préparer un changement</span><h3>« Que faut-il lire avant de modifier ? »</h3><p>Donnez à l'assistant les passages utiles à son analyse et à son plan. Gardez la maîtrise de la suite dans votre environnement de travail.</p></article>
+          <article class="card"><span class="tag">Capitaliser avec AI-KIDO</span><h3>« Quelle est notre façon de faire ? »</h3><p>Le mode AI-KIDO rend accessibles vos connaissances structurées, personas, commandes et workflows pour réutiliser les pratiques de l'équipe.</p></article>
         </div>
-        <p>
-          <strong>Un serveur de connaissances, pas un assistant autonome.</strong> Kimono n'embarque ni chat ni LLM :
-          <code>activate</code> / <code>execute</code> renvoient des instructions que le client applique avec ses propres outils et approbations.
-          Ce n'est pas une plateforme multi-tenant dans un processus unique.
-        </p>
-        <p>
-          <strong>Le partage a ses limites.</strong> Tous les détenteurs du jeton d'une instance ont les mêmes droits.
-          Plusieurs appels ne forment pas une transaction et l'accès Git n'est pas une sandbox. Ne partagez jamais un cache entre processus
-          indépendants ; séparez aussi les clones pour isoler les écritures. Un accès HTTP distant exige TLS et un reverse proxy avec autorisation.
-        </p>
-        <div class="btn-row">
-          <a class="btn primary" href="#docker">Tester Kimono pas à pas</a>
-          <a class="btn" href="https://github.com/lcalmejane/kimono-mcp-server">Kimono sur GitHub</a>
-          <a class="btn" href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/docs/usage.fr.md">Guide d'usage autonome et d'intégration</a>
-          <a class="btn" href="history.html#kimono-milestone">Kimono dans la chronologie</a>
+      </div>
+    </section>
+    <section id="documents" class="alt">
+      <div class="container">
+        <h2>Vos réponses ne sont pas toujours dans le code.</h2>
+        <p class="sub">Une décision dans un compte rendu, un budget dans un tableur, une règle dans une présentation : vos documents font aussi partie du contexte de votre projet.</p>
+        <div class="grid cols-3">
+          <article class="card"><span class="tag">Retrouver une information</span><h3>Interroger vos documents de travail</h3><p>Recherchez dans le texte des documents Word, des feuilles Excel, des présentations PowerPoint et des PDF pris en charge, sans les convertir manuellement pour l'assistant.</p></article>
+          <article class="card"><span class="tag">Revenir à la source</span><h3>Lire le passage, pas tout le dossier</h3><p>Kimono localise l'information utile et permet d'en lire la représentation textuelle. Vous conservez vos originaux, sans modification.</p></article>
+          <article class="card"><span class="tag">Ne pas perdre la piste</span><h3>Retrouver aussi un fichier non lisible</h3><p>Lorsqu'un contenu ne peut pas être extrait, son nom, son emplacement et les informations de fichier disponibles peuvent aider à le retrouver. Kimono signale cette limite au lieu d'inventer un contenu.</p></article>
         </div>
+        <p class="note">Fonctions documentaires ajoutées dans la version 0.6.6 : mettez à jour votre installation pour en bénéficier. Le texte des PDF doit être extractible ; les documents scannés peuvent nécessiter une préparation. La recherche respecte les fichiers exclus de votre corpus. <a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/docs/local-rag.fr.md">Formats pris en charge et guide d'utilisation</a>.</p>
+      </div>
+    </section>
+    <section id="in-action">
+      <div class="container">
+        <h2>Voyez ce que fait Kimono, sans quitter votre flux de travail.</h2>
+        <p class="sub">Le panneau de gestion vous permet de vérifier que votre projet est prêt, de choisir votre corpus et de tester une recherche avant de confier une tâche à l'assistant.</p>
+        <figure class="product-shot">
+          <a href="../assets/images/kimono-panel-fr.png"><img src="../assets/images/kimono-panel-fr.png" alt="Panneau Kimono en français : état réel de l'indexation de la documentation publique Kimono et réglages du corpus." width="1120" height="820" loading="lazy" decoding="async"></a>
+          <figcaption>Suivez l'indexation et choisissez le projet à rendre accessible à votre assistant. Cliquez pour agrandir.</figcaption>
+        </figure>
+        <figure class="product-shot">
+          <a href="../assets/images/kimono-search-fr.png"><img src="../assets/images/kimono-search-fr.png" alt="Test réel de recherche Kimono dans sa documentation publique, avec comparaison des recherches textuelle et sémantique et emplacements des résultats." width="1120" height="980" loading="lazy" decoding="async"></a>
+          <figcaption>Testez une question et vérifiez les sources retrouvées. Capture du panneau de l'extension 0.6.5 installé localement, rendu pour cette démonstration sur la documentation publique Kimono ; résultats d'une recherche réelle, sans données privées.</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section id="vscode" class="alt">
+      <div class="container">
+        <h2>De l'installation à votre première question</h2>
+        <p class="sub">Commencez sur un projet que vous connaissez. Vous pourrez comparer les sources retrouvées et décider où Kimono vous fait gagner du temps.</p>
+        <ol class="steps">
+          <li><h3>Installez Kimono</h3><p>Ajoutez <a href="https://marketplace.visualstudio.com/items?itemName=ai-kido.kimono-rag-mcp">Kimono RAG MCP by AI-KIDO</a> depuis la Marketplace. Les composants nécessaires à la recherche du projet sont inclus.</p></li>
+          <li><h3>Ouvrez votre projet</h3><p>Accordez-lui votre confiance dans VS Code, puis lancez <strong>MCP: List Servers</strong>, démarrez <strong>Kimono</strong> et activez ses outils dans votre assistant.</p></li>
+          <li><h3>Posez une vraie question</h3><p>Demandez où se trouve une fonctionnalité ou comment fonctionne une règle. Ouvrez <strong>Kimono: Open Management Panel</strong> pour suivre l'indexation et tester la recherche.</p></li>
+        </ol>
+        <p>Le mode RAG fonctionne sur un projet ordinaire. Pour votre Memory Bank, sélectionnez le mode <strong>AI-KIDO</strong> dans le panneau et choisissez le dossier de votre base.</p>
+        <p class="note">VS Code 1.106 ou ultérieur et assistant compatible MCP. Hôtes disponibles : macOS Apple Silicon, Linux ARM64/x64 et Windows x64. En environnement distant, installez l'extension sur l'hôte du projet. <a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/vscode/README.fr.md">Guide d'installation détaillé</a>.</p>
+      </div>
+    </section>
+    <section id="try">
+      <div class="container">
+        <h2>Trois questions pour votre premier essai</h2>
+        <div class="grid cols-3">
+          <article class="card"><h3>Comprendre</h3><p>« Avec Kimono, retrouve où sont définies les règles de configuration de ce projet et explique-moi les passages utiles. »</p></article>
+          <article class="card"><h3>Préparer</h3><p>« Avec Kimono, identifie les fichiers concernés par cette évolution et propose un plan à partir des sources retrouvées. »</p></article>
+          <article class="card"><h3>Réutiliser</h3><p>« Dans notre base AI-KIDO, retrouve la pratique ou le workflow qui correspond à cette tâche. »</p></article>
+        </div>
+        <p class="note">Votre assistant doit avoir les outils Kimono activés. Il reste responsable de la réponse et de l'exécution ; vérifiez ses sources et validez les actions comme d'habitude.</p>
       </div>
     </section>
     <section id="architecture" class="alt">
       <div class="container">
-        <h2>Comment les briques se connectent</h2>
-        <p class="sub">Pour un accès partagé : un processus HTTP, une racine de connaissances et un cache privé persistant. Le cache reste en dehors de l'arbre documentaire.</p>
-        <img class="kimono-illustration" src="../assets/images/K3.webp" alt="Plusieurs clients accèdent par Kimono à un arbre de connaissances commun et à son cache de recherche séparé." width="1600" height="889" loading="lazy" decoding="async">
-        <figure class="kimono-diagram">
-          <div class="kimono-flow">
-            <div class="card"><span class="tag">Clients</span><h3>Humains et agents</h3><p>VS Code · Claude Code<br>Autres clients MCP</p></div>
-            <span class="kimono-arrow" aria-hidden="true">→</span>
-            <div class="card"><span class="tag">MCP + jeton Bearer</span><h3>Kimono HTTP</h3><p>Découverte · recherche<br>Actions fichiers / Git sur option</p></div>
-            <span class="kimono-arrow" aria-hidden="true">→</span>
-            <div class="card"><span class="tag">Stockage local</span><h3>Racine AI-KIDO + cache</h3><p>Arbre des connaissances<br>Index de recherche persistants</p></div>
-          </div>
-          <figcaption>Plusieurs clients partagent le même arbre de travail et les mêmes droits sur l'instance. Les recherches synchronisent les index à la demande ; ce n'est pas un watcher permanent.</figcaption>
-        </figure>
-        <h3>Intégrer Kimono à Tatami ou à votre plateforme</h3>
-        <img class="kimono-illustration" src="../assets/images/K5.webp" alt="Une plateforme externe route vers deux workspaces distincts, chacun avec son instance Kimono, son arbre de connaissances et son cache." width="1600" height="889" loading="lazy" decoding="async">
-        <figure class="kimono-diagram">
-          <div class="kimono-flow">
-            <div class="card"><h3>Gestionnaire plateforme</h3><p>Autorisations · routage<br>Secrets · cycle de vie · quotas</p></div>
-            <span class="kimono-arrow" aria-hidden="true">→</span>
-            <div class="card"><h3>Workspace A</h3><p>Kimono A · racine A<br>Cache privé A · jeton A</p></div>
-            <span class="kimono-arrow" aria-hidden="true">+</span>
-            <div class="card"><h3>Workspace B</h3><p>Kimono B · racine B<br>Cache privé B · jeton B</p></div>
-          </div>
-          <figcaption>La plateforme route chaque client vers son instance autorisée, et non du workspace A vers B. Dans l'organisation actuelle de Tatami, un workspace correspond au couple (utilisateur, projet). Le provisionnement dynamique et le routage sont une intégration distincte, pas des fonctions de Kimono.</figcaption>
-        </figure>
+        <h2>Seul aujourd'hui, partagé avec l'équipe demain</h2>
+        <p class="sub">Utilisez Kimono localement ou connectez plusieurs assistants à un corpus partagé. Chacun retrouve les mêmes références sans faire circuler de nouvelles copies des documents.</p>
+        <img class="kimono-illustration" src="../assets/images/K3.webp" alt="Plusieurs assistants accèdent par Kimono à un même arbre de connaissances." width="1600" height="889" loading="lazy" decoding="async">
+        <h3>Une brique pour les outils de la méthode</h3>
+        <p>AI-KIDO structure les connaissances et les pratiques. Kimono les rend plus faciles à retrouver. Les plateformes comme Tatami peuvent l'intégrer à leurs espaces de travail ; cette intégration reste un projet distinct de l'extension autonome.</p>
+        <img class="kimono-illustration" src="../assets/images/K5.webp" alt="Des espaces de travail distincts disposent chacun de leur instance Kimono et de leurs connaissances." width="1600" height="889" loading="lazy" decoding="async">
       </div>
     </section>
     <section id="download">
       <div class="container">
-        <h2>1. Récupérer Kimono sur GitHub</h2>
-        <p class="sub">Ouvrez un terminal avec Git installé. Ces commandes créent un nouveau clone ; choisissez un dossier qui ne contient pas déjà un clone de Kimono.</p>
-        <pre><code>git clone https://github.com/lcalmejane/kimono-mcp-server.git
-cd kimono-mcp-server</code></pre>
-        <p>Choisissez ensuite <a href="#docker">Docker Compose</a> pour le runtime et le modèle d'embedding inclus, ou <a href="#native">le mode stdio natif</a> pour une connexion dédiée à un client. GitHub héberge les sources ; GitHub Pages ne peut pas exécuter ce serveur MCP.</p>
+        <h2>Choisissez l'usage qui vous correspond</h2>
+        <p class="sub">L'extension VS Code est le point de départ le plus simple. D'autres installations permettent de partager un serveur ou d'utiliser un autre assistant compatible MCP.</p>
         <img class="kimono-illustration" src="../assets/images/K4.webp" alt="" width="1280" height="768" loading="lazy" decoding="async">
-      </div>
-    </section>
-    <section id="docker" class="alt">
-      <div class="container">
-        <h2>2A. Tester avec Docker Compose</h2>
-        <p class="sub"><strong>Recommandé pour un premier essai.</strong> Installez Docker Engine ou Docker Desktop avec Compose v2 et démarrez Docker. Lancez ces commandes depuis le dossier Kimono cloné. Le premier build télécharge les dépendances, ONNX Runtime et le modèle d'embedding : il nécessite Internet et peut prendre du temps.</p>
-        <h3>Préparer la configuration locale</h3>
-        <pre><code>cp .env.example .env
-openssl rand -hex 32</code></pre>
-        <p>Copiez la valeur aléatoire générée dans <code>MCP_AUTH_TOKEN</code> du fichier <code>.env</code>. Pour cet essai, conservez les autres valeurs par défaut ci-dessous ; ne versionnez jamais votre jeton.</p>
-        <pre><code>AIKIDO_HOST_PARENT=./data
-AIKIDO_DIR=aikido
-AIKIDO_WRITABLE=false
-AIKIDO_VOLUME_MODE=ro
-AIKIDO_INCLUDE_SPEC=false
-MCP_PORT=3000</code></pre>
-        <h3>Installer une base AI-KIDO neuve, puis démarrer le serveur</h3>
-        <pre><code>mkdir -p data
-docker compose --profile install run --build --rm install-aikido
-docker compose up --build -d kimono-mcp-server
-docker compose ps
-curl --fail http://127.0.0.1:3000/healthz</code></pre>
-        <p>L'installation clone explicitement AI-KIDO dans <code>./data/aikido</code>. Cette cible doit être absente ou vide ; une cible non vide n'est pas écrasée. Pour une base existante, configurez plutôt son dossier parent et son nom, vérifiez qu'elle contient <code>prompts/index.md</code> ou <code>index.md</code>, et sautez l'installation.</p>
-        <p><strong>Résultat attendu :</strong> un conteneur démarré et un HTTP 200 sur <code>/healthz</code>. Ce test vérifie la vivacité, pas la disponibilité des connaissances ni la fin de l'indexation sémantique. <code>/readyz</code> et <code>/statusz</code> nécessitent votre jeton Bearer. Le conteneur utilise l'UID 1000 : ses dossiers montés doivent être lisibles, et inscriptibles pendant l'installation.</p>
-        <h3>Connecter VS Code en HTTP</h3>
-        <p>Ajoutez cette entrée à la configuration MCP du client. Pour VS Code, fusionnez-la dans <code>.vscode/mcp.json</code>, en conservant les serveurs et les entrées déjà présents. Le jeton demandé est celui défini dans <code>.env</code>.</p>
-        <pre><code>{
-  "inputs": [
-    {
-      "type": "promptString",
-      "id": "kimono-token",
-      "description": "Jeton MCP Kimono",
-      "password": true
-    }
-  ],
-  "servers": {
-    "kimono": {
-      "type": "http",
-      "url": "http://127.0.0.1:3000/mcp",
-      "headers": {
-        "Authorization": "Bearer ${input:kimono-token}"
-      }
-    }
-  }
-}</code></pre>
-        <p>Démarrez la connexion depuis les contrôles MCP de VS Code et approuvez-la lorsque le client le demande. Les autres clients MCP utilisent la même URL et l'authentification Bearer. Si vous changez <code>MCP_PORT</code>, adaptez aussi l'URL.</p>
-        <h3>Inspecter puis arrêter le test</h3>
-        <pre><code>docker compose logs --tail=100 kimono-mcp-server
-docker compose down</code></pre>
-        <p>Cet arrêt conserve le dossier de connaissances sur l'hôte et le volume nommé du cache. N'ajoutez pas <code>--volumes</code>, sauf si vous souhaitez supprimer les index en cache.</p>
-      </div>
-    </section>
-    <section id="native">
-      <div class="container">
-        <h2>2B. Tester localement en stdio natif</h2>
-        <p class="sub">Alternative à Docker : Node.js 24+, npm, Git et Rust/Cargo sont nécessaires. Ce parcours démarre avec la recherche littérale/regex. La recherche sémantique native exige aussi le helper, les fichiers du modèle et la bibliothèque ONNX de la <a href="https://github.com/lcalmejane/kimono-mcp-server#local-semantic-search">configuration sémantique officielle</a> ; Docker les inclut.</p>
-        <pre><code>cargo install fast-grep --version 0.5.0 --locked
-npm ci
-npm run build
-node dist/cli.js init --root /absolute/path/to/aikido --ref main</code></pre>
-        <p>Remplacez <code>/absolute/path/to/aikido</code> par un nouveau chemin absolu d'installation. La dernière commande clone la base officielle ; pour une base existante, sautez-la. Le binaire de recherche s'appelle <code>fgr</code> et doit être dans le PATH du client.</p>
-        <p>Fusionnez cette entrée dans <code>.vscode/mcp.json</code> de VS Code, en remplaçant les deux chemins absolus :</p>
-        <pre><code>{
-  "servers": {
-    "kimono": {
-      "type": "stdio",
-      "command": "node",
-      "args": ["/absolute/path/to/kimono-mcp-server/dist/cli.js",
-               "serve", "--root", "/absolute/path/to/aikido"]
-    }
-  }
-}</code></pre>
-        <p>Le client lance lui-même le processus. Cette configuration stdio n'utilise ni port HTTP ni jeton Bearer. Lancer séparément la commande depuis plusieurs clients crée plusieurs processus, pas des sessions d'un serveur HTTP commun ; ne partagez jamais un cache entre processus indépendants. Préférez HTTP pour une racine partagée.</p>
-      </div>
-    </section>
-    <section id="try" class="alt">
-      <div class="container">
-        <h2>3. Effectuer les premiers appels MCP</h2>
-        <p class="sub">Depuis votre assistant connecté ou un inspecteur d'outils MCP, choisissez l'outil et fournissez les arguments JSON ci-dessous. Ce sont des appels d'outils, pas des commandes shell. Commencez par la découverte en lecture seule.</p>
         <div class="grid cols-3">
-          <article class="card"><span class="tag">Découvrir</span><h3><code>aikido</code></h3><pre><code>{"operation":"list"}</code></pre><p>Vous devez retrouver le catalogue des connaissances découvertes dans la racine configurée. Demandez à votre assistant d'en expliquer une commande ou un persona.</p></article>
-          <article class="card"><span class="tag">Rechercher</span><h3><code>aikido_search</code></h3><pre><code>{"mode":"literal",
- "query":"AI-KIDO",
- "limit":5}</code></pre><p>Repérez les chemins, numéros de ligne et extraits. Avec la configuration sémantique de Docker, essayez <code>mode: "semantic"</code> et une question en langage naturel.</p></article>
-          <article class="card"><span class="tag">Mode sémantique Docker</span><h3><code>aikido_embed</code></h3><pre><code>{"operation":"info"}</code></pre><p>Consultez le modèle d'embedding actif et ses paramètres de prétraitement. La première recherche sémantique peut être plus longue pendant l'indexation ; la disponibilité seule ne garantit pas un index terminé.</p></article>
+          <article class="card"><h3>Dans votre IDE</h3><p>Installez l'extension et travaillez sur le projet ouvert, sans déploiement de serveur séparé.</p><a href="#vscode">Commencer dans VS Code →</a></article>
+          <article id="docker" class="card"><h3>Pour plusieurs assistants</h3><p>Un serveur Docker permet de partager un corpus et sa recherche. Votre équipe choisit l'hébergement et les accès.</p><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/README.fr.md">Guide du serveur partagé →</a></article>
+          <article id="native" class="card"><h3>Avec un autre client MCP</h3><p>L'installation native permet de connecter un assistant compatible en local. Les intégrations directes dédiées aux CLI LLM sont prévues, pas encore livrées.</p><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/docs/usage.fr.md">Autres modes d'utilisation →</a></article>
         </div>
-        <p>Pour suivre la progression sémantique sans lancer d'inférence, appelez <code>aikido_index</code> avec <code>{"operation":"status","mode":"semantic"}</code>. Après un redémarrage du serveur, reconnectez le client MCP pour créer une nouvelle session.</p>
       </div>
     </section>
-    <section id="safeguards">
+    <section id="safeguards" class="alt">
       <div class="container">
-        <h2>Commencer simplement. Garder des limites claires.</h2>
+        <h2>Une adoption simple, des limites claires</h2>
         <div class="grid cols-3">
-          <article class="card"><h3>Lecture seule d'abord</h3><p>Conservez la protection de la base officielle. Les écritures fichiers/Git sont réservées à des projets ou forks de confiance distincts, explicitement activées avec un montage inscriptible. L'API Git n'est pas une sandbox.</p></article>
-          <article class="card"><h3>Partager en connaissance de cause</h3><p>Tous les clients détenteurs du jeton ont les mêmes droits. Les appels passent par la file du runtime, mais plusieurs appels ne forment pas une transaction. Désignez un coordinateur Git ou isolez les workspaces en écriture.</p></article>
-          <article class="card"><h3>Garder un accès local</h3><p>Compose n'expose que l'interface locale. Un accès distant exige TLS et un reverse proxy authentifié avec autorisation. Séparez jetons, racines et caches pour isoler les workspaces ; ne placez jamais les identifiants dans Git.</p></article>
+          <article class="card"><h3>Vos fichiers restent les vôtres</h3><p>Le mode RAG recherche et lit sans modifier votre projet. Votre assistant garde ses permissions habituelles ; Kimono ne décide pas d'actions à votre place.</p></article>
+          <article class="card"><h3>Vous choisissez le périmètre</h3><p>Définissez les dossiers à indexer et vérifiez les exclusions. L'indexation se fait localement, mais l'assistant peut transmettre les passages retrouvés à son fournisseur de modèle.</p></article>
+          <article class="card"><h3>Vous mesurez votre gain</h3><p>Commencez par une tâche récurrente. Comparez le temps, la consommation de contexte et la pertinence des sources avant de généraliser à l'équipe.</p></article>
         </div>
-        <h3>Si le premier démarrage échoue</h3>
-        <ul>
-          <li><strong>Connexion refusée :</strong> vérifiez que Docker tourne, <code>docker compose ps</code>, le port publié et les logs du serveur.</li>
-          <li><strong>Erreur d'authentification :</strong> vérifiez que le jeton Bearer du client correspond à <code>MCP_AUTH_TOKEN</code>.</li>
-          <li><strong>Racine indisponible :</strong> vérifiez le résultat de l'installation, le chemin configuré, le fichier d'entrée et les permissions pour l'UID 1000.</li>
-          <li><strong>Premier appel sémantique lent :</strong> prévoyez un délai client suffisant et consultez le statut de l'index ; en natif, installez les prérequis sémantiques supplémentaires.</li>
-        </ul>
+        <p class="note">Kimono ne détecte pas les secrets dans les contenus. Pour un serveur partagé, faites valider l'hébergement et les accès. <a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/docs/usage.fr.md">Consulter les limites et recommandations</a>.</p>
       </div>
     </section>
-    <section class="cta alt">
+    <section class="cta">
       <div class="container">
-        <h2>Essayez-le dès votre prochaine session</h2>
-        <p class="sub">Une base, une connexion en lecture seule et une première recherche suffisent pour découvrir l'intérêt de Kimono. Le dépôt reste la référence pour la configuration et les limites opérationnelles qui évoluent.</p>
+        <h2>Votre prochain gain commence par une question réelle.</h2>
+        <p class="sub">Installez Kimono, ouvrez votre projet et demandez à votre assistant de retrouver ce dont il a besoin. Observez les sources, le contexte consommé et le temps gagné.</p>
         <div class="btn-row">
-          <a class="btn primary" href="https://github.com/lcalmejane/kimono-mcp-server">Ouvrir Kimono sur GitHub</a>
-          <a class="btn" href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/docs/usage.fr.md">Guide d'usage officiel</a>
-          <a class="btn" href="history.html#kimono-milestone">Retour à l'histoire</a>
+          <a class="btn primary" href="https://marketplace.visualstudio.com/items?itemName=ai-kido.kimono-rag-mcp">Installer Kimono gratuitement</a>
+          <a class="btn" href="index.html">Découvrir la méthode AI-KIDO</a>
+          <a class="btn" href="history.html#kimono-marketplace">Kimono dans notre histoire</a>
         </div>
       </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="container">AI-KIDO · Kimono MCP · <a href="index.html">La méthode</a> · <a href="https://github.com/lcalmejane/aikido-web">Code du site</a></div></footer>
+  <footer class="site-footer"><div class="container">AI-KIDO · Kimono MCP · <a href="https://github.com/lcalmejane/kimono-mcp-server">Sources et documentation</a> · <a href="https://github.com/lcalmejane/aikido-web">Code du site</a></div></footer>
 </body>
 </html>
