@@ -21,6 +21,10 @@ URL: https://lcalmejane.github.io/aikido-web/
 Each page has a language switcher (`EN` / `FR`) and `hreflang` tags (`x-default` = EN).
 When adding a page, create both versions: `page.html` (EN) and `fr/page.html` (FR), and keep both switchers pointing to each other.
 
+The home and harness pages link to the assistant-specific AI-KIDO
+[installation guide](https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md)
+and [project setup guide](https://github.com/lcalmejane/aikido/blob/main/distribution/README.md).
+
 ## Structure
 
 ```
