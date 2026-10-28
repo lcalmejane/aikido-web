@@ -17,24 +17,43 @@
   <link rel="alternate" hreflang="x-default" href="https://lcalmejane.github.io/aikido-web/kimono.html">
   <link rel="icon" href="favicon.ico?v=2" sizes="any">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="assets/css/style.css?v=11">
+  <link rel="stylesheet" href="assets/css/style.css?v=14">
   <link rel="preload" as="image" href="assets/images/K1.webp" type="image/webp">
 </head>
 <body class="kimono-page">
   <header class="site-header">
     <div class="container">
       <a class="brand" href="index.html"><img class="brand-logo" src="assets/images/favicon-48.png?v=2" alt="" width="28" height="28">AI<span>-</span>KIDO</a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="index.html">The method</a>
-        <a href="#why-kimono">Why Kimono?</a>
-        <a href="#performance">Measured gains</a>
-        <a href="#in-action">See it in action</a>
-        <a href="#vscode">Get started</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav">
+      <label class="nav-burger" for="nav-toggle"><span aria-hidden="true">☰</span> Menu</label>
+      <nav class="nav" id="site-nav" aria-label="Main navigation">
+        <details class="nav-group">
+          <summary>Method</summary>
+          <div class="nav-panel">
+            <a href="index.html">Home</a>
+            <a href="harness.html">Harness creation</a>
+            <a href="history.html">History</a>
+          </div>
+        </details>
+        <a href="install.html">Install</a>
+        <a href="kimono.html" aria-current="page">Kimono MCP</a>
+        <a href="https://github.com/lcalmejane/aikido">GitHub</a>
         <span class="lang-switch" role="group" aria-label="Language">
           <a class="active" href="kimono.html" hreflang="en" lang="en" aria-current="true">EN</a>
           <a href="fr/kimono.html" hreflang="fr" lang="fr">FR</a>
         </span>
       </nav>
+    </div>
+    <div class="subnav">
+      <div class="container">
+        <nav aria-label="Page sections">
+          <span class="subnav-label">On this page</span>
+          <a href="#why-kimono">Why Kimono?</a>
+          <a href="#performance">Measured gains</a>
+          <a href="#in-action">See it in action</a>
+          <a href="#vscode">Get started</a>
+        </nav>
+      </div>
     </div>
   </header>
   <main id="top">

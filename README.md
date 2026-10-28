@@ -15,15 +15,20 @@ URL: https://lcalmejane.github.io/aikido-web/
 |---|---|---|
 | Home | `index.html` | `fr/index.html` |
 | Harness creation (tools, example and improvement) | `harness.html` | `fr/harness.html` |
+| Distributions and installation | `install.html` | `fr/install.html` |
 | Story (project timeline) | `history.html` | `fr/history.html` |
 | Kimono (diagrams and setup tutorial) | `kimono.html` | `fr/kimono.html` |
 
 Each page has a language switcher (`EN` / `FR`) and `hreflang` tags (`x-default` = EN).
 When adding a page, create both versions: `page.html` (EN) and `fr/page.html` (FR), and keep both switchers pointing to each other.
 
-The home and harness pages link to the assistant-specific AI-KIDO
+The `install.html` / `fr/install.html` page presents the knowledge base content, the nine distributions, the installation steps, updates and `/skill-manage`; keep it aligned with `distribution/catalog.json` and the release tag. The home and harness pages link to it, and it links to the AI-KIDO
 [installation guide](https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md)
 and [project setup guide](https://github.com/lcalmejane/aikido/blob/main/distribution/README.md).
+
+## Navigation
+
+Every page shares the same header, built without JavaScript: a short main menu (`Method` group, `Install`, `Kimono MCP`, `GitHub`, language switch) and a secondary "On this page" bar listing the sections of the current page. Below 900 px the main menu collapses behind a `Menu` toggle (`#nav-toggle` checkbox) and the section bar scrolls sideways. When adding a page, copy the header of an existing page, add the page to the `Method` group if it belongs there, and list only its own `#section` anchors in the secondary bar.
 
 ## Structure
 
@@ -31,9 +36,11 @@ and [project setup guide](https://github.com/lcalmejane/aikido/blob/main/distrib
 aikido-web/
 ├── index.html          # home (EN, default)
 ├── harness.html        # creating and evolving harnesses (EN)
+├── install.html        # distributions, installation and skills (EN)
 ├── history.html        # history and timeline (EN)
 ├── fr/index.html       # home (FR)
 ├── fr/harness.html     # création et évolution de harnais (FR)
+├── fr/install.html     # distributions, installation et skills (FR)
 ├── fr/history.html     # history and timeline (FR)
 ├── 404.html            # bilingual error page
 ├── .nojekyll           # disables Jekyll: static site served as is

@@ -21,7 +21,7 @@
   <link rel="icon" href="../favicon.ico?v=2" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png?v=2">
   <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="../assets/css/style.css?v=13">
+  <link rel="stylesheet" href="../assets/css/style.css?v=14">
   <link rel="preload" as="image" href="../assets/images/H1.webp" type="image/webp">
 </head>
 <body>
@@ -29,22 +29,38 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="#top"><img class="brand-logo" src="../assets/images/favicon-48.png?v=2" alt="" width="28" height="28">AI<span>-</span>KIDO</a>
-      <nav class="nav" aria-label="Navigation principale">
-        <a href="#pourquoi">Pourquoi</a>
-        <a href="harness.html">Création de harnais</a>
-        <a href="#fonctionnement">Fonctionnement</a>
-        <a href="#meta-harnais">Méta-harnais</a>
-        <a href="#capacites">Capacités</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav">
+      <label class="nav-burger" for="nav-toggle"><span aria-hidden="true">☰</span> Menu</label>
+      <nav class="nav" id="site-nav" aria-label="Navigation principale">
+        <details class="nav-group">
+          <summary class="current">Méthode</summary>
+          <div class="nav-panel">
+            <a href="index.html" aria-current="page">Accueil</a>
+            <a href="harness.html">Création de harnais</a>
+            <a href="history.html">Historique</a>
+          </div>
+        </details>
+        <a href="install.html">Installer</a>
         <a href="kimono.html">Kimono MCP</a>
-        <a href="#philosophie">Philosophie</a>
-        <a href="#demarrer">Démarrer</a>
-        <a href="history.html">Historique</a>
         <a href="https://github.com/lcalmejane/aikido">GitHub</a>
         <span class="lang-switch" role="group" aria-label="Langue">
           <a href="../index.html" hreflang="en" lang="en">EN</a>
           <a class="active" href="index.html" hreflang="fr" lang="fr" aria-current="true">FR</a>
         </span>
       </nav>
+    </div>
+    <div class="subnav">
+      <div class="container">
+        <nav aria-label="Sections de la page">
+          <span class="subnav-label">Sur cette page</span>
+          <a href="#pourquoi">Pourquoi</a>
+          <a href="#fonctionnement">Fonctionnement</a>
+          <a href="#meta-harnais">Méta-harnais</a>
+          <a href="#capacites">Capacités</a>
+          <a href="#philosophie">Philosophie</a>
+          <a href="#demarrer">Démarrer</a>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -258,7 +274,7 @@
             <span class="tag">Intégration</span>
             <h3>Se branche sur vos outils IA</h3>
             <p>Construit sur les standards AGENTS.md et Skills, AI-KIDO fonctionne dès aujourd'hui avec Claude Code, Claude Cowork, GitHub Copilot, VS Code, Codex, Kiro, Zoo Code, Roo Code, Antigravity et tout autre outil qui les respecte.</p>
-            <a class="harness-command" href="https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md">Choisir son installation →</a>
+            <a class="harness-command" href="install.html">Choisir son installation →</a>
           </article>
         </div>
       </div>
@@ -423,7 +439,8 @@
           Choisissez le package correspondant à votre assistant pour initialiser AI-KIDO dans votre projet. Le parcours guidé vous permet d'examiner les fichiers avant leur installation.
         </p>
         <div class="btn-row">
-          <a class="btn primary" href="https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md">Choisir son assistant et installer</a>
+          <a class="btn primary" href="install.html">Choisir son assistant et installer</a>
+          <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md">Guide d'installation complet</a>
           <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/distribution/README.md">Initialisation et mises à jour</a>
         </div>
         <p>Après l'installation, lancez <code>/init-aikido</code> depuis votre assistant pour commencer à construire la Memory Bank du projet.</p>

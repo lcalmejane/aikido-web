@@ -17,24 +17,42 @@
   <link rel="alternate" hreflang="x-default" href="https://lcalmejane.github.io/aikido-web/harness.html">
   <link rel="icon" href="favicon.ico?v=2" sizes="any">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="assets/css/style.css?v=13">
+  <link rel="stylesheet" href="assets/css/style.css?v=14">
 </head>
 <body class="harness-builder">
   <header class="site-header">
     <div class="container">
       <a class="brand" href="index.html"><img class="brand-logo" src="assets/images/favicon-48.png?v=2" alt="" width="28" height="28">AI<span>-</span>KIDO</a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="#building-blocks">Building blocks</a>
-        <a href="#example">Example</a>
-        <a href="#improve">Improve</a>
-        <a href="#start">Get started</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav">
+      <label class="nav-burger" for="nav-toggle"><span aria-hidden="true">☰</span> Menu</label>
+      <nav class="nav" id="site-nav" aria-label="Main navigation">
+        <details class="nav-group">
+          <summary class="current">Method</summary>
+          <div class="nav-panel">
+            <a href="index.html">Home</a>
+            <a href="harness.html" aria-current="page">Harness creation</a>
+            <a href="history.html">History</a>
+          </div>
+        </details>
+        <a href="install.html">Install</a>
         <a href="kimono.html">Kimono MCP</a>
+        <a href="https://github.com/lcalmejane/aikido">GitHub</a>
         <span class="lang-switch" role="group" aria-label="Language">
           <a class="active" href="harness.html" hreflang="en" lang="en" aria-current="true">EN</a>
           <a href="fr/harness.html" hreflang="fr" lang="fr">FR</a>
         </span>
       </nav>
+    </div>
+    <div class="subnav">
+      <div class="container">
+        <nav aria-label="Page sections">
+          <span class="subnav-label">On this page</span>
+          <a href="#building-blocks">Building blocks</a>
+          <a href="#example">Example</a>
+          <a href="#improve">Improve</a>
+          <a href="#start">Get started</a>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -169,7 +187,7 @@
 # Compile an agent from an existing building block or use case
 /compile-agent-from-use</code></pre>
         <div class="btn-row">
-          <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md">Install AI-KIDO for your assistant</a>
+          <a class="btn" href="install.html">Install AI-KIDO for your assistant</a>
           <a class="btn primary" href="https://github.com/lcalmejane/aikido">Get AI-KIDO on GitHub</a>
           <a class="btn" href="index.html">Back to the method</a>
         </div>

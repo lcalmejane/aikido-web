@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Distributions and installation – AI-KIDO</title>
+  <meta name="description" content="Everything AI-KIDO offers and how to install it: nine distributions for Claude Code, Claude Cowork, GitHub Copilot, VS Code, Codex, Kiro, Zoo Code, Roo Code and Antigravity, plus updates, removal and installable skills.">
+  <meta property="og:title" content="One knowledge base, every assistant – AI-KIDO">
+  <meta property="og:description" content="Discover what the AI-KIDO Memory Bank contains, the nine distributions and how to install, update or remove them.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:image" content="https://lcalmejane.github.io/aikido-web/assets/images/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="en" href="https://lcalmejane.github.io/aikido-web/install.html">
+  <link rel="alternate" hreflang="fr" href="https://lcalmejane.github.io/aikido-web/fr/install.html">
+  <link rel="alternate" hreflang="x-default" href="https://lcalmejane.github.io/aikido-web/install.html">
+  <link rel="icon" href="favicon.ico?v=2" sizes="any">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=2">
+  <link rel="stylesheet" href="assets/css/style.css?v=14">
+</head>
+<body class="harness-builder">
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html"><img class="brand-logo" src="assets/images/favicon-48.png?v=2" alt="" width="28" height="28">AI<span>-</span>KIDO</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav">
+      <label class="nav-burger" for="nav-toggle"><span aria-hidden="true">☰</span> Menu</label>
+      <nav class="nav" id="site-nav" aria-label="Main navigation">
+        <details class="nav-group">
+          <summary>Method</summary>
+          <div class="nav-panel">
+            <a href="index.html">Home</a>
+            <a href="harness.html">Harness creation</a>
+            <a href="history.html">History</a>
+          </div>
+        </details>
+        <a href="install.html" aria-current="page">Install</a>
+        <a href="kimono.html">Kimono MCP</a>
+        <a href="https://github.com/lcalmejane/aikido">GitHub</a>
+        <span class="lang-switch" role="group" aria-label="Language">
+          <a class="active" href="install.html" hreflang="en" lang="en" aria-current="true">EN</a>
+          <a href="fr/install.html" hreflang="fr" lang="fr">FR</a>
+        </span>
+      </nav>
+    </div>
+    <div class="subnav">
+      <div class="container">
+        <nav aria-label="Page sections">
+          <span class="subnav-label">On this page</span>
+          <a href="#content">What you get</a>
+          <a href="#distributions">Distributions</a>
+          <a href="#install">Install</a>
+          <a href="#skills">Skills</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="page-head">
+      <div class="container">
+        <span class="tag">AI-KIDO · Distributions and installation</span>
+        <h1>One knowledge base. Every assistant. Installed in minutes.</h1>
+        <p>The AI-KIDO Memory Bank, its commands, skills and agents are packaged for nine assistants.
+          Pick yours, review what will be written to your project, apply it, then build your own Memory Bank.</p>
+        <div class="btn-row">
+          <a class="btn primary" href="#distributions">Choose your assistant</a>
+          <a class="btn" href="#content">What is included</a>
+          <a class="btn" href="#install">How to install</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="content" class="alt">
+      <div class="container">
+        <h2>What the knowledge base gives you</h2>
+        <p class="sub">The same content is delivered to every assistant, adapted to the format it understands.</p>
+        <div class="grid cols-3">
+          <article class="card"><h3>22 commands</h3><p>Initialize the Memory Bank, analyse a project, check documentation against the code, create personas, commands and skills, manage installable skills, and more.</p></article>
+          <article class="card"><h3>15 specialized agents</h3><p>Truth evaluator, RACI delegator, validator, explorers, balancer, index maintenance and an orchestrator that adapts to your assistant's native one.</p></article>
+          <article class="card"><h3>6 system skills</h3><p>Project analysis, Memory Bank updates, orchestration, code and knowledge search, structure rules and web page download.</p></article>
+          <article class="card"><h3>Hard points</h3><p>Immutable rules and techniques that keep the Memory Bank structured, traceable and under the size limits that keep it efficient for an LLM.</p></article>
+          <article class="card"><h3>Reviewable setup</h3><p>Nothing is written silently: a plan lists every file, you apply it with a confirmation, and existing project customizations are shown for review.</p></article>
+          <article class="card"><h3>Updates and removal</h3><p>Update the method in a project, migrate an existing one, or remove the integration while keeping your project knowledge.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="distributions">
+      <div class="container">
+        <h2>Nine distributions</h2>
+        <p class="sub">Each package is generated from the same source and published under an immutable release tag.</p>
+        <div class="table-wrap" role="region" aria-label="AI-KIDO distributions" tabindex="0">
+          <table class="data">
+            <caption>Assistants, packages and how AI-KIDO appears</caption>
+            <thead><tr><th scope="col">Assistant</th><th scope="col">Package</th><th scope="col">How AI-KIDO appears</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Claude Code</th><td><code>claude-code</code></td><td>Marketplace plugin with slash commands, Skills and agents</td></tr>
+              <tr><th scope="row">Claude Cowork</th><td><code>claude-cowork</code></td><td>Account plugin with slash commands, Skills and agents</td></tr>
+              <tr><th scope="row">VS Code / GitHub Copilot</th><td><code>copilot-vscode</code></td><td>Agent Plugin with slash prompts, Skills and agents</td></tr>
+              <tr><th scope="row">GitHub Copilot coding agent</th><td><code>copilot-github</code></td><td>Repository Skills, agents and project instructions</td></tr>
+              <tr><th scope="row">Codex CLI and IDE</th><td><code>codex</code></td><td>Workspace Skills, custom agents and project instructions</td></tr>
+              <tr><th scope="row">Kiro CLI</th><td><code>kiro-cli</code></td><td>Workspace Skills, slash commands, agents and project instructions</td></tr>
+              <tr><th scope="row">Zoo Code</th><td><code>zoo-code</code></td><td>Workspace slash commands, custom modes and project instructions</td></tr>
+              <tr><th scope="row">Roo Code</th><td><code>roo-code-legacy</code></td><td>Workspace slash commands, custom modes and project instructions</td></tr>
+              <tr><th scope="row">Google Antigravity</th><td><code>antigravity</code></td><td>Workspace Skills, agents and project instructions</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Plugin-based hosts (Claude Code, Claude Cowork, VS Code) install once for your account or editor.
+          Workspace-based hosts (Copilot coding agent, Codex, Kiro, Zoo, Roo, Antigravity) write reviewed files into each project.</p>
+      </div>
+    </section>
+
+    <section id="install" class="alt">
+      <div class="container">
+        <h2>Install in three steps</h2>
+        <div class="grid cols-3">
+          <article class="card"><span class="tag">1</span><h3>Get the package</h3><p>Clone the release tag and pick the directory of your assistant.</p></article>
+          <article class="card"><span class="tag">2</span><h3>Review the plan</h3><p>Choose <code>STANDARD</code>, <code>LIGHT</code> or <code>UNSET</code> as the entry point and preview the files to install.</p></article>
+          <article class="card"><span class="tag">3</span><h3>Apply and initialize</h3><p>Apply with the plan ID, then run <code>/init-aikido</code> in your assistant to start your Memory Bank.</p></article>
+        </div>
+        <pre><code># 1. Get the package
+git clone --depth 1 --branch aikido-dist-v1.5.0 \
+  https://github.com/lcalmejane/aikido.git aikido-dist
+
+# 2. Preview what will be installed in your project
+node aikido-dist/&lt;package&gt;/scripts/bootstrap-plan.mjs \
+  --root /path/to/project --package aikido-dist/&lt;package&gt; --mode STANDARD
+
+# 3. Apply the reviewed plan
+node aikido-dist/&lt;package&gt;/scripts/bootstrap-plan.mjs \
+  --root /path/to/project --package aikido-dist/&lt;package&gt; --mode STANDARD \
+  --apply --confirm &lt;plan-id&gt;</code></pre>
+        <p><strong>Claude Code</strong> installs from a pinned marketplace instead:</p>
+        <pre><code>claude plugin marketplace add \
+  https://github.com/lcalmejane/aikido.git#aikido-dist-v1.5.0
+claude plugin install aikido@aikido</code></pre>
+        <p><strong>Claude Cowork</strong>: zip the <code>claude-cowork</code> package and upload it in <em>Customize &gt; Plugins &gt; Add &gt; Upload plugin</em>.</p>
+        <h3>Update or remove</h3>
+        <p>Installing a newer plugin and updating the method in a project are separate actions. Run the new package's <code>update-plan.mjs</code> against your project, review the plan, then apply it.
+          Add <code>--migrate</code> for a project that has no AI-KIDO lock yet, or <code>--uninstall</code> to remove the integration files. Your project's Memory Bank always stays.</p>
+        <div class="btn-row">
+          <a class="btn primary" href="https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md">Full installation guide</a>
+          <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/distribution/README.md">Project setup and updates</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2>Extend it with installable skills</h2>
+        <p class="sub">Beyond the built-in content, <code>/skill-manage</code> searches, installs, updates and removes skills from a catalog and from trusted external sources.</p>
+        <div class="grid cols-3">
+          <article class="card"><h3>Safe by design</h3><p>A deterministic engine validates names and sources, refuses symbolic links, never runs a skill's scripts and keeps a backup of anything it replaces.</p></article>
+          <article class="card"><h3>Third parties need your approval</h3><p>External skills are listed with their files and scripts, and installed only after your explicit confirmation.</p></article>
+          <article class="card"><h3>Your own skills</h3><p>Create skills with <code>/create-skill</code> and share them through a catalog repository your team controls.</p></article>
+        </div>
+        <pre><code>/skill-manage search jira
+/skill-manage get jira
+/skill-manage update jira</code></pre>
+        <div class="btn-row">
+          <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/skill-manage.md">/skill-manage reference</a>
+          <a class="btn" href="harness.html#skills">Create your own skills</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="start" class="alt">
+      <div class="container">
+        <h2>Ready to give your AI a memory?</h2>
+        <div class="btn-row">
+          <a class="btn primary" href="https://github.com/lcalmejane/aikido">Get AI-KIDO on GitHub</a>
+          <a class="btn" href="harness.html">Build your harness</a>
+          <a class="btn" href="index.html">Back to the method</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      AI-KIDO – AI Memory Bank Construction Method by Meta-Harness ·
+      <a href="https://github.com/lcalmejane/aikido-web">Site source</a>
+    </div>
+  </footer>
+</body>
+</html>

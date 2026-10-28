@@ -21,7 +21,7 @@
   <link rel="icon" href="favicon.ico?v=2" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png?v=2">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="assets/css/style.css?v=13">
+  <link rel="stylesheet" href="assets/css/style.css?v=14">
   <link rel="preload" as="image" href="assets/images/H1.webp" type="image/webp">
 </head>
 <body>
@@ -29,22 +29,38 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="#top"><img class="brand-logo" src="assets/images/favicon-48.png?v=2" alt="" width="28" height="28">AI<span>-</span>KIDO</a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#why">Why</a>
-        <a href="harness.html">Harness creation</a>
-        <a href="#how">How it works</a>
-        <a href="#meta-harness">Meta-harness</a>
-        <a href="#capabilities">Capabilities</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav">
+      <label class="nav-burger" for="nav-toggle"><span aria-hidden="true">☰</span> Menu</label>
+      <nav class="nav" id="site-nav" aria-label="Main navigation">
+        <details class="nav-group">
+          <summary class="current">Method</summary>
+          <div class="nav-panel">
+            <a href="index.html" aria-current="page">Home</a>
+            <a href="harness.html">Harness creation</a>
+            <a href="history.html">History</a>
+          </div>
+        </details>
+        <a href="install.html">Install</a>
         <a href="kimono.html">Kimono MCP</a>
-        <a href="#philosophy">Philosophy</a>
-        <a href="#start">Get started</a>
-        <a href="history.html">History</a>
         <a href="https://github.com/lcalmejane/aikido">GitHub</a>
         <span class="lang-switch" role="group" aria-label="Language">
           <a class="active" href="index.html" hreflang="en" lang="en" aria-current="true">EN</a>
           <a href="fr/index.html" hreflang="fr" lang="fr">FR</a>
         </span>
       </nav>
+    </div>
+    <div class="subnav">
+      <div class="container">
+        <nav aria-label="Page sections">
+          <span class="subnav-label">On this page</span>
+          <a href="#why">Why</a>
+          <a href="#how">How it works</a>
+          <a href="#meta-harness">Meta-harness</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#philosophy">Philosophy</a>
+          <a href="#start">Get started</a>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -258,7 +274,7 @@
             <span class="tag">Integration</span>
             <h3>Plugs into your AI tools</h3>
             <p>Built on the AGENTS.md and Skills standards, AI-KIDO works today with Claude Code, Claude Cowork, GitHub Copilot, VS Code, Codex, Kiro, Zoo Code, Roo Code, Antigravity and any other tool that follows them.</p>
-            <a class="harness-command" href="https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md">Choose your installation →</a>
+            <a class="harness-command" href="install.html">Choose your installation →</a>
           </article>
         </div>
       </div>
@@ -422,7 +438,8 @@
           Choose the package for your assistant and initialize AI-KIDO in your project. The guided setup helps you review the project files before applying them.
         </p>
         <div class="btn-row">
-          <a class="btn primary" href="https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md">Choose your assistant and install</a>
+          <a class="btn primary" href="install.html">Choose your assistant and install</a>
+          <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md">Full installation guide</a>
           <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/distribution/README.md">Project setup and updates</a>
         </div>
         <p>After installation, run <code>/init-aikido</code> from your assistant to begin building the project's Memory Bank.</p>
