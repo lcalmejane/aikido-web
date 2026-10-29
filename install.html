@@ -121,7 +121,7 @@
           <article class="card"><span class="tag">3</span><h3>Apply and initialize</h3><p>Apply with the plan ID, then run <code>/init-aikido</code> in your assistant to start your Memory Bank.</p></article>
         </div>
         <pre><code># 1. Get the package
-git clone --depth 1 --branch aikido-dist-v1.5.0 \
+git clone --depth 1 --branch aikido-dist-v1.5.1 \
   https://github.com/lcalmejane/aikido.git aikido-dist
 
 # 2. Preview what will be installed in your project
@@ -134,7 +134,7 @@ node aikido-dist/&lt;package&gt;/scripts/bootstrap-plan.mjs \
   --apply --confirm &lt;plan-id&gt;</code></pre>
         <p><strong>Claude Code</strong> installs from a pinned marketplace instead:</p>
         <pre><code>claude plugin marketplace add \
-  https://github.com/lcalmejane/aikido.git#aikido-dist-v1.5.0
+  https://github.com/lcalmejane/aikido.git#aikido-dist-v1.5.1
 claude plugin install aikido@aikido</code></pre>
         <p><strong>Claude Cowork</strong>: zip the <code>claude-cowork</code> package and upload it in <em>Customize &gt; Plugins &gt; Add &gt; Upload plugin</em>.</p>
         <h3>Update or remove</h3>
