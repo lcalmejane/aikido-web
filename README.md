@@ -42,7 +42,8 @@ aikido-web/
 ├── fr/harness.html     # création et évolution de harnais (FR)
 ├── fr/install.html     # distributions, installation et skills (FR)
 ├── fr/history.html     # history and timeline (FR)
-├── 404.html            # bilingual error page
+├── 404.html            # bilingual error page (noindex)
+├── sitemap.xml         # all 10 URLs with hreflang alternates (SEO)
 ├── .nojekyll           # disables Jekyll: static site served as is
 ├── assets/css/         # shared styles
 └── workspace/          # IGNORED by Git: documentation and working material
@@ -67,9 +68,17 @@ The site is static HTML/CSS, with no build step.
 - `#performance` presents the two measured research/planning tasks in an accessible, horizontally scrollable table. Preserve exact counts and elapsed times from the [benchmark](https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md): Gemini 3.8 Flash, Copilot CLI 1.0.103, local lexical RAG, 51 identical files, one run per method/task. Cumulative input includes cache reads. Do not equate token reductions to invoice savings, claim a measured full TCO reduction or generalize two trials to every project.
 - Both home pages introduce practical efficiency, token FinOps and TCO considerations, linking to the Kimono measurements and screenshots. Attribute measured gains to Kimono, not to the AI-KIDO method as a whole; distinguish expected organizational benefits from measured results.
 - Marketplace: [Kimono RAG MCP by AI-KIDO](https://marketplace.visualstudio.com/items?itemName=ai-kido.kimono-rag-mcp). Office/PDF and metadata retrieval require the 0.6.6 document features; screenshots show the locally installed 0.6.5 panel, not those newer document features. Direct LLM CLI integrations are explicitly planned, not shipped.
-- AI-KIDO 1.5 is published (`aikido-dist-v1.5.1`): the site reflects the meta-harness positioning, the nine distributions and the install guide on `main`.
+- AI-KIDO 1.5 is published (`aikido-dist-v1.5.2`): the site reflects the meta-harness positioning, the nine distributions and the install guide on `main`.
 - Shared Kimono visuals: `assets/images/K1.webp` (header), `K2.webp` (shared practice), `K3.webp` (connected knowledge), `K4.webp` (local setup), `K5.webp` (separate workspaces). Originals stay in the ignored `assets/images/generated/` folder. K3–K5 retain their full aspect ratio without cropping. K2 keeps its scoped saturation/brightness adjustment.
 - Product screenshots: `assets/images/kimono-panel-{en,fr}.png` (1120×820) and `kimono-search-{en,fr}.png` (1120×980). Captured on 25 October 2026 from the installed `ai-kido.kimono-rag-mcp-0.6.5-darwin-arm64` panel, rendered locally with its unchanged HTML/JS/CSS and VS Code dark theme variables. The demonstration uses the installed bundled server and native engines against public `kimono-mcp-server/docs`: 10 indexed documents, 183 embedded chunks, query `local RAG search`, text/semantic modes, five results. Index counts, search locations, response sizes and timings come from actual MCP responses, not invented fixtures. The browser bridge replays that real captured state for FR/EN screenshots; these are not full IDE-window captures. The displayed ROOT is made project-relative; no private files, tokens or user settings are shown. Captions disclose the demo and version; do not present screenshot latencies as the Copilot benchmark above.
+
+## SEO and indexing / Référencement
+
+- Every indexable page carries: `<title>`, `meta description`, `meta robots` (`index, follow, max-image-preview:large`), `<link rel="canonical">` (absolute URL, no `index.html`, no `?v=`), `og:url`, `og:site_name`, `og:image`, `twitter:image` and reciprocal `hreflang` (`en`, `fr`, `x-default` = EN). The two home pages also embed JSON-LD (`WebSite` + `SoftwareSourceCode`).
+- `404.html` is `noindex, follow`.
+- `sitemap.xml` lists the 10 pages with their `xhtml:link` alternates. When adding or renaming a page, update the sitemap, the `canonical`/`og:url`/`hreflang` tags of both versions, and bump `<lastmod>` on pages whose content changed.
+- `robots.txt` is **not** placed here: on a GitHub Pages project site, crawlers only read `https://lcalmejane.github.io/robots.txt` (root of the user domain, i.e. a `lcalmejane.github.io` repository). Without it everything is crawlable. If created there, add `Sitemap: https://lcalmejane.github.io/aikido-web/sitemap.xml`.
+- Search engines: add the property `https://lcalmejane.github.io/aikido-web/` (URL prefix) in Google Search Console, submit `sitemap.xml`, then request indexing of the home pages; import it into Bing Webmaster Tools. For ownership verification, add a `google-site-verification` meta tag (or an HTML verification file at the site root) only once the token is known.
 
 ## Working directory
 
