@@ -27,9 +27,9 @@
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=3">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#0f1220">
-  <link rel="stylesheet" href="assets/css/style.css?v=18">
+  <link rel="stylesheet" href="assets/css/style.css?v=19">
 </head>
-<body class="harness-builder">
+<body class="harness-builder install-page">
   <header class="site-header">
     <div class="container">
       <a class="brand" href="index.html"><img class="brand-logo" src="assets/images/favicon-48.png?v=2" alt="" width="28" height="28">AI<span>-</span>KIDO</a>
@@ -70,7 +70,7 @@
     <section class="page-head">
       <div class="container">
         <span class="tag">AI-KIDO · Distributions and installation</span>
-        <h1>One knowledge base. <em>Every assistant.</em> Installed in minutes.</h1>
+      <h1>One knowledge base.<br/><em>Every assistant.</em><br/>Installed in minutes.</h1>
         <p>The <span class="nowrap">AI-KIDO</span> Memory Bank is packaged for nine assistants. Pick yours, review what will be written, apply.</p>
         <div class="btn-row">
           <a class="btn primary" href="#distributions">Choose your assistant</a>
@@ -85,12 +85,12 @@
         <h2>What the knowledge base gives you</h2>
         <p class="sub">The same content is delivered to every assistant, adapted to the format it understands.</p>
         <div class="grid cols-3">
-          <article class="card"><h3>22 commands</h3><p>Initialize the Memory Bank, analyse a project, check the docs, create personas, commands and skills.</p></article>
-          <article class="card"><h3>15 specialized agents</h3><p>Truth, RACI, validation, exploration, indexes, plus an orchestrator that adapts to your assistant.</p></article>
-          <article class="card"><h3>6 system skills</h3><p>Project analysis, updates, orchestration, search and structure rules.</p></article>
-          <article class="card"><h3>Hard points</h3><p>Immutable rules that keep the Memory Bank structured, traceable and light for an LLM.</p></article>
-          <article class="card"><h3>Reviewable setup</h3><p>Nothing is written silently: a plan lists every file, you confirm, you review.</p></article>
-          <article class="card"><h3>Updates and removal</h3><p>Update, migrate or remove the integration, without touching your project knowledge.</p></article>
+          <article class="card"><img class="card-icon" src="assets/images/I2.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>22 commands</h3><p>Initialize the Memory Bank, analyse a project, check the docs, create personas, commands and skills.</p></article>
+          <article class="card"><img class="card-icon" src="assets/images/I3.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>15 specialized agents</h3><p>Truth, RACI, validation, exploration, indexes, plus an orchestrator that adapts to your assistant.</p></article>
+          <article class="card"><img class="card-icon" src="assets/images/I4.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>6 system skills</h3><p>Project analysis, updates, orchestration, search and structure rules.</p></article>
+          <article class="card"><img class="card-icon" src="assets/images/I5.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Hard points</h3><p>Immutable rules that keep the Memory Bank structured, traceable and light for an LLM.</p></article>
+          <article class="card"><img class="card-icon" src="assets/images/I6.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Reviewable setup</h3><p>Nothing is written silently: a plan lists every file, you confirm, you review.</p></article>
+          <article class="card"><img class="card-icon" src="assets/images/I7.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Updates and removal</h3><p>Update, migrate or remove the integration, without touching your project knowledge.</p></article>
         </div>
       </div>
     </section>
@@ -124,9 +124,9 @@
       <div class="container">
         <h2>Install in three steps</h2>
         <div class="grid cols-3">
-          <article class="card"><span class="tag">1</span><h3>Get the package</h3><p>Clone the release tag and pick the directory of your assistant.</p></article>
-          <article class="card"><span class="tag">2</span><h3>Review the plan</h3><p>Choose <code>STANDARD</code>, <code>LIGHT</code> or <code>UNSET</code> as the entry point and preview the files to install.</p></article>
-          <article class="card"><span class="tag">3</span><h3>Apply and initialize</h3><p>Apply with the plan ID, then run <code>/init-aikido</code> in your assistant to start your Memory Bank.</p></article>
+          <article class="card"><img class="card-icon" src="assets/images/I8.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><span class="tag">1</span><h3>Get the package</h3><p>Clone the release tag and pick the directory of your assistant.</p></article>
+          <article class="card"><img class="card-icon" src="assets/images/I9.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><span class="tag">2</span><h3>Review the plan</h3><p>Choose <code>STANDARD</code>, <code>LIGHT</code> or <code>UNSET</code> as the entry point and preview the files to install.</p></article>
+          <article class="card"><img class="card-icon" src="assets/images/I10.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><span class="tag">3</span><h3>Apply and initialize</h3><p>Apply with the plan ID, then run <code>/init-aikido</code> in your assistant to start your Memory Bank.</p></article>
         </div>
         <pre><code># 1. Get the package
 git clone --depth 1 --branch aikido-dist-v1.5.1 \
@@ -159,9 +159,9 @@ claude plugin install aikido@aikido</code></pre>
         <h2>Extend it with installable skills</h2>
         <p class="sub"><code>/skill-manage</code> searches, installs, updates and removes skills from trusted sources.</p>
         <div class="grid cols-3">
-          <article class="card"><h3>Safe by design</h3><p>Names and sources validated, symbolic links refused, scripts never run, a backup of anything replaced.</p></article>
-          <article class="card"><h3>Third parties need your approval</h3><p>External skills are listed with their files and scripts, and installed only after your explicit confirmation.</p></article>
-          <article class="card"><h3>Your own skills</h3><p>Create skills with <code>/create-skill</code> and share them through a catalog repository your team controls.</p></article>
+          <article class="card"><img class="card-icon" src="assets/images/I11.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Safe by design</h3><p>Names and sources validated, symbolic links refused, scripts never run, a backup of anything replaced.</p></article>
+          <article class="card"><img class="card-icon" src="assets/images/I12.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Third parties need your approval</h3><p>External skills are listed with their files and scripts, and installed only after your explicit confirmation.</p></article>
+          <article class="card"><img class="card-icon" src="assets/images/I13.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Your own skills</h3><p>Create skills with <code>/create-skill</code> and share them through a catalog repository your team controls.</p></article>
         </div>
         <pre><code>/skill-manage search jira
 /skill-manage get jira
