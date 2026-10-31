@@ -131,6 +131,24 @@ pre code { background: none; padding: 0; }
     var(--bg);
 }
 
+/* Harness page header: the artwork keeps its centre dark for the headline, so only a light veil is needed */
+.harness-page .page-head {
+  background:
+    linear-gradient(90deg, rgba(15, 18, 32, 0.3), rgba(15, 18, 32, 0.05) 50%, rgba(15, 18, 32, 0.3)),
+    linear-gradient(180deg, transparent 70%, rgba(15, 18, 32, 0.85) 100%),
+    url("../images/H5.webp") center / cover no-repeat,
+    var(--bg);
+}
+
+@media (max-width: 640px) {
+  .harness-page .page-head {
+    background:
+      linear-gradient(180deg, rgba(15, 18, 32, 0.55), rgba(15, 18, 32, 0.75) 100%),
+      url("../images/H5.webp") center / cover no-repeat,
+      var(--bg);
+  }
+}
+
 @media (max-width: 640px) {
   .kimono-flow { grid-template-columns: minmax(0, 1fr); }
   .kimono-arrow { transform: rotate(90deg); }
