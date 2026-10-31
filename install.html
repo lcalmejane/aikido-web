@@ -27,7 +27,7 @@
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=3">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#0f1220">
-  <link rel="stylesheet" href="assets/css/style.css?v=17">
+  <link rel="stylesheet" href="assets/css/style.css?v=18">
 </head>
 <body class="harness-builder">
   <header class="site-header">
@@ -85,12 +85,12 @@
         <h2>What the knowledge base gives you</h2>
         <p class="sub">The same content is delivered to every assistant, adapted to the format it understands.</p>
         <div class="grid cols-3">
-          <article class="card"><h3>22 commands</h3><p>Initialize the Memory Bank, analyse a project, check documentation against the code, create personas, commands and skills, manage installable skills, and more.</p></article>
-          <article class="card"><h3>15 specialized agents</h3><p>Truth evaluator, RACI delegator, validator, explorers, balancer, index maintenance and an orchestrator that adapts to your assistant's native one.</p></article>
-          <article class="card"><h3>6 system skills</h3><p>Project analysis, Memory Bank updates, orchestration, code and knowledge search, structure rules and web page download.</p></article>
-          <article class="card"><h3>Hard points</h3><p>Immutable rules and techniques that keep the Memory Bank structured, traceable and under the size limits that keep it efficient for an LLM.</p></article>
-          <article class="card"><h3>Reviewable setup</h3><p>Nothing is written silently: a plan lists every file, you apply it with a confirmation, and existing project customizations are shown for review.</p></article>
-          <article class="card"><h3>Updates and removal</h3><p>Update the method in a project, migrate an existing one, or remove the integration while keeping your project knowledge.</p></article>
+          <article class="card"><h3>22 commands</h3><p>Initialize the Memory Bank, analyse a project, check the docs, create personas, commands and skills.</p></article>
+          <article class="card"><h3>15 specialized agents</h3><p>Truth, RACI, validation, exploration, indexes, plus an orchestrator that adapts to your assistant.</p></article>
+          <article class="card"><h3>6 system skills</h3><p>Project analysis, updates, orchestration, search and structure rules.</p></article>
+          <article class="card"><h3>Hard points</h3><p>Immutable rules that keep the Memory Bank structured, traceable and light for an LLM.</p></article>
+          <article class="card"><h3>Reviewable setup</h3><p>Nothing is written silently: a plan lists every file, you confirm, you review.</p></article>
+          <article class="card"><h3>Updates and removal</h3><p>Update, migrate or remove the integration, without touching your project knowledge.</p></article>
         </div>
       </div>
     </section>
@@ -116,8 +116,7 @@
             </tbody>
           </table>
         </div>
-        <p>Plugin-based hosts (Claude Code, Claude Cowork, VS Code) install once for your account or editor.
-          Workspace-based hosts (Copilot coding agent, Codex, Kiro, Zoo, Roo, Antigravity) write reviewed files into each project.</p>
+        <p>Plugin hosts (Claude Code, Cowork, VS Code): one install for your account. Workspace hosts (Copilot, Codex, Kiro, Zoo, Roo, Antigravity): reviewed files in each project.</p>
       </div>
     </section>
 
@@ -147,8 +146,7 @@ node aikido-dist/&lt;package&gt;/scripts/bootstrap-plan.mjs \
 claude plugin install aikido@aikido</code></pre>
         <p><strong>Claude Cowork</strong>: zip the <code>claude-cowork</code> package and upload it in <em>Customize &gt; Plugins &gt; Add &gt; Upload plugin</em>.</p>
         <h3>Update or remove</h3>
-        <p>Installing a newer plugin and updating the method in a project are separate actions. Run the new package's <code>update-plan.mjs</code> against your project, review the plan, then apply it.
-          Add <code>--migrate</code> for a project that has no AI-KIDO lock yet, or <code>--uninstall</code> to remove the integration files. Your project's Memory Bank always stays.</p>
+        <p>Updating the method is done project by project: run the new package's <code>update-plan.mjs</code>, review the plan, apply it. <code>--migrate</code> for a project with no lock, <code>--uninstall</code> to remove the integration. Your Memory Bank always stays.</p>
         <div class="btn-row">
           <a class="btn primary" href="https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md">Full installation guide</a>
           <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/distribution/README.md">Project setup and updates</a>
@@ -159,9 +157,9 @@ claude plugin install aikido@aikido</code></pre>
     <section id="skills">
       <div class="container">
         <h2>Extend it with installable skills</h2>
-        <p class="sub">Beyond the built-in content, <code>/skill-manage</code> searches, installs, updates and removes skills from a catalog and from trusted external sources.</p>
+        <p class="sub"><code>/skill-manage</code> searches, installs, updates and removes skills from trusted sources.</p>
         <div class="grid cols-3">
-          <article class="card"><h3>Safe by design</h3><p>A deterministic engine validates names and sources, refuses symbolic links, never runs a skill's scripts and keeps a backup of anything it replaces.</p></article>
+          <article class="card"><h3>Safe by design</h3><p>Names and sources validated, symbolic links refused, scripts never run, a backup of anything replaced.</p></article>
           <article class="card"><h3>Third parties need your approval</h3><p>External skills are listed with their files and scripts, and installed only after your explicit confirmation.</p></article>
           <article class="card"><h3>Your own skills</h3><p>Create skills with <code>/create-skill</code> and share them through a catalog repository your team controls.</p></article>
         </div>

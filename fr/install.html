@@ -27,7 +27,7 @@
   <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=3">
   <link rel="manifest" href="../manifest.webmanifest">
   <meta name="theme-color" content="#0f1220">
-  <link rel="stylesheet" href="../assets/css/style.css?v=17">
+  <link rel="stylesheet" href="../assets/css/style.css?v=18">
 </head>
 <body class="harness-builder">
   <header class="site-header">
@@ -85,12 +85,12 @@
         <h2>Ce que la base de connaissance vous apporte</h2>
         <p class="sub">Le même contenu est livré à chaque assistant, adapté au format qu'il comprend.</p>
         <div class="grid cols-3">
-          <article class="card"><h3>22 commandes</h3><p>Initialiser la Memory Bank, analyser un projet, vérifier la documentation par rapport au code, créer personas, commandes et skills, gérer les skills installables, et plus encore.</p></article>
-          <article class="card"><h3>15 agents spécialisés</h3><p>Évaluateur de vérité, délégateur RACI, validateur, explorateurs, équilibreur, maintenance des index et un orchestrateur qui s'adapte à celui de votre assistant.</p></article>
-          <article class="card"><h3>6 skills système</h3><p>Analyse de projet, mise à jour de la Memory Bank, orchestration, recherche dans le code et la connaissance, règles de structure et téléchargement de pages web.</p></article>
-          <article class="card"><h3>Points durs</h3><p>Règles et techniques immuables qui gardent la Memory Bank structurée, traçable et dans les limites de taille qui la rendent efficace pour un LLM.</p></article>
-          <article class="card"><h3>Installation relisible</h3><p>Rien n'est écrit en silence : un plan liste chaque fichier, vous l'appliquez avec une confirmation et les personnalisations existantes du projet sont présentées pour relecture.</p></article>
-          <article class="card"><h3>Mise à jour et retrait</h3><p>Mettez à jour la méthode dans un projet, migrez un projet existant ou retirez l'intégration en conservant la connaissance du projet.</p></article>
+          <article class="card"><h3>22 commandes</h3><p>Initialiser la Memory Bank, analyser un projet, vérifier la doc, créer personas, commandes et skills.</p></article>
+          <article class="card"><h3>15 agents spécialisés</h3><p>Vérité, RACI, validation, exploration, index, plus un orchestrateur qui s'adapte à votre assistant.</p></article>
+          <article class="card"><h3>6 skills système</h3><p>Analyse de projet, mise à jour, orchestration, recherche et règles de structure.</p></article>
+          <article class="card"><h3>Points durs</h3><p>Des règles immuables qui gardent la Memory Bank structurée, traçable et légère pour un LLM.</p></article>
+          <article class="card"><h3>Installation relisible</h3><p>Rien n'est écrit en silence : un plan liste chaque fichier, vous confirmez, vous relisez.</p></article>
+          <article class="card"><h3>Mise à jour et retrait</h3><p>Mettez à jour, migrez ou retirez l'intégration, sans toucher à la connaissance du projet.</p></article>
         </div>
       </div>
     </section>
@@ -116,8 +116,7 @@
             </tbody>
           </table>
         </div>
-        <p>Les hôtes à plugin (Claude Code, Claude Cowork, VS Code) s'installent une fois pour votre compte ou votre éditeur.
-          Les hôtes à espace de travail (agent Copilot, Codex, Kiro, Zoo, Roo, Antigravity) écrivent des fichiers relus dans chaque projet.</p>
+        <p>Plugin (Claude Code, Cowork, VS Code) : une installation pour votre compte. Espace de travail (Copilot, Codex, Kiro, Zoo, Roo, Antigravity) : des fichiers relus dans chaque projet.</p>
       </div>
     </section>
 
@@ -147,8 +146,7 @@ node aikido-dist/&lt;paquet&gt;/scripts/bootstrap-plan.mjs \
 claude plugin install aikido@aikido</code></pre>
         <p><strong>Claude Cowork</strong> : zippez le paquet <code>claude-cowork</code> et importez-le dans <em>Customize &gt; Plugins &gt; Add &gt; Upload plugin</em>.</p>
         <h3>Mettre à jour ou retirer</h3>
-        <p>Installer un nouveau plugin et mettre à jour la méthode dans un projet sont deux actions distinctes. Lancez le <code>update-plan.mjs</code> du nouveau paquet sur votre projet, relisez le plan, puis appliquez-le.
-          Ajoutez <code>--migrate</code> pour un projet sans verrou AI-KIDO, ou <code>--uninstall</code> pour retirer les fichiers d'intégration. La Memory Bank de votre projet est toujours conservée.</p>
+        <p>Mettre à jour la méthode se fait projet par projet : lancez <code>update-plan.mjs</code> du nouveau paquet, relisez le plan, appliquez. <code>--migrate</code> pour un projet sans verrou, <code>--uninstall</code> pour retirer l'intégration. Votre Memory Bank est toujours conservée.</p>
         <div class="btn-row">
           <a class="btn primary" href="https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md">Guide d'installation complet</a>
           <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/distribution/README.md">Initialisation et mises à jour</a>
@@ -159,10 +157,10 @@ claude plugin install aikido@aikido</code></pre>
     <section id="skills">
       <div class="container">
         <h2>L'étendre avec des skills installables</h2>
-        <p class="sub">Au-delà du contenu intégré, <code>/skill-manage</code> recherche, installe, met à jour et retire des skills depuis un catalogue et des sources externes de confiance.</p>
+        <p class="sub"><code>/skill-manage</code> recherche, installe, met à jour et retire des skills depuis des sources de confiance.</p>
         <div class="grid cols-3">
-          <article class="card"><h3>Sûr par conception</h3><p>Un moteur déterministe valide les noms et les sources, refuse les liens symboliques, n'exécute jamais les scripts d'un skill et sauvegarde tout ce qu'il remplace.</p></article>
-          <article class="card"><h3>Les tiers demandent votre accord</h3><p>Les skills externes sont présentés avec leurs fichiers et leurs scripts, et installés uniquement après votre confirmation explicite.</p></article>
+          <article class="card"><h3>Sûr par conception</h3><p>Noms et sources validés, liens symboliques refusés, scripts jamais exécutés, sauvegarde de tout ce qui est remplacé.</p></article>
+          <article class="card"><h3>Les tiers demandent votre accord</h3><p>Les skills externes ne sont installés qu'après votre confirmation explicite.</p></article>
           <article class="card"><h3>Vos propres skills</h3><p>Créez des skills avec <code>/create-skill</code> et partagez-les via un dépôt de catalogue que votre équipe maîtrise.</p></article>
         </div>
         <pre><code>/skill-manage search jira
