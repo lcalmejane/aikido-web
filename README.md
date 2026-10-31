@@ -44,6 +44,7 @@ aikido-web/
 ├── fr/history.html     # history and timeline (FR)
 ├── 404.html            # bilingual error page (noindex)
 ├── sitemap.xml         # all 10 URLs with hreflang alternates (SEO)
+├── manifest.webmanifest # web app manifest (name, theme colour, 192/512 px icons)
 ├── .nojekyll           # disables Jekyll: static site served as is
 ├── assets/css/         # shared styles
 └── workspace/          # IGNORED by Git: documentation and working material
@@ -76,6 +77,7 @@ The site is static HTML/CSS, with no build step.
 
 - Every indexable page carries: `<title>`, `meta description`, `meta robots` (`index, follow, max-image-preview:large`), `<link rel="canonical">` (absolute URL, no `index.html`, no `?v=`), `og:url`, `og:site_name`, `og:image`, `twitter:image` and reciprocal `hreflang` (`en`, `fr`, `x-default` = EN). The two home pages also embed JSON-LD (`WebSite` + `SoftwareSourceCode`).
 - `404.html` is `noindex, follow`.
+- Icons: every page (including `404.html`) uses the same block: `favicon.ico` (16 + 32 px), PNG 32, 96 and 192 px, `apple-touch-icon` (180 px), `manifest.webmanifest` and `theme-color` (`#0f1220`, the site background). Icon URLs carry a `?v=3` cache-buster; bump it on every page when an icon file changes. Source artwork: `assets/images/logo-512.png`.
 - `sitemap.xml` lists the 10 pages with their `xhtml:link` alternates. When adding or renaming a page, update the sitemap, the `canonical`/`og:url`/`hreflang` tags of both versions, and bump `<lastmod>` on pages whose content changed.
 - `robots.txt` is **not** placed here: on a GitHub Pages project site, crawlers only read `https://lcalmejane.github.io/robots.txt` (root of the user domain, i.e. a `lcalmejane.github.io` repository). Without it everything is crawlable. If created there, add `Sitemap: https://lcalmejane.github.io/aikido-web/sitemap.xml`.
 - Search engines: add the property `https://lcalmejane.github.io/aikido-web/` (URL prefix) in Google Search Console, submit `sitemap.xml`, then request indexing of the home pages; import it into Bing Webmaster Tools. For ownership verification, add a `google-site-verification` meta tag (or an HTML verification file at the site root) only once the token is known.
