@@ -1,0 +1,66 @@
+{
+  "client": "AI-KIDO",
+  "project": "aikido-web",
+  "language": "fr",
+  "message": "Apprendre avec AI-KIDO, c'est entrer dans un dojo calme et lumineux où la connaissance se transmet par le geste et par la méthode.",
+  "audience": "Développeurs et équipes qui découvrent AI-KIDO sur le site web : curieux, pressés, besoin de clarté et de confiance dès la première visite.",
+  "use_cases": [
+    "web banner",
+    "hero de page d'accueil",
+    "illustrations de sections"
+  ],
+  "subject": "A sunlit wooden dojo interior with a tatami floor with green edges, open shoji doors, soft golden morning light, a low wooden shelf with a few books and scrolls, and a calm garden with trees and a stone path visible outside",
+  "format": {
+    "ratio": "16:9"
+  },
+  "realism": "photo",
+  "keywords": [
+    "dojo",
+    "bois",
+    "lumière dorée",
+    "Japon",
+    "connaissance",
+    "geste",
+    "transmission",
+    "profondeur",
+    "allégorie"
+  ],
+  "brand": {
+    "palette": [
+      "#0E386E",
+      "#B85C38",
+      "#C9A57B",
+      "#E8C77A",
+      "#F6EFE0",
+      "#F8DBB2",
+      "#A8B89A",
+      "#E9B8B8",
+      "#3D4E6B",
+      "#727058",
+      "#111524"
+    ],
+    "fonts": [],
+    "forbidden": [
+      "text",
+      "letters",
+      "logo",
+      "kanji",
+      "weapons",
+      "robots",
+      "neon",
+      "cyberpunk",
+      "stereotyped geisha",
+      "red torii cliche",
+      "face close-up"
+    ]
+  },
+  "constraints": [
+    "no text in the image",
+    "palette: all colours kept from the first board (washi cream, light wood, sunrise gold, matcha green, sakura pink, indigo) plus navy blue, sand beige, olive grey, ink black and brick red #B85C38 (complement of the blue)",
+    "photographic realism with several shot scales: wide dojo, close-up of hands, sharp foreground with a deep wide background",
+    "natural hands with five fingers, no face, no identifiable person",
+    "leave empty space on one side for a title",
+    "calm and welcoming mood"
+  ],
+  "references": []
+}

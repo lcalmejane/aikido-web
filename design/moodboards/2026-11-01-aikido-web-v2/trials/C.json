@@ -1,0 +1,16 @@
+{
+  "prompt": "A layered photograph with strong depth: in the sharp low foreground a folded indigo cotton cloth and a small brick-coloured ceramic tea cup on a wooden floor edge, and stretching far behind them A sunlit wooden dojo interior with a tatami floor with green edges, open shoji doors, soft golden morning light, a low wooden shelf with a few books and scrolls, and a calm garden with trees and a stone path visible outside, still clearly readable with atmospheric haze. 35mm lens at f/4, foreground and background both defined, leading lines toward the bright garden, warm golden morning light, cream, light wood, gold, indigo blue and brick terracotta tones, no people, empty space on the left, realistic textures, professional photography.",
+  "subject": "A sunlit wooden dojo interior with a tatami floor with green edges, open shoji doors, soft golden morning light, a low wooden shelf with a few books and scrolls, and a calm garden with trees and a stone path visible outside",
+  "style": "photo-depth-layers",
+  "negative_prompt": "illustration, drawing, cartoon, anime, 3d render, painting, text, letters, watermark, logo, kanji, people, faces, hands, oversaturated, neon, harsh flash, blurry, deformed, weapons, robots, cyberpunk, stereotyped geisha, red torii cliche, face close-up",
+  "model": "flux_1_schnell_q8p.ckpt",
+  "width": 512,
+  "height": 320,
+  "steps": 8,
+  "guidance_scale": 4,
+  "seed": 42,
+  "model_choice": "default (no --model given): pass --model to choose",
+  "sampler": "EulerATrailing",
+  "overrides": {},
+  "connector": "drawthing-grpc"
+}

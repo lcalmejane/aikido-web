@@ -1,0 +1,34 @@
+{
+  "client": "AI-KIDO",
+  "project": "aikido-web",
+  "language": "fr",
+  "message": "Apprendre avec AI-KIDO, c'est entrer dans un dojo calme et lumineux où Kido, le petit robot en keikogi, accompagne la transmission par le geste et par la méthode.",
+  "audience": "Développeurs et équipes qui découvrent AI-KIDO sur le site web : curieux, pressés, besoin de clarté et de confiance dès la première visite.",
+  "use_cases": ["web banner", "hero de page d'accueil", "illustrations de sections"],
+  "subject": "Kido, the small friendly robot mascot in a cream aikido keikogi, standing in a sunlit wooden dojo with a tatami floor and open shoji doors",
+  "format": { "ratio": "16:9" },
+  "realism": "playful",
+  "keywords": ["Kido", "mascotte", "robot", "dojo", "bois", "lumière dorée", "Japon", "connaissance", "geste", "transmission", "personnage"],
+  "brand": {
+    "palette": ["#0E386E", "#B85C38", "#C9A57B", "#E8C77A", "#F6EFE0", "#F8DBB2", "#A8B89A", "#E9B8B8", "#3D4E6B", "#727058", "#111524"],
+    "fonts": [],
+    "forbidden": ["text", "letters", "logo", "kanji", "weapons", "neon", "cyberpunk", "stereotyped geisha", "red torii cliche", "human", "second character"]
+  },
+  "constraints": [
+    "Kido is always the same: it keeps its proportions, its visor with two cyan eyes, its cream keikogi and its thin joints (model sheet in design/characters/kido)",
+    "no text in the image",
+    "palette: washi cream, light wood, sunrise gold, matcha green, sakura pink, indigo, navy blue, sand beige, olive grey, ink black and brick red #B85C38",
+    "one single character, Kido, no human",
+    "leave empty space on one side for a title",
+    "calm and welcoming mood"
+  ],
+  "references": [],
+  "positioning": "Une méthode calme et transmissible face au bruit des outils IA : un compagnon discret qui apprend avec vous, par le geste et non par l'accumulation.",
+  "textures": ["bois clair", "tatami", "papier washi", "matières mates douces"],
+  "scenes": [
+    { "id": "hero", "label": "Hero de la page d'accueil", "subject": "Kido standing calmly at the right of a wide sunlit dojo, tatami floor, open shoji doors, a calm garden outside, wide shot, empty space on the left", "ratio": "16:9" },
+    { "id": "lecture", "label": "Kido lit (section méthode)", "subject": "Kido holding an open red hardcover book with both hands at chest height and looking at it, in front of a low wooden shelf with a few scrolls, warm light from a shoji window", "ratio": "4:3" },
+    { "id": "garde", "label": "Kido en garde (le geste)", "subject": "Kido in a low balanced aikido stance, one hand extended forward, on the tatami floor of a dojo, soft morning light", "ratio": "4:3" },
+    { "id": "jardin", "label": "Kido et le calme (jardin)", "subject": "Kido standing on a wooden veranda seen from the side, looking at a quiet garden with trees and a stone path, golden light", "ratio": "1:1" }
+  ]
+}

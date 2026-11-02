@@ -1,0 +1,16 @@
+{
+  "prompt": "A watercolour painting of A sunlit wooden dojo interior with tatami floor and open shoji doors, soft morning light streaming in, a few books and scrolls resting on a low wooden shelf, a calm path of light leading toward the garden outside. Loose wet-on-wet washes, soft bleeding pigments, visible cold-press paper texture, delicate pencil underdrawing, generous white paper margins, gentle palette.",
+  "subject": "A sunlit wooden dojo interior with tatami floor and open shoji doors, soft morning light streaming in, a few books and scrolls resting on a low wooden shelf, a calm path of light leading toward the garden outside",
+  "style": "watercolor",
+  "negative_prompt": "photo, 3d render, harsh outlines, digital look, text, watermark, oversaturated, letters, logo, kanji, real person, weapons, robots, neon, cyberpunk, stereotyped geisha, red torii cliche",
+  "model": "flux_1_schnell_q8p.ckpt",
+  "width": 512,
+  "height": 320,
+  "steps": 8,
+  "guidance_scale": 4,
+  "seed": 42,
+  "model_choice": "default (no --model given): pass --model to choose",
+  "sampler": "EulerATrailing",
+  "overrides": {},
+  "connector": "drawthing-grpc"
+}

@@ -1,0 +1,51 @@
+{
+  "validated": "C",
+  "validated_by": "Laurent",
+  "validated_at": "2026-11-01T17:48:19.965Z",
+  "tracks": {
+    "A": {
+      "state": "rejected",
+      "comments": [
+        {
+          "at": "2026-11-01T17:48:19.765Z",
+          "by": "Laurent",
+          "text": "Ecartee : C retenue"
+        }
+      ]
+    },
+    "B": {
+      "state": "rejected",
+      "comments": [
+        {
+          "at": "2026-11-01T17:48:19.866Z",
+          "by": "Laurent",
+          "text": "Ecartee : C retenue"
+        }
+      ]
+    },
+    "C": {
+      "state": "validated",
+      "comments": []
+    }
+  },
+  "history": [
+    {
+      "at": "2026-11-01T17:48:19.765Z",
+      "track": "A",
+      "state": "rejected",
+      "by": "Laurent"
+    },
+    {
+      "at": "2026-11-01T17:48:19.866Z",
+      "track": "B",
+      "state": "rejected",
+      "by": "Laurent"
+    },
+    {
+      "at": "2026-11-01T17:48:19.965Z",
+      "track": "C",
+      "state": "validated",
+      "by": "Laurent"
+    }
+  ]
+}

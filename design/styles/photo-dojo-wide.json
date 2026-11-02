@@ -1,0 +1,12 @@
+{
+  "name": "photo-dojo-wide",
+  "description": "Wide architectural photograph, deep depth of field, warm wood and gold light with indigo and brick accents",
+  "category": "photo",
+  "tags": ["photo", "realistic", "wide", "interior", "architecture", "depth", "dojo"],
+  "use_cases": ["hero banner", "section opener", "web banner"],
+  "look": "wide-angle architectural interior photograph, deep depth of field, warm morning light",
+  "template": "A wide-angle architectural interior photograph of {subject}. 24mm lens at f/8, deep depth of field with everything sharp from the floor to the garden, long leading lines toward the bright opening, natural morning sunlight raking across the wooden floor, warm cream, light wood and gold tones with small touches of deep indigo blue and brick terracotta, calm balanced composition with empty space on the left, realistic textures, professional interior photography.",
+  "negative": "illustration, drawing, cartoon, anime, 3d render, painting, text, letters, watermark, logo, kanji, people, faces, oversaturated, neon, harsh flash, blurry, deformed",
+  "params": { "steps": 24, "guidance": 4 },
+  "thumb_subject": "a sunlit wooden room with a tatami floor and open sliding doors onto a quiet garden"
+}

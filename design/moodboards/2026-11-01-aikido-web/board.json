@@ -1,0 +1,198 @@
+{
+  "created": "2026-11-01T17:35:07.044Z",
+  "tracks": [
+    {
+      "id": "A",
+      "style": "watercolor",
+      "category": "painting",
+      "description": "Loose watercolour on textured paper, soft bleeding pigments",
+      "palette": [
+        {
+          "hex": "#f6efe0",
+          "name": "off-white",
+          "brand": true
+        },
+        {
+          "hex": "#c9a57b",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#e8c77a",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#f9f8f4",
+          "name": "white"
+        },
+        {
+          "hex": "#e0d6c5",
+          "name": "light grey"
+        },
+        {
+          "hex": "#727058",
+          "name": "grey"
+        }
+      ],
+      "keywords": [
+        "watercolor",
+        "soft",
+        "paint",
+        "organic",
+        "calm"
+      ],
+      "why": [],
+      "dos": [
+        "loose watercolour wash on cold-press paper",
+        "Idéal pour : soft illustration, invitation, book cover"
+      ],
+      "donts": [
+        "À éviter : photo, 3d render, harsh outlines, digital look, text, watermark, oversaturated, letters"
+      ],
+      "risks": [
+        "Privilégie l’ambiance à la précision : peu adapté aux produits exacts ou aux schémas."
+      ],
+      "sample_prompts": [
+        {
+          "subject": "A sunlit wooden dojo interior with tatami floor and open shoji doors, soft morning light streaming in, a few books and scrolls resting on a low wooden shelf, a calm path of light leading toward the garden outside",
+          "prompt": "A watercolour painting of A sunlit wooden dojo interior with tatami floor and open shoji doors, soft morning light streaming in, a few books and scrolls resting on a low wooden shelf, a calm path of light leading toward the garden outside. Loose wet-on-wet washes, soft bleeding pigments, visible cold-press paper texture, delicate pencil underdrawing, generous white paper margins, gentle palette."
+        }
+      ],
+      "negative": "photo, 3d render, harsh outlines, digital look, text, watermark, oversaturated, letters, logo, kanji, real person, weapons, robots, neon, cyberpunk, stereotyped geisha, red torii cliche",
+      "params": {
+        "steps": 24,
+        "guidance": 4
+      }
+    },
+    {
+      "id": "B",
+      "style": "paper-cut",
+      "category": "craft",
+      "description": "Layered paper-cut diorama with soft depth shadows",
+      "palette": [
+        {
+          "hex": "#f6efe0",
+          "name": "off-white",
+          "brand": true
+        },
+        {
+          "hex": "#c9a57b",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#e8c77a",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#f0dec0",
+          "name": "off-white"
+        },
+        {
+          "hex": "#663d28",
+          "name": "brown"
+        },
+        {
+          "hex": "#e5b97f",
+          "name": "beige"
+        }
+      ],
+      "keywords": [
+        "paper",
+        "craft",
+        "layered",
+        "handmade",
+        "warm"
+      ],
+      "why": [],
+      "dos": [
+        "layered paper-cut diorama with soft shadows",
+        "Idéal pour : poster, packaging, editorial header"
+      ],
+      "donts": [
+        "À éviter : photo, painting, glossy, text, letters, watermark, flat, blurry"
+      ],
+      "risks": [
+        "Identité forte, les petits détails se perdent en petit format."
+      ],
+      "sample_prompts": [
+        {
+          "subject": "A sunlit wooden dojo interior with tatami floor and open shoji doors, soft morning light streaming in, a few books and scrolls resting on a low wooden shelf, a calm path of light leading toward the garden outside",
+          "prompt": "A layered paper-cut art piece of A sunlit wooden dojo interior with tatami floor and open shoji doors, soft morning light streaming in, a few books and scrolls resting on a low wooden shelf, a calm path of light leading toward the garden outside. Stacked sheets of coloured paper, soft drop shadows between layers, visible paper fibres, warm harmonious palette, handcrafted diorama look, centred composition."
+        }
+      ],
+      "negative": "photo, painting, glossy, text, letters, watermark, flat, blurry, logo, kanji, real person, weapons, robots, neon, cyberpunk, stereotyped geisha, red torii cliche",
+      "params": {
+        "steps": 24,
+        "guidance": 4
+      }
+    },
+    {
+      "id": "C",
+      "style": "anime",
+      "category": "stylized",
+      "description": "Anime key visual, cel shading, vivid sky and light",
+      "palette": [
+        {
+          "hex": "#f6efe0",
+          "name": "off-white",
+          "brand": true
+        },
+        {
+          "hex": "#c9a57b",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#e8c77a",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#111524",
+          "name": "black"
+        },
+        {
+          "hex": "#f8dbb2",
+          "name": "beige"
+        },
+        {
+          "hex": "#0e386e",
+          "name": "navy blue"
+        }
+      ],
+      "keywords": [
+        "anime",
+        "cel",
+        "manga",
+        "vivid",
+        "character"
+      ],
+      "why": [],
+      "dos": [
+        "anime key visual with cel shading and a vivid sky",
+        "Idéal pour : key visual, game art, youth content"
+      ],
+      "donts": [
+        "À éviter : photo, realistic, 3d render, western cartoon, text, watermark, extra limbs, deformed"
+      ],
+      "risks": [
+        "Look très reconnaissable : vérifier l’accord avec le ton de la marque."
+      ],
+      "sample_prompts": [
+        {
+          "subject": "A sunlit wooden dojo interior with tatami floor and open shoji doors, soft morning light streaming in, a few books and scrolls resting on a low wooden shelf, a calm path of light leading toward the garden outside",
+          "prompt": "An anime key visual of A sunlit wooden dojo interior with tatami floor and open shoji doors, soft morning light streaming in, a few books and scrolls resting on a low wooden shelf, a calm path of light leading toward the garden outside. Cel shading, clean line art, vivid saturated colours, dramatic sky with soft clouds, glowing highlights, detailed painted background in the style of a feature animation film."
+        }
+      ],
+      "negative": "photo, realistic, 3d render, western cartoon, text, watermark, extra limbs, deformed, low quality, letters, logo, kanji, real person, weapons, robots, neon, cyberpunk, stereotyped geisha, red torii cliche",
+      "params": {
+        "steps": 24,
+        "guidance": 4
+      }
+    }
+  ],
+  "warnings": []
+}

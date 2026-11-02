@@ -1,0 +1,16 @@
+{
+  "prompt": "An anime key visual of A sunlit wooden dojo interior with tatami floor and open shoji doors, soft morning light streaming in, a few books and scrolls resting on a low wooden shelf, a calm path of light leading toward the garden outside. Cel shading, clean line art, vivid saturated colours, dramatic sky with soft clouds, glowing highlights, detailed painted background in the style of a feature animation film.",
+  "subject": "A sunlit wooden dojo interior with tatami floor and open shoji doors, soft morning light streaming in, a few books and scrolls resting on a low wooden shelf, a calm path of light leading toward the garden outside",
+  "style": "anime",
+  "negative_prompt": "photo, realistic, 3d render, western cartoon, text, watermark, extra limbs, deformed, low quality, letters, logo, kanji, real person, weapons, robots, neon, cyberpunk, stereotyped geisha, red torii cliche",
+  "model": "flux_1_schnell_q8p.ckpt",
+  "width": 512,
+  "height": 320,
+  "steps": 8,
+  "guidance_scale": 4,
+  "seed": 42,
+  "model_choice": "default (no --model given): pass --model to choose",
+  "sampler": "EulerATrailing",
+  "overrides": {},
+  "connector": "drawthing-grpc"
+}

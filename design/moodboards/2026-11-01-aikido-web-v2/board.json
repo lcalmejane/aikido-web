@@ -1,0 +1,288 @@
+{
+  "created": "2026-11-01T17:45:21.553Z",
+  "tracks": [
+    {
+      "id": "A",
+      "style": "photo-dojo-wide",
+      "category": "photo",
+      "description": "Wide architectural photograph, deep depth of field, warm wood and gold light with indigo and brick accents",
+      "palette": [
+        {
+          "hex": "#0e386e",
+          "name": "navy blue",
+          "brand": true
+        },
+        {
+          "hex": "#b85c38",
+          "name": "red",
+          "brand": true
+        },
+        {
+          "hex": "#c9a57b",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#e8c77a",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#f6efe0",
+          "name": "off-white",
+          "brand": true
+        },
+        {
+          "hex": "#f8dbb2",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#a8b89a",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#e9b8b8",
+          "name": "pink",
+          "brand": true
+        },
+        {
+          "hex": "#3d4e6b",
+          "name": "charcoal",
+          "brand": true
+        },
+        {
+          "hex": "#727058",
+          "name": "grey",
+          "brand": true
+        },
+        {
+          "hex": "#111524",
+          "name": "black",
+          "brand": true
+        }
+      ],
+      "keywords": [
+        "photo",
+        "realistic",
+        "wide",
+        "interior",
+        "architecture",
+        "depth",
+        "dojo"
+      ],
+      "why": [],
+      "dos": [
+        "wide-angle architectural interior photograph, deep depth of field, warm morning light",
+        "Idéal pour : hero banner, section opener, web banner"
+      ],
+      "donts": [
+        "À éviter : illustration, drawing, cartoon, anime, 3d render, painting, text, letters"
+      ],
+      "risks": [
+        "Les mains, les dents et les petits textes sont les points faibles habituels : prévoir quelques relances."
+      ],
+      "sample_prompts": [
+        {
+          "subject": "A sunlit wooden dojo interior with a tatami floor with green edges, open shoji doors, soft golden morning light, a low wooden shelf with a few books and scrolls, and a calm garden with trees and a stone path visible outside",
+          "prompt": "A wide-angle architectural interior photograph of A sunlit wooden dojo interior with a tatami floor with green edges, open shoji doors, soft golden morning light, a low wooden shelf with a few books and scrolls, and a calm garden with trees and a stone path visible outside. 24mm lens at f/8, deep depth of field with everything sharp from the floor to the garden, long leading lines toward the bright opening, natural morning sunlight raking across the wooden floor, warm cream, light wood and gold tones with small touches of deep indigo blue and brick terracotta, calm balanced composition with empty space on the left, realistic textures, professional interior photography."
+        }
+      ],
+      "negative": "illustration, drawing, cartoon, anime, 3d render, painting, text, letters, watermark, logo, kanji, people, faces, oversaturated, neon, harsh flash, blurry, deformed, weapons, robots, cyberpunk, stereotyped geisha, red torii cliche, face close-up",
+      "params": {
+        "steps": 24,
+        "guidance": 4
+      }
+    },
+    {
+      "id": "B",
+      "style": "photo-hands-closeup",
+      "category": "photo",
+      "description": "Close-up photograph of calm hands in action, sharp foreground, soft blurred wide scene behind",
+      "palette": [
+        {
+          "hex": "#0e386e",
+          "name": "navy blue",
+          "brand": true
+        },
+        {
+          "hex": "#b85c38",
+          "name": "red",
+          "brand": true
+        },
+        {
+          "hex": "#c9a57b",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#e8c77a",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#f6efe0",
+          "name": "off-white",
+          "brand": true
+        },
+        {
+          "hex": "#f8dbb2",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#a8b89a",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#e9b8b8",
+          "name": "pink",
+          "brand": true
+        },
+        {
+          "hex": "#3d4e6b",
+          "name": "charcoal",
+          "brand": true
+        },
+        {
+          "hex": "#727058",
+          "name": "grey",
+          "brand": true
+        },
+        {
+          "hex": "#111524",
+          "name": "black",
+          "brand": true
+        }
+      ],
+      "keywords": [
+        "photo",
+        "realistic",
+        "close-up",
+        "hands",
+        "action",
+        "shallow-depth",
+        "dojo"
+      ],
+      "why": [],
+      "dos": [
+        "macro-style close-up of hands in action with the scene softly blurred behind",
+        "Idéal pour : hero banner, call to action, section about practice"
+      ],
+      "donts": [
+        "À éviter : illustration, drawing, cartoon, anime, 3d render, painting, text, letters"
+      ],
+      "risks": [
+        "Les mains, les dents et les petits textes sont les points faibles habituels : prévoir quelques relances."
+      ],
+      "sample_prompts": [
+        {
+          "subject": "A sunlit wooden dojo interior with a tatami floor with green edges, open shoji doors, soft golden morning light, a low wooden shelf with a few books and scrolls, and a calm garden with trees and a stone path visible outside",
+          "prompt": "A close-up photograph of two calm adult hands turning the page of an old open book resting on a low wooden table, the hands in sharp focus in the lower foreground with natural skin texture and five natural fingers, an indigo cotton sleeve cuff, and behind them A sunlit wooden dojo interior with a tatami floor with green edges, open shoji doors, soft golden morning light, a low wooden shelf with a few books and scrolls, and a calm garden with trees and a stone path visible outside, softly out of focus. 85mm lens at f/2, shallow depth of field, warm golden morning light from the side, cream, light wood, gold, indigo blue and brick terracotta tones, no face, empty space on the right, realistic textures, professional photography."
+        }
+      ],
+      "negative": "illustration, drawing, cartoon, anime, 3d render, painting, text, letters, watermark, logo, kanji, face, extra fingers, missing fingers, fused fingers, deformed hands, long fingers, oversaturated, neon, harsh flash, blurry hands, weapons, robots, cyberpunk, stereotyped geisha, red torii cliche, face close-up",
+      "params": {
+        "steps": 24,
+        "guidance": 4
+      }
+    },
+    {
+      "id": "C",
+      "style": "photo-depth-layers",
+      "category": "photo",
+      "description": "Layered photograph: sharp close-up object in the foreground, wide scene with strong depth behind",
+      "palette": [
+        {
+          "hex": "#0e386e",
+          "name": "navy blue",
+          "brand": true
+        },
+        {
+          "hex": "#b85c38",
+          "name": "red",
+          "brand": true
+        },
+        {
+          "hex": "#c9a57b",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#e8c77a",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#f6efe0",
+          "name": "off-white",
+          "brand": true
+        },
+        {
+          "hex": "#f8dbb2",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#a8b89a",
+          "name": "beige",
+          "brand": true
+        },
+        {
+          "hex": "#e9b8b8",
+          "name": "pink",
+          "brand": true
+        },
+        {
+          "hex": "#3d4e6b",
+          "name": "charcoal",
+          "brand": true
+        },
+        {
+          "hex": "#727058",
+          "name": "grey",
+          "brand": true
+        },
+        {
+          "hex": "#111524",
+          "name": "black",
+          "brand": true
+        }
+      ],
+      "keywords": [
+        "photo",
+        "realistic",
+        "depth",
+        "foreground",
+        "layers",
+        "wide-background",
+        "dojo"
+      ],
+      "why": [],
+      "dos": [
+        "layered composition, sharp close-up foreground, wide scene with depth behind",
+        "Idéal pour : hero banner, web banner, storytelling section"
+      ],
+      "donts": [
+        "À éviter : illustration, drawing, cartoon, anime, 3d render, painting, text, letters"
+      ],
+      "risks": [
+        "Les mains, les dents et les petits textes sont les points faibles habituels : prévoir quelques relances."
+      ],
+      "sample_prompts": [
+        {
+          "subject": "A sunlit wooden dojo interior with a tatami floor with green edges, open shoji doors, soft golden morning light, a low wooden shelf with a few books and scrolls, and a calm garden with trees and a stone path visible outside",
+          "prompt": "A layered photograph with strong depth: in the sharp low foreground a folded indigo cotton cloth and a small brick-coloured ceramic tea cup on a wooden floor edge, and stretching far behind them A sunlit wooden dojo interior with a tatami floor with green edges, open shoji doors, soft golden morning light, a low wooden shelf with a few books and scrolls, and a calm garden with trees and a stone path visible outside, still clearly readable with atmospheric haze. 35mm lens at f/4, foreground and background both defined, leading lines toward the bright garden, warm golden morning light, cream, light wood, gold, indigo blue and brick terracotta tones, no people, empty space on the left, realistic textures, professional photography."
+        }
+      ],
+      "negative": "illustration, drawing, cartoon, anime, 3d render, painting, text, letters, watermark, logo, kanji, people, faces, hands, oversaturated, neon, harsh flash, blurry, deformed, weapons, robots, cyberpunk, stereotyped geisha, red torii cliche, face close-up",
+      "params": {
+        "steps": 24,
+        "guidance": 4
+      }
+    }
+  ],
+  "warnings": []
+}

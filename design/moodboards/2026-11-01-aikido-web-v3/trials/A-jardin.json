@@ -1,0 +1,16 @@
+{
+  "prompt": "A wide-angle architectural interior photograph of A stone path through a quiet garden with trees, seen from the dojo veranda, golden light, deep background. 24mm lens at f/8, deep depth of field with everything sharp from the floor to the garden, long leading lines toward the bright opening, natural morning sunlight raking across the wooden floor, warm cream, light wood and gold tones with small touches of deep indigo blue and brick terracotta, calm balanced composition with empty space on the left, realistic textures, professional interior photography.",
+  "subject": "A stone path through a quiet garden with trees, seen from the dojo veranda, golden light, deep background",
+  "style": "photo-dojo-wide",
+  "negative_prompt": "illustration, drawing, cartoon, anime, 3d render, painting, text, letters, watermark, logo, kanji, people, faces, oversaturated, neon, harsh flash, blurry, deformed, weapons, robots, cyberpunk, stereotyped geisha, red torii cliche, face close-up",
+  "model": "flux_1_schnell_q8p.ckpt",
+  "width": 640,
+  "height": 640,
+  "steps": 8,
+  "guidance_scale": 4,
+  "seed": 42,
+  "model_choice": "default (no --model given): pass --model to choose",
+  "sampler": "EulerATrailing",
+  "overrides": {},
+  "connector": "drawthing-grpc"
+}

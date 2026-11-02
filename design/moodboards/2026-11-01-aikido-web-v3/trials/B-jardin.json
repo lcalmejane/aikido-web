@@ -1,0 +1,16 @@
+{
+  "prompt": "A close-up photograph of two calm adult hands turning the page of an old open book resting on a low wooden table, the hands in sharp focus in the lower foreground with natural skin texture and five natural fingers, an indigo cotton sleeve cuff, and behind them A stone path through a quiet garden with trees, seen from the dojo veranda, golden light, deep background, softly out of focus. 85mm lens at f/2, shallow depth of field, warm golden morning light from the side, cream, light wood, gold, indigo blue and brick terracotta tones, no face, empty space on the right, realistic textures, professional photography.",
+  "subject": "A stone path through a quiet garden with trees, seen from the dojo veranda, golden light, deep background",
+  "style": "photo-hands-closeup",
+  "negative_prompt": "illustration, drawing, cartoon, anime, 3d render, painting, text, letters, watermark, logo, kanji, face, extra fingers, missing fingers, fused fingers, deformed hands, long fingers, oversaturated, neon, harsh flash, blurry hands, weapons, robots, cyberpunk, stereotyped geisha, red torii cliche, face close-up",
+  "model": "flux_1_schnell_q8p.ckpt",
+  "width": 640,
+  "height": 640,
+  "steps": 8,
+  "guidance_scale": 4,
+  "seed": 42,
+  "model_choice": "default (no --model given): pass --model to choose",
+  "sampler": "EulerATrailing",
+  "overrides": {},
+  "connector": "drawthing-grpc"
+}

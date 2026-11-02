@@ -1,0 +1,16 @@
+{
+  "prompt": "Kido, the AI-KIDO mascot, a small friendly robot character, always identical. PROPORTIONS: the whole body is 3.5 heads tall; the head is about 28 percent of the full height and slightly wider than tall; from the chin to the belt is 0.7 head; from the belt to the hem of the trousers is 1.3 heads; the trousers are about 1.5 heads wide; the ankles and shoes take the last half head; the arms are short and end at the hips. HEAD: a perfectly smooth round pearl-white dome, the top of the head is a clean bare sphere. FACE: one wide glossy black visor panel, completely smooth, carrying exactly two large solid filled glowing cyan discs as eyes, evenly spaced, bright and flat like two lit round lamps, and nothing else. SIDES: one small white round ear-piece with a thin black rim on each side of the head. NECK: a short thin neck, a narrow black metal band. OUTFIT: a cream short-sleeved aikido keikogi jacket with a wide crossed collar, a cream belt tied at the waist with a round bead-shaped knot and two short tails hanging down, very wide balloon-shaped cream trousers with heavy soft folds. JOINTS: every joint is thin and small, a narrow black metal band about the width of a finger with one tiny round silver bolt, at the shoulders, the elbows, the wrists and the ankles; the joints are much smaller than the forearm blocks and the shoes. ARMS, from the shoulder down: the short jacket sleeve covers the shoulder, then a thin black metal elbow band with a tiny silver bolt, then one big rounded off-white rigid shell as wide as it is long, the forearm block, then a thin black metal wrist band, then a small mechanical robot hand: a rigid cream-white palm with three separate smooth rigid capsule-shaped fingers, the hand about half the size of the forearm block. FEET: a thin black metal ankle band under the trousers, then white rounded shoes with a strap and a thin grey sole. Scene: Kido standing calmly at the right of a wide sunlit dojo, tatami floor, open shoji doors, a calm garden outside, wide shot, empty space on the left. Soft smooth 3D render, clean matte materials, warm golden light, high detail, a single character, same design in every image.",
+  "subject": "Kido standing calmly at the right of a wide sunlit dojo, tatami floor, open shoji doors, a calm garden outside, wide shot, empty space on the left",
+  "style": "kido-mascot",
+  "negative_prompt": "human, person, mouth, nose, hair, skin, antenna, horns, ring eyes, outlined eyes, red eyes, green eyes, armor, tall slim body, long legs, thin limbs, skeletal fingers, mittens, gloves, boxing gloves, rounded blob hands, soft fingers, fabric cuffs, knitted cuffs, cotton cuffs, ribbed cloth, oversized hands, long black arms, rubber tyres, stacked rings, chunky black joints, thick black rings, text, letters, watermark, logo, kanji, 2d, flat, sketch, blurry, deformed, multiple characters, weapons, neon, cyberpunk, stereotyped geisha, red torii cliche, second character",
+  "model": "flux_1_schnell_q8p.ckpt",
+  "width": 640,
+  "height": 384,
+  "steps": 8,
+  "guidance_scale": 4,
+  "seed": 42,
+  "model_choice": "default (no --model given): pass --model to choose",
+  "sampler": "EulerATrailing",
+  "overrides": {},
+  "connector": "drawthing-grpc"
+}

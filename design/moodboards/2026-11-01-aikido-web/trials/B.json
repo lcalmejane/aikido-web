@@ -1,0 +1,16 @@
+{
+  "prompt": "A layered paper-cut art piece of A sunlit wooden dojo interior with tatami floor and open shoji doors, soft morning light streaming in, a few books and scrolls resting on a low wooden shelf, a calm path of light leading toward the garden outside. Stacked sheets of coloured paper, soft drop shadows between layers, visible paper fibres, warm harmonious palette, handcrafted diorama look, centred composition.",
+  "subject": "A sunlit wooden dojo interior with tatami floor and open shoji doors, soft morning light streaming in, a few books and scrolls resting on a low wooden shelf, a calm path of light leading toward the garden outside",
+  "style": "paper-cut",
+  "negative_prompt": "photo, painting, glossy, text, letters, watermark, flat, blurry, logo, kanji, real person, weapons, robots, neon, cyberpunk, stereotyped geisha, red torii cliche",
+  "model": "flux_1_schnell_q8p.ckpt",
+  "width": 512,
+  "height": 320,
+  "steps": 8,
+  "guidance_scale": 4,
+  "seed": 42,
+  "model_choice": "default (no --model given): pass --model to choose",
+  "sampler": "EulerATrailing",
+  "overrides": {},
+  "connector": "drawthing-grpc"
+}

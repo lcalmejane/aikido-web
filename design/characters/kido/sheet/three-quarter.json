@@ -1,0 +1,13 @@
+{
+  "prompt": "Kido, a small friendly 3D robot mascot, full body, three-quarter view turned slightly to the left, standing, arms relaxed, on a plain mid blue-grey studio background. Big smooth pearl-white round head with a wide glossy black visor and glowing cyan disc eyes, small white ear-pieces. Short cream aikido keikogi jacket with a crossed collar, cream belt with a round knot, very wide cream balloon trousers with soft folds, white rounded shoes. Thick rounded off-white forearm blocks. The joints at elbow, wrist and ankle are thin and small: a narrow black band about the width of a finger with one tiny silver bolt. Small mechanical hands with three thin fingers. Soft smooth 3D render, matte materials, warm light.",
+  "negative_prompt": "human, mouth, nose, hair, antenna, thick black rings, chunky black joints, stacked rings, rubber tyres, fabric cuffs, mittens, tall slim body, long legs, text, watermark, 2d, flat, sketch, blurry, multiple characters",
+  "model": "qwen_image_2512_bf16_i8x.ckpt",
+  "width": 512,
+  "height": 512,
+  "steps": 16,
+  "guidance_scale": 4,
+  "seed": 42,
+  "sampler": "EulerATrailing",
+  "overrides": {},
+  "connector": "drawthing-grpc"
+}

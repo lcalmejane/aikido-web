@@ -1,0 +1,12 @@
+{
+  "name": "photo-hands-closeup",
+  "description": "Close-up photograph of calm hands in action, sharp foreground, soft blurred wide scene behind",
+  "category": "photo",
+  "tags": ["photo", "realistic", "close-up", "hands", "action", "shallow-depth", "dojo"],
+  "use_cases": ["hero banner", "call to action", "section about practice"],
+  "look": "macro-style close-up of hands in action with the scene softly blurred behind",
+  "template": "A close-up photograph of two calm adult hands turning the page of an old open book resting on a low wooden table, the hands in sharp focus in the lower foreground with natural skin texture and five natural fingers, an indigo cotton sleeve cuff, and behind them {subject}, softly out of focus. 85mm lens at f/2, shallow depth of field, warm golden morning light from the side, cream, light wood, gold, indigo blue and brick terracotta tones, no face, empty space on the right, realistic textures, professional photography.",
+  "negative": "illustration, drawing, cartoon, anime, 3d render, painting, text, letters, watermark, logo, kanji, face, extra fingers, missing fingers, fused fingers, deformed hands, long fingers, oversaturated, neon, harsh flash, blurry hands",
+  "params": { "steps": 24, "guidance": 4 },
+  "thumb_subject": "a sunlit wooden room with a tatami floor and open sliding doors onto a quiet garden"
+}

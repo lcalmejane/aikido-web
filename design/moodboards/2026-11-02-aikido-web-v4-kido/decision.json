@@ -1,0 +1,20 @@
+{
+  "validated": null,
+  "validated_by": null,
+  "validated_at": null,
+  "tracks": {
+    "A": {
+      "state": "proposed",
+      "comments": []
+    },
+    "B": {
+      "state": "proposed",
+      "comments": []
+    },
+    "C": {
+      "state": "proposed",
+      "comments": []
+    }
+  },
+  "history": []
+}

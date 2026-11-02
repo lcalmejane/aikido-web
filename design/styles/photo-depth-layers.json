@@ -1,0 +1,12 @@
+{
+  "name": "photo-depth-layers",
+  "description": "Layered photograph: sharp close-up object in the foreground, wide scene with strong depth behind",
+  "category": "photo",
+  "tags": ["photo", "realistic", "depth", "foreground", "layers", "wide-background", "dojo"],
+  "use_cases": ["hero banner", "web banner", "storytelling section"],
+  "look": "layered composition, sharp close-up foreground, wide scene with depth behind",
+  "template": "A layered photograph with strong depth: in the sharp low foreground a folded indigo cotton cloth and a small brick-coloured ceramic tea cup on a wooden floor edge, and stretching far behind them {subject}, still clearly readable with atmospheric haze. 35mm lens at f/4, foreground and background both defined, leading lines toward the bright garden, warm golden morning light, cream, light wood, gold, indigo blue and brick terracotta tones, no people, empty space on the left, realistic textures, professional photography.",
+  "negative": "illustration, drawing, cartoon, anime, 3d render, painting, text, letters, watermark, logo, kanji, people, faces, hands, oversaturated, neon, harsh flash, blurry, deformed",
+  "params": { "steps": 24, "guidance": 4 },
+  "thumb_subject": "a sunlit wooden room with a tatami floor and open sliding doors onto a quiet garden"
+}
