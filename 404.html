@@ -11,19 +11,28 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/aikido-web/assets/images/icon-192.png?v=3">
   <link rel="apple-touch-icon" href="/aikido-web/assets/images/apple-touch-icon.png?v=3">
   <link rel="manifest" href="/aikido-web/manifest.webmanifest">
-  <meta name="theme-color" content="#0f1220">
-  <link rel="stylesheet" href="/aikido-web/assets/css/style.css?v=19">
+  <meta name="theme-color" content="#f6efe0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
+  <script src="/aikido-web/assets/js/theme.js?v=1"></script>
+  <link rel="stylesheet" href="/aikido-web/assets/css/home.css?v=4">
+  <link rel="stylesheet" href="/aikido-web/assets/css/inner.css?v=4">
 </head>
-<body>
-  <main class="hero err" style="min-height:100vh;display:flex;align-items:center">
-    <div class="container">
-      <h1>404</h1>
-      <p class="lead">This page does not exist. / Cette page n'existe pas.</p>
-      <div class="btn-row">
-        <a class="btn primary" href="/aikido-web/">Back to home</a>
-        <a class="btn" href="/aikido-web/fr/">Retour à l'accueil (FR)</a>
+<body class="inner">
+  <main>
+    <section class="hero err">
+      <img class="bg" src="/aikido-web/assets/images/pages/ph-404.webp" width="1344" height="512" alt="An empty raked gravel garden with a path of stepping stones bending around a low bamboo fence">
+      <div class="wrap">
+        <div class="text">
+          <span class="eyebrow">Error 404</span>
+          <h1>This page <em>does not exist</em>.</h1>
+          <p class="lead">Cette page n'existe pas. The path you followed leads nowhere, but the garden is open.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="/aikido-web/">Back to home</a>
+            <a class="btn" href="/aikido-web/fr/">Retour à l'accueil (FR)</a>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   </main>
 </body>
 </html>

@@ -28,7 +28,22 @@ and [project setup guide](https://github.com/lcalmejane/aikido/blob/main/distrib
 
 ## Navigation
 
-Every page shares the same header, built without JavaScript: a short main menu (`Method` group, `Install`, `Kimono MCP`, `GitHub`, language switch) and a secondary "On this page" bar listing the sections of the current page. Below 900 px the main menu collapses behind a `Menu` toggle (`#nav-toggle` checkbox) and the section bar scrolls sideways. When adding a page, copy the header of an existing page, add the page to the `Method` group if it belongs there, and list only its own `#section` anchors in the secondary bar.
+Every page shares the same header as the home, built without JavaScript: a short main menu (`Method` group, `Install`, `Tools` group (Kimono MCP, Local Designer), `GitHub`, language switch) and, on inner pages, a secondary "On this page" bar listing the sections of the current page. Below 960 px the main menu collapses behind a `Menu` toggle (`#nav-toggle` checkbox) and the section bar scrolls sideways. When adding a page, copy the header of an existing page, add the page to the `Method` group if it belongs there, and list only its own `#section` anchors in the secondary bar.
+
+## Visual identity (November 2026 design refresh)
+
+The whole site follows the charter of the home page (cream `#f6efe0`, ink `#111524`, navy `#0e386e`, terracotta `#b85c38`, gold `#e8c77a`; serif headings, sans body; automatic dark mode). Photography shows people in cream keikogi in a sunlit dojo; icons are the inline SVG sprite, never raster pictograms.
+
+- `assets/css/home.css`: charter variables, header, buttons, hero, bands, closing block. Loaded by every page.
+- `assets/css/inner.css`: the same charter applied to inner pages (page header with full-width photo, cards, steps, tables, timeline, belts). Loaded after `home.css`; body class `inner`. Cache-busters: `home.css?v=4`, `inner.css?v=4`; bump them on every page when the file changes.
+- Header menu: **Method** (Home, Harness creation, History) and **Tools** (Kimono MCP, Local Designer) are `<details class="nav-group">` groups; the group holding the current page gets the class `current` so its label takes the accent colour. A new tool page goes into the **Tools** panel of all pages (EN and FR), in `sitemap.xml`, and in the page list of the site check.
+- `local-designer.html` / `fr/local-designer.html`: page of the `local-designer` skill (art director for agents). Images: `ph-designer` (header) and `designer-moodboard|charter|uikit|render` in `assets/images/pages/`; the 12 style thumbnails in `assets/images/pages/styles/` are the skill's own (`styles/thumbs/`), not site renders. No link to the `aikido-skills` repository, which is private: installation is described through `/skill-manage` and the public method repository.
+- Photo layouts on inner pages (never a lone illustration floating between text blocks): `.duo` = two `.card` side by side, each with a `.card-img` on top, a `.tag`, a title and a short text (Kimono “Local today / shared tomorrow”); `.split-media` = photo on the left (`.media`) and a `.stack` of cards on the right (Kimono “Choose the way you want to work”); `.callout` = text block with an accent rule; `.quote-feature` = photo beside a quote. All collapse to one column below 960 px.
+- Theme switch: the round sun/moon button in the header (`[data-theme-toggle]`, every page except `404.html`, which has no header) is driven by `assets/js/theme.js`, loaded synchronously in `<head>` so `data-theme` is set before first paint. Default = system setting (`prefers-color-scheme`); a click stores the choice in `localStorage` (`aikido-theme`) and updates `theme-color`. Without JavaScript the button stays hidden and the theme follows the system. The dark variables live in `home.css` under both `:root:not([data-theme="light"])` (media query) and `:root[data-theme="dark"]`; keep them identical. Cache-buster: `theme.js?v=1`.
+- `assets/images/home/`: photos of the home page. `assets/images/pages/`: photos of the inner pages (`ph-*` page headers 1344×512, `harness-*`, `kimono-*`, `history-harmony` illustrations 960×576, `harness-evolve` and `kimono-why` banners 1344×576, `ph-404`). Pictures contain no text, no dimension marks and no recognisable faces to retouch.
+- Each page embeds only the SVG symbols it uses (copied from the home sprite): when you add a `<use href="#id">`, copy the matching `<symbol>` into that page.
+- The pre-refresh illustrations (`assets/images/*.webp` such as `H5`, `R1`–`R8`, `I1`–`I13`) and `assets/css/style.css` are no longer referenced by any page and can be deleted once the refresh is published.
+- Photos are generated locally with Draw Things through the `local-designer` skill (Qwen Image 2512, 16 steps, seed 42, `--charter`); the prompt and parameters of each render are kept in its `.json` sidecar next to the lossless PNG, outside the repository.
 
 ## Structure
 
@@ -46,7 +61,9 @@ aikido-web/
 ├── sitemap.xml         # all 10 URLs with hreflang alternates (SEO)
 ├── manifest.webmanifest # web app manifest (name, theme colour, 192/512 px icons)
 ├── .nojekyll           # disables Jekyll: static site served as is
-├── assets/css/         # shared styles
+├── assets/css/         # home.css (charter) + inner.css (inner pages)
+├── assets/images/home/ # photos of the home page
+├── assets/images/pages/ # photos of the inner pages
 └── workspace/          # IGNORED by Git: documentation and working material
 ```
 
@@ -81,7 +98,7 @@ The site is static HTML/CSS, with no build step.
 
 - Every indexable page carries: `<title>`, `meta description`, `meta robots` (`index, follow, max-image-preview:large`), `<link rel="canonical">` (absolute URL, no `index.html`, no `?v=`), `og:url`, `og:site_name`, `og:image`, `twitter:image` and reciprocal `hreflang` (`en`, `fr`, `x-default` = EN). The two home pages also embed JSON-LD (`WebSite` + `SoftwareSourceCode`).
 - `404.html` is `noindex, follow`.
-- Icons: every page (including `404.html`) uses the same block: `favicon.ico` (16 + 32 px), PNG 32, 96 and 192 px, `apple-touch-icon` (180 px), `manifest.webmanifest` and `theme-color` (`#0f1220`, the site background). Icon URLs carry a `?v=3` cache-buster; bump it on every page when an icon file changes. Source artwork: `assets/images/logo-512.png`.
+- Icons: every page (including `404.html`) uses the same block: `favicon.ico` (16 + 32 px), PNG 32, 96 and 192 px, `apple-touch-icon` (180 px), `manifest.webmanifest` and two `theme-color` tags (`#f6efe0` in light mode, `#111524` in dark mode, the site background). Icon URLs carry a `?v=3` cache-buster; bump it on every page when an icon file changes. Source artwork: `assets/images/logo-512.png`.
 - `sitemap.xml` lists the 10 pages with their `xhtml:link` alternates. When adding or renaming a page, update the sitemap, the `canonical`/`og:url`/`hreflang` tags of both versions, and bump `<lastmod>` on pages whose content changed.
 - `robots.txt` is **not** placed here: on a GitHub Pages project site, crawlers only read `https://lcalmejane.github.io/robots.txt` (root of the user domain, i.e. a `lcalmejane.github.io` repository). Without it everything is crawlable. If created there, add `Sitemap: https://lcalmejane.github.io/aikido-web/sitemap.xml`.
 - Search engines: add the property `https://lcalmejane.github.io/aikido-web/` (URL prefix) in Google Search Console, submit `sitemap.xml`, then request indexing of the home pages; import it into Bing Webmaster Tools. For ownership verification, add a `google-site-verification` meta tag (or an HTML verification file at the site root) only once the token is known.

@@ -1,0 +1,189 @@
+/* AI-KIDO — pages intérieures (harnais, installation, histoire, Kimono, 404).
+   Chargée après home.css : mêmes variables, même en-tête, mêmes boutons. Charte : design-charter.md */
+
+.container { width: min(100% - 48px, var(--max)); margin-inline: auto; }
+.inner section { padding: clamp(56px, 7vw, 96px) 0; }
+.inner section[id] { scroll-margin-top: 120px; }
+.inner h1 { font-size: clamp(2.2rem, 4.2vw, 3.5rem); }
+.inner h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); }
+.inner h3 { font-size: 1.2rem; }
+.inner .sub { margin: 16px 0 0; max-width: 46em; }
+.inner .sub + .sub { margin-top: 12px; }
+.inner .note { color: var(--muted); font-size: .9rem; margin-top: 14px; }
+.inner .nowrap { white-space: nowrap; }
+.inner .grid, .inner .steps, .inner .stats, .inner .span-bar, .inner .table-wrap,
+.inner .timeline, .inner .quote-feature, .inner .product-shot { margin-top: 36px; }
+
+/* En-tête : état courant et barre de rubriques */
+.site-nav [aria-current="page"], .nav-group.current > summary { color: var(--accent); }
+.subnav { border-top: 1px solid var(--line); }
+.subnav nav { display: flex; align-items: center; gap: 24px; height: 44px; overflow-x: auto; white-space: nowrap; scrollbar-width: thin; }
+.subnav a { color: var(--muted); text-decoration: none; font-size: .9rem; }
+.subnav a:hover { color: var(--accent); }
+.subnav-label { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+
+/* En-tête de page : photo pleine largeur, texte à gauche (même principe que le héros de l'accueil) */
+.page-head { position: relative; overflow: hidden; display: flex; align-items: center; min-height: clamp(340px, 36vw, 440px); padding: 0; background: var(--bg); border-bottom: 1px solid var(--line); }
+.page-head .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 75% 50%; }
+.page-head::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(var(--bg-rgb), 1) 0%, rgba(var(--bg-rgb), .94) 32%, rgba(var(--bg-rgb), .4) 54%, rgba(var(--bg-rgb), 0) 70%); }
+.inner .page-head .container { position: relative; z-index: 2; padding: 56px 0; }
+.page-head .text { max-width: 560px; }
+.page-head h1 { margin-bottom: 18px; }
+.page-head h1 em { font-style: italic; color: var(--accent); }
+.page-head .lead { font-size: clamp(1.05rem, 1.3vw, 1.2rem); }
+
+/* Cartes */
+.grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.grid > * { min-width: 0; }
+.card { display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 28px; transition: transform .15s, box-shadow .15s; }
+.card:hover { transform: translateY(-3px); box-shadow: 0 24px 40px -26px rgba(17, 21, 36, .45); }
+.card h3 { margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: 1rem; }
+.card p + p { margin-top: 10px; }
+.card > a { margin-top: 14px; font-weight: 600; text-decoration: none; }
+.card > a:hover { text-decoration: underline; }
+.card .ico { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 16px; color: var(--accent); background: rgba(184, 92, 56, .12); }
+.card .ico .icon { width: 1.5em; height: 1.5em; }
+.card-img { width: calc(100% + 56px); max-width: none; margin: -28px -28px 20px; aspect-ratio: 5 / 3; object-fit: cover; border-radius: 17px 17px 0 0; }
+.kido-img { display: block; width: 100%; max-width: 240px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 20px; margin: 0 auto 18px; box-shadow: 0 18px 36px -22px rgba(17, 21, 36, .45); }
+.inner .tag:not(.tl-item):not(.badge) { display: inline-block; align-self: flex-start; margin-bottom: 12px; padding: 3px 12px; border: 1px solid currentColor; border-radius: 999px; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.harness-command { display: inline-block; max-width: 100%; margin-top: 16px; overflow-wrap: anywhere; }
+.harness-evolution { margin-top: 36px; padding-left: 22px; border-left: 3px solid var(--accent); }
+.harness-evolution p { color: var(--muted); margin-top: 8px; }
+.harness-components-title { margin-top: 36px; }
+.harness-components { margin: 14px 0 0; padding-left: 1.2rem; color: var(--muted); }
+.harness-components li { margin: 8px 0; }
+.harness-components strong { color: var(--fg); }
+
+/* Étapes numérotées */
+.steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; counter-reset: step; }
+.steps li { counter-increment: step; position: relative; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
+.steps li::before { content: counter(step); display: grid; place-items: center; width: 36px; height: 36px; margin-bottom: 14px; border-radius: 50%; background: var(--btn-bg); color: var(--btn-fg); font-weight: 700; }
+.steps li.has-img { padding-top: 28px; }
+.steps li.has-img::before { position: absolute; top: 14px; left: 14px; z-index: 2; margin: 0; box-shadow: 0 4px 14px rgba(0, 0, 0, .35); }
+.steps h3 { margin-bottom: 8px; }
+.steps p { color: var(--muted); }
+
+/* Photos */
+.banner-img { width: 100%; height: auto; aspect-ratio: 21 / 9; object-fit: cover; border-radius: 24px; margin-top: 32px; box-shadow: 0 30px 60px -28px rgba(17, 21, 36, .5); }
+.kimono-illustration { width: 100%; max-width: 780px; height: auto; aspect-ratio: 5 / 3; object-fit: cover; border-radius: 24px; margin-top: 32px; box-shadow: 0 30px 60px -28px rgba(17, 21, 36, .5); }
+/* Deux cartes photo côte à côte (aujourd'hui / demain) puis encadré */
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+.callout { margin-top: 40px; max-width: 760px; padding-left: 22px; border-left: 3px solid var(--accent); }
+.callout h3 { margin-bottom: 8px; }
+.callout p { color: var(--muted); }
+/* Galerie de vignettes de styles */
+.style-grid { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.style-grid figure { margin: 0; overflow: hidden; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; }
+.style-grid img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.style-grid figcaption { padding: 10px 14px; font-family: var(--serif); font-weight: 600; font-size: .98rem; }
+/* Photo à gauche, cartes empilées à droite */
+.split-media { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 56px); align-items: center; margin-top: 32px; }
+.split-media > .media { width: 100%; height: auto; aspect-ratio: 5 / 3; object-fit: cover; border-radius: 24px; box-shadow: 0 30px 60px -28px rgba(17, 21, 36, .5); }
+.split-media .stack { display: grid; gap: 16px; min-width: 0; }
+.quote-feature { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.quote-feature img { width: 100%; height: auto; aspect-ratio: 5 / 3; object-fit: cover; border-radius: 24px; box-shadow: 0 30px 60px -28px rgba(17, 21, 36, .5); }
+.inner .quote { margin: 0; font-size: clamp(1.3rem, 2vw, 1.7rem); border-left: 3px solid var(--accent); padding-left: 20px; }
+.inner .quote cite { color: var(--muted); }
+.product-shot { margin-bottom: 0; padding: 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; }
+.product-shot img { width: 100%; height: auto; border-radius: 10px; }
+.product-shot figcaption { margin-top: 12px; color: var(--muted); font-size: .92rem; }
+
+/* Code et tableaux */
+.inner pre { max-width: 100%; margin: 18px 0; padding: 18px 22px; overflow-x: auto; background: var(--ink); color: var(--cream); border: 1px solid rgba(246, 239, 224, .14); border-radius: 16px; font-size: .9rem; line-height: 1.6; }
+.inner pre code { background: none; padding: 0; color: inherit; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
+.table-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+table.data { width: 100%; border-collapse: collapse; font-size: .95rem; }
+table.data th, table.data td { padding: 12px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+table.data thead th { background: var(--bg-alt); color: var(--muted); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; }
+table.data tbody th { font-family: var(--serif); font-weight: 600; }
+table.data tbody tr:last-child > * { border-bottom: 0; }
+.kimono-benchmark { min-width: 780px; }
+.kimono-benchmark caption { padding: 14px 16px; text-align: left; color: var(--muted); }
+.kimono-benchmark td { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.metric-gain { color: var(--accent); font-weight: 700; }
+
+/* Chiffres et frise de phases (histoire) */
+.inner .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; border-top: 0; }
+.inner .stat { padding: 22px; border: 1px solid var(--line); border-left: 1px solid var(--line); border-radius: 16px; background: var(--paper); text-align: left; }
+.stat .num { display: block; font-family: var(--serif); font-size: 2.2rem; line-height: 1.1; color: var(--accent); }
+.stat .lbl { display: block; margin-top: 6px; color: var(--muted); font-size: .92rem; }
+.span-bar { display: flex; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; text-align: center; font-size: .9rem; }
+.span-bar > div { padding: 16px 14px; }
+.span-bar .s1 { flex: 4.5; background: repeating-linear-gradient(45deg, var(--paper), var(--paper) 10px, var(--bg-alt) 10px, var(--bg-alt) 20px); }
+.span-bar .s2 { flex: 6.2; background: var(--paper); border-left: 1px solid var(--line); }
+.span-bar .s3 { flex: 10.5; background: rgba(184, 92, 56, .14); border-left: 1px solid var(--line); }
+.span-bar strong { display: block; font-family: var(--serif); }
+.span-bar span { color: var(--muted); }
+
+/* Parcours en six ceintures */
+.inner .grid.belts { display: grid; grid-template-columns: repeat(3, 1fr); position: static; margin-top: 36px; }
+.inner .grid.belts::before { display: none; }
+.belt-white  { --belt: #ffffff; --belt-edge: #8f8a7c; }
+.belt-yellow { --belt: #e8c77a; --belt-edge: #c9a24a; }
+.belt-orange { --belt: #d9863f; --belt-edge: #d9863f; }
+.belt-green  { --belt: #5d8a4a; --belt-edge: #5d8a4a; }
+.belt-blue   { --belt: #2c5aa0; --belt-edge: #2c5aa0; }
+.belt-black  { --belt: #111524; --belt-edge: #111524; }
+.card[class*="belt-"] { border-top: 4px solid var(--belt-edge); }
+.card[class*="belt-"] .tag { color: var(--fg); }
+.belt-head { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+.belt-head .tag { margin-bottom: 4px; }
+.belt-head h3 { margin: 0; }
+.belt-dot { flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--belt); border: 2px solid var(--fg); }
+.card .belt-intro { color: var(--fg); margin-bottom: 14px; }
+.belt-list { list-style: none; margin: 0 0 18px; padding: 0; display: grid; gap: 8px; }
+.belt-list li { position: relative; padding-left: 20px; color: var(--muted); font-size: .96rem; }
+.belt-list li::before { content: ""; position: absolute; left: 2px; top: .6em; width: 8px; height: 8px; border-radius: 50%; background: var(--belt-edge); }
+.card .belt-outcome { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: .95rem; }
+.belt-outcome strong { color: var(--fg); }
+
+/* Frise chronologique */
+.timeline { list-style: none; position: relative; padding: 0 0 0 34px; }
+.timeline::before { content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+.tl-item { position: relative; margin: 0 0 24px; }
+.tl-item::before { content: ""; position: absolute; left: -34px; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+.tl-item.milestone::before { background: var(--accent); box-shadow: 0 0 0 5px rgba(184, 92, 56, .18); }
+.tl-item.nogit::before { border-style: dashed; border-color: var(--muted); }
+.tl-date { margin-bottom: 6px; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.tl-card { padding: 20px 24px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; }
+.tl-item.tag .tl-card { border-color: var(--accent); }
+.tl-item.nogit .tl-card { border-style: dashed; }
+.tl-card h3 { margin-bottom: 8px; }
+.tl-card p { color: var(--muted); font-size: .98rem; }
+.tl-card p + p { margin-top: 8px; }
+.tl-card ul { margin: 8px 0; padding-left: 1.2rem; color: var(--muted); font-size: .96rem; }
+.tl-card .facts { color: var(--fg); font-size: .85rem; }
+.badge { display: inline-block; margin-right: 8px; padding: 2px 10px; border-radius: 999px; vertical-align: middle; font-family: var(--sans); font-size: .72rem; font-weight: 700; background: var(--btn-bg); color: var(--btn-fg); }
+.badge.first { background: var(--accent); color: #fff; }
+.badge.nogit { background: none; border: 1px dashed var(--muted); color: var(--muted); }
+
+/* Conclusion */
+.closing .btn-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 32px; }
+.closing .btn.primary { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.closing .btn:not(.primary) { color: #fff; border-color: rgba(255, 255, 255, .7); }
+.closing a:not(.btn) { color: #d4def0; }
+
+@media (max-width: 960px) {
+  .grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid.cols-3, .steps, .inner .grid.belts { grid-template-columns: repeat(2, 1fr); }
+  .quote-feature, .split-media { grid-template-columns: 1fr; }
+  .style-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .page-head::after { background: linear-gradient(90deg, rgba(var(--bg-rgb), 1) 0%, rgba(var(--bg-rgb), .9) 45%, rgba(var(--bg-rgb), .2) 100%); }
+}
+@media (max-width: 640px) {
+  .grid.cols-3, .grid.cols-4, .steps, .inner .grid.belts, .duo { grid-template-columns: 1fr; }
+  .style-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .page-head { display: block; min-height: 0; }
+  .page-head .bg { position: relative; height: 220px; object-position: 78% 50%; }
+  .page-head::after { display: none; }
+  .inner .page-head .container { padding: 32px 0 44px; }
+  .span-bar { flex-direction: column; }
+  .span-bar > div { border-left: 0 !important; border-top: 1px solid var(--line); }
+  .timeline { padding-left: 28px; }
+  .tl-item::before { left: -28px; }
+}
+@media (prefers-reduced-motion: reduce) { .card, .card:hover { transition: none; transform: none; } }

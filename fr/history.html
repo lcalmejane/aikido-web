@@ -29,19 +29,27 @@
   <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/icon-192.png?v=3">
   <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=3">
   <link rel="manifest" href="../manifest.webmanifest">
-  <meta name="theme-color" content="#0f1220">
-  <link rel="stylesheet" href="../assets/css/style.css?v=19">
+  <meta name="theme-color" content="#f6efe0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
+  <script src="../assets/js/theme.js?v=1"></script>
+  <link rel="stylesheet" href="../assets/css/home.css?v=4">
+  <link rel="stylesheet" href="../assets/css/inner.css?v=4">
+  <link rel="preload" as="image" href="../assets/images/pages/ph-history.webp" type="image/webp">
 </head>
-<body>
+<body class="inner">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+</svg>
 
   <header class="site-header">
-    <div class="container">
-      <a class="brand" href="index.html"><img class="brand-logo" src="../assets/images/favicon-48.png?v=2" alt="" width="28" height="28">AI<span>-</span>KIDO</a>
+    <div class="wrap bar">
+      <a class="brand" href="index.html"><img src="../assets/images/favicon-48.png?v=2" alt="" width="30" height="30"><span class="word">AI<span>-</span>KIDO</span></a>
       <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav">
-      <label class="nav-burger" for="nav-toggle"><span aria-hidden="true">☰</span> Menu</label>
-      <nav class="nav" id="site-nav" aria-label="Navigation principale">
+      <label class="nav-burger" for="nav-toggle"><svg class="icon" aria-hidden="true"><use href="#menu"/></svg> Menu</label>
+      <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
         <details class="nav-group">
-          <summary class="current">Méthode</summary>
+          <summary>Méthode <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
           <div class="nav-panel">
             <a href="index.html">Accueil</a>
             <a href="harness.html">Création de harnais</a>
@@ -49,13 +57,20 @@
           </div>
         </details>
         <a href="install.html">Installer</a>
-        <a href="kimono.html">Kimono MCP</a>
+        <details class="nav-group">
+          <summary>Outils <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
+          <div class="nav-panel">
+            <a href="kimono.html">Kimono MCP</a>
+            <a href="local-designer.html">Local Designer</a>
+          </div>
+        </details>
         <a href="https://github.com/lcalmejane/aikido">GitHub</a>
-        <span class="lang-switch" role="group" aria-label="Langue">
+        <span class="lang" role="group" aria-label="Langue">
           <a href="../history.html" hreflang="en" lang="en">EN</a>
           <a class="active" href="history.html" hreflang="fr" lang="fr" aria-current="true">FR</a>
         </span>
       </nav>
+      <button type="button" class="theme-toggle" data-theme-toggle data-label-dark="Passer au thème sombre" data-label-light="Passer au thème clair" aria-label="Passer au thème sombre" title="Passer au thème sombre"><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></svg></button>
     </div>
     <div class="subnav">
       <div class="container">
@@ -73,12 +88,15 @@
   <main id="top">
 
     <section class="page-head">
+      <img class="bg" src="../assets/images/pages/ph-history.webp" width="1344" height="512" alt="Une pratiquante expérimentée à la ceinture noire et un pratiquant plus jeune à la ceinture blanche face à face, de petites lumières dorées s'élevant en ligne au-dessus de leur table">
       <div class="container">
+        <div class="text">
         <h1>L'histoire d'<em>AI-KIDO</em></h1>
-        <p>
+        <p class="lead">
           Une voie pour apprendre à travailler avec l'IA, construite patiemment et éprouvée sur des projets réels.
           Le dépôt est la boîte à outils qui en est issue.
         </p>
+        </div>
       </div>
     </section>
 
@@ -135,7 +153,7 @@
         </div>
 
         <div class="quote-feature">
-          <img src="../assets/images/H3.webp" alt="" width="960" height="534" loading="lazy" decoding="async">
+          <img src="../assets/images/pages/history-dance.webp" alt="Un homme et une femme en keikogi crème enchaînent une technique d’aikido sur le tatami, des arcs et des anneaux holographiques dorés dessinent leur mouvement dans l’air" width="960" height="576" loading="lazy" decoding="async">
           <blockquote class="quote">
             Le véritable challenge n'est pas d'apprendre à utiliser l'IA, mais d'apprendre à danser avec elle.
             <cite>L'esprit d'AI-KIDO</cite>
@@ -154,7 +172,7 @@
         <div class="grid belts">
           <article class="card belt-white">
             <div class="belt-head">
-              <img src="../assets/images/B1.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
+              <span class="belt-dot" aria-hidden="true"></span>
               <div>
                 <span class="tag">Ceinture blanche</span>
                 <h3>Fondations</h3>
@@ -171,7 +189,7 @@
           </article>
           <article class="card belt-yellow">
             <div class="belt-head">
-              <img src="../assets/images/B2.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
+              <span class="belt-dot" aria-hidden="true"></span>
               <div>
                 <span class="tag">Ceinture jaune</span>
                 <h3>Expansion</h3>
@@ -188,7 +206,7 @@
           </article>
           <article class="card belt-orange">
             <div class="belt-head">
-              <img src="../assets/images/B3.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
+              <span class="belt-dot" aria-hidden="true"></span>
               <div>
                 <span class="tag">Ceinture orange</span>
                 <h3>Maîtrise</h3>
@@ -205,7 +223,7 @@
           </article>
           <article class="card belt-green">
             <div class="belt-head">
-              <img src="../assets/images/B4.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
+              <span class="belt-dot" aria-hidden="true"></span>
               <div>
                 <span class="tag">Ceinture verte</span>
                 <h3>Pratique professionnelle</h3>
@@ -222,7 +240,7 @@
           </article>
           <article class="card belt-blue">
             <div class="belt-head">
-              <img src="../assets/images/B5.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
+              <span class="belt-dot" aria-hidden="true"></span>
               <div>
                 <span class="tag">Ceinture bleue</span>
                 <h3>Industrialisation agentique</h3>
@@ -239,7 +257,7 @@
           </article>
           <article class="card belt-black">
             <div class="belt-head">
-              <img src="../assets/images/B6.webp" alt="" width="72" height="72" loading="lazy" decoding="async">
+              <span class="belt-dot" aria-hidden="true"></span>
               <div>
                 <span class="tag">Ceinture noire</span>
                 <h3>Amélioration continue</h3>
@@ -431,14 +449,14 @@
       </div>
     </section>
 
-    <section id="suite" class="alt">
+    <section id="suite" class="closing">
       <div class="container">
         <h2>Et maintenant ?</h2>
         <p class="sub">
           L'histoire continue au grand jour. Essayez AI-KIDO sur votre propre projet, suivez les versions
           et dites-nous ce que vous construisez avec.
         </p>
-        <div class="btn-row" style="justify-content:flex-start">
+        <div class="btn-row">
           <a class="btn primary" href="index.html#demarrer">Démarrer</a>
           <a class="btn" href="https://github.com/lcalmejane/aikido">Voir sur GitHub</a>
         </div>

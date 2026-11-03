@@ -70,4 +70,18 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://lcalmejane.github.io/aikido-web/fr/kimono.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lcalmejane.github.io/aikido-web/kimono.html"/>
   </url>
+  <url>
+    <loc>https://lcalmejane.github.io/aikido-web/local-designer.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lcalmejane.github.io/aikido-web/local-designer.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lcalmejane.github.io/aikido-web/fr/local-designer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lcalmejane.github.io/aikido-web/local-designer.html"/>
+  </url>
+  <url>
+    <loc>https://lcalmejane.github.io/aikido-web/fr/local-designer.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lcalmejane.github.io/aikido-web/local-designer.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lcalmejane.github.io/aikido-web/fr/local-designer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lcalmejane.github.io/aikido-web/local-designer.html"/>
+  </url>
 </urlset>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Local Designer – An art director for your AI agents</title>
+  <meta name="description" content="Local Designer is an AI-KIDO skill that gives your agents an art director: client brief, mood board with a validation lock, design charter, UI kit and 29 render styles, generated locally with Draw Things.">
+  <meta property="og:title" content="Local Designer – An art director for your agents">
+  <meta property="og:description" content="Brief, mood board, charter, UI kit and local rendering: your agents create images in the identity you validated.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:image" content="https://lcalmejane.github.io/aikido-web/assets/images/og.jpg">
+  <meta property="og:url" content="https://lcalmejane.github.io/aikido-web/local-designer.html">
+  <meta property="og:site_name" content="AI-KIDO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://lcalmejane.github.io/aikido-web/assets/images/og.jpg">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://lcalmejane.github.io/aikido-web/local-designer.html">
+  <link rel="alternate" hreflang="en" href="https://lcalmejane.github.io/aikido-web/local-designer.html">
+  <link rel="alternate" hreflang="fr" href="https://lcalmejane.github.io/aikido-web/fr/local-designer.html">
+  <link rel="alternate" hreflang="x-default" href="https://lcalmejane.github.io/aikido-web/local-designer.html">
+  <link rel="icon" href="favicon.ico?v=3" sizes="16x16 32x32">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png?v=3">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-48.png?v=3">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/icon-192.png?v=3">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=3">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#f6efe0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
+  <script src="assets/js/theme.js?v=1"></script>
+  <link rel="stylesheet" href="assets/css/home.css?v=4">
+  <link rel="stylesheet" href="assets/css/inner.css?v=4">
+  <link rel="preload" as="image" href="assets/images/pages/ph-designer.webp" type="image/webp">
+</head>
+<body class="designer-page inner">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16.5 4.5a2 2 0 0 1 2.8 0l.2.2a2 2 0 0 1 0 2.8L8 19zM14.5 6.5l3 3"/></symbol>
+<symbol id="lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></symbol>
+<symbol id="bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5h10a1 1 0 0 1 1 1V20l-6-4-6 4V5.5a1 1 0 0 1 1-1z"/></symbol>
+<symbol id="layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l9 4.5-9 4.5-9-4.5zM3 12.5l9 4.5 9-4.5M3 16.5l9 4.5 9-4.5"/></symbol>
+<symbol id="image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="M4 17l5-4.5 4 3.5 3-2.5 4 3.5"/></symbol>
+<symbol id="terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="M7.5 10l3 2.5-3 2.5M13 15h4"/></symbol>
+<symbol id="home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5L12 4l8 7.5M6.5 10v10h11V10M10 20v-5h4v5"/></symbol>
+<symbol id="alert-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5.5M12 16.2v.2"/></symbol>
+</svg>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html"><img src="assets/images/favicon-48.png?v=2" alt="" width="30" height="30"><span class="word">AI<span>-</span>KIDO</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav">
+      <label class="nav-burger" for="nav-toggle"><svg class="icon" aria-hidden="true"><use href="#menu"/></svg> Menu</label>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <details class="nav-group">
+          <summary>Method <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
+          <div class="nav-panel">
+            <a href="index.html">Home</a>
+            <a href="harness.html">Harness creation</a>
+            <a href="history.html">History</a>
+          </div>
+        </details>
+        <a href="install.html">Install</a>
+        <details class="nav-group current">
+          <summary>Tools <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
+          <div class="nav-panel">
+            <a href="kimono.html">Kimono MCP</a>
+            <a href="local-designer.html" aria-current="page">Local Designer</a>
+          </div>
+        </details>
+        <a href="https://github.com/lcalmejane/aikido">GitHub</a>
+        <span class="lang" role="group" aria-label="Language">
+          <a class="active" href="local-designer.html" hreflang="en" lang="en" aria-current="true">EN</a>
+          <a href="fr/local-designer.html" hreflang="fr" lang="fr">FR</a>
+        </span>
+      </nav>
+      <button type="button" class="theme-toggle" data-theme-toggle data-label-dark="Switch to dark theme" data-label-light="Switch to light theme" aria-label="Switch to dark theme" title="Switch to dark theme"><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></svg></button>
+    </div>
+    <div class="subnav">
+      <div class="container">
+        <nav aria-label="Page sections">
+          <span class="subnav-label">On this page</span>
+          <a href="#what">What it does</a>
+          <a href="#blocks">Building blocks</a>
+          <a href="#styles">Styles</a>
+          <a href="#commands">Commands</a>
+          <a href="#install">Install</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main id="top">
+    <section class="page-head">
+      <img class="bg" src="assets/images/pages/ph-designer.webp" width="1344" height="512" alt="">
+      <div class="container">
+        <div class="text">
+        <span class="eyebrow">Local Designer · A skill for the AI-KIDO method</span>
+        <h1>Validate the look first.<br><em>Then</em> generate the images.</h1>
+        <p class="lead">Local Designer gives your agents an art director. It turns a brief into a mood board, waits for your validation, then renders images locally in the identity you chose.</p>
+        <div class="btn-row">
+          <a class="btn primary" href="#install">Install the skill</a>
+          <a class="btn" href="#what">See what it does</a>
+          <a class="btn" href="#styles">Browse the styles</a>
+        </div>
+        <p class="note">Skill version 5.3.0 · Renders on your machine with Draw Things · Charter, mood boards and UI kit live in one folder you can version with your project</p>
+        </div>
+      </div>
+    </section>
+    <section id="what">
+      <div class="container">
+        <h2>Don't let an agent improvise your visual identity.</h2>
+        <p class="sub">Without a direction, every generated image looks different. Local Designer puts a validation step before the first render and keeps the decision, so the whole project speaks with one visual voice.</p>
+        <div class="grid cols-3">
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#edit"/></svg></span><span class="tag">Before drawing</span><h3>Start from a brief</h3><p>A structured brief captures the message, audience, uses, palette, fonts and what to avoid. The skill can also read an existing project folder to propose a starting point.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#lock"/></svg></span><span class="tag">Before generating</span><h3>A lock until you validate</h3><p>Generation refuses to run until a direction is validated on the mood board or the design charter is active. The decision and the validator's name are recorded.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#eye"/></svg></span><span class="tag">After rendering</span><h3>Every image is read</h3><p>The image analyst checks each result for defects, text and likeness before you see it. It uses a local vision model if you set one, otherwise your current model.</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="blocks" class="alt">
+      <div class="container">
+        <h2>From brief to final render</h2>
+        <p class="sub">Four building blocks, each usable on its own and all stored in one design folder of your project.</p>
+        <div class="duo">
+          <article class="card">
+            <img class="card-img" src="assets/images/pages/designer-moodboard.webp" alt="" width="960" height="576" loading="lazy" decoding="async">
+            <span class="tag">Mood board</span>
+            <h3>Compare directions in situation</h3>
+            <p>Three directions are shown on the same scenes, each with its palette and roles, typography, textures, what it says and what it rules out. One self-contained page, light and dark, ready to send to the client. Command: <code>/aikido-design-moodboard</code>.</p>
+          </article>
+          <article class="card">
+            <img class="card-img" src="assets/images/pages/designer-charter.webp" alt="" width="960" height="576" loading="lazy" decoding="async">
+            <span class="tag">Design charter</span>
+            <h3>A durable identity</h3>
+            <p>Palette with roles, typography, validated render style, forbidden terms and a dated decision log, in a text file safe to commit. An audit measures the colour drift of any image against the palette. Commands: <code>/aikido-init-design</code>, <code>/aikido-design-audit</code>.</p>
+          </article>
+          <article class="card">
+            <img class="card-img" src="assets/images/pages/designer-uikit.webp" alt="" width="960" height="576" loading="lazy" decoding="async">
+            <span class="tag">UI kit</span>
+            <h3>An interface vocabulary</h3>
+            <p>Five personalities compared on one page with your colours. Once you choose, the skill builds light and dark tokens checked for contrast (4.5:1 for text), components, icons, button images and zone backgrounds. No image engine needed. Command: <code>/aikido-design-uikit</code>.</p>
+          </article>
+          <article class="card">
+            <img class="card-img" src="assets/images/pages/designer-render.webp" alt="" width="960" height="576" loading="lazy" decoding="async">
+            <span class="tag">Render</span>
+            <h3>Draft, tune, finalize</h3>
+            <p>Start with quick drafts, compare styles on a contact sheet kept outside git, then render the final image behind the lock. Seed and prompt are saved so any image can be reproduced. Commands: <code>/aikido-design-render</code>, <code>/aikido-design-style</code>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="styles">
+      <div class="container">
+        <h2>29 render styles, each with its own thumbnail</h2>
+        <p class="sub">Photographic, vector, drawn, painted, technical or editorial. Pick one, let the skill recommend one from your brief, blend two into a new look, or draft a style from a reference image.</p>
+        <ul class="style-grid">
+          <li><figure><img src="assets/images/pages/styles/watercolor.webp" alt="" width="384" height="256" loading="lazy" decoding="async"><figcaption>Watercolor</figcaption></figure></li>
+          <li><figure><img src="assets/images/pages/styles/sumi-e.webp" alt="" width="384" height="256" loading="lazy" decoding="async"><figcaption>Sumi-e ink</figcaption></figure></li>
+          <li><figure><img src="assets/images/pages/styles/cinematic.webp" alt="" width="384" height="256" loading="lazy" decoding="async"><figcaption>Cinematic</figcaption></figure></li>
+          <li><figure><img src="assets/images/pages/styles/flat-vector.webp" alt="" width="384" height="256" loading="lazy" decoding="async"><figcaption>Flat vector</figcaption></figure></li>
+          <li><figure><img src="assets/images/pages/styles/isometric-3d.webp" alt="" width="384" height="256" loading="lazy" decoding="async"><figcaption>Isometric 3D</figcaption></figure></li>
+          <li><figure><img src="assets/images/pages/styles/line-art.webp" alt="" width="384" height="256" loading="lazy" decoding="async"><figcaption>Line art</figcaption></figure></li>
+          <li><figure><img src="assets/images/pages/styles/oil-painting.webp" alt="" width="384" height="256" loading="lazy" decoding="async"><figcaption>Oil painting</figcaption></figure></li>
+          <li><figure><img src="assets/images/pages/styles/paper-cut.webp" alt="" width="384" height="256" loading="lazy" decoding="async"><figcaption>Paper cut</figcaption></figure></li>
+          <li><figure><img src="assets/images/pages/styles/riso-duotone.webp" alt="" width="384" height="256" loading="lazy" decoding="async"><figcaption>Risograph duotone</figcaption></figure></li>
+          <li><figure><img src="assets/images/pages/styles/anime.webp" alt="" width="384" height="256" loading="lazy" decoding="async"><figcaption>Anime</figcaption></figure></li>
+          <li><figure><img src="assets/images/pages/styles/cartoon-clean.webp" alt="" width="384" height="256" loading="lazy" decoding="async"><figcaption>Clean cartoon</figcaption></figure></li>
+          <li><figure><img src="assets/images/pages/styles/photo-realistic.webp" alt="" width="384" height="256" loading="lazy" decoding="async"><figcaption>Photo-realistic</figcaption></figure></li>
+        </ul>
+        <p class="note">Style tools: <code>recommend</code>, <code>analyze</code>, <code>match</code>, <code>styles compose</code> and <code>styles draft</code>. These thumbnails are the skill's own, rendered with Draw Things.</p>
+      </div>
+    </section>
+    <section id="agents" class="alt">
+      <div class="container">
+        <h2>Two agents, two roles</h2>
+        <div class="duo">
+          <article class="card"><span class="tag">Agent</span><h3>Art director</h3><p><code>agent-aikido-art-director</code></p><p>A senior illustrator: it asks the right questions, proposes directions, builds the mood board, waits for the client's answer, then draws and tunes.</p></article>
+          <article class="card"><span class="tag">Agent</span><h3>Image analyst</h3><p><code>agent-aikido-image-analyst</code></p><p>It reads every image: defects, text, pose, likeness to a reference. It uses the optional local vision model of the project, otherwise the current model, silently. A reader can still miss defects: “ok” means nothing was found.</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="commands">
+      <div class="container">
+        <h2>Eight commands for your assistant</h2>
+        <p class="sub">Type them in your assistant once the skill is installed.</p>
+        <div class="table-wrap" role="region" aria-label="Local Designer commands" tabindex="0">
+          <table class="data">
+            <thead><tr><th scope="col">Command</th><th scope="col">What it does</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><code>/aikido-init-design</code></th><td>Create the project design charter: palette, typography, render style.</td></tr>
+              <tr><th scope="row"><code>/aikido-design-brief</code></th><td>Write and validate the structured client brief.</td></tr>
+              <tr><th scope="row"><code>/aikido-design-moodboard</code></th><td>Build the client mood board and record the client's decision.</td></tr>
+              <tr><th scope="row"><code>/aikido-design-style</code></th><td>Choose, compare, compose and create render styles.</td></tr>
+              <tr><th scope="row"><code>/aikido-design-uikit</code></th><td>Create and maintain the UI kit: tokens, components, icons, button and zone images.</td></tr>
+              <tr><th scope="row"><code>/aikido-design-render</code></th><td>Generate images: draft, tuning sweeps, final render behind the validation lock.</td></tr>
+              <tr><th scope="row"><code>/aikido-design-charter</code></th><td>Read, check, update and annotate the charter; generate under its identity.</td></tr>
+              <tr><th scope="row"><code>/aikido-design-audit</code></th><td>Check images or a folder against the charter palette and report the drift.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section id="engine" class="alt">
+      <div class="container">
+        <h2>Runs on your machine</h2>
+        <p class="sub">Images are generated by a connector, the engine installed on your Mac. Two connectors are available, both for the Draw Things app.</p>
+        <div class="grid cols-3">
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#terminal"/></svg></span><h3>Draw Things, over HTTP or gRPC</h3><p>Use the app's HTTP API, or gRPC, which lists the real models of the server and can reach a local, remote or offload server of your own.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#home"/></svg></span><h3>Local first</h3><p>Local mode is the verified path. Sending anything outside your machine requires your agreement.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#alert-circle"/></svg></span><h3>Honest limits</h3><p>Image models sometimes ignore instructions: text, hands and faces need a check. One image is generated at a time, and ComfyUI is planned, not written.</p></article>
+        </div>
+        <p class="note">The brief, the mood board (without trial renders), style browsing, the UI kit and image analysis need no image engine.</p>
+      </div>
+    </section>
+    <section id="install">
+      <div class="container">
+        <h2>Install and start</h2>
+        <p class="sub">The skill is installed with the AI-KIDO skills manager. Requirements: Node.js 18 or later, cwebp for WebP export, ImageMagick or sips for image analysis, and for generation macOS with Draw Things.</p>
+        <ol class="steps">
+          <li><h3>Enable the API server</h3><p>In Draw Things, open the advanced settings and enable API Server: gRPC on port 7859 (recommended) or HTTP on port 7860. Keep the app open.</p></li>
+          <li><h3>Check the engine</h3><p>Run <code>status</code> to see the model and settings in use, and whether the target is local or remote.</p></li>
+          <li><h3>Brief, validate, render</h3><p>Write the brief, validate a direction on the mood board, then ask for your first image.</p></li>
+        </ol>
+        <pre><code>/skill-manage get --skill local-designer
+node prompts/hard_points/system/local-designer/scripts/local-designer.mjs status</code></pre>
+        <p class="note">The skill is fetched from the skills catalog configured for your project (<code>skills.cfg</code>).</p>
+        <div class="btn-row">
+          <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/skill-manage.md">/skill-manage reference</a>
+          <a class="btn" href="install.html#skills">Skills on the install page</a>
+        </div>
+      </div>
+    </section>
+    <section class="closing">
+      <div class="container">
+        <h2>Your next image starts with a validated direction.</h2>
+        <p class="sub">Install the skill, write a short brief and compare three directions before a single final render.</p>
+        <div class="btn-row">
+          <a class="btn primary" href="#install">Install the skill</a>
+          <a class="btn" href="kimono.html">Kimono MCP</a>
+          <a class="btn" href="index.html">Discover the AI-KIDO method</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container">AI-KIDO · Local Designer · <a href="https://github.com/lcalmejane/aikido">Method source</a> · <a href="https://github.com/lcalmejane/aikido-web">Site source</a></div></footer>
+</body>
+</html>

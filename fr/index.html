@@ -53,20 +53,87 @@
   <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/icon-192.png?v=3">
   <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=3">
   <link rel="manifest" href="../manifest.webmanifest">
-  <meta name="theme-color" content="#0f1220">
-  <link rel="stylesheet" href="../assets/css/style.css?v=19">
-  <link rel="preload" as="image" href="../assets/images/H1.webp" type="image/webp">
+  <meta name="theme-color" content="#f6efe0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
+  <script src="../assets/js/theme.js?v=1"></script>
+  <link rel="stylesheet" href="../assets/css/home.css?v=4">
+  <link rel="preload" as="image" href="../assets/images/home/hero-wide.webp" type="image/webp">
 </head>
 <body>
 
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></symbol>
+<symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="chevron-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></symbol>
+<symbol id="chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></symbol>
+<symbol id="chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></symbol>
+<symbol id="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+<symbol id="search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+<symbol id="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="more" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="18" cy="12" r="1"/></symbol>
+<symbol id="settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+<symbol id="user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></symbol>
+<symbol id="users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 19c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.6 0 4.5 1.7 4.5 4.5"/></symbol>
+<symbol id="home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5L12 4l8 7.5M6.5 10v10h11V10M10 20v-5h4v5"/></symbol>
+<symbol id="folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5A1.5 1.5 0 0 1 5 6h4l2 2.5h8a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 18z"/></symbol>
+<symbol id="file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7l4.5 4.5v11.5a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-15a1 1 0 0 1 1-1zM14 3.5V8h4.5"/></symbol>
+<symbol id="edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16.5 4.5a2 2 0 0 1 2.8 0l.2.2a2 2 0 0 1 0 2.8L8 19zM14.5 6.5l3 3"/></symbol>
+<symbol id="trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l1 13h9l1-13M10 11v6M14 11v6"/></symbol>
+<symbol id="copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="8.5" width="11" height="11" rx="1.5"/><path d="M15.5 8.5V6A1.5 1.5 0 0 0 14 4.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></symbol>
+<symbol id="download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+<symbol id="upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5M7 9l5-5 5 5M5 20h14"/></symbol>
+<symbol id="link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+<symbol id="external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+<symbol id="eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M10.6 5.7A9 9 0 0 1 12 5.5c6 0 9.5 6.5 9.5 6.5a16 16 0 0 1-2.6 3.4M6.6 7.3C4 9 2.5 12 2.5 12s3.5 6.5 9.5 6.5c1.5 0 2.9-.4 4.1-1M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+<symbol id="lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="unlock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></symbol>
+<symbol id="bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5a2 2 0 0 0 4 0"/></symbol>
+<symbol id="mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4 7.5l8 6 8-6"/></symbol>
+<symbol id="calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol>
+<symbol id="clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+<symbol id="star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.8l2.5 5.2 5.7.8-4.1 4 1 5.7L12 16.8l-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></symbol>
+<symbol id="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.2 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></symbol>
+<symbol id="info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.8v.2"/></symbol>
+<symbol id="alert-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4L3 19.5h18zM12 10v4.5M12 17v.2"/></symbol>
+<symbol id="alert-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5.5M12 16.2v.2"/></symbol>
+<symbol id="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8 12.5l3 3 5-6"/></symbol>
+<symbol id="x-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9 9l6 6M15 9l-6 6"/></symbol>
+<symbol id="help" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1.9-1.1 1.8M12 16.5v.2"/></symbol>
+<symbol id="filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7.5V19l-4 1.5v-8z"/></symbol>
+<symbol id="refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14-4.5L4 9M4 4v5h5M4 13a8 8 0 0 0 14 4.5L20 15M20 20v-5h-5"/></symbol>
+<symbol id="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></symbol>
+<symbol id="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+<symbol id="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.3 3.8 5.2 3.8 8.5S14.5 18.2 12 20.5c-2.5-2.3-3.8-5.2-3.8-8.5S9.5 5.8 12 3.5z"/></symbol>
+<symbol id="code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"/></symbol>
+<symbol id="terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="M7.5 10l3 2.5-3 2.5M13 15h4"/></symbol>
+<symbol id="image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="M4 17l5-4.5 4 3.5 3-2.5 4 3.5"/></symbol>
+<symbol id="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5.5v13l11-6.5z"/></symbol>
+<symbol id="pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5.5v13M16 5.5v13"/></symbol>
+<symbol id="send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 3.5L10 14M20.5 3.5L14 20.5l-4-6.5-6.5-4z"/></symbol>
+<symbol id="save" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5h11l3.5 3.5v10.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-13a1 1 0 0 1 1-1zM8 4.5v5h7v-5M8 20v-6h8v6"/></symbol>
+<symbol id="logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4.5H6A1.5 1.5 0 0 0 4.5 6v12A1.5 1.5 0 0 0 6 19.5h4M15 8l4 4-4 4M19 12H9.5"/></symbol>
+<symbol id="login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4.5h4A1.5 1.5 0 0 1 19.5 6v12a1.5 1.5 0 0 1-1.5 1.5h-4M9.5 8l4 4-4 4M13.5 12H4"/></symbol>
+<symbol id="grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></symbol>
+<symbol id="list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6.5h11M9 12h11M9 17.5h11M4.5 6.5h.2M4.5 12h.2M4.5 17.5h.2"/></symbol>
+<symbol id="bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5h10a1 1 0 0 1 1 1V20l-6-4-6 4V5.5a1 1 0 0 1 1-1z"/></symbol>
+<symbol id="tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.5V5A1.5 1.5 0 0 1 5 3.5h7.5l8 8a1.5 1.5 0 0 1 0 2.1l-6.4 6.4a1.5 1.5 0 0 1-2.1 0z"/><circle cx="8" cy="8" r="1.2"/></symbol>
+<symbol id="layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l9 4.5-9 4.5-9-4.5zM3 12.5l9 4.5 9-4.5M3 16.5l9 4.5 9-4.5"/></symbol>
+</svg>
+  <a class="skip" href="#top">Aller au contenu</a>
+
   <header class="site-header">
-    <div class="container">
-      <a class="brand" href="#top"><img class="brand-logo" src="../assets/images/favicon-48.png?v=2" alt="" width="28" height="28">AI<span>-</span>KIDO</a>
+    <div class="wrap bar">
+      <a class="brand" href="#top"><img src="../assets/images/favicon-48.png?v=2" alt="" width="30" height="30"><span class="word">AI<span>-</span>KIDO</span></a>
       <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav">
-      <label class="nav-burger" for="nav-toggle"><span aria-hidden="true">☰</span> Menu</label>
-      <nav class="nav" id="site-nav" aria-label="Navigation principale">
+      <label class="nav-burger" for="nav-toggle"><svg class="icon" aria-hidden="true"><use href="#menu"/></svg> Menu</label>
+      <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
         <details class="nav-group">
-          <summary class="current">Méthode</summary>
+          <summary>Méthode <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
           <div class="nav-panel">
             <a href="index.html" aria-current="page">Accueil</a>
             <a href="harness.html">Création de harnais</a>
@@ -74,178 +141,121 @@
           </div>
         </details>
         <a href="install.html">Installer</a>
-        <a href="kimono.html">Kimono MCP</a>
+        <details class="nav-group">
+          <summary>Outils <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
+          <div class="nav-panel">
+            <a href="kimono.html">Kimono MCP</a>
+            <a href="local-designer.html">Local Designer</a>
+          </div>
+        </details>
         <a href="https://github.com/lcalmejane/aikido">GitHub</a>
-        <span class="lang-switch" role="group" aria-label="Langue">
+        <span class="lang" role="group" aria-label="Langue">
           <a href="../index.html" hreflang="en" lang="en">EN</a>
           <a class="active" href="index.html" hreflang="fr" lang="fr" aria-current="true">FR</a>
         </span>
       </nav>
-    </div>
-    <div class="subnav">
-      <div class="container">
-        <nav aria-label="Sections de la page">
-          <span class="subnav-label">Sur cette page</span>
-          <a href="#pourquoi">Pourquoi</a>
-          <a href="#fonctionnement">Fonctionnement</a>
-          <a href="#meta-harnais">Méta-harnais</a>
-          <a href="#capacites">Capacités</a>
-          <a href="#philosophie">Philosophie</a>
-          <a href="#demarrer">Démarrer</a>
-        </nav>
-      </div>
+      <button type="button" class="theme-toggle" data-theme-toggle data-label-dark="Passer au thème sombre" data-label-light="Passer au thème clair" aria-label="Passer au thème sombre" title="Passer au thème sombre"><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></svg></button>
     </div>
   </header>
 
   <main id="top">
 
     <section class="hero">
-      <div class="container">
-        <h1>Donnez une <em>mémoire</em> à votre IA.<br>Donnez une méthode à votre équipe.</h1>
-        <p class="lead">
-          <strong>Méthode de Construction de Memory Bank IA par Méta-harnais.</strong>
-          AI-KIDO transforme votre façon de travailler avec les assistants IA en une pratique structurée,
-          partagée et durable : une Memory Bank que votre LLM sait parcourir, et un parcours que votre équipe peut apprendre.
-        </p>
-        <div class="btn-row">
-          <a class="btn primary" href="#demarrer">Démarrer</a>
-          <a class="btn" href="#fonctionnement">Voir comment ça marche</a>
-          <a class="btn" href="#meta-harnais">Découvrir le méta-harnais</a>
-          <a class="btn" href="https://github.com/lcalmejane/aikido">Voir sur GitHub</a>
+      <img class="bg" src="../assets/images/home/hero-wide.webp" width="1344" height="768" alt="Une femme et un homme en keikogi crème sourient derrière une table basse en bois, un arbre de connaissances holographique doré s'élève entre eux dans un dojo ensoleillé">
+      <div class="wrap">
+        <div class="text">
+          <span class="eyebrow">L'humain dans la boucle</span>
+          <h1>Donnez une <em>mémoire</em> à votre IA. Donnez une méthode à votre équipe.</h1>
+          <p class="lead">AI-KIDO transforme votre façon de travailler avec les assistants IA en une pratique structurée, partagée et durable : une Memory Bank que votre LLM sait parcourir, et un parcours que votre équipe peut apprendre.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#demarrer">Démarrer</a>
+            <a class="btn" href="#fonctionnement">Voir comment ça marche</a>
+          </div>
         </div>
-        <ul class="pills" aria-label="Points forts">
-          <li>Connaissances en arborescence</li>
-          <li>Une seule source de vérité</li>
-          <li>Compatible Claude Code, Zoo Code, Codex, Antigravity et plus</li>
-          <li>Open source · MIT</li>
+      </div>
+      <span class="float"><svg class="icon" aria-hidden="true"><use href="#check-circle"/></svg> L'IA structure. Vous décidez.</span>
+    </section>
+
+    <section class="proof" aria-label="En un coup d'œil">
+      <div class="wrap">
+        <ul>
+          <li><b>−67,5 % · −71,4 %</b><span>de tokens d'entrée sur deux essais Kimono</span></li>
+          <li><b>AGENTS.md + Skills</b><span>standards ouverts, sans enfermement</span></li>
+          <li><b>8+ assistants IA</b><span>Claude Code, Copilot, Codex, Zoo Code…</span></li>
+          <li><b>Open source · MIT</b><span>vos connaissances restent dans votre dépôt</span></li>
         </ul>
       </div>
     </section>
 
     <section id="pourquoi">
-      <div class="container">
+      <div class="wrap">
+        <span class="eyebrow">Pourquoi AI-KIDO</span>
         <h2>L'IA est puissante. Sans méthode, elle est imprévisible.</h2>
-        <p class="sub">
-          Les modèles de langage peuvent transformer votre façon de construire. Mais utilisés au fil de l'eau,
-          ils oublient, se contredisent et laissent chaque développeur avec ses propres habitudes. AI-KIDO remplace
-          l'improvisation par une façon de travailler partagée et durable.
-        </p>
-        <div class="grid cols-4">
-          <article class="card">
-            <img class="card-img" src="../assets/images/W1.webp" alt="" width="832" height="512" loading="lazy" decoding="async">
-            <span class="tag">Elle oublie</span>
-            <h3>Chaque session repart de zéro</h3>
-            <p>Votre assistant dispose d'une mémoire structurée et persistante qu'il parcourt depuis un point d'entrée unique : le contexte est chargé au bon moment et n'a plus à être réexpliqué.</p>
-          </article>
-          <article class="card">
-            <img class="card-img" src="../assets/images/W2.webp" alt="" width="832" height="512" loading="lazy" decoding="async">
-            <span class="tag">Elle se contredit</span>
-            <h3>Des réponses qui dérivent avec le temps</h3>
-            <p>Les tables de vérité donnent à chaque fait un seul foyer. Quand les sources divergent, la source qui fait autorité est connue et l'écart est repéré tôt.</p>
-          </article>
-          <article class="card">
-            <img class="card-img" src="../assets/images/W3.webp" alt="" width="832" height="512" loading="lazy" decoding="async">
-            <span class="tag">C'est un sport solitaire</span>
-            <h3>Chacun prompte à sa façon</h3>
-            <p>Un langage commun, des rôles définis et des workflows partagés permettent à toute une équipe de collaborer avec l'IA de la même manière.</p>
-          </article>
-          <article class="card">
-            <img class="card-img" src="../assets/images/W4.webp" alt="" width="832" height="512" loading="lazy" decoding="async">
-            <span class="tag">Ça ne dure pas</span>
-            <h3>La documentation vieillit le jour où elle est écrite</h3>
-            <p>Des agents internes valident, rééquilibrent et indexent vos connaissances : la Memory Bank suit le rythme du projet.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="efficacite" class="alt">
-      <div class="container">
-        <span class="tag">De la méthode aux gains d'usage</span>
-        <h2>Moins réexpliquer. Mieux retrouver. Maîtriser le contexte.</h2>
-        <p class="sub">AI-KIDO vous aide à capitaliser les décisions et les pratiques de l'équipe. Kimono, l'un de ses outils, aide vos assistants à retrouver les bons passages sans charger tout le projet.</p>
-        <div class="grid cols-3">
-          <article class="card"><h3>Du temps mieux employé</h3><p>Gardez les repères du projet d'une session à l'autre et rendez les pratiques accessibles aux nouveaux arrivants, plutôt que de tout reconstruire à chaque échange.</p></article>
-          <article class="card"><h3>Un levier FinOps tokens</h3><p>Sur deux essais de recherche et de préparation d'un plan, Kimono a mesuré 67,5 % et 71,4 % de tokens d'entrée cumulés en moins que la recherche standard Copilot.</p></article>
-          <article class="card"><h3>Un TCO à piloter</h3><p>Évaluez ensemble consommation des modèles, temps d'équipe et coût d'exploitation. Les gains de tokens ne sont pas une promesse de réduction équivalente de la facture.</p></article>
-        </div>
-        <div class="btn-row">
-          <a class="btn primary" href="kimono.html#performance">Voir les mesures et leurs limites</a>
-          <a class="btn" href="kimono.html#in-action">Voir Kimono en images</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="fonctionnement" class="alt">
-      <div class="container">
-        <h2>Comment ça marche</h2>
-        <p class="sub">
-          Trois idées, appliquées avec constance. Ensemble, elles transforment des notes éparses en une base
-          de connaissances à laquelle humains et IA peuvent se fier.
-        </p>
-        <ol class="steps">
-          <li class="has-img">
-            <img class="card-img" src="../assets/images/S1.webp" alt="" width="832" height="512" loading="lazy" decoding="async">
-            <h3>Structurez vos connaissances</h3>
-            <p>Une arborescence, un point d'entrée. Les connaissances s'organisent en concepts, techniques, personas et cas d'usage : un assistant trouve exactement ce dont il a besoin, et rien de plus.</p>
-          </li>
-          <li class="has-img">
-            <img class="card-img" src="../assets/images/S2.webp" alt="" width="832" height="512" loading="lazy" decoding="async">
-            <h3>Décidez ce qui reste ouvert et ce qui est acté</h3>
-            <p>Les tables de vérité restent souples et évoluent avec le projet. Les points durs verrouillent les décisions validées et l'emportent toujours en cas de conflit.</p>
-          </li>
-          <li class="has-img">
-            <img class="card-img" src="../assets/images/S3.webp" alt="" width="832" height="512" loading="lazy" decoding="async">
-            <h3>Laissez les agents l'entretenir</h3>
-            <p>Des agents internes recherchent, contrôlent la conformité, arbitrent les conflits, comblent les manques et mettent la base à jour, en préservant le contexte propre à votre projet.</p>
-          </li>
+        <p class="sub">Les modèles de langage peuvent transformer votre façon de construire. Mais utilisés au fil de l'eau, ils oublient, se contredisent et laissent chacun avec ses habitudes. AI-KIDO remplace l'improvisation par une manière de travailler partagée et durable.</p>
+        <ol class="pains">
+          <li><img class="pain-img" src="../assets/images/home/pain-forgets.webp" width="512" height="512" loading="lazy" decoding="async" alt="Kido, le petit robot, fait un petit saut espiègle la tête penchée en regardant des fiches dorées s’envoler comme des bulles"><span class="n">01</span><h3>Elle oublie</h3><p>Votre assistant dispose d'une mémoire structurée et persistante qu'il parcourt depuis un point d'entrée unique : le contexte est chargé au bon moment et n'a plus à être réexpliqué.</p></li>
+          <li><img class="pain-img" src="../assets/images/home/pain-contradicts.webp" width="512" height="512" loading="lazy" decoding="async" alt="Kido, le petit robot, sautille entre deux panneaux dorés aux flèches opposées, la tête penchée d’un air amusé"><span class="n">02</span><h3>Elle se contredit</h3><p>Les tables de vérité donnent à chaque fait un seul foyer. Quand les sources divergent, la source qui fait autorité est connue et l'écart est repéré tôt.</p></li>
+          <li><img class="pain-img" src="../assets/images/home/pain-solo.webp" width="512" height="512" loading="lazy" decoding="async" alt="Kido, le petit robot, rebondit joyeusement près d’une table basse aux coussins vides, des fils dorés invitant des amis à s’asseoir"><span class="n">03</span><h3>C'est un sport solitaire</h3><p>Un langage commun, des rôles définis et des workflows partagés permettent à toute une équipe de collaborer avec l'IA de la même manière.</p></li>
+          <li><img class="pain-img" src="../assets/images/home/pain-lasts.webp" width="512" height="512" loading="lazy" decoding="async" alt="Kido, le petit robot, rebondit de joie près d’un bonsaï autour duquel des feuilles dorées poussent et s’élèvent"><span class="n">04</span><h3>Ça ne dure pas</h3><p>Des agents internes valident, rééquilibrent et indexent vos connaissances : la Memory Bank suit le rythme du projet.</p></li>
         </ol>
       </div>
     </section>
 
-    <section id="meta-harnais" class="harness-teaser">
-      <div class="container">
-        <h2>Le méta-harnais : AI-KIDO en pratique</h2>
-        <p class="sub">La méthode fixe les règles. Ses outils construisent le reste : personas, agents, skills et commandes, assemblés en un harnais concret adapté à vos besoins, que vous pouvez enrichir et optimiser dans le temps.</p>
-        <div class="grid cols-3" role="list" aria-label="Points d'entrée du méta-harnais">
-          <article class="card" role="listitem">
-            <span class="tag">Personas &amp; agents</span>
-            <h3>Donnez la bonne expertise à votre IA</h3>
-            <p>Créez des personas experts et des agents techniques avec un rôle, un périmètre et des instructions clairs.</p>
-            <a class="harness-command" href="harness.html#personas">Créer personas et agents →</a>
-          </article>
-          <article class="card" role="listitem">
-            <span class="tag">Commandes</span>
-            <h3>Transformez le travail récurrent en workflow</h3>
-            <p>Rendez vos étapes répétées explicites, guidées et réutilisables par toute l'équipe.</p>
-            <a class="harness-command" href="harness.html#commands">Créer des commandes →</a>
-          </article>
-          <article class="card" role="listitem">
-            <span class="tag">Skills &amp; outils</span>
-            <h3>Capitalisez le savoir-faire de l'équipe</h3>
-            <p>Donnez à vos agents des capacités réutilisables au lieu de répéter chaque instruction.</p>
-            <a class="harness-command" href="harness.html#skills">Créer des skills →</a>
-          </article>
-          <article class="card" role="listitem">
-            <span class="tag">Composition</span>
-            <h3>Construisez un agent à partir d'un besoin réel</h3>
-            <p>Compilez un agent spécialisé depuis un agent existant, une commande ou un cas d'usage.</p>
-            <a class="harness-command" href="harness.html#compilation">Compiler un agent →</a>
-          </article>
-          <article class="card" role="listitem">
-            <span class="tag">Exemple</span>
-            <h3>Voyez un harnais en action</h3>
-            <p>Suivez un harnais de communication produit, de sa création à son usage quotidien et à son amélioration.</p>
-            <a class="harness-command" href="harness.html#example">Voir l'exemple →</a>
-          </article>
-          <article class="card" role="listitem">
-            <span class="tag">Évolution</span>
-            <h3>Optimisez au fil de l'eau</h3>
-            <p>Ajoutez des agents, affinez les instructions et optimisez les commandes sans changer leur finalité.</p>
-            <a class="harness-command" href="harness.html#improve">Améliorer votre harnais →</a>
-          </article>
+    <section class="band top-pic" id="efficacite">
+      <img class="bg" src="../assets/images/home/dsi-wide.webp" width="1344" height="768" alt="Une femme en keikogi crème et ceinture indigo sourit calmement devant un arbre holographique doré dont les branches portent des blocs lumineux reliés, dans un dojo ensoleillé" loading="lazy" decoding="async">
+      <div class="wrap">
+        <span class="eyebrow">De la méthode aux gains d'usage</span>
+        <h2>Moins réexpliquer. Mieux retrouver. Maîtriser le contexte.</h2>
+        <p class="sub">AI-KIDO vous aide à capitaliser les décisions et les pratiques de l'équipe. Kimono, l'un de ses outils, aide vos assistants à retrouver les bons passages sans charger tout le projet.</p>
+        <div class="stats">
+          <div><h3>Du temps mieux employé</h3><p>Gardez les repères du projet d'une session à l'autre et rendez les pratiques accessibles aux nouveaux arrivants, plutôt que de tout reconstruire à chaque échange.</p></div>
+          <div><h3>Un levier FinOps tokens</h3><span class="big">−67,5 % · −71,4 %</span><p>Tokens d'entrée cumulés, mesurés par Kimono face à la recherche standard Copilot sur deux essais de recherche et de préparation d'un plan.</p></div>
+          <div><h3>Un TCO à piloter</h3><p>Évaluez ensemble consommation des modèles, temps d'équipe et coût d'exploitation. Les gains de tokens ne sont pas une promesse de réduction équivalente de la facture.</p></div>
         </div>
-        <div class="btn-row" style="margin-top:1.75rem">
+        <div class="cta-row">
+          <a class="btn gold" href="kimono.html#performance">Voir les mesures et leurs limites</a>
+          <a class="btn light" href="kimono.html#in-action">Voir Kimono en action</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="fonctionnement">
+      <div class="wrap">
+        <span class="eyebrow">Comment ça marche</span>
+        <h2>Trois idées, appliquées avec constance.</h2>
+        <p class="sub">Ensemble, elles transforment des notes éparses en une base de connaissances à laquelle humains et IA peuvent se fier.</p>
+        <div style="margin-top:64px">
+          <div class="feature">
+            <div class="pic"><img src="../assets/images/home/methode.webp" width="640" height="384" loading="lazy" decoding="async" alt="Une femme en keikogi touche un arbre de connaissances holographique doré au-dessus d'une table basse en bois"></div>
+            <div><span class="num">01</span><h3>Structurez vos connaissances</h3><p>Une arborescence, un point d'entrée. Les connaissances s'organisent en concepts, techniques, personas et cas d'usage : un assistant trouve exactement ce dont il a besoin, et rien de plus.</p></div>
+          </div>
+          <div class="feature flip">
+            <div class="pic"><img src="../assets/images/home/ouvert-acte.webp" width="640" height="384" loading="lazy" decoding="async" alt="Une femme remodèle un nuage doré souple de nœuds d’un côté d’une table basse tandis qu’un homme scelle un bloc doré solide avec un cadenas de l’autre, et Kido est assis entre eux d’un air espiègle"></div>
+            <div><span class="num">02</span><h3>Décidez ce qui reste ouvert et ce qui est acté</h3><p>Les tables de vérité restent souples et évoluent avec le projet. Les points durs verrouillent les décisions validées et l'emportent toujours en cas de conflit.</p></div>
+          </div>
+          <div class="feature">
+            <div class="pic"><img src="../assets/images/home/collaboration.webp" width="640" height="384" loading="lazy" decoding="async" alt="Deux personnes et le petit robot Kido assis autour d'une table basse dans un dojo"></div>
+            <div><span class="num">03</span><h3>Laissez les agents l'entretenir</h3><p>Des agents internes recherchent, contrôlent la conformité, arbitrent les conflits, comblent les manques et mettent la base à jour, en préservant le contexte propre à votre projet.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="meta-harnais">
+      <div class="wrap">
+        <span class="eyebrow">AI-KIDO en pratique</span>
+        <h2>Le méta-harnais</h2>
+        <p class="sub">La méthode fixe les règles. Ses outils construisent le reste : personas, agents, skills et commandes, assemblés en un harnais concret adapté à vos besoins, que vous pouvez enrichir et optimiser dans le temps.</p>
+        <figure class="wide-pic"><img src="../assets/images/home/equipe-wide.webp" width="1344" height="768" decoding="async" alt="Trois collègues en keikogi autour d'une table basse discutent devant des panneaux holographiques dorés avec des schémas et un arbre, dans un dojo ensoleillé"></figure>
+        <ul class="rows">
+            <li><a href="harness.html#personas"><svg class="icon" aria-hidden="true"><use href="#user"/></svg><span class="t"><b>Personas &amp; agents</b><small>Donnez la bonne expertise à votre IA.</small></span><svg class="icon go" aria-hidden="true"><use href="#chevron-down"/></svg></a></li>
+            <li><a href="harness.html#commands"><svg class="icon" aria-hidden="true"><use href="#terminal"/></svg><span class="t"><b>Commandes</b><small>Transformez le travail récurrent en workflow.</small></span><svg class="icon go" aria-hidden="true"><use href="#chevron-down"/></svg></a></li>
+            <li><a href="harness.html#skills"><svg class="icon" aria-hidden="true"><use href="#bookmark"/></svg><span class="t"><b>Skills &amp; outils</b><small>Capitalisez le savoir-faire de l'équipe.</small></span><svg class="icon go" aria-hidden="true"><use href="#chevron-down"/></svg></a></li>
+            <li><a href="harness.html#compilation"><svg class="icon" aria-hidden="true"><use href="#plus"/></svg><span class="t"><b>Composition</b><small>Construisez un agent à partir d'un besoin réel.</small></span><svg class="icon go" aria-hidden="true"><use href="#chevron-down"/></svg></a></li>
+            <li><a href="harness.html#example"><svg class="icon" aria-hidden="true"><use href="#eye"/></svg><span class="t"><b>Exemple</b><small>Voyez un harnais en action.</small></span><svg class="icon go" aria-hidden="true"><use href="#chevron-down"/></svg></a></li>
+            <li><a href="harness.html#improve"><svg class="icon" aria-hidden="true"><use href="#refresh"/></svg><span class="t"><b>Évolution</b><small>Optimisez au fil de l'eau.</small></span><svg class="icon go" aria-hidden="true"><use href="#chevron-down"/></svg></a></li>
+        </ul>
+        <div class="cta-row">
           <a class="btn primary" href="harness.html">Explorer la création de harnais</a>
           <a class="btn" href="harness.html#start">Commencer à construire</a>
         </div>
@@ -253,187 +263,84 @@
     </section>
 
     <section id="capacites">
-      <div class="container">
-        <h2>Ce que vous pouvez en faire</h2>
-        <p class="sub">
-          Une boîte à outils complète autour de la méthode, utilisable directement depuis votre assistant IA.
-        </p>
-        <div class="grid cols-4">
-          <article class="card">
-            <img class="card-icon" src="../assets/images/C1.webp" alt="" width="56" height="56" loading="lazy" decoding="async">
-            <span class="tag">Mémoire</span>
-            <h3>Un contexte persistant pour votre LLM</h3>
-            <p>Une Memory Bank hiérarchique qui compense les limites du modèle et garde les connaissances de votre projet disponibles d'une session à l'autre.</p>
-          </article>
-          <article class="card">
-            <img class="card-icon" src="../assets/images/C2.webp" alt="" width="56" height="56" loading="lazy" decoding="async">
-            <span class="tag">Recherche</span>
-            <h3>Tout retrouver, dans la doc comme dans le code</h3>
-            <p>Explorez la documentation, le code source, ou les deux en parallèle, avec des plans de recherche adaptés à votre stack technologique.</p>
-          </article>
-          <article class="card">
-            <img class="card-icon" src="../assets/images/C3.webp" alt="" width="56" height="56" loading="lazy" decoding="async">
-            <span class="tag">Confiance</span>
-            <h3>Savoir quelle source l'emporte</h3>
-            <p>Repérez les écarts entre les spécifications et la réalité, et arbitrez grâce à une hiérarchie claire de la vérité.</p>
-          </article>
-          <article class="card">
-            <img class="card-icon" src="../assets/images/C4.webp" alt="" width="56" height="56" loading="lazy" decoding="async">
-            <span class="tag">Qualité</span>
-            <h3>Valider au fil de l'eau</h3>
-            <p>Des contrôles automatiques de conformité sur la structure, les en-têtes et les liens, et un audit complet de votre base quand vous le souhaitez.</p>
-          </article>
-          <article class="card">
-            <img class="card-icon" src="../assets/images/C5.webp" alt="" width="56" height="56" loading="lazy" decoding="async">
-            <span class="tag">Analyse</span>
-            <h3>Comprendre un projet rapidement</h3>
-            <p>Des plans d'analyse, du simple survol à la revue experte approfondie, et un index de projet mis en cache pour la rapidité.</p>
-          </article>
-          <article class="card">
-            <img class="card-icon" src="../assets/images/C6.webp" alt="" width="56" height="56" loading="lazy" decoding="async">
-            <span class="tag">Mises à jour</span>
-            <h3>Rester à jour sans perdre votre travail</h3>
-            <p>Mettez à jour depuis la source officielle et choisissez fichier par fichier de remplacer, fusionner ou ignorer. Les sauvegardes et votre contexte local sont préservés.</p>
-          </article>
-          <article class="card">
-            <img class="card-icon" src="../assets/images/C7.webp" alt="" width="56" height="56" loading="lazy" decoding="async">
-            <span class="tag">Équipe</span>
-            <h3>Organiser qui fait quoi</h3>
-            <p>Des personas spécialisés et une matrice RACI classent chaque document et clarifient les responsabilités au sein de l'équipe.</p>
-            <a class="harness-command" href="harness.html#personas">Créer vos personas et agents →</a>
-          </article>
-          <article class="card">
-            <img class="card-icon" src="../assets/images/C8.webp" alt="" width="56" height="56" loading="lazy" decoding="async">
-            <span class="tag">Intégration</span>
-            <h3>Se branche sur vos outils IA</h3>
-            <p>Construit sur les standards AGENTS.md et Skills, AI-KIDO fonctionne dès aujourd'hui avec Claude Code, Claude Cowork, GitHub Copilot, VS Code, Codex, Kiro, Zoo Code, Roo Code, Antigravity et tout autre outil qui les respecte.</p>
-            <a class="harness-command" href="install.html">Choisir son installation →</a>
-          </article>
+      <div class="wrap">
+        <span class="eyebrow">Ce que vous pouvez en faire</span>
+        <h2>Une boîte à outils complète autour de la méthode.</h2>
+        <p class="sub">Utilisable directement depuis votre assistant IA.</p>
+        <div class="caps">
+          <div><svg class="icon" aria-hidden="true"><use href="#folder"/></svg><h3>Un contexte persistant</h3><p>Une Memory Bank hiérarchique qui garde les connaissances de votre projet disponibles d'une session à l'autre.</p></div>
+          <div><svg class="icon" aria-hidden="true"><use href="#search"/></svg><h3>Tout retrouver</h3><p>Explorez la documentation, le code source, ou les deux en parallèle, avec des plans de recherche adaptés à votre stack.</p></div>
+          <div><svg class="icon" aria-hidden="true"><use href="#lock"/></svg><h3>Savoir quelle source l'emporte</h3><p>Repérez les écarts entre les spécifications et la réalité, et arbitrez grâce à une hiérarchie claire de la vérité.</p></div>
+          <div><svg class="icon" aria-hidden="true"><use href="#check-circle"/></svg><h3>Valider au fil de l'eau</h3><p>Des contrôles automatiques sur la structure, les en-têtes et les liens, et un audit complet quand vous le souhaitez.</p></div>
+          <div><svg class="icon" aria-hidden="true"><use href="#eye"/></svg><h3>Comprendre un projet rapidement</h3><p>Des plans d'analyse, du simple survol à la revue experte, et un index de projet mis en cache.</p></div>
+          <div><svg class="icon" aria-hidden="true"><use href="#download"/></svg><h3>Rester à jour</h3><p>Mettez à jour depuis la source officielle et choisissez fichier par fichier de remplacer, fusionner ou ignorer. Sauvegardes et contexte local préservés.</p></div>
+          <div><svg class="icon" aria-hidden="true"><use href="#users"/></svg><h3>Organiser qui fait quoi</h3><p>Des personas spécialisés et une matrice RACI classent chaque document et clarifient les responsabilités.</p><a href="harness.html#personas">Créer vos personas →</a></div>
+          <div><svg class="icon" aria-hidden="true"><use href="#link"/></svg><h3>Se branche sur vos outils IA</h3><p>Construit sur les standards AGENTS.md et Skills : Claude Code, Claude Cowork, GitHub Copilot, VS Code, Codex, Kiro, Zoo Code, Roo Code, Antigravity et plus.</p><a href="install.html">Choisir son installation →</a></div>
         </div>
       </div>
     </section>
 
-    <section id="usages" class="alt">
-      <div class="container">
-        <h2>À utiliser là où vous travaillez</h2>
-        <p class="sub">
-          Du projet de week-end à l'organisation multi-projets, en mode standard ou allégé.
-        </p>
-        <div class="grid cols-4">
-          <article class="card">
-            <img class="card-icon" src="../assets/images/U1.webp" alt="" width="56" height="56" loading="lazy" decoding="async">
-            <h3>Démarrer un nouveau projet</h3>
-            <p>Initialisez une Memory Bank en quelques minutes et faites-la grandir avec le projet, dès le premier prompt.</p>
-          </article>
-          <article class="card">
-            <img class="card-icon" src="../assets/images/U2.webp" alt="" width="56" height="56" loading="lazy" decoding="async">
-            <h3>L'adopter sur un code existant</h3>
-            <p>Analysez l'existant, structurez-le en tables de vérité et comblez les manques progressivement.</p>
-          </article>
-          <article class="card">
-            <img class="card-icon" src="../assets/images/U3.webp" alt="" width="56" height="56" loading="lazy" decoding="async">
-            <h3>Embarquer toute votre équipe</h3>
-            <p>Une base partagée, des standards communs et des rôles clairs : les résultats restent cohérents d'une personne à l'autre.</p>
-          </article>
-          <article class="card">
-            <img class="card-icon" src="../assets/images/U4.webp" alt="" width="56" height="56" loading="lazy" decoding="async">
-            <h3>Aller au-delà du code</h3>
-            <p>La méthode a déjà été appliquée à l'enseignement, à l'écriture de fiction et à l'observabilité, en plus du logiciel.</p>
-          </article>
+    <section class="alt" id="usages">
+      <div class="wrap">
+        <span class="eyebrow">À utiliser là où vous travaillez</span>
+        <h2>Du projet de week-end à l'organisation multi-projets.</h2>
+        <p class="sub">En mode standard ou allégé.</p>
+        <div class="uses">
+          <div><h3>Démarrer un nouveau projet</h3><p>Initialisez une Memory Bank en quelques minutes et faites-la grandir avec le projet, dès le premier prompt.</p></div>
+          <div><h3>L'adopter sur un code existant</h3><p>Analysez l'existant, structurez-le en tables de vérité et comblez les manques progressivement.</p></div>
+          <div><h3>Embarquer toute votre équipe</h3><p>Une base partagée, des standards communs et des rôles clairs : les résultats restent cohérents d'une personne à l'autre.</p></div>
+          <div><h3>Aller au-delà du code</h3><p>La méthode a déjà été appliquée à l'enseignement, à l'écriture de fiction et à l'observabilité, en plus du logiciel.</p></div>
         </div>
       </div>
     </section>
 
-    <section id="philosophie">
-      <div class="container">
-        <h2>Philosophie</h2>
-        <p class="sub">
-          Le nom dit tout : « AI » et Aïkido, la voie de l'harmonie des énergies. Plutôt que de lutter contre les
-          limites d'un modèle de langage, on apprend à utiliser son énergie et à transformer ses faiblesses apparentes
-          en atouts. Un petit nombre de règles fondamentales garantit une base de connaissances robuste, évolutive
-          et cohérente.
-        </p>
-        <div class="grid cols-3">
-          <article class="card">
-            <span class="tag">Navigation</span>
-            <h3>🌳 Arborescence</h3>
-            <p>Navigation récursive depuis un point d'entrée unique.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Organisation</span>
-            <h3>📊 Théorie / pratique</h3>
-            <p>Séparation nette entre concepts et techniques, personas et cas d'usage.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Amélioration</span>
-            <h3>🔄 Auto-alimentation</h3>
-            <p>Amélioration continue à partir des retours d'expérience.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Qualité</span>
-            <h3>⚖️ Équilibrage</h3>
-            <p>Contraintes de taille des fichiers et profondeur limitée à 4 niveaux.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Cohérence</span>
-            <h3>🔗 Liens bidirectionnels</h3>
-            <p>Navigation cohérente dans tous les sens entre les documents.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Équipe</span>
-            <h3>👥 Répartition des rôles</h3>
-            <p>Organisation collaborative appuyée par une matrice RACI.</p>
-          </article>
-        </div>
-
-        <div class="quote-feature">
-          <img src="../assets/images/H3.webp" alt="" width="960" height="534" loading="lazy" decoding="async">
-          <blockquote class="quote">
-            Le véritable challenge n'est pas d'apprendre à utiliser l'IA, mais d'apprendre à danser avec elle.
-            <cite>L'esprit d'AI-KIDO</cite>
-          </blockquote>
+    <section class="band garden" id="philosophie">
+      <img class="bg" src="../assets/images/home/jardin-wide.webp" width="1344" height="640" alt="" loading="lazy" decoding="async">
+      <div class="wrap">
+        <div class="text">
+          <span class="eyebrow">Philosophie</span>
+          <h2>L'harmonie des énergies.</h2>
+          <p class="sub">Le nom dit tout : « AI » et Aïkido. Plutôt que de lutter contre les limites d'un modèle de langage, on apprend à utiliser son énergie et à transformer ses faiblesses apparentes en atouts.</p>
+          <ul class="principles" aria-label="Règles fondamentales">
+            <li><svg class="icon" aria-hidden="true"><use href="#folder"/></svg> Arborescence</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#layers"/></svg> Théorie / pratique</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#refresh"/></svg> Auto-alimentation</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#grid"/></svg> Équilibrage</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#link"/></svg> Liens bidirectionnels</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#users"/></svg> Répartition des rôles</li>
+          </ul>
+          <blockquote class="quote">Le véritable challenge n'est pas d'apprendre à utiliser l'IA, mais d'apprendre à danser avec elle.<cite>L'esprit d'AI-KIDO</cite></blockquote>
         </div>
       </div>
     </section>
 
-    <section id="parcours" class="alt">
-      <div class="container">
-        <h2>Une méthode qui s'apprend, pas seulement un outil qu'on installe</h2>
-        <p class="sub">
-          AI-KIDO est d'abord une méthode. Ses outils forment un méta-harnais : au lieu de fournir un harnais figé,
-          ils aident à construire à la volée celui dont chaque tâche a besoin. Vous progressez par ceintures,
-          du premier prompt structuré aux agents spécialisés et aux workflows de votre chaîne de production,
-          avec des katas concrets et un esprit de dojo fait de patience et de curiosité.
-        </p>
-        <ul class="pills" aria-label="Parcours d'apprentissage">
-          <li class="belt-white">Ceinture blanche · Fondations</li>
-          <li class="belt-yellow">Ceinture jaune · Expansion</li>
-          <li class="belt-orange">Ceinture orange · Maîtrise</li>
-          <li class="belt-green">Ceinture verte · Pratique professionnelle</li>
-          <li class="belt-blue">Ceinture bleue · Industrialisation agentique</li>
-          <li class="belt-black">Ceinture noire · Amélioration continue</li>
-        </ul>
-        <div class="grid cols-3" style="margin-top:1.75rem">
-          <article class="card"><h3>Une méthode</h3><p>AI-KIDO est une façon de travailler : des règles, une hiérarchie de vérité et un point d'entrée unique. Elle ne dépend d'aucun assistant, modèle ou outil en particulier.</p></article>
-          <article class="card"><h3>Un méta-harnais</h3><p>Ses outils créent et assemblent personas, agents, skills et commandes en harnais adaptés à vos besoins.</p><a class="harness-command" href="harness.html">Découvrir la création de harnais →</a></article>
-          <article class="card"><h3>Des cas d'usage réutilisables</h3><p>Capitalisez les workflows utiles dans la Memory Bank, puis adaptez-les et améliorez-les pour votre prochaine tâche.</p><a class="harness-command" href="harness.html#example">Voir un exemple concret →</a></article>
-        </div>
-        <div class="btn-row" style="margin-top:1.75rem">
+    <section id="parcours">
+      <div class="wrap">
+        <span class="eyebrow">Une méthode qui s'apprend</span>
+        <h2>Pas seulement un outil qu'on installe.</h2>
+        <p class="sub">AI-KIDO est d'abord une méthode. Ses outils forment un méta-harnais qui construit à la volée le harnais dont chaque tâche a besoin. Vous progressez par ceintures, du premier prompt structuré aux agents spécialisés et aux workflows de votre chaîne de production, avec des katas concrets et un esprit de dojo fait de patience et de curiosité.</p>
+        <ol class="belts" aria-label="Parcours d'apprentissage">
+          <li class="white"><b>Blanche</b><span>Fondations</span></li>
+          <li class="yellow"><b>Jaune</b><span>Expansion</span></li>
+          <li class="orange"><b>Orange</b><span>Maîtrise</span></li>
+          <li class="green"><b>Verte</b><span>Pratique professionnelle</span></li>
+          <li class="blue"><b>Bleue</b><span>Industrialisation agentique</span></li>
+          <li class="black"><b>Noire</b><span>Amélioration continue</span></li>
+        </ol>
+        <div class="cta-row">
           <a class="btn primary" href="history.html">Lire l'histoire</a>
           <a class="btn" href="history.html#parcours">Explorer le parcours</a>
         </div>
       </div>
     </section>
 
-    <section id="structure">
-      <div class="container">
-        <h2>Structure</h2>
-        <p class="sub">
-          Le point d'entrée unique est <code>prompts/index.md</code>. Les points durs
-          (<code>hard_points</code>) font autorité, puis viennent les Truth Tables (<code>gen</code>).
-        </p>
-        <div class="split-structure">
-          <pre><code>prompts/
+    <section class="dark" id="agents">
+      <div class="wrap split">
+        <div>
+          <span class="eyebrow">Une Memory Bank qui s'entretient toute seule</span>
+          <h2>Un point d'entrée. Des agents qui la gardent en forme.</h2>
+          <p class="sub">Le point d'entrée unique est <code>prompts/index.md</code>. Les points durs (<code>hard_points</code>) font autorité, puis viennent les Truth Tables (<code>gen</code>).</p>
+          <pre class="tree"><code>prompts/
 ├── index.md            # point d'entrée unique
 ├── hard_points/        # vérités immuables (priorité absolue)
 │   ├── agents/  commands/  system/  ...
@@ -441,58 +348,43 @@
     ├── concepts/   techniques/
     ├── agents/     personas/
     └── use_cases/</code></pre>
-          <img src="../assets/images/P1.webp" alt="" width="760" height="760" loading="lazy" decoding="async">
         </div>
-      </div>
-    </section>
-
-    <section id="agents" class="alt">
-      <div class="container">
-        <h2>Une Memory Bank qui s'entretient toute seule</h2>
-        <p class="sub">
-          Les agents <code>agent-aikido-*</code> sont à la fois des outils, des agents et des modes.
-          Ils automatisent la maintenance de la Memory Bank pour que votre équipe se concentre sur la construction.
-        </p>
-        <img class="banner-img" src="../assets/images/P2.webp" alt="" width="1200" height="672" loading="lazy" decoding="async">
-        <div class="grid cols-3">
-          <article class="card"><h3>Explore Bank / Code / All</h3><p>Recherche dans la documentation, dans le code, ou les deux en parallèle.</p></article>
-          <article class="card"><h3>Truth Evaluator</h3><p>Détermine la source faisant autorité en cas de conflit.</p></article>
-          <article class="card"><h3>Validator &amp; Doc Header</h3><p>Vérifie la conformité des fichiers et gère leurs en-têtes.</p></article>
-          <article class="card"><h3>Balancer &amp; Index</h3><p>Rééquilibre l'arbre et maintient les index à jour.</p></article>
-          <article class="card"><h3>Bank Populate &amp; RACI Delegator</h3><p>Comble les manques et classe les nouveaux documents.</p></article>
-          <article class="card"><h3>Fusion &amp; Update Controller</h3><p>Met à jour AI-KIDO en préservant le contexte local du projet.</p></article>
-        </div>
+        <ul class="agents">
+          <li><svg class="icon" aria-hidden="true"><use href="#search"/></svg><div><b>Explore Bank / Code / All</b><span>Recherche dans la documentation, dans le code, ou les deux en parallèle.</span></div></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#lock"/></svg><div><b>Truth Evaluator</b><span>Détermine la source faisant autorité en cas de conflit.</span></div></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#check-circle"/></svg><div><b>Validator &amp; Doc Header</b><span>Vérifie la conformité des fichiers et gère leurs en-têtes.</span></div></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#grid"/></svg><div><b>Balancer &amp; Index</b><span>Rééquilibre l'arbre et maintient les index à jour.</span></div></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#plus"/></svg><div><b>Bank Populate &amp; RACI Delegator</b><span>Comble les manques et classe les nouveaux documents.</span></div></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#refresh"/></svg><div><b>Fusion &amp; Update Controller</b><span>Met à jour AI-KIDO en préservant le contexte local du projet.</span></div></li>
+        </ul>
       </div>
     </section>
 
     <section id="demarrer">
-      <div class="container">
-        <h2>Démarrer</h2>
-        <p class="sub">
-          Choisissez le package correspondant à votre assistant pour initialiser AI-KIDO dans votre projet. Le parcours guidé vous permet d'examiner les fichiers avant leur installation.
-        </p>
-        <div class="btn-row">
-          <a class="btn primary" href="install.html">Choisir son assistant et installer</a>
-          <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md">Guide d'installation complet</a>
-          <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/distribution/README.md">Initialisation et mises à jour</a>
+      <div class="wrap feature">
+        <div class="pic"><img src="../assets/images/home/dev-wide.webp" width="1344" height="768" loading="lazy" decoding="async" alt="Un développeur en keikogi travaille à un bureau bas, des structures de code dorées holographiques s'élèvent au-dessus"></div>
+        <div>
+          <span class="eyebrow">Démarrer</span>
+          <h2>Installez en quelques minutes, progressez à votre rythme.</h2>
+          <p class="sub">Choisissez le package correspondant à votre assistant pour initialiser AI-KIDO dans votre projet. Le parcours guidé vous permet d'examiner les fichiers avant leur installation. Lancez ensuite <code>/init-aikido</code> depuis votre assistant pour commencer à construire la Memory Bank du projet.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="install.html">Choisir son assistant et installer</a>
+          </div>
+          <div class="cta-row" style="margin-top:18px">
+            <a class="link-arrow" href="https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md">Guide d'installation complet</a>
+            <a class="link-arrow" href="https://github.com/lcalmejane/aikido/blob/main/distribution/README.md">Initialisation et mises à jour</a>
+          </div>
         </div>
-        <p>Après l'installation, lancez <code>/init-aikido</code> depuis votre assistant pour commencer à construire la Memory Bank du projet.</p>
-        <p>
-          Dépôt source :
-          <a href="https://github.com/lcalmejane/aikido">github.com/lcalmejane/aikido</a>
-        </p>
       </div>
     </section>
 
-    <section class="cta alt">
-      <div class="container">
+    <section class="closing">
+      <div class="wrap">
         <h2>Prêt à travailler avec l'IA, et non contre elle ?</h2>
-        <p class="sub">
-          Commencez avec un seul prompt et un seul point d'entrée. Le reste de la méthode grandit avec vous.
-        </p>
-        <div class="btn-row">
-          <a class="btn primary" href="https://github.com/lcalmejane/aikido">Récupérer AI-KIDO sur GitHub</a>
-          <a class="btn" href="history.html">Lire l'histoire</a>
+        <p class="sub">Commencez avec un seul prompt et un seul point d'entrée. Le reste de la méthode grandit avec vous.</p>
+        <div class="cta-row">
+          <a class="btn gold" href="https://github.com/lcalmejane/aikido">Récupérer AI-KIDO sur GitHub</a>
+          <a class="btn light" href="history.html">Lire l'histoire</a>
         </div>
       </div>
     </section>
@@ -500,7 +392,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
+    <div class="wrap">
       AI-KIDO – Méthode de Construction de Memory Bank IA par Méta-harnais ·
       <a href="https://github.com/lcalmejane/aikido-web">Code du site</a>
     </div>
