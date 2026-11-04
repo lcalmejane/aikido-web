@@ -46,8 +46,8 @@
 .card > a:hover { text-decoration: underline; }
 .card .ico { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 16px; color: var(--accent); background: rgba(184, 92, 56, .12); }
 .card .ico .icon { width: 1.5em; height: 1.5em; }
-.card-img { width: calc(100% + 56px); max-width: none; margin: -28px -28px 20px; aspect-ratio: 5 / 3; object-fit: cover; border-radius: 17px 17px 0 0; }
-.kido-img { display: block; width: 100%; max-width: 240px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 20px; margin: 0 auto 18px; box-shadow: 0 18px 36px -22px rgba(17, 21, 36, .45); }
+.card-img { width: calc(100% + 56px); max-width: none; height: auto; margin: -28px -28px 20px; aspect-ratio: 5 / 3; object-fit: cover; border-radius: 17px 17px 0 0; }
+.kido-img { display: block; width: 100%; max-width: 240px; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 20px; margin: 0 auto 18px; box-shadow: 0 18px 36px -22px rgba(17, 21, 36, .45); }
 .inner .tag:not(.tl-item):not(.badge) { display: inline-block; align-self: flex-start; margin-bottom: 12px; padding: 3px 12px; border: 1px solid currentColor; border-radius: 999px; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
 .harness-command { display: inline-block; max-width: 100%; margin-top: 16px; overflow-wrap: anywhere; }
 .harness-evolution { margin-top: 36px; padding-left: 22px; border-left: 3px solid var(--accent); }
@@ -160,6 +160,10 @@ table.data tbody tr:last-child > * { border-bottom: 0; }
 .badge { display: inline-block; margin-right: 8px; padding: 2px 10px; border-radius: 999px; vertical-align: middle; font-family: var(--sans); font-size: .72rem; font-weight: 700; background: var(--btn-bg); color: var(--btn-fg); }
 .badge.first { background: var(--accent); color: #fff; }
 .badge.nogit { background: none; border: 1px dashed var(--muted); color: var(--muted); }
+
+/* Zones d'action : espace libre autour (≥ 16 px) et entre boutons (≥ 12 px, y compris au retour à la ligne) — règle L-design-005 */
+.btn-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+.btn-row + .note { margin-top: 20px; }
 
 /* Conclusion */
 .closing .btn-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 32px; }
