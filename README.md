@@ -2,7 +2,7 @@
 
 Showcase website for [AI-KIDO](https://github.com/lcalmejane/aikido), the AI Memory Bank Construction Method by Meta-Harness, published with GitHub Pages.
 
-URL: https://lcalmejane.github.io/aikido-web/
+URL: https://www.ai-kido.fr/
 
 ## Languages
 
@@ -30,12 +30,14 @@ and [project setup guide](https://github.com/lcalmejane/aikido/blob/main/distrib
 
 Every page shares the same header as the home, built without JavaScript: a short main menu (`Method` group, `Install`, `Tools` group (Kimono MCP, Local Designer), `GitHub`, language switch) and, on inner pages, a secondary "On this page" bar listing the sections of the current page. Below 960 px the main menu collapses behind a `Menu` toggle (`#nav-toggle` checkbox) and the section bar scrolls sideways. When adding a page, copy the header of an existing page, add the page to the `Method` group if it belongs there, and list only its own `#section` anchors in the secondary bar.
 
+The static bilingual footer appears on every page, including the 404. It groups method, tools and public resources, with the method's MIT license and a language switch preserving the current page. Do not link to the website's source repository in the public pages. Keep EN/FR copies aligned when adding links. Its responsive layout and light/dark colours live in `home.css`; no JavaScript is needed.
+
 ## Visual identity (November 2026 design refresh)
 
 The whole site follows the charter of the home page (cream `#f6efe0`, ink `#111524`, navy `#0e386e`, terracotta `#b85c38`, gold `#e8c77a`; serif headings, sans body; automatic dark mode). Photography shows people in cream keikogi in a sunlit dojo; icons are the inline SVG sprite, never raster pictograms.
 
 - `assets/css/home.css`: charter variables, header, buttons, hero, bands, closing block. Loaded by every page.
-- `assets/css/inner.css`: the same charter applied to inner pages (page header with full-width photo, cards, steps, tables, timeline, belts). Loaded after `home.css`; body class `inner`. Cache-busters: `home.css?v=4`, `inner.css?v=4`; bump them on every page when the file changes.
+- `assets/css/inner.css`: the same charter applied to inner pages (page header with full-width photo, cards, steps, tables, timeline, belts). Loaded after `home.css`; body class `inner`. Cache-busters: `home.css?v=6`, `inner.css?v=5`; bump them on every page when the file changes.
 - Header menu: **Method** (Home, Harness creation, History) and **Tools** (Kimono MCP, Local Designer) are `<details class="nav-group">` groups; the group holding the current page gets the class `current` so its label takes the accent colour. A new tool page goes into the **Tools** panel of all pages (EN and FR), in `sitemap.xml`, and in the page list of the site check.
 - `local-designer.html` / `fr/local-designer.html`: page of the `local-designer` skill (art director for agents). Images: `ph-designer` (header) and `designer-moodboard|charter|uikit|render` in `assets/images/pages/`; the 12 style thumbnails in `assets/images/pages/styles/` are the skill's own (`styles/thumbs/`), not site renders. No link to the `aikido-skills` repository, which is private: installation is described through `/skill-manage` and the public method repository.
 - Photo layouts on inner pages (never a lone illustration floating between text blocks): `.duo` = two `.card` side by side, each with a `.card-img` on top, a `.tag`, a title and a short text (Kimono “Local today / shared tomorrow”); `.split-media` = photo on the left (`.media`) and a `.stack` of cards on the right (Kimono “Choose the way you want to work”); `.callout` = text block with an accent rule; `.quote-feature` = photo beside a quote. All collapse to one column below 960 px.
@@ -58,7 +60,9 @@ aikido-web/
 ├── fr/install.html     # distributions, installation et skills (FR)
 ├── fr/history.html     # history and timeline (FR)
 ├── 404.html            # bilingual error page (noindex)
-├── sitemap.xml         # all 10 URLs with hreflang alternates (SEO)
+├── sitemap.xml         # all 12 URLs with hreflang alternates (SEO)
+├── robots.txt          # crawler access and canonical sitemap URL
+├── CNAME               # GitHub Pages custom domain: www.ai-kido.fr
 ├── manifest.webmanifest # web app manifest (name, theme colour, 192/512 px icons)
 ├── .nojekyll           # disables Jekyll: static site served as is
 ├── assets/css/         # home.css (charter) + inner.css (inner pages)
@@ -99,9 +103,10 @@ The site is static HTML/CSS, with no build step.
 - Every indexable page carries: `<title>`, `meta description`, `meta robots` (`index, follow, max-image-preview:large`), `<link rel="canonical">` (absolute URL, no `index.html`, no `?v=`), `og:url`, `og:site_name`, `og:image`, `twitter:image` and reciprocal `hreflang` (`en`, `fr`, `x-default` = EN). The two home pages also embed JSON-LD (`WebSite` + `SoftwareSourceCode`).
 - `404.html` is `noindex, follow`.
 - Icons: every page (including `404.html`) uses the same block: `favicon.ico` (16 + 32 px), PNG 32, 96 and 192 px, `apple-touch-icon` (180 px), `manifest.webmanifest` and two `theme-color` tags (`#f6efe0` in light mode, `#111524` in dark mode, the site background). Icon URLs carry a `?v=3` cache-buster; bump it on every page when an icon file changes. Source artwork: `assets/images/logo-512.png`.
-- `sitemap.xml` lists the 10 pages with their `xhtml:link` alternates. When adding or renaming a page, update the sitemap, the `canonical`/`og:url`/`hreflang` tags of both versions, and bump `<lastmod>` on pages whose content changed.
-- `robots.txt` is **not** placed here: on a GitHub Pages project site, crawlers only read `https://lcalmejane.github.io/robots.txt` (root of the user domain, i.e. a `lcalmejane.github.io` repository). Without it everything is crawlable. If created there, add `Sitemap: https://lcalmejane.github.io/aikido-web/sitemap.xml`.
-- Search engines: add the property `https://lcalmejane.github.io/aikido-web/` (URL prefix) in Google Search Console, submit `sitemap.xml`, then request indexing of the home pages; import it into Bing Webmaster Tools. For ownership verification, add a `google-site-verification` meta tag (or an HTML verification file at the site root) only once the token is known.
+- All canonical, Open Graph, social image, JSON-LD and language-alternate URLs use `https://www.ai-kido.fr/`. Home URLs are `/` and `/fr/`, not `index.html`. The 404 keeps `noindex` and root-relative links/assets so nested missing URLs work on the custom domain.
+- `sitemap.xml` lists the 12 pages with their `xhtml:link` alternates. When adding or renaming a page, update the sitemap, the `canonical`/`og:url`/`hreflang` tags of both versions, and bump `<lastmod>` on pages whose content changed.
+- `robots.txt` at the custom domain root allows crawling and declares `Sitemap: https://www.ai-kido.fr/sitemap.xml`.
+- Search engines: add the property `https://www.ai-kido.fr/` (URL prefix) in Google Search Console, submit `sitemap.xml`, then request indexing of the home pages; import it into Bing Webmaster Tools. For ownership verification, add a `google-site-verification` meta tag (or an HTML verification file at the site root) only once the token is known. After the DNS check passes and GitHub issues the certificate, enable **Enforce HTTPS** in Pages settings to redirect HTTP traffic.
 
 ## Working directory
 
@@ -118,4 +123,5 @@ python3 -m http.server 8000
 ## Publishing
 
 Settings → Pages → *Deploy from a branch* → `main` / `/ (root)`.
+Custom domain: `www.ai-kido.fr` (persisted in `CNAME`; preserve this file).
 Every push to `main` republishes the site.

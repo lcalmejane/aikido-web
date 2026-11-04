@@ -201,10 +201,25 @@ section { padding: clamp(72px, 9vw, 128px) 0; }
 .closing h2 { max-width: 18em; margin-inline: auto; }
 .closing .sub { margin-inline: auto; color: #d4def0; }
 .closing .cta-row { justify-content: center; }
-.site-footer { padding: 32px 0; font-size: .9rem; color: var(--muted); border-top: 1px solid var(--line); }
+.site-footer { padding: 56px 0 32px; font-size: .95rem; color: var(--muted); background: var(--paper); border-top: 1px solid var(--line); }
+.footer-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; }
+.footer-brand { display: inline-block; font: 700 1.65rem var(--serif); color: var(--fg); text-decoration: none; }
+.footer-tagline { margin: 16px 0 12px; color: var(--fg); font-weight: 600; }
+.footer-intro p { max-width: 32em; }
+.footer-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.footer-group h2 { font: 600 1rem var(--sans); color: var(--fg); margin: 0 0 16px; }
+.footer-group ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.site-footer a:not(.footer-brand) { color: var(--muted); text-decoration: none; text-underline-offset: .2em; }
+.site-footer a:hover { color: var(--link); text-decoration: underline; }
+.site-footer a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-radius: 2px; }
+.footer-group a, .footer-bottom a { display: inline-flex; align-items: center; min-height: 24px; }
+.footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); font-size: .875rem; }
+.footer-languages { display: flex; flex-wrap: wrap; gap: 16px; }
+.footer-languages [aria-current="page"] { font-weight: 700; }
 
 /* Tablettes et mobiles */
 @media (max-width: 960px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .rows { grid-template-columns: 1fr; }
   .wide-pic img { aspect-ratio: 16 / 9; }
   .pains, .caps, .uses { grid-template-columns: repeat(2, 1fr); }
@@ -224,6 +239,7 @@ section { padding: clamp(72px, 9vw, 128px) 0; }
   .band.garden::before { background: rgba(17, 21, 36, .74); }
 }
 @media (max-width: 640px) {
+  .footer-nav { grid-template-columns: 1fr; gap: 32px; }
   .hero { display: block; min-height: 0; }
   .hero .bg { position: relative; height: 300px; object-position: 78% 50%; }
   .hero::after { display: none; }
