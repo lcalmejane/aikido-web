@@ -18,6 +18,7 @@ URL: https://www.ai-kido.fr/
 | Distributions and installation | `install.html` | `fr/install.html` |
 | Story (project timeline) | `history.html` | `fr/history.html` |
 | Kimono (diagrams and setup tutorial) | `kimono.html` | `fr/kimono.html` |
+| Technical friends (footer only) | `technical-friends.html` | `fr/technical-friends.html` |
 
 Each page has a language switcher (`EN` / `FR`) and `hreflang` tags (`x-default` = EN).
 When adding a page, create both versions: `page.html` (EN) and `fr/page.html` (FR), and keep both switchers pointing to each other.
@@ -31,6 +32,10 @@ and [project setup guide](https://github.com/lcalmejane/aikido/blob/main/distrib
 Every page shares the same header as the home, built without JavaScript: a short main menu (`Method` group, `Install`, `Tools` group (Kimono MCP, Local Designer), `GitHub`, language switch) and, on inner pages, a secondary "On this page" bar listing the sections of the current page. Below 960 px the main menu collapses behind a `Menu` toggle (`#nav-toggle` checkbox) and the section bar scrolls sideways. When adding a page, copy the header of an existing page, add the page to the `Method` group if it belongs there, and list only its own `#section` anchors in the secondary bar.
 
 The static bilingual footer appears on every page, including the 404. It groups method, tools and public resources, with the method's MIT license and a language switch preserving the current page. Do not link to the website's source repository in the public pages. Keep EN/FR copies aligned when adding links. Its responsive layout and light/dark colours live in `home.css`; no JavaScript is needed.
+
+The bilingual Technical friends page is linked only from the footer, not from the main menu or home-page cards (its own language switch preserves the page). It groups tools/foundations, target assistants/CLIs and upstream inspirations; links go to official sites or public upstream repositories, never private product repositories or this website's source. It explicitly avoids implying a partnership, endorsement or uniform compatibility. Keep both language versions and sitemap entries aligned; preserve the distinction between a distribution target and a tested integration.
+
+Its dedicated Kimono section documents fast-grep, embsearch-core, ONNX Runtime, MinishLab Model2Vec/Potion, Hugging Face, Multilingual E5 small, Rust and Tree-sitter, checked against the component sources rather than inferred from generic RAG stacks. Logos/site icons are local assets with [upstream provenance](assets/images/technical-friends/README.md); no generated substitutes or hotlinks. Plain text identifies projects without an established logo. The page-specific stylesheet `assets/css/technical-friends.css` uses white logo plates without recolouring brand marks.
 
 ## Visual identity (November 2026 design refresh)
 
@@ -60,7 +65,9 @@ aikido-web/
 ├── fr/install.html     # distributions, installation et skills (FR)
 ├── fr/history.html     # history and timeline (FR)
 ├── 404.html            # bilingual error page (noindex)
-├── sitemap.xml         # all 12 URLs with hreflang alternates (SEO)
+├── technical-friends.html # technical resources, target assistants and inspirations (EN)
+├── fr/technical-friends.html # sites amis techniques (FR)
+├── sitemap.xml         # all 14 URLs with hreflang alternates (SEO)
 ├── robots.txt          # crawler access and canonical sitemap URL
 ├── CNAME               # GitHub Pages custom domain: www.ai-kido.fr
 ├── manifest.webmanifest # web app manifest (name, theme colour, 192/512 px icons)
@@ -97,6 +104,7 @@ The site is static HTML/CSS, with no build step.
 - Install page illustrations: `I1.webp` (1664×832) is the `.page-head` background of `install.html` / `fr/install.html` only (body class `install-page`, with a radial veil so the headline stays readable over the side artwork). `I2`–`I13` are 192×192 icons with transparent corners, one per card (six “what you get” cards, three install steps, three skills cards) and each sits above the step number tag. Generated at 24 steps (16 was too soft on fine lines): pass `--steps 24` explicitly because `--from` copies the reference's steps. A first pass of `I2` drew a letter-like X and `I13` a flower; both were regenerated (`I2C`, `I13B`) — check every icon for letters, faces and off-topic shapes before publishing.
 - Writing rules (UX/UI): one idea per block; a section intro (`.sub`) is one or two short sentences, about 25 words at most, and the header lead is a single paragraph of about 30 words; put detail in the cards, not the intro. Each page title highlights one key phrase with `<em>` (gradient, same effect as the home title). Wrap `AI-KIDO` in `<span class="nowrap">` inside running text where a line break would split it. Keep EN and FR aligned and bump the `style.css?v=` cache-buster on every page when the CSS changes.
 - Product screenshots: `assets/images/kimono-panel-{en,fr}.png` (1120×820) and `kimono-search-{en,fr}.png` (1120×980). Captured on 25 October 2026 from the installed `ai-kido.kimono-rag-mcp-0.6.5-darwin-arm64` panel, rendered locally with its unchanged HTML/JS/CSS and VS Code dark theme variables. The demonstration uses the installed bundled server and native engines against public `kimono-mcp-server/docs`: 10 indexed documents, 183 embedded chunks, query `local RAG search`, text/semantic modes, five results. Index counts, search locations, response sizes and timings come from actual MCP responses, not invented fixtures. The browser bridge replays that real captured state for FR/EN screenshots; these are not full IDE-window captures. The displayed ROOT is made project-relative; no private files, tokens or user settings are shown. Captions disclose the demo and version; do not present screenshot latencies as the Copilot benchmark above.
+- The `kimono-why` and `kimono-shared` illustrations were regenerated on 4 November 2026 with explicitly distinct synthetic casts (three and four colleagues), varied gender presentation, ages, hair and appearances, and equally active roles. Their compositions were approved before final rendering. Qwen Image 2512 (`qwen_image_2512_bf16_i8x.ckpt`), 24 steps, guidance 4, Euler A Trailing; seeds 83 and 81 respectively; native sizes 1344×576 and 960×576, no crop or resize. Residual synthetic clothing labels were locally replaced with plain dark fabric patches. Original PNGs, prompts, settings and retouched masters stay outside Git in the Local Designer lab. Keep EN/FR alt text aligned with each image's message; generic human groups must not reuse one face unless repetition is the explicit concept.
 
 ## SEO and indexing / Référencement
 

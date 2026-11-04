@@ -1,0 +1,26 @@
+.reference-logo {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #d8d8d8;
+  border-radius: 16px;
+  background: #fff;
+  color: #111524;
+}
+.reference-logo img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+.reference-logo.text-reference {
+  width: auto;
+  justify-self: start;
+  align-self: flex-start;
+  font-family: var(--sans);
+  font-weight: 700;
+}
+.reference-notice { padding-bottom: 32px; }

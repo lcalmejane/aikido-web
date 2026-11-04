@@ -84,4 +84,18 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/local-designer.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/local-designer.html"/>
   </url>
+  <url>
+    <loc>https://www.ai-kido.fr/technical-friends.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/technical-friends.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/technical-friends.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/technical-friends.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/fr/technical-friends.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/technical-friends.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/technical-friends.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/technical-friends.html"/>
+  </url>
 </urlset>
