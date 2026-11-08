@@ -101,7 +101,7 @@
         <div class="text">
         <span class="eyebrow">AI-KIDO · Distributions et installation</span>
         <h1>Une base de connaissance.<br/><em>Tous les assistants.</em><br/>Installée en quelques minutes.</h1>
-        <p class="lead">La Memory Bank <span class="nowrap">AI-KIDO</span> est packagée pour neuf assistants. Choisissez le vôtre, relisez ce qui sera écrit, appliquez.</p>
+        <p class="lead">Installez la Memory Bank <span class="nowrap">AI-KIDO</span> avec npm ou une distribution épinglée. Un CLI détecte vos assistants, présente le plan et l'applique avec votre accord.</p>
         <div class="btn-row">
           <a class="btn primary" href="#distributions">Choisir son assistant</a>
           <a class="btn" href="#content">Ce qui est inclus</a>
@@ -116,9 +116,9 @@
         <h2>Ce que la base de connaissance vous apporte</h2>
         <p class="sub">Le même contenu est livré à chaque assistant, adapté au format qu'il comprend.</p>
         <div class="grid cols-3">
-          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#terminal"/></svg></span><h3>22 commandes</h3><p>Initialiser la Memory Bank, analyser un projet, vérifier la doc, créer personas, commandes et skills.</p></article>
-          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#users"/></svg></span><h3>15 agents spécialisés</h3><p>Vérité, RACI, validation, exploration, index, plus un orchestrateur qui s'adapte à votre assistant.</p></article>
-          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#layers"/></svg></span><h3>6 skills système</h3><p>Analyse de projet, mise à jour, orchestration, recherche et règles de structure.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#terminal"/></svg></span><h3>33 commandes</h3><p>Initialiser la Memory Bank, analyser un projet, gérer tâches et workflows, créer personas, commandes et skills.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#users"/></svg></span><h3>16 agents spécialisés</h3><p>Vérité, RACI, validation, exploration, index, plus un orchestrateur qui s'adapte à votre assistant.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#layers"/></svg></span><h3>8 skills système</h3><p>Analyse de projet, mises à jour, orchestration, recherche, structure, refactoring et règles du task store.</p></article>
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#lock"/></svg></span><h3>Points durs</h3><p>Des règles immuables qui gardent la Memory Bank structurée, traçable et légère pour un LLM.</p></article>
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#eye"/></svg></span><h3>Installation relisible</h3><p>Rien n'est écrit en silence : un plan liste chaque fichier, vous confirmez, vous relisez.</p></article>
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#refresh"/></svg></span><h3>Mise à jour et retrait</h3><p>Mettez à jour, migrez ou retirez l'intégration, sans toucher à la connaissance du projet.</p></article>
@@ -154,13 +154,25 @@
     <section id="install" class="alt">
       <div class="container">
         <h2>Installer en trois étapes</h2>
+        <p class="sub">Version stable : <strong>1.5.4</strong>. Le paquet npm public <a href="https://www.npmjs.com/package/@aikido-method/cli"><code>@aikido-method/cli</code></a> regroupe les neuf distributions. Prérequis : Node.js 24 ou supérieur et npm.</p>
         <div class="grid cols-3">
-          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#download"/></svg></span><span class="tag">1</span><h3>Récupérer le paquet</h3><p>Clonez le tag de version et choisissez le dossier de votre assistant.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#download"/></svg></span><span class="tag">1</span><h3>Détecter vos assistants</h3><p>Lancez le CLI npm dans votre projet. Il détecte les assistants installés et sélectionne leurs intégrations.</p></article>
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#list"/></svg></span><span class="tag">2</span><h3>Relire le plan</h3><p>Choisissez <code>STANDARD</code>, <code>LIGHT</code> ou <code>UNSET</code> comme point d'entrée et prévisualisez les fichiers à installer.</p></article>
-          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#play"/></svg></span><span class="tag">3</span><h3>Appliquer et initialiser</h3><p>Appliquez avec l'identifiant du plan, puis lancez <code>/init-aikido</code> dans votre assistant pour démarrer votre Memory Bank.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#play"/></svg></span><span class="tag">3</span><h3>Appliquer et initialiser</h3><p>Confirmez avec <code>--yes</code>, puis lancez <code>/init-aikido</code> dans votre assistant pour démarrer votre Memory Bank.</p></article>
         </div>
+        <pre><code># Depuis le dossier de votre projet
+npx @aikido-method/cli@1.5.4 detect
+
+# Prévisualiser les fichiers sans les écrire
+npx @aikido-method/cli@1.5.4 init --mode STANDARD
+
+# Appliquer l'installation relue
+npx @aikido-method/cli@1.5.4 init --mode STANDARD --yes</code></pre>
+        <p><code>npx</code> télécharge et lance le CLI public ; aucun compte npm ni token de publication n'est nécessaire. Utilisez <code>--root /chemin/du/projet</code> pour cibler un autre dossier, ou <code>--host codex</code> pour choisir un assistant principal. La connaissance du projet reste locale ; le CLI installé fonctionne hors ligne.</p>
+        <h3>Installer depuis une distribution Git épinglée</h3>
+        <p>Vous pouvez aussi cloner la version et choisir le dossier du paquet dans le tableau ci-dessus. Cette méthode applique le plan exact par son identifiant.</p>
         <pre><code># 1. Récupérer le paquet
-git clone --depth 1 --branch aikido-dist-v1.5.3 \
+git clone --depth 1 --branch aikido-dist-v1.5.4 \
   https://github.com/lcalmejane/aikido.git aikido-dist
 
 # 2. Prévisualiser ce qui sera installé dans votre projet
@@ -173,10 +185,23 @@ node aikido-dist/&lt;paquet&gt;/scripts/bootstrap-plan.mjs \
   --apply --confirm &lt;plan-id&gt;</code></pre>
         <p><strong>Claude Code</strong> s'installe plutôt depuis une marketplace épinglée :</p>
         <pre><code>claude plugin marketplace add \
-  https://github.com/lcalmejane/aikido.git#aikido-dist-v1.5.3
+  https://github.com/lcalmejane/aikido.git#aikido-dist-v1.5.4
 claude plugin install aikido@aikido</code></pre>
         <p><strong>Claude Cowork</strong> : zippez le paquet <code>claude-cowork</code> et importez-le dans <em>Customize &gt; Plugins &gt; Add &gt; Upload plugin</em>.</p>
         <h3>Mettre à jour ou retirer</h3>
+        <pre><code># Prévisualiser la mise à jour, puis l'appliquer après relecture
+npx @aikido-method/cli@1.5.4 update
+npx @aikido-method/cli@1.5.4 update --yes
+
+# Détecter les nouveaux assistants et relire l'intégration
+npx @aikido-method/cli@1.5.4 sync --dry-run
+npx @aikido-method/cli@1.5.4 sync
+npx @aikido-method/cli@1.5.4 check
+
+# Prévisualiser le retrait, puis confirmer
+npx @aikido-method/cli@1.5.4 uninstall
+npx @aikido-method/cli@1.5.4 uninstall --yes</code></pre>
+        <p>Ces commandes utilisent la version épinglée 1.5.4. Pour adopter une version stable plus récente, vérifiez la version disponible sur npm et remplacez-la dans la commande. Les mises à jour signalent les conflits ; <code>--yes</code> n'écrase pas silencieusement les personnalisations.</p>
         <p>Mettre à jour la méthode se fait projet par projet : lancez <code>update-plan.mjs</code> du nouveau paquet, relisez le plan, appliquez. <code>--migrate</code> pour un projet sans verrou, <code>--uninstall</code> pour retirer l'intégration. Votre Memory Bank est toujours conservée.</p>
         <div class="btn-row">
           <a class="btn primary" href="https://github.com/lcalmejane/aikido/blob/main/distribution/docs/host-integrations.md">Guide d'installation complet</a>
