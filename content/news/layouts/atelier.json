@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "atelier",
+  "name": {
+    "en": "Workshop",
+    "fr": "Atelier"
+  },
+  "description": {
+    "en": "Square image, wide column, numbered steps.",
+    "fr": "Image carrée, colonne large, pas à pas numérotés."
+  },
+  "hero": "square",
+  "width": "wide",
+  "accent": "terra",
+  "lead": "plain",
+  "h2": "numbered",
+  "toc": true,
+  "dropcap": false
+}

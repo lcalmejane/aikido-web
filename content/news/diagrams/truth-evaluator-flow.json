@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "truth-evaluator-flow",
+  "type": "flow",
+  "title": {
+    "en": "What the truth evaluator does",
+    "fr": "Ce que fait l’évaluateur de vérité"
+  },
+  "desc": {
+    "en": "A flow in four steps: classify the scenario of your request, discover and score the sources, detect conflicts between them, then return a ranking with a recommendation and a confidence level.",
+    "fr": "Un flux en quatre étapes : classer le scénario de votre demande, repérer et noter les sources, détecter les conflits entre elles, puis rendre un classement avec une recommandation et un niveau de confiance."
+  },
+  "nodes": [
+    {
+      "label": { "en": "1. Classify the scenario", "fr": "1. Classer le scénario" },
+      "note": { "en": "From the words of your request", "fr": "À partir des mots de votre demande" }
+    },
+    {
+      "label": { "en": "2. Discover and score sources", "fr": "2. Repérer et noter les sources" },
+      "note": { "en": "Specs, code, docs, config, tests", "fr": "Specs, code, docs, config, tests" }
+    },
+    {
+      "label": { "en": "3. Detect conflicts", "fr": "3. Détecter les conflits" },
+      "note": { "en": "Where two sources contradict each other", "fr": "Là où deux sources se contredisent" }
+    },
+    {
+      "accent": true,
+      "label": { "en": "4. Ranking and recommendation", "fr": "4. Classement et recommandation" },
+      "note": { "en": "With a confidence level", "fr": "Avec un niveau de confiance" }
+    }
+  ]
+}

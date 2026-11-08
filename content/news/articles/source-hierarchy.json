@@ -1,0 +1,528 @@
+{
+  "slug": "source-hierarchy",
+  "nature": "analysis",
+  "domains": ["memory"],
+  "date": "2026-11-08",
+  "tag": {
+    "en": "Method",
+    "fr": "Méthode"
+  },
+  "image": "hero-source-hierarchy",
+  "layout": "dossier",
+  "en": {
+    "title": "Greenfield or legacy: which one is the truth, the spec or the code?",
+    "summary": "Spec-driven approaches suit new projects, code-first ones suit existing systems. AI-KIDO tries to reconcile both: its evaluator picks the leading source from your request.",
+    "body": [
+      "<p>You land on a fifteen-year-old monolith. The <code>docs/</code> folder describes an application that no longer exists, and the only faithful document is the code. The next day, you start a product from scratch: not a single line of code, and the whole truth is whatever you are about to write. In both cases you ask an assistant to code. In both cases it must know what to trust. And it is not the same thing.</p>",
+      "<p>This article asks a simple question: when you work with agents, which one is the truth, the specification or the code? It shows why common approaches answer one of the two cases well, then how AI-KIDO tries to tell them apart by looking, at every request, at where you are starting from and what you want to do.</p>",
+      {
+        "h2": "Four situations, four truths"
+      },
+      "<p>Before talking about tools, let us separate what you actually live through on a project.</p>",
+      {
+        "cards": [
+          {
+            "title": "New project (greenfield)",
+            "text": "Nothing exists yet. The specification is the only trace of intent: it is the one that must be the truth."
+          },
+          {
+            "title": "Transforming an existing system",
+            "text": "You modernise or move a system that works. The old behaviour and the target both matter: two truths at once."
+          },
+          {
+            "title": "Maintaining legacy code",
+            "text": "You fix, extend, understand. The code in production is reality; the documentation may well have aged."
+          },
+          {
+            "title": "Mixed cases",
+            "text": "A new feature in an old system, an external API to plug in: the source that leads changes with the request."
+          }
+        ]
+      },
+      "<p>Keep this idea, it carries everything else: the same source is sometimes the truth and sometimes noise, depending on what you are doing. A README is precious when designing a new module, and misleading when you try to understand a production bug.</p>",
+      {
+        "h2": "When the specification is the truth"
+      },
+      "<p>Spec-driven development (SDD) reverses the usual order: you first write what the software must do, then the agent produces the code. {ref:1|GitHub} presents Spec Kit this way: the spec is a contract for how the code should behave, and it becomes the source of truth that tools and agents use to generate, test and validate the code.</p>",
+      "<p>The work moves through phases with checkpoints. You first describe the what and the why (Specify), then you give the technical stack, the architecture and the constraints (Plan). {ref:1|GitHub} adds that this planning phase is where you mention a legacy integration or a compliance requirement.</p>",
+      "<p>{ref:2|Kiro}, the AWS editor, also organises work in three phases: requirements (<code>requirements.md</code>), design (<code>design.md</code>) and tasks (<code>tasks.md</code>). Its documentation also covers bugfix specs, which describe the current behaviour, the expected behaviour and what must not change.</p>",
+      "<p>{ref:3|The Thoughtworks Technology Radar} sums up the movement: an emerging approach to AI-assisted coding, still being defined, that starts from a structured functional specification before breaking it into solutions and tasks. The Radar cites {ref:2|Kiro} and {ref:1|Spec Kit}, whose constitution sets immutable principles, then places {ref:5|Tessl} on the more radical side: there, the spec takes over from the code.</p>",
+      {
+        "h2": "Three levels of rigor"
+      },
+      "<p>These tools do not all ask for the same commitment to the spec. {ref:4|Birgitta Böckeler} (Thoughtworks), in a series published on Martin Fowler’s site, distinguishes three levels.</p>",
+      {
+        "diagram": "truth-spec-levels",
+        "caption": "The three levels of rigor described by Birgitta Böckeler: the life of the spec grows at each step."
+      },
+      "<p>{ref:4|Böckeler} notes that all the approaches she looked at are spec-first, but that not all of them try to keep the spec alive, nor to make it the only source.</p>",
+      "<p>{ref:6|An arXiv preprint by Deepak Babu Piskala} describes the same three levels and offers a framework to decide when SDD brings value and when a simpler approach is enough. It is a preprint, not yet a peer-reviewed study.</p>",
+      "<p>For a new product, this model is natural. You start from zero, no code contradicts the spec, and every decision can be written before it is coded. The spec is the truth, and the code is its outcome.</p>",
+      {
+        "h2": "When the code is the truth"
+      },
+      "<p>On an old system the exercise is the opposite. The original specifications have been edited by twenty hands, the documentation has aged, and what runs in production is the only exact description of the behaviour. The principle that the code is the source of truth is nothing new: it has long guided people who work on existing systems. What AI changes is how fast you can read it.</p>",
+      "<p>{ref:9|The Thoughtworks authors} make this point in an article published on Martin Fowler’s site in September 2024: most uses of generative AI in development aim at producing code, while there is as much value, if not more, in understanding existing code, especially in long-lived, large and complex systems.</p>",
+      "<p>Their tool, CodeConcise, combines a language model with a knowledge graph built from the abstract syntax trees of a codebase. They report good results in drawing out low-level requirements and in building a high-level explanation of a system. In other words, you start from the code, and it feeds the documentation.</p>",
+      "<p>The large cloud players offer products in this direction. {ref:7|AWS Transform} presents itself as an agentic service that aims to accelerate and de-risk each stage of modernisation: infrastructure, applications such as mainframe or Windows, and continuous fixing of technical debt.</p>",
+      "<p>{ref:8|Microsoft} describes GitHub Copilot modernization as an end-to-end agentic solution that analyses and upgrades Java, .NET and C++ applications, and helps migrate some of them to Azure. In both cases the starting point is the application as it exists today.</p>",
+      {
+        "diagram": "truth-quadrant",
+        "caption": "Two axes to place the approaches: where you start (new project or existing code) and what you hold as true (the spec or the code). AI-KIDO aims at the whole grid."
+      },
+      {
+        "h2": "Habits that have proven themselves"
+      },
+      "<p>These tools build on practices that are much older. In {ref:12|Working Effectively with Legacy Code}, Michael Feathers offers strategies for working with large codebases that have no tests.</p>",
+      "<p>{ref:11|Martin Fowler} recalls that a seam is a place where you can change the behaviour of the system without editing its source code. You use it to break dependencies, to test more simply, to insert observability probes or to redirect the flow to new modules; he credits Michael Feathers with the term.</p>",
+      "<p>{ref:10|The same author} describes the Strangler Fig, a term now often used for a gradual approach to legacy modernisation: the old system is replaced bit by bit rather than all at once.</p>",
+      "<p>On the documentation side, {ref:13|Cyrille Martraire} argues in Living Documentation that you do not have to choose between working software and thorough documentation: a living documentation can help at every stage of a project.</p>",
+      {
+        "pullstat": {
+          "value": "2 families",
+          "label": "of approaches, each expert in a single point of view: the spec for the new, the code for the existing"
+        }
+      },
+      {
+        "h2": "Why each family sees only one side"
+      },
+      "<p>There is no flaw here, only specialisation. A spec-driven approach assumes a well-thought spec comes before the code; on a new project, that holds. A code-centred approach assumes the real behaviour is the reference; on an old system, that holds too. The problem appears when the ground mixes both. You add a feature to an old system: should you write a full spec, as for a new product, or rather read the code around it? You fix a bug in a recent module next to an inherited one: is the new module’s spec enough?</p>",
+      "<p>In the sources I read, each of these families is described by its own starting point. I did not find a tool presented as a referee that, for each request, chooses between the spec and the code. That is the gap AI-KIDO tries to fill, without claiming to be exhaustive about the market: I only read the sources cited here.</p>",
+      {
+        "h2": "AI-KIDO: let the request decide"
+      },
+      "<p>AI-KIDO does not pick a side. Its <code>agent-aikido-truth-evaluator</code> agent has a mission worded like this in its definition: determine what represents “truth” based on the development scenario. For spec-driven work (a new feature), the specs are the truth. For maintenance (existing code), the implementation is the truth. In case of conflict, context decides. Its role is that of a referee: it tells you which source to trust, it does not decide what to do next.</p>",
+      {
+        "diagram": "truth-evaluator-flow",
+        "caption": "How an evaluation unfolds: classify, score, compare, then recommend."
+      },
+      "<h3>Eight scenarios, one leading source for each</h3>",
+      "<p>The evaluator files your request under one of the eight scenarios of its matrix, based on the words you use. Here is what that matrix says, on the leading source:</p>",
+      {
+        "compare": {
+          "left": {
+            "title": "The spec or the target leads",
+            "items": [
+              "<strong>New feature</strong> (“implement”, “add”): the specs in <code>gen/</code> and <code>hard_points/</code>.",
+              "<strong>Starting from scratch</strong> (“initialize”, “bootstrap”): the project specs.",
+              "<strong>Configuration</strong>: the configuration specs in the hard points.",
+              "<strong>API integration</strong>: the official documentation of the external API."
+            ]
+          },
+          "right": {
+            "title": "The code leads",
+            "items": [
+              "<strong>Bug fix</strong> (“fix”, “bug”): the current code, with tests in support.",
+              "<strong>Documentation</strong> (“document”, “README”): the current code, that is, reality.",
+              "<strong>Investigation</strong> (“understand”, “how does”): the implementation, with tests and Git history.",
+              "<strong>Refactoring</strong>: both the goals and the current code, two truths."
+            ]
+          }
+        }
+      },
+      "<p>Look at the “Documentation” scenario: the code leads, and the specs only come as a reference for intent. This is exactly the “code as truth” idea applied to writing documentation. At the other end, for a new feature the specs lead and existing code is not to be followed unless it is cited. The two families of the industry therefore live in one table, and your request selects the row.</p>",
+      "<h3>The hierarchy of locations</h3>",
+      "<p>Above these scenarios, AI-KIDO sets an order between the places where knowledge lives: <code>hard_points/</code> (immutable truths, absolute priority), then <code>gen/</code> (the project truth tables, which evolve), then code, documentation and configuration. The <code>spec/</code> folder, your personal space, is never a source of truth: it is ignored unless you activate it explicitly.</p>",
+      {
+        "diagram": "truth-pyramid",
+        "caption": "The location sets the base priority; the scenario then decides what leads for your request."
+      },
+      "<h3>Conflicts, a signal rather than an incident</h3>",
+      "<p>When two sources contradict each other, the evaluator does not settle it silently. If <code>gen/</code> and the code have diverged, it flags a high-priority conflict and recommends realigning them. If every source is outdated, it flags technical debt and recommends investigating first. If the situation goes in circles, it hands the decision to the human together with its analysis. Each source gets a score that accounts for the scenario, the location, recency and the presence of tests (bonuses), as well as a deprecation mark or a contradiction with another source (penalties).</p>",
+      {
+        "callout": "The evaluator stays a referee. It ranks the sources and flags contradictions; it never decides the implementation. The choice of the fix remains yours and your agent’s.",
+        "title": "Keep in mind"
+      },
+      {
+        "h2": "What you do, what you see"
+      },
+      "<p>Back to the monolith. You have to fix a bug in an old authentication module. Before letting the agent change anything, you ask it to run the evaluator:</p>",
+      {
+        "chat": [
+          {
+            "role": "you",
+            "text": "I need to fix a login bug in the authentication module. Run the truth evaluator: which sources should I trust?"
+          },
+          {
+            "role": "assistant",
+            "html": "<strong>Truth Evaluation: bug fix</strong><br>🥇 Primary source: the current code of the module (high confidence).<br>🥈 Supporting: the tests, which state the expected behaviour.<br>🥉 Reference: the specs in <code>gen/</code>, for intent.<br>⚠️ Conflict: the truth table describes a flow the code no longer applies.<br>❌ Ignore: anything under <code>spec/</code>."
+          }
+        ],
+        "title": "An example answer, in the format of the evaluator report"
+      },
+      "<p>What you read looks like a ranking. This example is illustrative: the real content depends on your project, but the shape is the one the agent defines, with the primary source, supporting sources, conflicts, what to ignore, then a recommendation and a confidence level. You then decide: the code is right, the truth table needs updating, or the other way round.</p>",
+      "<p>Now the other day: you start the new product and ask “implement login by email”. The same evaluator now files the request as a new feature. The specs lead, the architecture supports, and existing code is not a source to follow unless it is cited. You changed nothing in how you ask: the wording of the request steered the ranking.</p>",
+      {
+        "h2": "Keeping sources in agreement: check-truth"
+      },
+      "<p>The evaluator answers one request. The <code>/check-truth</code> command takes care of the whole: it verifies the consistency between the Memory Bank documentation and the project code, detects obsolescence and conflicts, and proposes automatic remediation. You can run it on the whole project, or narrow it with options.</p>",
+      {
+        "code": "/check-truth\n/check-truth --file /prompts/gen/concepts/oauth.md\n/check-truth --domain concepts\n/check-truth --code-path ./src/auth/\n/check-truth --dry-run",
+        "lang": "bash",
+        "caption": "A few usages of the command, taken from its definition. The --force-check, --search and --verbose options exist too."
+      },
+      "<p>To go fast, the command relies on each document’s header: if it carries a last-check date, an up-to-date status and unchanged sources, the check is skipped. The agent file gives this example header.</p>",
+      {
+        "code": "Truth Source: Code\nLast Check: 2025-01-10\nCheck Status: ✅ Up-to-date\nSource Refs: src/auth/oauth.ts:45-120",
+        "lang": "text",
+        "caption": "Example header taken from the evaluator definition. A check is only redone if a source changed since, or if the last one is more than 90 days old."
+      },
+      "<p>In the end you get a readable report: the coherent files, the minor drifts, the major conflicts, then recommended actions. Automatic correction only happens if you choose it.</p>",
+      {
+        "h2": "A diagram to keep in mind"
+      },
+      {
+        "diagram": "truth-decision",
+        "caption": "The question that comes back with every request: is there code already, and what do you want to do with it?"
+      },
+      "<p>What this approach brings is mostly flexibility. It does not ask you to pick a creed once and for all. It accepts that, in the same week, the spec is the truth on Monday and the code on Wednesday, and it helps you not to mix them up.</p>",
+      {
+        "h2": "Try it"
+      },
+      {
+        "steps": [
+          "Pick a real request in progress, for example a bug or a new feature.",
+          "Ask your assistant to run the truth evaluator before changing anything, using the key word of your request (“fix”, “implement”, “understand”).",
+          "Read the ranking, follow the primary source first, then handle the flagged conflicts by updating the Memory Bank or the code."
+        ]
+      },
+      {
+        "h2": "References"
+      },
+      {
+        "references": [
+          {
+            "publisher": "GitHub",
+            "title": "Spec-driven development with AI: Get started with a new open source toolkit",
+            "url": "https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/"
+          },
+          {
+            "publisher": "Kiro (AWS)",
+            "title": "Specs – Kiro docs",
+            "url": "https://kiro.dev/docs/specs/"
+          },
+          {
+            "publisher": "Thoughtworks Technology Radar",
+            "title": "Spec-driven development",
+            "url": "https://www.thoughtworks.com/radar/techniques/spec-driven-development"
+          },
+          {
+            "publisher": "martinfowler.com",
+            "title": "Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl",
+            "url": "https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html",
+            "by": "Birgitta Böckeler, 15 October 2025"
+          },
+          {
+            "publisher": "Tessl",
+            "title": "Tessl – Software factory",
+            "url": "https://tessl.io/"
+          },
+          {
+            "publisher": "arXiv",
+            "title": "Spec-Driven Development: From Code to Contract in the Age of AI Coding Assistants",
+            "url": "https://arxiv.org/abs/2602.00180",
+            "by": "Deepak Babu Piskala, 30 January 2026, preprint"
+          },
+          {
+            "publisher": "Amazon Web Services",
+            "title": "AWS Transform",
+            "url": "https://aws.amazon.com/transform/"
+          },
+          {
+            "publisher": "Microsoft Learn",
+            "title": "Analyze Applications and Migrate to Azure by Using GitHub Copilot Modernization",
+            "url": "https://learn.microsoft.com/en-us/azure/developer/github-copilot-app-modernization/overview"
+          },
+          {
+            "publisher": "martinfowler.com",
+            "title": "Legacy Modernization meets GenAI",
+            "url": "https://martinfowler.com/articles/legacy-modernization-gen-ai.html",
+            "by": "Alessio Ferri, Tom Coggrave, Shodhan Sheth, 24 September 2024"
+          },
+          {
+            "publisher": "martinfowler.com",
+            "title": "Strangler Fig",
+            "url": "https://martinfowler.com/bliki/StranglerFigApplication.html",
+            "by": "Martin Fowler, 22 August 2024"
+          },
+          {
+            "publisher": "martinfowler.com",
+            "title": "Legacy Seam",
+            "url": "https://martinfowler.com/bliki/LegacySeam.html",
+            "by": "Martin Fowler, 4 January 2024"
+          },
+          {
+            "publisher": "InformIT (Pearson)",
+            "title": "Working Effectively with Legacy Code",
+            "url": "https://www.informit.com/store/working-effectively-with-legacy-code-9780131177055",
+            "by": "Michael Feathers, 2004"
+          },
+          {
+            "publisher": "Leanpub",
+            "title": "Living Documentation by design, with… (Cyrille Martraire)",
+            "url": "https://leanpub.com/livingdocumentation"
+          }
+        ],
+        "title": "References"
+      }
+    ]
+  },
+  "fr": {
+    "title": "Greenfield ou legacy : qui fait foi, la spec ou le code ?",
+    "summary": "Les approches spec-driven sont taillées pour le neuf, celles qui partent du code pour l’existant. AI-KIDO tente de réconcilier les deux : son évaluateur choisit la source qui fait foi selon votre demande.",
+    "body": [
+      "<p>Vous arrivez sur un monolithe de quinze ans. Le dossier <code>docs/</code> décrit une application qui n’existe plus, et le seul document fidèle, c’est le code. Le lendemain, vous démarrez un produit de zéro : pas une ligne de code, et toute la vérité tient dans ce que vous allez écrire. Dans les deux cas, vous demandez à un assistant de coder. Dans les deux cas, il doit savoir à quoi se fier. Et ce n’est pas la même chose.</p>",
+      "<p>Cet article pose une question simple : quand on travaille avec des agents, qui fait foi, la spécification ou le code ? Il montre pourquoi les approches courantes répondent bien à un seul des deux cas, puis comment AI-KIDO essaie de faire la part des choses en regardant, à chaque demande, d’où vous partez et ce que vous voulez faire.</p>",
+      {
+        "h2": "Quatre situations, quatre vérités"
+      },
+      "<p>Avant de parler d’outils, distinguons ce que vous vivez réellement sur un projet.</p>",
+      {
+        "cards": [
+          {
+            "title": "Projet neuf (greenfield)",
+            "text": "Rien n’existe. La spécification est la seule trace de l’intention : c’est elle qui doit faire foi."
+          },
+          {
+            "title": "Transformation d’un existant",
+            "text": "Vous modernisez ou déplacez un système qui fonctionne. L’ancien comportement et la cible comptent tous deux : deux vérités à la fois."
+          },
+          {
+            "title": "Maintien d’un code legacy",
+            "text": "Vous corrigez, ajoutez, comprenez. Le code en production est la réalité ; la documentation, elle, a peut-être vieilli."
+          },
+          {
+            "title": "Cas mixtes",
+            "text": "Une nouvelle fonctionnalité dans un vieux système, une API externe à brancher : la source qui mène change avec la demande."
+          }
+        ]
+      },
+      "<p>Retenez cette idée, elle porte tout le reste : la même source est tantôt la vérité, tantôt du bruit, selon ce que vous faites. Un README est précieux pour concevoir un nouveau module, et trompeur pour comprendre un bug en production.</p>",
+      {
+        "h2": "Quand la spécification fait foi"
+      },
+      "<p>Le spec-driven development (SDD) renverse l’ordre habituel : on écrit d’abord ce que le logiciel doit faire, puis l’agent produit le code. {ref:1|GitHub} présente ainsi Spec Kit : la spec est un contrat sur le comportement attendu, et elle devient la source de vérité que les outils et les agents utilisent pour générer, tester et valider le code.</p>",
+      "<p>Le travail avance par phases, avec des points de contrôle. On décrit d’abord le quoi et le pourquoi (Specify), puis on fournit la pile technique, l’architecture et les contraintes (Plan). {ref:1|GitHub} précise que c’est dans cette phase de plan que l’on signale une intégration avec l’existant ou une exigence de conformité.</p>",
+      "<p>{ref:2|Kiro}, l’éditeur d’AWS, organise lui aussi le travail en trois phases : exigences (<code>requirements.md</code>), conception (<code>design.md</code>) et tâches (<code>tasks.md</code>). Sa documentation prévoit aussi des specs de correction de bug, qui décrivent le comportement actuel, le comportement attendu et ce qui ne doit pas changer.</p>",
+      "<p>{ref:3|Le Technology Radar de Thoughtworks} résume le mouvement : une approche émergente du code assisté par IA, encore en cours de définition, où l’on part d’une spécification fonctionnelle structurée avant de la découper en solutions et en tâches. Le Radar cite {ref:2|Kiro} et {ref:1|Spec Kit}, dont la constitution fixe des principes immuables, puis place {ref:5|Tessl} du côté le plus radical : la spec y prend le pas sur le code.</p>",
+      {
+        "h2": "Trois niveaux de rigueur"
+      },
+      "<p>Tous ces outils ne demandent pas le même engagement envers la spec. {ref:4|Birgitta Böckeler} (Thoughtworks), dans une série publiée sur le site de Martin Fowler, distingue trois niveaux.</p>",
+      {
+        "diagram": "truth-spec-levels",
+        "caption": "Les trois niveaux de rigueur décrits par Birgitta Böckeler : la durée de vie de la spec augmente à chaque marche."
+      },
+      "<p>{ref:4|Böckeler} observe que toutes les approches qu’elle a examinées sont spec-first, mais que toutes ne cherchent pas à garder la spec vivante, ni à en faire la source unique.</p>",
+      "<p>{ref:6|Une prépublication arXiv de Deepak Babu Piskala} décrit les mêmes trois niveaux et propose un cadre pour décider quand le SDD apporte de la valeur et quand une approche plus simple suffit. C’est une prépublication, pas encore une étude évaluée par des pairs.</p>",
+      "<p>Pour un produit neuf, ce modèle est naturel. Vous démarrez de zéro, il n’y a pas de code qui contredise la spec, et chaque décision peut être écrite avant d’être codée. La spec est la vérité, le code en est l’aboutissement.</p>",
+      {
+        "h2": "Quand le code fait foi"
+      },
+      "<p>Sur un système ancien, l’exercice est inverse. Les spécifications d’origine ont été modifiées par vingt mains, la documentation a vieilli, et ce qui tourne en production est la seule description exacte du comportement. Le principe « le code est la source de vérité » n’a rien de neuf : il guide depuis longtemps ceux qui travaillent sur de l’existant. Ce que l’IA change, c’est la vitesse à laquelle on peut le lire.</p>",
+      "<p>{ref:9|Les auteurs de Thoughtworks} font ce constat dans un article publié sur le site de Martin Fowler en septembre 2024 : la plupart des usages de l’IA générative en développement visent à produire du code, alors qu’il y a autant de valeur, sinon plus, à comprendre le code existant, surtout dans les systèmes anciens, gros et complexes.</p>",
+      "<p>Leur outil, CodeConcise, associe un modèle de langage à un graphe de connaissances construit à partir des arbres syntaxiques du code. Ils rapportent de bons résultats pour en tirer des exigences de bas niveau et une explication de haut niveau du système. Autrement dit, on part du code, et c’est lui qui nourrit la documentation.</p>",
+      "<p>Les grands acteurs du cloud proposent des offres dans cette direction. {ref:7|AWS Transform} se présente comme un service agentique qui vise à accélérer et à sécuriser chaque étape de la modernisation : infrastructure, applications comme le mainframe ou Windows, et correction continue de la dette technique.</p>",
+      "<p>{ref:8|Microsoft} décrit GitHub Copilot modernization comme une solution agentique de bout en bout qui analyse et met à niveau des applications Java, .NET et C++, et aide à migrer certaines d’entre elles vers Azure. Dans les deux cas, le point de départ est l’application telle qu’elle existe aujourd’hui.</p>",
+      {
+        "diagram": "truth-quadrant",
+        "caption": "Deux axes pour situer les approches : d’où l’on part (projet neuf ou code existant) et ce que l’on tient pour vrai (la spec ou le code). AI-KIDO vise toute la grille."
+      },
+      {
+        "h2": "Des habitudes qui ont fait leurs preuves"
+      },
+      "<p>Ces outils s’appuient sur des pratiques bien antérieures. Dans {ref:12|Working Effectively with Legacy Code}, Michael Feathers propose des stratégies pour travailler avec de grandes bases de code sans tests.</p>",
+      "<p>{ref:11|Martin Fowler} rappelle qu’une couture (seam) est un endroit où l’on peut changer le comportement du système sans toucher à son code source. On s’en sert pour casser des dépendances, tester plus simplement, insérer des sondes d’observabilité ou rediriger le flux vers de nouveaux modules ; il attribue le terme à Michael Feathers.</p>",
+      "<p>{ref:10|Le même auteur} décrit le Strangler Fig, terme aujourd’hui courant pour une approche graduelle de la modernisation : l’ancien système est remplacé peu à peu plutôt que d’un seul coup.</p>",
+      "<p>Côté documentation, {ref:13|Cyrille Martraire} défend dans Living Documentation l’idée que l’on n’a pas à choisir entre un logiciel qui fonctionne et une documentation complète : une documentation vivante peut aider à tous les stades d’un projet.</p>",
+      {
+        "pullstat": {
+          "value": "2 familles",
+          "label": "d’approches, chacune experte d’un seul point de vue : la spec pour le neuf, le code pour l’existant"
+        }
+      },
+      {
+        "h2": "Pourquoi chaque famille voit un seul côté"
+      },
+      "<p>Il n’y a là aucun défaut, seulement une spécialisation. Une approche spec-driven suppose qu’une spec bien pensée précède le code ; sur un projet neuf, c’est vrai. Une approche centrée sur le code suppose que le comportement réel est la référence ; sur un système ancien, c’est vrai aussi. Le problème apparaît quand le terrain mélange les deux. Vous ajoutez une fonctionnalité dans un vieux système : faut-il écrire une spec complète, comme pour un produit neuf, ou plutôt lire le code autour ? Vous corrigez un bug dans un module récent, à côté d’un module hérité : la spec du nouveau module suffit-elle ?</p>",
+      "<p>Dans les sources que j’ai lues, chacune de ces familles est décrite par son propre point de départ. Je n’y ai pas trouvé d’outil présenté comme un arbitre qui, pour chaque demande, choisit entre la spec et le code. C’est cette lacune qu’AI-KIDO tente de combler, sans prétendre à l’exhaustivité sur le marché : je n’ai lu que les sources citées ici.</p>",
+      {
+        "h2": "AI-KIDO : laisser la demande décider"
+      },
+      "<p>AI-KIDO ne choisit pas un camp. Son agent <code>agent-aikido-truth-evaluator</code> a une mission formulée ainsi dans sa définition : déterminer ce qui représente la « vérité » selon le scénario de développement. Pour du spec-driven (une nouvelle fonctionnalité), les specs font foi. Pour de la maintenance (du code existant), l’implémentation fait foi. En cas de conflit, c’est le contexte qui tranche. Son rôle est celui d’un arbitre : il dit à quelle source se fier, il ne décide pas de ce qu’il faut faire ensuite.</p>",
+      {
+        "diagram": "truth-evaluator-flow",
+        "caption": "Le déroulé d’une évaluation : classer, noter, comparer, puis recommander."
+      },
+      "<h3>Huit scénarios, une source principale pour chacun</h3>",
+      "<p>L’évaluateur range votre demande dans l’un des huit scénarios de sa matrice, à partir des mots que vous employez. Voici ce que dit cette matrice, côté source principale :</p>",
+      {
+        "compare": {
+          "left": {
+            "title": "La spec ou la cible mène",
+            "items": [
+              "<strong>Nouvelle fonctionnalité</strong> (« implement », « add ») : les specs de <code>gen/</code> et de <code>hard_points/</code>.",
+              "<strong>Démarrage de zéro</strong> (« initialize », « bootstrap ») : les specs du projet.",
+              "<strong>Configuration</strong> : les specs de configuration des points durs.",
+              "<strong>Intégration d’API</strong> : la documentation officielle de l’API externe."
+            ]
+          },
+          "right": {
+            "title": "Le code mène",
+            "items": [
+              "<strong>Correction de bug</strong> (« fix », « bug ») : le code actuel, avec les tests en appui.",
+              "<strong>Documentation</strong> (« document », « README ») : le code actuel, c’est-à-dire la réalité.",
+              "<strong>Investigation</strong> (« understand », « how does ») : l’implémentation, avec les tests et l’historique Git.",
+              "<strong>Refactoring</strong> : à la fois les objectifs et le code actuel, deux vérités."
+            ]
+          }
+        }
+      },
+      "<p>Regardez le cas du scénario « Documentation » : c’est le code qui mène, et les specs ne viennent qu’en référence pour l’intention. C’est exactement l’idée du « code as truth » appliquée à l’écriture de documentation. À l’opposé, pour une nouvelle fonctionnalité, ce sont les specs qui mènent et le code existant n’est pas à suivre, sauf s’il est cité. Les deux familles de l’industrie cohabitent donc dans une même table, et c’est votre demande qui sélectionne la ligne.</p>",
+      "<h3>La hiérarchie des emplacements</h3>",
+      "<p>Au-dessus de ces scénarios, AI-KIDO fixe un ordre entre les emplacements de la connaissance : <code>hard_points/</code> (les vérités immuables, priorité absolue), puis <code>gen/</code> (les tables de vérité du projet, qui évoluent), puis le code, la documentation et la configuration. Le dossier <code>spec/</code>, votre espace personnel, n’est jamais une source de vérité : il est ignoré sauf si vous l’activez explicitement.</p>",
+      {
+        "diagram": "truth-pyramid",
+        "caption": "L’emplacement fixe la priorité de base ; le scénario décide ensuite de ce qui mène pour votre demande."
+      },
+      "<h3>Les conflits, un signal plutôt qu’un incident</h3>",
+      "<p>Quand deux sources se contredisent, l’évaluateur ne tranche pas en silence. Si <code>gen/</code> et le code ont divergé, il signale un conflit à traiter en priorité et recommande de les réaligner. Si toutes les sources sont périmées, il signale de la dette technique et recommande d’enquêter d’abord. Si la situation tourne en rond, il renvoie la décision à l’humain avec son analyse. Chaque source reçoit une note qui tient compte du scénario, de l’emplacement, de la fraîcheur et de la présence de tests (des bonus), ainsi que d’une mention « déprécié » ou d’une contradiction avec une autre source (des malus).</p>",
+      {
+        "callout": "L’évaluateur reste un arbitre. Il classe les sources et signale les contradictions ; il ne décide jamais de l’implémentation. Le choix de la correction reste le vôtre et celui de votre agent.",
+        "title": "À retenir"
+      },
+      {
+        "h2": "Ce que vous faites, ce que vous voyez"
+      },
+      "<p>Reprenons le cas du monolithe. Vous devez corriger un bug dans un module d’authentification ancien. Avant de laisser l’agent modifier quoi que ce soit, vous lui demandez de lancer l’évaluateur :</p>",
+      {
+        "chat": [
+          {
+            "role": "you",
+            "text": "Je dois corriger un bug de connexion dans le module d’authentification. Lance l’évaluateur de vérité : quelles sources dois-je croire ?"
+          },
+          {
+            "role": "assistant",
+            "html": "<strong>Truth Evaluation : correction de bug</strong><br>🥇 Source principale : le code actuel du module (confiance élevée).<br>🥈 En appui : les tests, qui disent le comportement attendu.<br>🥉 En référence : les specs de <code>gen/</code>, pour l’intention.<br>⚠️ Conflit : la table de vérité décrit un flux que le code n’applique plus.<br>❌ À ignorer : tout ce qui se trouve dans <code>spec/</code>."
+          }
+        ],
+        "title": "Un exemple de réponse, dans le format du rapport de l’évaluateur"
+      },
+      "<p>Ce que vous lisez ressemble à un classement. Cet exemple est illustratif : le contenu réel dépend de votre projet, mais la forme est celle que définit l’agent, avec la source principale, les sources d’appui, les conflits, ce qu’il faut ignorer, puis une recommandation et un niveau de confiance. Vous décidez ensuite : le code a raison, la table de vérité est à mettre à jour, ou l’inverse.</p>",
+      "<p>Maintenant, l’autre journée : vous démarrez le produit neuf et vous demandez « implémente la connexion par e-mail ». Le même évaluateur classe cette fois la demande comme une nouvelle fonctionnalité. Les specs mènent, l’architecture appuie, et le code existant n’est pas une source à suivre, sauf s’il est cité. Vous n’avez rien changé à votre façon de demander : c’est la formulation de la demande qui a orienté le classement.</p>",
+      {
+        "h2": "Garder les sources d’accord : check-truth"
+      },
+      "<p>L’évaluateur répond à une demande. La commande <code>/check-truth</code> s’occupe de l’ensemble : elle vérifie la cohérence entre la documentation de la Memory Bank et le code du projet, détecte l’obsolescence et les conflits, et propose une remédiation automatique. Vous pouvez la lancer sur tout le projet, ou la restreindre avec des options.</p>",
+      {
+        "code": "/check-truth\n/check-truth --file /prompts/gen/concepts/oauth.md\n/check-truth --domain concepts\n/check-truth --code-path ./src/auth/\n/check-truth --dry-run",
+        "lang": "bash",
+        "caption": "Quelques usages de la commande, tirés de sa définition. Les options --force-check, --search et --verbose existent aussi."
+      },
+      "<p>Pour aller vite, la commande s’appuie sur l’en-tête de chaque document : s’il porte une date de dernière vérification, un statut à jour et des sources inchangées, la vérification est sautée. Le fichier de l’agent donne cet exemple d’en-tête.</p>",
+      {
+        "code": "Truth Source: Code\nLast Check: 2025-01-10\nCheck Status: ✅ Up-to-date\nSource Refs: src/auth/oauth.ts:45-120",
+        "lang": "text",
+        "caption": "Exemple d’en-tête tiré de la définition de l’évaluateur. Une vérification n’est refaite que si une source a changé depuis, ou si la dernière date de plus de 90 jours."
+      },
+      "<p>Au bout du compte, vous obtenez un rapport lisible : les fichiers cohérents, les écarts mineurs, les conflits majeurs, puis des actions recommandées. La correction automatique, elle, n’a lieu que si vous la choisissez.</p>",
+      {
+        "h2": "Un schéma pour garder en tête"
+      },
+      {
+        "diagram": "truth-decision",
+        "caption": "La question qui revient à chaque demande : y a-t-il déjà du code, et que voulez-vous en faire ?"
+      },
+      "<p>Ce que cette approche apporte, c’est surtout de la souplesse. Elle ne vous demande pas de choisir une religion une fois pour toutes. Elle accepte que, dans la même semaine, la spec soit la vérité le lundi et le code le mercredi, et elle vous aide à ne pas les confondre.</p>",
+      {
+        "h2": "À essayer"
+      },
+      {
+        "steps": [
+          "Choisissez une vraie demande en cours, par exemple un bug ou une nouvelle fonctionnalité.",
+          "Demandez à votre assistant de lancer l’évaluateur de vérité avant de modifier quoi que ce soit, en reprenant le mot de votre demande (« corriger », « implémenter », « comprendre »).",
+          "Lisez le classement, suivez d’abord la source principale, puis traitez les conflits signalés en mettant à jour la Memory Bank ou le code."
+        ]
+      },
+      {
+        "h2": "Références"
+      },
+      {
+        "references": [
+          {
+            "publisher": "GitHub",
+            "title": "Spec-driven development with AI: Get started with a new open source toolkit",
+            "url": "https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/"
+          },
+          {
+            "publisher": "Kiro (AWS)",
+            "title": "Specs – Kiro docs",
+            "url": "https://kiro.dev/docs/specs/"
+          },
+          {
+            "publisher": "Thoughtworks Technology Radar",
+            "title": "Spec-driven development",
+            "url": "https://www.thoughtworks.com/radar/techniques/spec-driven-development"
+          },
+          {
+            "publisher": "martinfowler.com",
+            "title": "Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl",
+            "url": "https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html",
+            "by": "Birgitta Böckeler, 15 octobre 2025"
+          },
+          {
+            "publisher": "Tessl",
+            "title": "Tessl – Software factory",
+            "url": "https://tessl.io/"
+          },
+          {
+            "publisher": "arXiv",
+            "title": "Spec-Driven Development: From Code to Contract in the Age of AI Coding Assistants",
+            "url": "https://arxiv.org/abs/2602.00180",
+            "by": "Deepak Babu Piskala, 30 janvier 2026, prépublication"
+          },
+          {
+            "publisher": "Amazon Web Services",
+            "title": "AWS Transform",
+            "url": "https://aws.amazon.com/transform/"
+          },
+          {
+            "publisher": "Microsoft Learn",
+            "title": "Analyze Applications and Migrate to Azure by Using GitHub Copilot Modernization",
+            "url": "https://learn.microsoft.com/en-us/azure/developer/github-copilot-app-modernization/overview"
+          },
+          {
+            "publisher": "martinfowler.com",
+            "title": "Legacy Modernization meets GenAI",
+            "url": "https://martinfowler.com/articles/legacy-modernization-gen-ai.html",
+            "by": "Alessio Ferri, Tom Coggrave, Shodhan Sheth, 24 septembre 2024"
+          },
+          {
+            "publisher": "martinfowler.com",
+            "title": "Strangler Fig",
+            "url": "https://martinfowler.com/bliki/StranglerFigApplication.html",
+            "by": "Martin Fowler, 22 août 2024"
+          },
+          {
+            "publisher": "martinfowler.com",
+            "title": "Legacy Seam",
+            "url": "https://martinfowler.com/bliki/LegacySeam.html",
+            "by": "Martin Fowler, 4 janvier 2024"
+          },
+          {
+            "publisher": "InformIT (Pearson)",
+            "title": "Working Effectively with Legacy Code",
+            "url": "https://www.informit.com/store/working-effectively-with-legacy-code-9780131177055",
+            "by": "Michael Feathers, 2004"
+          },
+          {
+            "publisher": "Leanpub",
+            "title": "Living Documentation by design, with… (Cyrille Martraire)",
+            "url": "https://leanpub.com/livingdocumentation"
+          }
+        ],
+        "title": "Références"
+      }
+    ]
+  }
+}

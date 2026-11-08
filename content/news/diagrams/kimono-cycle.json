@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "kimono-cycle",
+  "type": "cycle",
+  "animate": true,
+  "title": {
+    "en": "The retrieval loop",
+    "fr": "La boucle de recherche"
+  },
+  "desc": {
+    "en": "A loop in four steps: freeze a snapshot, search, read only the chosen lines, release the snapshot; then start again.",
+    "fr": "Une boucle en quatre étapes : figer un snapshot, chercher, lire seulement les lignes choisies, libérer le snapshot ; puis recommencer."
+  },
+  "nodes": [
+    {
+      "label": {
+        "en": "Freeze a snapshot",
+        "fr": "Figer un snapshot"
+      }
+    },
+    {
+      "label": {
+        "en": "Search",
+        "fr": "Chercher"
+      }
+    },
+    {
+      "label": {
+        "en": "Read the chosen lines",
+        "fr": "Lire les lignes choisies"
+      }
+    },
+    {
+      "label": {
+        "en": "Release the snapshot",
+        "fr": "Libérer le snapshot"
+      }
+    }
+  ]
+}

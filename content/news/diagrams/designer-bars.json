@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "designer-bars",
+  "type": "bars",
+  "title": {
+    "en": "Local Designer in numbers",
+    "fr": "Local Designer en chiffres"
+  },
+  "desc": {
+    "en": "Horizontal bars compare counts: 29 render styles, 8 commands, 5 UI kit personalities, 3 mood board directions and 2 connectors.",
+    "fr": "Des barres horizontales comparent des quantités : 29 styles de rendu, 8 commandes, 5 personnalités de kit d’interface, 3 directions de planche et 2 connecteurs."
+  },
+  "nodes": [
+    {
+      "label": {
+        "en": "Render styles",
+        "fr": "Styles de rendu"
+      },
+      "value": 29,
+      "note": {
+        "en": "each with its own thumbnail",
+        "fr": "chacun avec sa vignette"
+      },
+      "accent": true
+    },
+    {
+      "label": {
+        "en": "Commands",
+        "fr": "Commandes"
+      },
+      "value": 8,
+      "note": {
+        "en": "for your assistant",
+        "fr": "pour votre assistant"
+      }
+    },
+    {
+      "label": {
+        "en": "UI kit personalities",
+        "fr": "Personnalités du kit d’interface"
+      },
+      "value": 5,
+      "note": {
+        "en": "compared on one page",
+        "fr": "comparées sur une page"
+      }
+    },
+    {
+      "label": {
+        "en": "Mood board directions",
+        "fr": "Directions de la planche d’ambiance"
+      },
+      "value": 3,
+      "note": {
+        "en": "shown on the same scenes",
+        "fr": "montrées sur les mêmes scènes"
+      }
+    },
+    {
+      "label": {
+        "en": "Connectors",
+        "fr": "Connecteurs"
+      },
+      "value": 2,
+      "note": {
+        "en": "HTTP and gRPC, both for Draw Things",
+        "fr": "HTTP et gRPC, tous deux pour Draw Things"
+      }
+    }
+  ]
+}

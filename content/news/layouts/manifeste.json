@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "manifeste",
+  "name": {
+    "en": "Manifesto",
+    "fr": "Manifeste"
+  },
+  "description": {
+    "en": "No image, giant standfirst, airy text.",
+    "fr": "Sans image, chapeau géant, texte qui respire."
+  },
+  "hero": "none",
+  "width": "narrow",
+  "accent": "navy",
+  "lead": "large",
+  "h2": "ruled",
+  "toc": false,
+  "dropcap": true
+}

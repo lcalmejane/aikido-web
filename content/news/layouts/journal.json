@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "journal",
+  "name": {
+    "en": "Journal",
+    "fr": "Journal"
+  },
+  "description": {
+    "en": "Image band, tag-style headings, drop cap.",
+    "fr": "Bandeau d’image, intertitres à étiquette, lettrine."
+  },
+  "hero": "band",
+  "width": "narrow",
+  "accent": "forest",
+  "lead": "serif",
+  "h2": "tag",
+  "toc": false,
+  "dropcap": true
+}

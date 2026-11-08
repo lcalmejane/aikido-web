@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "natures": {
+    "presentation": { "en": "Overview", "fr": "Présentation" },
+    "guide": { "en": "Practical guide", "fr": "Guide pratique" },
+    "analysis": { "en": "Analysis", "fr": "Analyse" },
+    "release": { "en": "Release", "fr": "Version" }
+  },
+  "domains": {
+    "memory": { "en": "Memory and learning", "fr": "Mémoire et apprentissage" },
+    "orchestration": { "en": "Orchestration", "fr": "Orchestration" },
+    "design": { "en": "Design and interfaces", "fr": "Design et interfaces" },
+    "search": { "en": "Document retrieval", "fr": "Recherche documentaire" },
+    "development": { "en": "Development and automation", "fr": "Développement et automatisation" }
+  }
+}

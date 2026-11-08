@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "task-decision",
+  "type": "tree",
+  "title": {
+    "en": "Prompt or task card?",
+    "fr": "Prompt ou carte de tâche ?"
+  },
+  "desc": {
+    "en": "A decision tree based on what the person explicitly asked.",
+    "fr": "Un arbre de décision fondé sur ce que la personne a explicitement demandé."
+  },
+  "nodes": [
+    {
+      "depth": 0,
+      "label": {
+        "en": "What did the person ask?",
+        "fr": "Qu’a demandé la personne ?"
+      }
+    },
+    {
+      "depth": 1,
+      "label": {
+        "en": "Fix, explain, add, analyse",
+        "fr": "Corriger, expliquer, ajouter, analyser"
+      },
+      "note": {
+        "en": "stays a prompt in this conversation",
+        "fr": "reste un prompt dans la conversation"
+      }
+    },
+    {
+      "depth": 1,
+      "label": {
+        "en": "“Launch” a piece of work",
+        "fr": "« Lance » un travail"
+      },
+      "note": {
+        "en": "card via /aikido-launch-task, if the host can launch",
+        "fr": "carte via /aikido-launch-task, si l’hôte peut lancer"
+      },
+      "accent": true
+    },
+    {
+      "depth": 1,
+      "label": {
+        "en": "“Schedule for” a date",
+        "fr": "« Planifie pour » une date"
+      },
+      "note": {
+        "en": "card plus recorded intent, future time with timezone",
+        "fr": "carte plus intention enregistrée, heure future avec fuseau"
+      },
+      "accent": true
+    },
+    {
+      "depth": 1,
+      "label": {
+        "en": "“Prepare a plan”",
+        "fr": "« Prépare un plan »"
+      },
+      "note": {
+        "en": "private plan, pinned workflow, cards after approval",
+        "fr": "plan privé, workflow figé, cartes après autorisation"
+      },
+      "accent": true
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "truth-pyramid",
+  "type": "pyramid",
+  "title": {
+    "en": "Which source wins",
+    "fr": "Quelle source l’emporte"
+  },
+  "desc": {
+    "en": "A pyramid of three levels: the immutable hard points on top, the project truth tables in the middle, and personal specs at the base, ignored unless activated.",
+    "fr": "Une pyramide à trois niveaux : les points durs immuables au sommet, les tables de vérité du projet au milieu, et les specs personnelles à la base, ignorées sauf activation."
+  },
+  "nodes": [
+    {
+      "label": {
+        "en": "hard_points/",
+        "fr": "hard_points/"
+      },
+      "note": {
+        "en": "immutable, absolute priority",
+        "fr": "immuables, priorité absolue"
+      }
+    },
+    {
+      "label": {
+        "en": "gen/",
+        "fr": "gen/"
+      },
+      "note": {
+        "en": "the project truth tables",
+        "fr": "les tables de vérité du projet"
+      }
+    },
+    {
+      "label": {
+        "en": "spec/",
+        "fr": "spec/"
+      },
+      "note": {
+        "en": "personal, ignored unless activated",
+        "fr": "personnel, ignoré sauf activation"
+      }
+    }
+  ]
+}

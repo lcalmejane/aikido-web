@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "swarm-guardrails",
+  "type": "pyramid",
+  "title": {"en": "AI-KIDO guardrails, from the host down", "fr": "Les garde-fous d’AI-KIDO, de l’hôte vers le bas"},
+  "desc": {"en": "A pyramid of four levels. At the top, the host’s native orchestrator and its rules, which always win. Below, the strict JSON contract: task-request/2 and task-result/1. Below again, the runtime limits: at most 3 parallel tasks, 1 retry per task, 800 coordinator output tokens, a 2000-character result summary. At the base, the shared Swarm policy: verified capabilities, bounded brief, scoped workers, reuse lifecycle.", "fr": "Une pyramide à quatre niveaux. Au sommet, l’orchestrateur natif de l’hôte et ses règles, qui l’emportent toujours. Dessous, le contrat JSON strict : task-request/2 et task-result/1. Encore dessous, les limites d’exécution : au plus 3 tâches en parallèle, 1 nouvel essai par tâche, 800 jetons de sortie pour le coordinateur, un résumé de 2 000 caractères. À la base, la politique Swarm partagée : capacités vérifiées, brief borné, workers cadrés, cycle de réutilisation."},
+  "nodes": [
+    {"label": {"en": "Host’s native orchestrator", "fr": "Orchestrateur natif de l’hôte"}, "note": {"en": "always has priority", "fr": "garde toujours la priorité"}},
+    {"label": {"en": "Strict JSON contract", "fr": "Contrat JSON strict"}, "note": {"en": "task-request/2 · task-result/1", "fr": "task-request/2 · task-result/1"}},
+    {"label": {"en": "Runtime limits", "fr": "Limites d’exécution"}, "note": {"en": "3 parallel · 1 retry · 800 tokens · 2 000 chars", "fr": "3 parallèles · 1 essai · 800 jetons · 2 000 caractères"}},
+    {"label": {"en": "Shared Swarm policy", "fr": "Politique Swarm partagée"}, "note": {"en": "capabilities, brief, scope, reuse", "fr": "capacités, brief, périmètre, réutilisation"}}
+  ]
+}

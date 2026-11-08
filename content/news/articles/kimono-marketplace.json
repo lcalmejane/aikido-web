@@ -1,11 +1,14 @@
 {
   "slug": "kimono-marketplace",
+  "nature": "release",
+  "domains": ["search"],
   "date": "2026-10-25",
   "tag": {
     "en": "Kimono",
     "fr": "Kimono"
   },
   "image": "hero-kimono-marketplace",
+  "layout": "journal",
   "en": {
     "title": "Kimono RAG MCP is on the VS Code Marketplace",
     "summary": "Kimono finds passages in code and documents locally and returns file paths and line ranges first. On two tasks, cumulative input tokens fell by 67.5% and 71.4%.",
@@ -15,6 +18,9 @@
         "h2": "The idea in one picture"
       },
       "<p>Kimono indexes a project on your machine and gives MCP-compatible assistants lexical and semantic search. The key design choice is in what comes back: <strong>file paths and line ranges first, not source text</strong>. The assistant then reads only the ranges it picked. It works with or without an AI-KIDO base, and indexing and embeddings run locally.</p>",
+      {
+        "diagram": "kimono-funnel"
+      },
       {
         "figure": "kimono-loop",
         "caption": "The retrieval loop. Each snapshot is immutable, so a multi-step search sees one consistent corpus."
@@ -89,6 +95,9 @@
         "h2": "L’idée en une image"
       },
       "<p>Kimono indexe un projet sur votre machine et donne aux assistants compatibles MCP une recherche lexicale et sémantique. Le choix clé porte sur ce qui revient : <strong>des chemins de fichiers et des plages de lignes, pas du code source</strong>. L’assistant ne lit ensuite que les plages qu’il a retenues. Kimono fonctionne avec ou sans base AI-KIDO, et l’indexation comme les embeddings s’exécutent en local.</p>",
+      {
+        "diagram": "kimono-funnel"
+      },
       {
         "figure": "kimono-loop",
         "caption": "La boucle de recherche. Chaque snapshot est immuable : une recherche en plusieurs étapes voit un corpus cohérent."

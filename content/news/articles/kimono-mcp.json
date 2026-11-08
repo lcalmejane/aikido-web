@@ -1,11 +1,14 @@
 {
   "slug": "kimono-mcp",
+  "nature": "presentation",
+  "domains": ["search"],
   "date": "2026-10-16",
   "tag": {
     "en": "Kimono",
     "fr": "Kimono"
   },
   "image": "hero-kimono-mcp",
+  "layout": "atelier",
   "en": {
     "title": "Kimono MCP: the Memory Bank opens up to connected clients",
     "summary": "In AI-KIDO mode, Kimono serves the same documents, commands, personas and workflows to any MCP client. One shared base, a few documented ways to connect to it.",
@@ -16,7 +19,7 @@
       },
       "<p>Kimono is an MCP server. In <strong>AI-KIDO mode</strong> it takes a root folder containing <code>prompts/index.md</code> or <code>index.md</code> and exposes that Memory Bank through the same small set of tools to every client that speaks MCP. The method becomes something connected clients can search, not something each of them has to be taught.</p>",
       {
-        "figure": "kimono-loop",
+        "diagram": "kimono-cycle",
         "caption": "Every client uses the same loop, whatever the assistant."
       },
       {
@@ -94,7 +97,7 @@
       },
       "<p>Kimono est un serveur MCP. En <strong>mode AI-KIDO</strong>, il prend un dossier racine contenant <code>prompts/index.md</code> ou <code>index.md</code> et expose cette Memory Bank, via le même petit jeu d’outils, à tout client qui parle MCP. La méthode devient quelque chose que les clients connectés peuvent chercher, et non quelque chose qu’il faut apprendre à chacun.</p>",
       {
-        "figure": "kimono-loop",
+        "diagram": "kimono-cycle",
         "caption": "Tous les clients utilisent la même boucle, quel que soit l’assistant."
       },
       {

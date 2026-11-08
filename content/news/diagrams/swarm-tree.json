@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "swarm-tree",
+  "type": "tree",
+  "title": {
+    "en": "One coordinator, separate workers",
+    "fr": "Un coordinateur, des travailleurs séparés"
+  },
+  "desc": {
+    "en": "A tree: one coordinator owns integration, acceptance, budgets and locks; each worker has its own context and scope.",
+    "fr": "Un arbre : un coordinateur garde l’intégration, l’acceptation, les budgets et les verrous ; chaque travailleur a son propre contexte et son périmètre."
+  },
+  "nodes": [
+    {
+      "label": {
+        "en": "Coordinator",
+        "fr": "Coordinateur"
+      },
+      "note": {
+        "en": "integration, acceptance, budgets, locks",
+        "fr": "intégration, acceptation, budgets, verrous"
+      },
+      "depth": 0
+    },
+    {
+      "label": {
+        "en": "Worker A",
+        "fr": "Travailleur A"
+      },
+      "note": {
+        "en": "own context, own scope",
+        "fr": "contexte et périmètre propres"
+      },
+      "depth": 1
+    },
+    {
+      "label": {
+        "en": "Worker B",
+        "fr": "Travailleur B"
+      },
+      "note": {
+        "en": "independent ready task",
+        "fr": "tâche indépendante prête"
+      },
+      "depth": 1
+    },
+    {
+      "label": {
+        "en": "Worker C",
+        "fr": "Travailleur C"
+      },
+      "note": {
+        "en": "may exchange findings if the host allows it",
+        "fr": "peut échanger des constats si l’hôte le permet"
+      },
+      "depth": 1
+    }
+  ]
+}

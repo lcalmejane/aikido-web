@@ -1,11 +1,14 @@
 {
   "slug": "version-1-5",
+  "nature": "release",
+  "domains": ["memory"],
   "date": "2026-10-28",
   "tag": {
     "en": "Release",
     "fr": "Version"
   },
   "image": "hero-version-1-5",
+  "layout": "classic",
   "en": {
     "title": "Version 1.5: one knowledge base, nine assistants",
     "summary": "AI-KIDO 1.5 ships packages for nine assistants, all generated from one source and installed through a plan you read before anything is written. Figures measured on the 1.5.2 package.",
@@ -16,7 +19,7 @@
       },
       "<p>AI-KIDO keeps a single canonical source: the <code>hard_points/</code> folder of the method repository. A build step generates, for each assistant, the files that assistant understands natively. Claude Code gets a marketplace plugin with slash commands, Skills and agents. GitHub Copilot, Codex, Kiro, Zoo Code, Roo Code and Antigravity get workspace files. Claude Cowork gets a plugin you upload to your account. That makes nine packages from one source.</p>",
       {
-        "figure": "version-15-fan",
+        "diagram": "version-hub",
         "caption": "One canonical source, one build step, nine generated packages."
       },
       "<p>Because the wrappers are generated rather than written by hand, they cannot quietly diverge: every enabled assistant gets a native wrapper for the same 15 agents.</p>",
@@ -82,7 +85,7 @@
       },
       "<p>AI-KIDO garde une seule source canonique : le dossier <code>hard_points/</code> du dépôt de la méthode. Une étape de génération produit, pour chaque assistant, les fichiers qu’il comprend nativement. Claude Code reçoit un plugin de marketplace avec commandes slash, Skills et agents. GitHub Copilot, Codex, Kiro, Zoo Code, Roo Code et Antigravity reçoivent des fichiers d’espace de travail. Claude Cowork reçoit un plugin à téléverser dans votre compte. Cela fait neuf paquets issus d’une seule source.</p>",
       {
-        "figure": "version-15-fan",
+        "diagram": "version-hub",
         "caption": "Une source canonique, une étape de génération, neuf paquets générés."
       },
       "<p>Comme les wrappers sont générés et non écrits à la main, ils ne peuvent pas diverger en silence : chaque assistant activé reçoit un wrapper natif pour les mêmes 15 agents.</p>",

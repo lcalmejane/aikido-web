@@ -1,6 +1,15 @@
 {
   "schemaVersion": 1,
   "assets": {
+    "learn-command-tatami": {
+      "src": "assets/images/news/learn-ecosystem-tatami.png",
+      "width": 1200,
+      "height": 664,
+      "alt": {
+        "en": "Tatami Agent screen with the Learn button and its tooltip in the composer, the conversation and command suggestions on the left, and an interactive matrix visualization on the right",
+        "fr": "Écran de Tatami Agent avec le bouton Learn et son infobulle dans le compositeur, la conversation et les suggestions de commandes à gauche, une visualisation interactive de matrice à droite"
+      }
+    },
     "hero-deterministic-tools": {
       "src": "assets/images/news/deterministic-tools.webp",
       "width": 960,
@@ -92,6 +101,96 @@
       "alt": {
         "en": "Kido, the small robot in a white karate gi, hands a golden card to three smaller robots waiting in line inside a calm tatami room",
         "fr": "Kido, le petit robot en kimono blanc, tend une carte dorée à trois robots plus petits qui attendent en file dans une salle de tatamis calme"
+      }
+    },
+    "hero-learn-rules": {
+      "src": "assets/images/news/learn-rules.webp",
+      "width": 960,
+      "height": 576,
+      "alt": {
+        "en": "Kido, the small robot in a karate gi, sits at a low wooden desk in a sunlit dojo and writes with a brush on a tablet, with a stack of wooden tablets and a closed notebook beside it",
+        "fr": "Kido, le petit robot en kimono, est assis à un bureau bas en bois dans un dojo ensoleillé et écrit au pinceau sur une tablette, avec une pile de tablettes en bois et un carnet fermé à côté"
+      }
+    },
+    "hero-source-hierarchy": {
+      "src": "assets/images/news/source-hierarchy.webp",
+      "width": 960,
+      "height": 576,
+      "alt": {
+        "en": "Kido, the small robot in a karate gi, stands on the tatami in front of a tall wooden shelf that holds scrolls on its upper level, in a sunlit dojo",
+        "fr": "Kido, le petit robot en kimono, se tient debout sur le tatami devant une grande étagère en bois dont le niveau haut porte des rouleaux, dans un dojo ensoleillé"
+      }
+    },
+    "hero-swarm-team": {
+      "src": "assets/images/news/swarm-team.webp",
+      "width": 960,
+      "height": 576,
+      "alt": {
+        "en": "Kido, the small robot in a karate gi, stands in the middle of a dojo while four smaller white helper robots sit at low tables around it, each reading a sheet of paper",
+        "fr": "Kido, le petit robot en kimono, se tient au milieu d’un dojo tandis que quatre petits robots assistants blancs sont assis à des tables basses autour de lui, chacun lisant une feuille"
+      }
+    },
+    "hero-local-designer": {
+      "src": "assets/images/news/local-designer.webp",
+      "width": 960,
+      "height": 576,
+      "alt": {
+        "en": "Kido, the small robot in a karate gi, stands in a sunlit dojo holding a wooden palette of colour swatches, with an easel showing blue and gold colour blocks and framed colour panels leaning on the wall",
+        "fr": "Kido, le petit robot en kimono, se tient debout dans un dojo ensoleillé avec une palette en bois de nuanciers, un chevalet montrant des aplats bleus et dorés et des panneaux de couleur encadrés posés contre le mur"
+      }
+    },
+    "hero-task-store": {
+      "src": "assets/images/news/task-store.webp",
+      "width": 960,
+      "height": 576,
+      "alt": {
+        "en": "Kido, the small robot in a karate gi, slides an index card into a slot of a wooden chest with a brass padlock, with a small brass key on the tatami floor beside it",
+        "fr": "Kido, le petit robot en kimono, glisse une fiche dans la fente d’un coffre en bois fermé par un cadenas en laiton, avec une petite clé en laiton posée sur le tatami à côté"
+      }
+    },
+    "ld-moodboard-brief": {
+      "src": "assets/images/news/ld-moodboard-brief.webp",
+      "width": 1200,
+      "height": 900,
+      "alt": {
+        "en": "Screenshot of a mood board page: a summary of the validated brief (positioning, message, audience, uses, format), then the validated direction with four scenes of people and the Kido robot in a sunlit dojo.",
+        "fr": "Capture d’une page de planche d’ambiance : le résumé du brief validé (positionnement, message, cible, usages, format), puis la piste validée avec quatre mises en situation de personnes et du robot Kido dans un dojo ensoleillé."
+      }
+    },
+    "ld-moodboard-directions": {
+      "src": "assets/images/news/ld-moodboard-directions.webp",
+      "width": 1152,
+      "height": 1358,
+      "alt": {
+        "en": "Three stacked mood board cards labelled A, B and C. Each shows four renders of the Kido robot on the same scenes (home hero, reading, guard stance, garden) in a different direction: plain dojo, studio backdrop, photographic dojo.",
+        "fr": "Trois cartes de planche d’ambiance empilées, étiquetées A, B et C. Chacune montre quatre rendus du robot Kido sur les mêmes scènes (accueil, lecture, garde, jardin) dans une direction différente : dojo simple, fond de studio, dojo photographique."
+      }
+    },
+    "ld-style-thumbs": {
+      "src": "assets/images/news/ld-style-thumbs.webp",
+      "width": 1152,
+      "height": 512,
+      "alt": {
+        "en": "Six render style thumbnails in two rows: watercolor, flat vector and line art lighthouses on top; an isometric cloud setup, a two-colour riso sunrise and a technical blueprint of robot arms below.",
+        "fr": "Six vignettes de styles de rendu sur deux rangées : phares en aquarelle, vecteur plat et trait en haut ; une installation cloud isométrique, un lever de soleil risographie en deux couleurs et un plan technique de bras de robot en bas."
+      }
+    },
+    "ld-uikit-personalities": {
+      "src": "assets/images/news/ld-uikit-personalities.webp",
+      "width": 1200,
+      "height": 820,
+      "alt": {
+        "en": "Screenshot of the UI kit comparison page: the five-track header, then variants A (Soft, marked as chosen) and B (Sharp) showing the same colour and typography cards with different corner radii and shadows.",
+        "fr": "Capture de la page de comparaison du kit d’interface : l’en-tête des cinq pistes, puis les variantes A (Doux, marquée retenue) et B (Net) qui montrent les mêmes cartes de couleurs et de typographie avec des angles et des ombres différents."
+      }
+    },
+    "ld-kido-sheet": {
+      "src": "assets/images/news/ld-kido-sheet.webp",
+      "width": 1200,
+      "height": 300,
+      "alt": {
+        "en": "Character sheet of Kido in four views side by side: front, three-quarter, side and back, a small white robot with cyan eyes in a cream karate uniform.",
+        "fr": "Fiche personnage de Kido en quatre vues côte à côte : face, trois quarts, profil et dos, un petit robot blanc aux yeux cyan en kimono crème."
       }
     }
   }

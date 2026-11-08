@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "id": "swarm-reuse",
+  "type": "tree",
+  "title": {
+    "en": "After the task: retain, clean, fresh or close",
+    "fr": "Après la tâche : retenir, nettoyer, neuf ou clore"
+  },
+  "desc": {
+    "en": "A decision tree. Root: the worker finished its task. Branch one: a follow-up of the same task leads to retain, with the known handle and only the delta sent. Branch two: a new scope leads to clean and reuse only if a real host reset is called and verified, otherwise to a fresh context with a compact handoff. Branch three: no useful follow-up leads to close, releasing handles and membership.",
+    "fr": "Un arbre de décision. Racine : le worker a fini sa tâche. Première branche : une suite de la même tâche mène à retenir, avec le handle connu et seulement le delta. Deuxième branche : un nouveau périmètre mène à nettoyer et réutiliser seulement si une vraie réinitialisation de l’hôte est appelée et vérifiée, sinon à un contexte neuf avec un handoff compact. Troisième branche : plus de suite utile mène à clore, en libérant handles et appartenance."
+  },
+  "nodes": [
+    {
+      "label": {
+        "en": "Worker finished its task",
+        "fr": "Le worker a fini sa tâche"
+      },
+      "depth": 0
+    },
+    {
+      "label": {
+        "en": "Same-task follow-up?",
+        "fr": "Suite de la même tâche ?"
+      },
+      "depth": 1
+    },
+    {
+      "label": {
+        "en": "Retain",
+        "fr": "Retenir"
+      },
+      "note": {
+        "en": "known handle, send only the delta",
+        "fr": "handle connu, n’envoyer que le delta"
+      },
+      "depth": 2
+    },
+    {
+      "label": {
+        "en": "New scope?",
+        "fr": "Nouveau périmètre ?"
+      },
+      "depth": 1
+    },
+    {
+      "label": {
+        "en": "Clean & reuse",
+        "fr": "Nettoyer et réutiliser"
+      },
+      "note": {
+        "en": "only after a real, verified host reset",
+        "fr": "seulement après une vraie réinitialisation vérifiée"
+      },
+      "depth": 2
+    },
+    {
+      "label": {
+        "en": "Fresh context",
+        "fr": "Contexte neuf"
+      },
+      "note": {
+        "en": "otherwise, or unknown state: compact handoff",
+        "fr": "sinon, ou état inconnu : handoff compact"
+      },
+      "depth": 2
+    },
+    {
+      "label": {
+        "en": "No useful follow-up?",
+        "fr": "Plus de suite utile ?"
+      },
+      "depth": 1
+    },
+    {
+      "label": {
+        "en": "Close",
+        "fr": "Clore"
+      },
+      "note": {
+        "en": "release handles and membership",
+        "fr": "libérer handles et appartenance"
+      },
+      "depth": 2
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "truth-spec-levels",
+  "type": "layers",
+  "title": {
+    "en": "Three levels of spec rigor",
+    "fr": "Trois niveaux de rigueur de la spec"
+  },
+  "desc": {
+    "en": "Three stacked levels describing how long a spec lives. Spec-first: the spec is written before the task and used for it. Spec-anchored: the spec is kept after the task to maintain the feature. Spec-as-source: only the spec is edited by people, never the code.",
+    "fr": "Trois niveaux empilés qui décrivent la durée de vie d’une spec. Spec-first : la spec est écrite avant la tâche et sert pour elle. Spec-anchored : la spec est conservée après la tâche pour faire évoluer la fonctionnalité. Spec-as-source : seule la spec est modifiée par les humains, jamais le code."
+  },
+  "nodes": [
+    {
+      "label": { "en": "Spec-first", "fr": "Spec-first" },
+      "note": { "en": "Written before the task, used for that task", "fr": "Écrite avant la tâche, utilisée pour elle" }
+    },
+    {
+      "label": { "en": "Spec-anchored", "fr": "Spec-anchored" },
+      "note": { "en": "Kept afterwards to evolve and maintain the feature", "fr": "Conservée ensuite pour faire évoluer et maintenir la fonctionnalité" }
+    },
+    {
+      "label": { "en": "Spec-as-source", "fr": "Spec-as-source" },
+      "note": { "en": "Only the spec is edited by people, never the code", "fr": "Seule la spec est éditée par les humains, jamais le code" }
+    }
+  ]
+}

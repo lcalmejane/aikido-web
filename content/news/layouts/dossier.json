@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "dossier",
+  "name": {
+    "en": "Dossier",
+    "fr": "Dossier"
+  },
+  "description": {
+    "en": "Table of contents first, numbered headings, side image.",
+    "fr": "Sommaire en tête, intertitres numérotés, image à gauche."
+  },
+  "hero": "left",
+  "width": "narrow",
+  "accent": "gold",
+  "lead": "plain",
+  "h2": "numbered",
+  "toc": true,
+  "dropcap": false
+}

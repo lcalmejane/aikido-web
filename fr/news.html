@@ -33,8 +33,12 @@
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="../assets/js/theme.js?v=1"></script>
   <link rel="stylesheet" href="../assets/css/home.css?v=10">
-  <link rel="stylesheet" href="../assets/css/inner.css?v=9">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Actualités","url":"https://www.ai-kido.fr/fr/news.html","inLanguage":"fr","hasPart":[{"@type":"Article","headline":"Laissez les scripts faire ce qu’un script fait exactement","datePublished":"2026-11-07","url":"https://www.ai-kido.fr/fr/news/deterministic-tools.html"},{"@type":"Article","headline":"Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller","datePublished":"2026-11-07","url":"https://www.ai-kido.fr/fr/news/kimono-structure.html"},{"@type":"Article","headline":"Version 1.5 : une base de connaissance, neuf assistants","datePublished":"2026-10-28","url":"https://www.ai-kido.fr/fr/news/version-1-5.html"},{"@type":"Article","headline":"Kimono RAG MCP est sur le Marketplace de VS Code","datePublished":"2026-10-25","url":"https://www.ai-kido.fr/fr/news/kimono-marketplace.html"},{"@type":"Article","headline":"Kimono MCP : la Memory Bank s’ouvre aux clients connectés","datePublished":"2026-10-16","url":"https://www.ai-kido.fr/fr/news/kimono-mcp.html"}]}</script>
+  <link rel="stylesheet" href="../assets/css/inner.css?v=10">
+  <link rel="stylesheet" href="../assets/css/news-layouts.css?v=3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Actualités","url":"https://www.ai-kido.fr/fr/news.html","inLanguage":"fr","hasPart":[{"@type":"Article","headline":"/learn : vous corrigez, elle propose, vous validez, vos agents s’en souviennent","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/fr/news/learn-rules.html"},{"@type":"Article","headline":"Local Designer : validez le style avant que votre agent ne dessine quoi que ce soit","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/fr/news/local-designer.html"},{"@type":"Article","headline":"Greenfield ou legacy : qui fait foi, la spec ou le code ?","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/fr/news/source-hierarchy.html"},{"@type":"Article","headline":"Faire parler les agents entre eux : l’essaim, du transfert pair à pair aux garde-fous d’AI-KIDO","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/fr/news/swarm-team.html"},{"@type":"Article","headline":"Task Store : le soir où ma demande est devenue une carte","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/fr/news/task-store.html"},{"@type":"Article","headline":"Laissez les scripts faire ce qu’un script fait exactement","datePublished":"2026-11-07","url":"https://www.ai-kido.fr/fr/news/deterministic-tools.html"},{"@type":"Article","headline":"Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller","datePublished":"2026-11-07","url":"https://www.ai-kido.fr/fr/news/kimono-structure.html"},{"@type":"Article","headline":"Version 1.5 : une base de connaissance, neuf assistants","datePublished":"2026-10-28","url":"https://www.ai-kido.fr/fr/news/version-1-5.html"},{"@type":"Article","headline":"Kimono RAG MCP est sur le Marketplace de VS Code","datePublished":"2026-10-25","url":"https://www.ai-kido.fr/fr/news/kimono-marketplace.html"},{"@type":"Article","headline":"Kimono MCP : la Memory Bank s’ouvre aux clients connectés","datePublished":"2026-10-16","url":"https://www.ai-kido.fr/fr/news/kimono-mcp.html"}]}</script>
+  <link rel="stylesheet" href="../assets/css/news-pagination.css?v=1">
+  <noscript><style>.news-list .news-card[hidden] { display: flex; }</style></noscript>
+  <script src="../assets/js/news-pagination.js?v=1" defer></script>
 </head>
 <body class="inner">
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -83,38 +87,79 @@
       </div>
     </section>
 
-    <section class="news-list">
+    <section class="news-list" id="news-list" aria-label="Actualités" tabindex="-1" data-news-pagination>
       <div class="container">
+        <div class="news-filters" hidden>
+          <label>Nature <select data-news-nature><option value="">Toutes les natures</option><option value="presentation">Présentation</option><option value="guide">Guide pratique</option><option value="analysis">Analyse</option><option value="release">Version</option></select></label>
+          <label>Domaine <select data-news-domain><option value="">Tous les domaines</option><option value="memory">Mémoire et apprentissage</option><option value="orchestration">Orchestration</option><option value="design">Design et interfaces</option><option value="search">Recherche documentaire</option><option value="development">Développement et automatisation</option></select></label>
+          <label>Année <select data-news-year><option value="">Toutes les années</option><option value="2026">2026</option></select></label>
+          <label>Mois <select data-news-month><option value="">Tous les mois</option><option value="10">octobre</option><option value="11">novembre</option></select></label>
+        </div>
         <div class="grid cols-3">
-          <article class="card news-card">
+          <article class="card news-card" data-news-date="2026-11-08" data-news-nature="guide" data-news-domains="memory">
+            <img class="card-img" src="../assets/images/news/learn-rules.webp" alt="Kido, le petit robot en kimono, est assis à un bureau bas en bois dans un dojo ensoleillé et écrit au pinceau sur une tablette, avec une pile de tablettes en bois et un carnet fermé à côté" width="960" height="576" loading="lazy" decoding="async">
+            <p class="news-meta"><span class="tag">Méthode</span><time datetime="2026-11-08">8 novembre 2026</time></p>
+            <h2><a href="news/learn-rules.html">/learn : vous corrigez, elle propose, vous validez, vos agents s’en souviennent</a></h2>
+            <p>L’apprentissage fait partie d’AI-KIDO depuis le début. /learn en facilite l’usage : un raccourci de commande transforme vos corrections en règles validées. Découvrez-le dans l’interface Tatami Agent.</p>
+            <a class="more" href="news/learn-rules.html">Lire la suite<span class="sr-only"> : /learn : vous corrigez, elle propose, vous validez, vos agents s’en souviennent</span></a>
+          </article>
+          <article class="card news-card" data-news-date="2026-11-08" data-news-nature="guide" data-news-domains="design">
+            <img class="card-img" src="../assets/images/news/local-designer.webp" alt="Kido, le petit robot en kimono, se tient debout dans un dojo ensoleillé avec une palette en bois de nuanciers, un chevalet montrant des aplats bleus et dorés et des panneaux de couleur encadrés posés contre le mur" width="960" height="576" loading="lazy" decoding="async">
+            <p class="news-meta"><span class="tag">Outils</span><time datetime="2026-11-08">8 novembre 2026</time></p>
+            <h2><a href="news/local-designer.html">Local Designer : validez le style avant que votre agent ne dessine quoi que ce soit</a></h2>
+            <p>Une compétence qui donne un directeur artistique à vos agents : un brief, une planche d’ambiance, un verrou tant que vous n’avez pas validé une direction, puis des rendus locaux dans l’identité choisie.</p>
+            <a class="more" href="news/local-designer.html">Lire la suite<span class="sr-only"> : Local Designer : validez le style avant que votre agent ne dessine quoi que ce soit</span></a>
+          </article>
+          <article class="card news-card" data-news-date="2026-11-08" data-news-nature="analysis" data-news-domains="memory">
+            <img class="card-img" src="../assets/images/news/source-hierarchy.webp" alt="Kido, le petit robot en kimono, se tient debout sur le tatami devant une grande étagère en bois dont le niveau haut porte des rouleaux, dans un dojo ensoleillé" width="960" height="576" loading="lazy" decoding="async">
+            <p class="news-meta"><span class="tag">Méthode</span><time datetime="2026-11-08">8 novembre 2026</time></p>
+            <h2><a href="news/source-hierarchy.html">Greenfield ou legacy : qui fait foi, la spec ou le code ?</a></h2>
+            <p>Les approches spec-driven sont taillées pour le neuf, celles qui partent du code pour l’existant. AI-KIDO tente de réconcilier les deux : son évaluateur choisit la source qui fait foi selon votre demande.</p>
+            <a class="more" href="news/source-hierarchy.html">Lire la suite<span class="sr-only"> : Greenfield ou legacy : qui fait foi, la spec ou le code ?</span></a>
+          </article>
+          <article class="card news-card" data-news-date="2026-11-08" data-news-nature="presentation" data-news-domains="orchestration">
+            <img class="card-img" src="../assets/images/news/swarm-team.webp" alt="Kido, le petit robot en kimono, se tient au milieu d’un dojo tandis que quatre petits robots assistants blancs sont assis à des tables basses autour de lui, chacun lisant une feuille" width="960" height="576" loading="lazy" decoding="async">
+            <p class="news-meta"><span class="tag">Méthode</span><time datetime="2026-11-08">8 novembre 2026</time></p>
+            <h2><a href="news/swarm-team.html">Faire parler les agents entre eux : l’essaim, du transfert pair à pair aux garde-fous d’AI-KIDO</a></h2>
+            <p>Un coordinateur découpe, des pairs se passent la main, vous lisez un seul compte rendu. Ce que l’essaim change, ce qui casse, et comment AI-KIDO l’encadre.</p>
+            <a class="more" href="news/swarm-team.html">Lire la suite<span class="sr-only"> : Faire parler les agents entre eux : l’essaim, du transfert pair à pair aux garde-fous d’AI-KIDO</span></a>
+          </article>
+          <article class="card news-card" data-news-date="2026-11-08" data-news-nature="guide" data-news-domains="orchestration development">
+            <img class="card-img" src="../assets/images/news/task-store.webp" alt="Kido, le petit robot en kimono, glisse une fiche dans la fente d’un coffre en bois fermé par un cadenas en laiton, avec une petite clé en laiton posée sur le tatami à côté" width="960" height="576" loading="lazy" decoding="async">
+            <p class="news-meta"><span class="tag">Outils</span><time datetime="2026-11-08">8 novembre 2026</time></p>
+            <h2><a href="news/task-store.html">Task Store : le soir où ma demande est devenue une carte</a></h2>
+            <p>Une développeuse, son éditeur, une migration trop longue pour une conversation. Ce qui sépare un simple prompt d’une tâche à suivre, deux façons de la suivre, et la direction que nous prenons pour les cartes.</p>
+            <a class="more" href="news/task-store.html">Lire la suite<span class="sr-only"> : Task Store : le soir où ma demande est devenue une carte</span></a>
+          </article>
+          <article class="card news-card" data-news-date="2026-11-07" data-news-nature="analysis" data-news-domains="development orchestration">
             <img class="card-img" src="../assets/images/news/deterministic-tools.webp" alt="Kido, le petit robot en kimono, fait glisser des perles dorées sur un boulier en bois posé sur une table basse, avec un carnet ouvert et une montre de poche à côté, un jardin derrière" width="960" height="576" loading="lazy" decoding="async">
             <p class="news-meta"><span class="tag">Méthode</span><time datetime="2026-11-07">7 novembre 2026</time></p>
             <h2><a href="news/deterministic-tools.html">Laissez les scripts faire ce qu’un script fait exactement</a></h2>
             <p>Un modèle comprend, choisit et explique ; un script exécute les étapes exactes. Deux exécutions réelles montrent le gain : le même plan deux fois, et un build de site qui ne réécrit rien.</p>
             <a class="more" href="news/deterministic-tools.html">Lire la suite<span class="sr-only"> : Laissez les scripts faire ce qu’un script fait exactement</span></a>
           </article>
-          <article class="card news-card">
+          <article class="card news-card" data-news-date="2026-11-07" data-news-nature="presentation" data-news-domains="search development">
             <img class="card-img" src="../assets/images/news/kimono-structure.webp" alt="Kido, le petit robot en kimono blanc, se tient dans un dojo avec une lanterne allumée, à côté d’un panneau de bois sculpté d’un arbre dont les branches portent de petites tuiles dorées" width="960" height="576" loading="lazy" decoding="async">
             <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-11-07">7 novembre 2026</time></p>
             <h2><a href="news/kimono-structure.html">Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller</a></h2>
             <p>Le nouvel outil aikido_structure renvoie un arbre de fichiers compact avec le type de chaque fichier et son état d’indexation. Un premier regard sur un projet inconnu, en quelques lignes.</p>
             <a class="more" href="news/kimono-structure.html">Lire la suite<span class="sr-only"> : Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller</span></a>
           </article>
-          <article class="card news-card">
+          <article class="card news-card" data-news-date="2026-10-28" data-news-nature="release" data-news-domains="memory">
             <img class="card-img" src="../assets/images/news/version-1-5.webp" alt="Kido, le petit robot en kimono blanc, tend une carte dorée à trois robots plus petits qui attendent en file dans une salle de tatamis calme" width="960" height="576" loading="lazy" decoding="async">
             <p class="news-meta"><span class="tag">Version</span><time datetime="2026-10-28">28 octobre 2026</time></p>
             <h2><a href="news/version-1-5.html">Version 1.5 : une base de connaissance, neuf assistants</a></h2>
             <p>AI-KIDO 1.5 propose des paquets pour neuf assistants, tous générés depuis une seule source et installés via un plan relu avant toute écriture. Chiffres mesurés sur le paquet 1.5.2.</p>
             <a class="more" href="news/version-1-5.html">Lire la suite<span class="sr-only"> : Version 1.5 : une base de connaissance, neuf assistants</span></a>
           </article>
-          <article class="card news-card">
+          <article class="card news-card" data-news-date="2026-10-25" data-news-nature="release" data-news-domains="search">
             <img class="card-img" src="../assets/images/news/kimono-marketplace.webp" alt="Kido, le petit robot en kimono blanc, sort quelques fiches dorées lumineuses d’un tiroir ouvert dans un long mur de tiroirs de classement en bois" width="960" height="576" loading="lazy" decoding="async">
             <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-10-25">25 octobre 2026</time></p>
             <h2><a href="news/kimono-marketplace.html">Kimono RAG MCP est sur le Marketplace de VS Code</a></h2>
             <p>Kimono trouve des passages dans le code et les documents en local et renvoie d’abord chemins et plages de lignes. Sur deux tâches, les tokens d’entrée cumulés baissent de 67,5 % et 71,4 %.</p>
             <a class="more" href="news/kimono-marketplace.html">Lire la suite<span class="sr-only"> : Kimono RAG MCP est sur le Marketplace de VS Code</span></a>
           </article>
-          <article class="card news-card">
+          <article class="card news-card" data-news-date="2026-10-16" data-news-nature="presentation" data-news-domains="search" hidden>
             <img class="card-img" src="../assets/images/news/kimono-mcp.webp" alt="Kido, le petit robot en kimono blanc, tend une carte dorée à trois robots plus petits qui attendent en file dans une salle de tatamis calme" width="960" height="576" loading="lazy" decoding="async">
             <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-10-16">16 octobre 2026</time></p>
             <h2><a href="news/kimono-mcp.html">Kimono MCP : la Memory Bank s’ouvre aux clients connectés</a></h2>
@@ -122,6 +167,11 @@
             <a class="more" href="news/kimono-mcp.html">Lire la suite<span class="sr-only"> : Kimono MCP : la Memory Bank s’ouvre aux clients connectés</span></a>
           </article>
         </div>
+        <nav class="news-pagination" aria-label="Pages des actualités" hidden>
+          <button type="button" data-news-previous>Précédent</button>
+          <p role="status" aria-live="polite" aria-atomic="true" data-news-page-label="Page {page} sur {pages}" data-news-empty-label="Aucun article pour cette période."></p>
+          <button type="button" data-news-next>Suivant</button>
+        </nav>
       </div>
     </section>
 

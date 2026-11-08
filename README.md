@@ -47,7 +47,8 @@ Its dedicated Kimono section documents fast-grep, embsearch-core, ONNX Runtime, 
 The whole site follows the charter of the home page (cream `#f6efe0`, ink `#111524`, navy `#0e386e`, terracotta `#b85c38`, gold `#e8c77a`; serif headings, sans body; automatic dark mode). Photography shows people in cream keikogi in a sunlit dojo; icons are the inline SVG sprite, never raster pictograms.
 
 - `assets/css/home.css`: charter variables, header, buttons, hero, bands, closing block. Loaded by every page.
-- `assets/css/inner.css`: the same charter applied to inner pages (page header with full-width photo, cards, steps, tables, timeline, belts). Loaded after `home.css`; body class `inner`. Cache-busters: `home.css?v=6`, `inner.css?v=5`; bump them on every page when the file changes.
+- `assets/css/inner.css`: the same charter applied to inner pages (page header with full-width photo, cards, steps, tables, timeline, belts). Loaded after `home.css`; body class `inner`. Cache-busters: `home.css?v=10`, `inner.css?v=10`; bump them on every page when the file changes.
+- Article step-list styles must be scoped to `.article-body .steps`; unscoped overrides break the padding and image alignment of the illustrated `.steps` cards on the harness pages.
 - Header menu: **Method** (Home, Harness creation, History) and **Tools** (Kimono MCP, Local Designer) are `<details class="nav-group">` groups; the group holding the current page gets the class `current` so its label takes the accent colour. A new tool page goes into the **Tools** panel of all pages (EN and FR), in `sitemap.xml`, and in the page list of the site check.
 - `local-designer.html` / `fr/local-designer.html`: page of the `local-designer` skill (art director for agents). Images: `ph-designer` (header) and `designer-moodboard|charter|uikit|render` in `assets/images/pages/`; the 12 style thumbnails in `assets/images/pages/styles/` are the skill's own (`styles/thumbs/`), not site renders. No link to the `aikido-skills` repository, which is private: installation is described through `/skill-manage` and the public method repository.
 - Photo layouts on inner pages (never a lone illustration floating between text blocks): `.duo` = two `.card` side by side, each with a `.card-img` on top, a `.tag`, a title and a short text (Kimono “Local today / shared tomorrow”); `.split-media` = photo on the left (`.media`) and a `.stack` of cards on the right (Kimono “Choose the way you want to work”); `.callout` = text block with an accent rule; `.quote-feature` = photo beside a quote. All collapse to one column below 960 px.
@@ -125,32 +126,119 @@ The site is static HTML/CSS, with no build step.
 
 ## News and roadmap
 
-The news pages are **generated** from a single source, `data/news.json` (EN and FR text, date, image, tag per item).
+Every article layout must retain the contents navigation and the AI-KIDO call
+to action. At 1000 px and above they are sticky rails; `hero: left` groups the
+image, contents and call to action in one sticky left column. Below 1000 px a
+sticky disclosure bar exposes both controls, with exclusive panels, anchor
+closure and Escape support. Header height determines the offset; tall controls
+scroll within the viewport. `toc` and `rail` layout options no longer disable
+this shared invariant. An article needs at least one `h2`.
+After changing navigation, test every layout in EN/FR at 1440, 1024, 899 and
+390 px, including scroll, anchor visibility, keyboard and call-to-action access.
+
+The news pages are **generated** from the folder `content/news/` (one JSON file per article, per layout and per diagram; EN and FR text side by side).
 Never edit the generated files by hand: `news.html`, `fr/news.html`, `news/*.html`, `fr/news/*.html`, the block between
 `<!-- news:begin -->` and `<!-- news:end -->` on both home pages (the compact strip in the first screen) and the same block in `sitemap.xml`.
 
 ```bash
-node scripts/build-news.mjs           # validate data/news.json and regenerate everything
-node scripts/build-news.mjs --check   # fail if a generated file is out of date (no write)
-node --test scripts/                  # tests (validation, hreflang, sitemap, strip, idempotence)
+node scripts/build-news.mjs --validate  # validate content/news/ only (no write)
+node scripts/build-news.mjs --article learn-rules --dry-run # preview a targeted edit, no write
+node scripts/build-news.mjs --lists     # list pages/shared outputs only; no article rendering
+node scripts/build-news.mjs --article learn-rules # render this article and its dependencies
+node scripts/build-news.mjs --article learn-rules --article local-designer # explicit batch
+node scripts/build-news.mjs --layout revue # articles using this layout
+node scripts/build-news.mjs --diagram learn-loop # articles using this diagram ID (see --list)
+node scripts/build-news.mjs --asset learn-command-tatami # articles using this asset
+node scripts/build-news.mjs --all        # full build (also the default without selectors)
+node scripts/build-news.mjs --check     # fail if a generated file is out of date (no write)
+node --test scripts/build-news.test.mjs # tests (validation, layouts, diagrams, hreflang, sitemap, idempotence)
 ```
 
-To add an item, add an object at the top of `items` in `data/news.json` (kebab-case `slug`, `date` as `YYYY-MM-DD`,
-an existing `image` with its size, a `tag` and an `en` / `fr` block with `title`, `summary` (220 characters at most),
-`alt` and `body`), then run the build. The script rejects duplicate slugs, invalid dates, missing images,
-unbalanced tags and broken local links. Menu and footer of the news pages are copied from `history.html` / `fr/history.html`,
-so a menu change is made there first.
+Selectors are repeatable and combine as a union; `--check` also accepts them.
+News lists show at most nine articles per page, with localized Previous/Next
+controls, a live page count and `?page=N` links supporting history and language
+switches. Year/month filters above the grid use the available article dates,
+persist in `?year=YYYY&month=MM`, and reset pagination when changed.
+Article type and functional domain are independent, combinable filters stored
+in `nature` / `domain` URL parameters. Stable IDs and EN/FR labels live in
+`content/news/taxonomy.json`; each article declares one `nature` and a non-empty,
+unique `domains` array. The existing visual `tag` is independent of these fields.
+The validator rejects missing/unknown classifications and untranslated labels.
+Without JavaScript all articles remain accessible. Pagination assets
+load only on the two list pages; use `--lists` after changing their presentation.
+All sources are validated even in targeted mode, but only selected articles
+and chronological navigation dependencies are rendered. The two lists, the
+two home news blocks and the sitemap are also calculated to keep summaries,
+ordering and links consistent. Only changed files are written; `--dry-run`
+reports `changed`, `articles` and `written: []`. Invalid selectors fail explicitly.
+A title/date/order change updates affected neighbours, including old neighbours
+identified from their existing navigation. Global changes to `ui.json`,
+`bundle.json`, menu/footer templates or generator code require `--all`.
+Article deletion/slug renaming also requires a full build and an explicit review
+of obsolete HTML outputs; the builder never deletes files automatically.
+
+### Reworking existing content: one unit or a batch
+
+- **Article or article fragment:** edit only the relevant typed blocks in
+  `content/news/articles/<slug>.json`, keep EN/FR aligned, then use `--article`.
+  For shared layouts, diagrams or asset metadata, use the matching selector.
+- **Static page or page fragment:** edit the source HTML in `page.html` and
+  `fr/page.html` directly with a bounded patch. Do not run the News generator
+  for an unrelated static change. On home pages, preserve the generated news
+  block; edit its sources if that block is the target.
+- **Bulk:** enumerate the pages/articles and use the existing AI-KIDO
+  refactoring workflow for mechanical replacements, with exact preconditions
+  and a dry-run. For editorial changes use reviewed patches to the selected
+  sources, then combine selectors in one build. Never overwrite a whole page
+  to replace one fragment.
+- Preserve anchors, menus, language switches, contextual screenshots,
+  confidentiality, the design charter and accessible sticky article controls.
+  Update links, sitemap and CSS cache versions only when affected. Apply the
+  local editorial and proportionate-validation policies, including browser
+  checks when changing UI, layout or action zones.
+
+Here “atomic edit” means one bounded editorial unit, not a multi-file filesystem
+transaction. EN/FR and dependent outputs belong to that unit. Review the reported
+changed files and the Git diff before publication, especially with a dirty index.
+The local `aikido-web-edit` skill exposes this workflow to the editorial and UI
+agents. Syntax tests do not replace editorial/source/privacy review.
+
+Layout of `content/news/`:
+
+| Path | Role |
+|---|---|
+| `articles/<slug>.json` | one article: `slug`, `date`, `tag`, `image`, `layout`, and an `en` / `fr` block with `title`, `summary` (220 characters at most) and `body` |
+| `layouts/<id>.json` | one page layout (13 available). Options: hero position, width, accent, lead, `h2` style, drop cap, `title` (normal, caps, huge), `meta` (inline, mono, byline), `rail` (none, toc, toc-cta) and `body` |
+| `diagrams/<id>.json` | one SVG diagram generated from data (`flow`, `tree`, `funnel`, `cycle`, `hub`, `bars`, `pyramid`, `quadrant`) |
+| `assets.json` | images with size and EN / FR alt text |
+| `ui.json`, `bundle.json` | interface strings and global rules (minimum layouts, no two neighbours alike, animation quotas) |
+
+The code that reads this folder is in `scripts/news/` (`load`, `validate`, `blocks`, `diagrams`, `pages`, `build`).
+
+To add an article, create `content/news/articles/<slug>.json`, give it a layout different from its neighbours, add its image to
+`assets.json`, then run the build. The script rejects duplicate slugs, invalid dates, missing images, two neighbouring articles
+with the same layout, an article without a visual, EN and FR with different block counts, unbalanced tags and broken local links.
+Menu and footer of the news pages are copied from `history.html` / `fr/history.html`, so a menu change is made there first.
 
 `body` is a list of blocks. A plain string is an HTML paragraph (`<p>…</p>`, lists, inline code and links). Other blocks are objects:
 
 | Block | Fields |
 |---|---|
 | `{ h2 }` | section heading |
-| `{ code, lang, caption }` | code block, shown as text, scrolls sideways if long |
-| `{ figure, width, height, alt, caption }` | SVG or image from `assets/images/news/` (one file per language) |
+| `{ code, lang, caption }` | code block, wrapped (no horizontal scroll) |
+| `{ figure, width, height, alt, caption }` | image from `assets/images/news/` |
+| `{ diagram, caption, animate }` | diagram from `diagrams/`; static by default, `animate` only for a flow and only when motion explains something |
 | `{ callout, title }` | highlighted note |
-| `{ stats: [{ value, label }] }` | up to three figures |
+| `{ stats: [{ value, label }] }` | two to four figures |
+| `{ pullstat: { value, label } }` | one large figure |
+| `{ compare: { left, right } }` | two columns, each with `title` and `items` |
+| `{ timeline: [{ when, text }] }` | dated or ordered steps |
 | `{ steps: [...] }` | numbered list of things to try |
+| `{ references: [{ publisher, title, url, by }], title }` | numbered external sources, last block of the article. In the text, put the link on the words that name the source with `{ref:N\|words}` (for example `{ref:2\|Kiro}`): the build turns it into `<a class="src" href="<url of source N>" title="Publisher — Title" rel="noopener noreferrer" target="_blank">words</a>`. Bracketed calls such as `[2]` or `#ref-N` anchors in the body are rejected, as are non-https URLs, duplicates, a call without a source and a block that does not end the article |
+| `{ quote }`, `{ chat }`, `{ faq }`, `{ cards }` | quotation, conversation, questions, cards |
+
+Diagrams are static by default. At most one animated diagram per article, no two animated articles in a row,
+and at most half of the diagrams animated. Only the arrows move, never the text, and `prefers-reduced-motion` stops them.
 
 Write local links from the site root (`news/version-1-5.html`, `install.html`): the generator adds `../` on article pages
 and the French pages resolve them under `fr/`. Everything shown must come from a public repository or a real run;
@@ -181,3 +269,8 @@ python3 -m http.server 8000
 Settings → Pages → *Deploy from a branch* → `main` / `/ (root)`.
 Custom domain: `www.ai-kido.fr` (persisted in `CNAME`; preserve this file).
 Every push to `main` republishes the site.
+GitHub Pages serves the committed static files; it does not run the News
+generator. A targeted edit therefore needs no full-site regeneration before
+publishing. Pages still deploys a site snapshot, not a partial-file transaction.
+Run the relevant checks and review the bounded diff before an approved push;
+branch-based Pages does not itself enforce the local editorial review.

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "revue",
+  "name": {
+    "en": "Review",
+    "fr": "Revue"
+  },
+  "description": {
+    "en": "Byline with reading time, sticky contents on the left, call-to-action card on the right.",
+    "fr": "Signature avec temps de lecture, sommaire collant à gauche, carte d'action à droite."
+  },
+  "hero": "wide",
+  "width": "narrow",
+  "accent": "navy",
+  "lead": "plain",
+  "h2": "numbered",
+  "toc": true,
+  "dropcap": false,
+  "meta": "byline",
+  "rail": "toc-cta"
+}

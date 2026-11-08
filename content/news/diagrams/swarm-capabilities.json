@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "swarm-capabilities",
+  "type": "hub",
+  "title": {"en": "Verified capabilities decide the team", "fr": "Les capacités vérifiées décident de l’équipe"},
+  "desc": {"en": "In the centre, the collaboration choice: direct, parallel, peer communication, retain, or clean and reuse. Around it, the capabilities the coordinator must verify on the real host before choosing: launch and concurrency, result and notification tools, peer send and receive at both ends, coordinator relay, retained follow-up, reset or clear, and remaining budget.", "fr": "Au centre, le choix de collaboration : direct, parallèle, communication entre pairs, rétention, ou nettoyage et réutilisation. Autour, les capacités que le coordinateur doit vérifier sur l’hôte réel avant de choisir : lancement et concurrence, outils de résultat et de notification, envoi et réception entre pairs aux deux bouts, relais du coordinateur, suivi retenu, réinitialisation, et budget restant."},
+  "center": {"label": {"en": "Collaboration choice", "fr": "Choix de collaboration"}, "note": {"en": "direct · parallel · peer · retain · reuse", "fr": "direct · parallèle · pair · retenir · réutiliser"}},
+  "nodes": [
+    {"label": {"en": "Launch & concurrency", "fr": "Lancement et concurrence"}},
+    {"label": {"en": "Result & notification", "fr": "Résultat et notification"}},
+    {"label": {"en": "Peer send AND receive", "fr": "Envoi ET réception entre pairs"}},
+    {"label": {"en": "Coordinator relay", "fr": "Relais du coordinateur"}},
+    {"label": {"en": "Retained follow-up", "fr": "Suivi retenu"}},
+    {"label": {"en": "Reset / clear", "fr": "Réinitialisation"}},
+    {"label": {"en": "Remaining budget", "fr": "Budget restant"}}
+  ]
+}

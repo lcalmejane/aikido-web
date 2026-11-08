@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "truth-decision",
+  "type": "tree",
+  "title": {
+    "en": "Which source leads for your request",
+    "fr": "Quelle source mène pour votre demande"
+  },
+  "desc": {
+    "en": "A decision tree. Is there code yet? If not, the specifications lead. If there is, ask what you want to do: add a feature, fix a bug, refactor, or understand. The specs lead for a new feature, the code leads for a bug or an investigation, and both lead together for a refactoring.",
+    "fr": "Un arbre de décision. Y a-t-il déjà du code ? Sinon, les spécifications mènent. Sinon, que voulez-vous faire : ajouter une fonctionnalité, corriger un bug, refactorer ou comprendre ? Les specs mènent pour une nouvelle fonctionnalité, le code mène pour un bug ou une investigation, et les deux mènent ensemble pour un refactoring."
+  },
+  "nodes": [
+    {
+      "depth": 0,
+      "label": { "en": "Your request", "fr": "Votre demande" },
+      "note": { "en": "Is there code already?", "fr": "Y a-t-il déjà du code ?" }
+    },
+    {
+      "depth": 1,
+      "label": { "en": "No: starting from scratch", "fr": "Non : on part de zéro" },
+      "note": { "en": "The specs lead", "fr": "Les specs mènent" }
+    },
+    {
+      "depth": 1,
+      "label": { "en": "Yes: what do you want to do?", "fr": "Oui : que voulez-vous faire ?" }
+    },
+    {
+      "depth": 2,
+      "label": { "en": "Add a feature", "fr": "Ajouter une fonctionnalité" },
+      "note": { "en": "The specs lead", "fr": "Les specs mènent" }
+    },
+    {
+      "depth": 2,
+      "label": { "en": "Fix a bug, or understand", "fr": "Corriger un bug, ou comprendre" },
+      "note": { "en": "The code leads, tests support", "fr": "Le code mène, les tests appuient" }
+    },
+    {
+      "depth": 2,
+      "label": { "en": "Refactor or migrate", "fr": "Refactorer ou migrer" },
+      "note": { "en": "Two truths: current code and target", "fr": "Deux vérités : le code actuel et la cible" }
+    },
+    {
+      "depth": 0,
+      "label": { "en": "Always first", "fr": "Toujours en premier" },
+      "note": { "en": "The immutable hard points", "fr": "Les points durs immuables" }
+    }
+  ]
+}

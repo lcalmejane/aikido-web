@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Letting agents talk to each other: swarms, from peer handoffs to AI-KIDO’s guardrails – AI-KIDO</title>
+  <meta name="description" content="A coordinator splits the work, peers hand off to one another, you read one report. What a swarm changes, what breaks, and how AI-KIDO frames it.">
+  <meta property="og:title" content="Letting agents talk to each other: swarms, from peer handoffs to AI-KIDO’s guardrails – AI-KIDO">
+  <meta property="og:description" content="A coordinator splits the work, peers hand off to one another, you read one report. What a swarm changes, what breaks, and how AI-KIDO frames it.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:image" content="https://www.ai-kido.fr/assets/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
+  <meta property="og:image:alt" content="Kido, the small robot in a karate gi, stands in the middle of a dojo while four smaller white helper robots sit at low tables around it, each reading a sheet of paper">
+  <meta property="og:url" content="https://www.ai-kido.fr/news/swarm-team.html">
+  <meta property="og:site_name" content="AI-KIDO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.ai-kido.fr/assets/images/og.jpg">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://www.ai-kido.fr/news/swarm-team.html">
+  <link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/swarm-team.html">
+  <link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/swarm-team.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/swarm-team.html">
+  <link rel="icon" href="../favicon.ico?v=3" sizes="16x16 32x32">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png?v=3">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/favicon-48.png?v=3">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/icon-192.png?v=3">
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=3">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#f6efe0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
+  <script src="../assets/js/theme.js?v=1"></script>
+  <link rel="stylesheet" href="../assets/css/home.css?v=10">
+  <link rel="stylesheet" href="../assets/css/inner.css?v=10">
+  <link rel="stylesheet" href="../assets/css/news-layouts.css?v=3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Letting agents talk to each other: swarms, from peer handoffs to AI-KIDO’s guardrails","description":"A coordinator splits the work, peers hand off to one another, you read one report. What a swarm changes, what breaks, and how AI-KIDO frames it.","datePublished":"2026-11-08","inLanguage":"en","mainEntityOfPage":"https://www.ai-kido.fr/news/swarm-team.html","image":"https://www.ai-kido.fr/assets/images/news/swarm-team.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
+  <script src="../assets/js/news-navigation.js?v=1" defer></script>
+</head>
+<body class="inner">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+</svg>
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="../index.html"><img src="../assets/images/favicon-48.png?v=2" alt="" width="30" height="30"><span class="word">AI<span>-</span>KIDO</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav">
+      <label class="nav-burger" for="nav-toggle"><svg class="icon" aria-hidden="true"><use href="#menu"/></svg> Menu</label>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <details class="nav-group">
+          <summary>Method <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
+          <div class="nav-panel">
+            <a href="../index.html">Home</a>
+            <a href="../harness.html">Harness creation</a>
+            <a href="../history.html">History</a>
+          </div>
+        </details>
+        <a href="../install.html">Install</a>
+        <a href="../news.html" aria-current="page">News</a>
+        <details class="nav-group">
+          <summary>Tools <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
+          <div class="nav-panel">
+            <a href="../kimono.html">Kimono MCP</a>
+            <a href="../local-designer.html">Local Designer</a>
+          </div>
+        </details>
+        <a href="https://github.com/lcalmejane/aikido">GitHub</a>
+        <span class="lang" role="group" aria-label="Language">
+          <a class="active" href="swarm-team.html" hreflang="en" lang="en" aria-current="true">EN</a>
+          <a href="../fr/news/swarm-team.html" hreflang="fr" lang="fr">FR</a>
+        </span>
+      </nav>
+      <button type="button" class="theme-toggle" data-theme-toggle data-label-dark="Switch to dark theme" data-label-light="Switch to light theme" aria-label="Switch to dark theme" title="Switch to dark theme"><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></svg></button>
+    </div>
+    </header>
+
+  <main id="top">
+    <article class="news-article nl-guide hero-left w-wide acc-forest lead-plain h2-numbered title-normal meta-inline body-prose rail-toc-cta">
+      <div class="container">
+        <p class="back"><a href="../news.html">← All news</a></p>
+        <header class="article-head">
+          <p class="news-meta"><span class="tag">Method</span><time datetime="2026-11-08">8 November 2026</time></p>
+          <h1>Letting agents talk to each other: swarms, from peer handoffs to AI-KIDO’s guardrails</h1>
+          <p class="lead">A coordinator splits the work, peers hand off to one another, you read one report. What a swarm changes, what breaks, and how AI-KIDO frames it.</p>
+        </header>
+        <div class="article-grid">
+          <div class="article-mobile-tools">
+          <details name="article-tools"><summary>In this article</summary><nav class="article-toc" aria-label="In this article"><strong>In this article</strong><ol><li><a href="#what-a-swarm-changes">What a swarm changes</a></li><li><a href="#the-mechanics-the-next-agent-is-a-tool">The mechanics: the next agent is a tool</a></li><li><a href="#shared-state-and-the-team-s-memory">Shared state and the team’s memory</a></li><li><a href="#what-breaks-measured">What breaks, measured</a></li><li><a href="#what-ai-kido-takes-up-and-where-it-goes-further">What AI-KIDO takes up, and where it goes further</a></li><li><a href="#what-you-type-what-you-read">What you type, what you read</a></li><li><a href="#try-it">Try it</a></li><li><a href="#references">References</a></li></ol></nav></details>
+          <details name="article-tools"><summary>Try AI-KIDO</summary><aside class="article-cta" aria-label="Try AI-KIDO"><strong>Try AI-KIDO</strong><p>Install the Memory Bank in one command and let your assistant read it.</p><a class="cta-btn" href="../install.html">Install</a></aside></details>
+        </div>
+          <aside class="article-side"><img class="article-hero" src="../assets/images/news/swarm-team.webp" alt="Kido, the small robot in a karate gi, stands in the middle of a dojo while four smaller white helper robots sit at low tables around it, each reading a sheet of paper" width="960" height="576" decoding="async"><nav class="article-toc" aria-label="In this article"><strong>In this article</strong><ol><li><a href="#what-a-swarm-changes">What a swarm changes</a></li><li><a href="#the-mechanics-the-next-agent-is-a-tool">The mechanics: the next agent is a tool</a></li><li><a href="#shared-state-and-the-team-s-memory">Shared state and the team’s memory</a></li><li><a href="#what-breaks-measured">What breaks, measured</a></li><li><a href="#what-ai-kido-takes-up-and-where-it-goes-further">What AI-KIDO takes up, and where it goes further</a></li><li><a href="#what-you-type-what-you-read">What you type, what you read</a></li><li><a href="#try-it">Try it</a></li><li><a href="#references">References</a></li></ol></nav><aside class="article-cta" aria-label="Try AI-KIDO"><strong>Try AI-KIDO</strong><p>Install the Memory Bank in one command and let your assistant read it.</p><a class="cta-btn" href="../install.html">Install</a></aside></aside>
+          <div class="article-body">
+          <p>Monday morning, in your IDE. You type a broad request: add a CSV export to a billing module, with its tests and its documentation page. A single assistant would spend an hour doing everything in one thread, losing the beginning of the context halfway through. This time a coordinator reads the request, spots three independent pieces, hands them to three agents that each work in their own context, and one of them warns a colleague that a column name has changed. You see only one report: what was done, what was checked, what is left for you to decide.</p>
+        <p>That is the promise of an agent swarm. It is real, but it is not free: every delegation costs a launch and messages, and every handoff is a chance to get lost. This feature describes what a swarm changes, the mechanics of a handoff, the failures measured by research, then what AI-KIDO takes from all this and where it goes further.</p>
+        <h2 id="what-a-swarm-changes">What a swarm changes</h2>
+        <p>The simplest way to make several agents work is a supervisor: one agent receives everything, hands out sub-tasks, reads every answer and decides who speaks next. It is easy to audit, but it becomes a bottleneck: all the context flows back up to it, and every round trip costs it tokens. <a class="src" href="https://www.anthropic.com/engineering/multi-agent-research-system" title="Anthropic — How we built our multi-agent research system" rel="noopener noreferrer" target="_blank">Anthropic</a> describes its research system this way, as an orchestrator-worker pattern in which a lead agent develops a strategy and then spawns subagents that explore different aspects in parallel.</p>
+        <p>A swarm reverses part of this logic. In the account given by <a class="src" href="https://www.actuia.com/actualite/openai-devoile-swarm-un-framework-dorchestration-multi-agents-open-source/" title="ActuIA — OpenAI dévoile Swarm, un framework d’orchestration multi-agents open source" rel="noopener noreferrer" target="_blank">ActuIA</a>, OpenAI’s Swarm is an experimental framework that orchestrates multi-agent systems using routines and task handoffs between agents. The <a class="src" href="https://github.com/openai/swarm" title="OpenAI (GitHub) — openai/swarm — Educational framework exploring ergonomic, lightweight multi-agent orchestration" rel="noopener noreferrer" target="_blank">openai/swarm</a> repository describes itself as an educational framework exploring lightweight orchestration: each agent has its own instructions and tools, and can hand the conversation to another agent when it judges that the request leaves its domain.</p>
+        <p>Peer-to-peer handoff is the heart of the model. With <a class="src" href="https://github.com/langchain-ai/langgraph-swarm-py" title="LangChain (GitHub) — langgraph-swarm-py — LangGraph Multi-Agent Swarm" rel="noopener noreferrer" target="_blank">LangGraph Swarm</a>, agents hand off control to one another based on their specializations, and the system remembers which agent was last active so that the conversation resumes with it on the next turn. Governance is no longer centralized in a supervisor: each agent decides its own routing, which removes round trips but moves the responsibility for stopping properly.</p>
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-versus" viewBox="0 0 360 286" role="img" aria-label="Two columns. Left, a central supervisor: one agent receives every answer, decides who speaks next and holds the whole context. Right, a peer swarm: each agent can hand the conversation to a colleague, the active agent changes, the history is shared." focusable="false"><title>Central supervisor or peer swarm</title><g class="dg-node dg-muted" style="--i:0"><rect class="dg-box" x="12" y="12" width="160" height="35" rx="10"/><text class="dg-t" x="92" y="34.5" text-anchor="middle"><tspan x="92" dy="0">Central supervisor</tspan></text></g><g class="dg-node dg-accent" style="--i:1"><rect class="dg-box" x="188" y="12" width="160" height="35" rx="10"/><text class="dg-t" x="268" y="34.5" text-anchor="middle"><tspan x="268" dy="0">Peer swarm</tspan></text></g><g class="dg-node" style="--i:1"><circle class="dg-vs" cx="180" cy="29.5" r="14"/><text class="dg-t dg-b" x="180" y="33.5" text-anchor="middle">VS</text></g><g class="dg-node dg-muted" style="--i:2"><rect class="dg-box" x="12" y="59" width="160" height="52" rx="10"/><text class="dg-t" x="92" y="81.5" text-anchor="middle"><tspan x="92" dy="0">Every answer goes</tspan><tspan x="92" dy="17">back up</tspan></text></g><g class="dg-node " style="--i:2"><rect class="dg-box" x="188" y="59" width="160" height="52" rx="10"/><text class="dg-t" x="268" y="81.5" text-anchor="middle"><tspan x="268" dy="0">Peer-to-peer handoff</tspan></text></g><g class="dg-node dg-muted" style="--i:3"><rect class="dg-box" x="12" y="119" width="160" height="35" rx="10"/><text class="dg-t" x="92" y="141.5" text-anchor="middle"><tspan x="92" dy="0">One context grows</tspan></text></g><g class="dg-node " style="--i:3"><rect class="dg-box" x="188" y="119" width="160" height="35" rx="10"/><text class="dg-t" x="268" y="141.5" text-anchor="middle"><tspan x="268" dy="0">Active agent changes</tspan></text></g><g class="dg-node dg-muted" style="--i:4"><rect class="dg-box" x="12" y="162" width="160" height="52" rx="10"/><text class="dg-t" x="92" y="184.5" text-anchor="middle"><tspan x="92" dy="0">Routing decided</tspan><tspan x="92" dy="17">above</tspan></text></g><g class="dg-node " style="--i:4"><rect class="dg-box" x="188" y="162" width="160" height="52" rx="10"/><text class="dg-t" x="268" y="184.5" text-anchor="middle"><tspan x="268" dy="0">Routing chosen by</tspan><tspan x="268" dy="17">the agent</tspan></text></g><g class="dg-node dg-muted" style="--i:5"><rect class="dg-box" x="12" y="222" width="160" height="52" rx="10"/><text class="dg-t" x="92" y="244.5" text-anchor="middle"><tspan x="92" dy="0">Easy to audit</tspan></text></g><g class="dg-node " style="--i:5"><rect class="dg-box" x="188" y="222" width="160" height="52" rx="10"/><text class="dg-t" x="268" y="244.5" text-anchor="middle"><tspan x="268" dy="0">Needs explicit</tspan><tspan x="268" dy="17">limits</tspan></text></g></svg>
+          <figcaption>Two ways to organize a team of agents: a supervisor that reads everything, or peers that hand off to one another. Both exist in public libraries; AI-KIDO combines a coordinator with peer exchanges, under conditions.</figcaption>
+        </figure>
+        <p><a class="src" href="https://docs.crewai.com/en/concepts/processes" title="CrewAI — Processes — CrewAI documentation" rel="noopener noreferrer" target="_blank">CrewAI</a> offers side by side a sequential process and a hierarchical one in which a manager delegates along a chain of command: the swarm is not the end of the supervisor, it is the possibility for peers to talk without always going back up.</p>
+        <h2 id="the-mechanics-the-next-agent-is-a-tool">The mechanics: the next agent is a tool</h2>
+        <p>How does an agent hand off? The answer given by public libraries is disarmingly simple: a handoff is a function call. In the <a class="src" href="https://openai.github.io/openai-agents-python/handoffs/" title="OpenAI Agents SDK — Handoffs" rel="noopener noreferrer" target="_blank">Agents SDK Handoffs</a> documentation, handoffs are represented to the model as tools; a handoff to an agent named “Refund Agent” becomes a tool named <code>transfer_to_refund_agent</code>. The agent handling the conversation “calls” its successor the way it would call a search or a calculation.</p>
+        <p>The <a class="src" href="https://cookbook.openai.com/examples/orchestrating_agents" title="OpenAI Cookbook — Orchestrating Agents: Routines and Handoffs" rel="noopener noreferrer" target="_blank">OpenAI Cookbook</a> sets out the two notions that structure everything else. A routine is a set of steps in natural language, carried by a system message, with the tools needed to carry them out. A handoff is the moment when one routine passes the conversation to another. The <a class="src" href="https://github.com/openai/swarm" title="OpenAI (GitHub) — openai/swarm — Educational framework exploring ergonomic, lightweight multi-agent orchestration" rel="noopener noreferrer" target="_blank">openai/swarm</a> repository spells out what changes then: the system prompt is replaced by the new agent’s, but the chat history is not.</p>
+        <p>Under the hood, it looks like this. You wrote “I want a refund”; the triage agent calls its handoff tool; the orchestrator updates the active agent and replays the history to the new one. In the Cookbook’s style, the core fits in a few lines:</p>
+        <figure class="code-block">
+          <div class="code-lang">python</div>
+          <pre tabindex="0"><code class="language-python">def transfer_to_refunds():
+    return refunds_agent          # the next agent is a return value
+
+triage_agent = Agent(
+    instructions=&quot;Triage the user issue, then hand off.&quot;,
+    tools=[transfer_to_refunds],  # a handoff is just a tool
+)
+# the runner swaps the active agent, keeps the message history</code></pre>
+        </figure>
+        <p>Two consequences. First, the model decides the handoff itself, as it decides to call any tool: routing is a model output, not a coded rule. Second, the <a class="src" href="https://github.com/openai/swarm" title="OpenAI (GitHub) — openai/swarm — Educational framework exploring ergonomic, lightweight multi-agent orchestration" rel="noopener noreferrer" target="_blank">openai/swarm</a> repository describes itself as stateless between calls and running client-side: state lives in the history you pass, nowhere else. The same repository now points to the <a class="src" href="https://openai.github.io/openai-agents-python/handoffs/" title="OpenAI Agents SDK — Handoffs" rel="noopener noreferrer" target="_blank">Agents SDK</a>, presented as its production-ready evolution.</p>
+        <h2 id="shared-state-and-the-team-s-memory">Shared state and the team’s memory</h2>
+        <p>If agents hand off to one another, what becomes of what they know? The simplest answer is the cumulative message log: each agent appends its turns to one list, and the next receives it whole. That is what Swarm does, and it is why a handoff there is so light. The price is a history that grows with every handoff and ends up carrying exchanges that no longer concern the active agent.</p>
+        <p><a class="src" href="https://github.com/langchain-ai/langgraph-swarm-py" title="LangChain (GitHub) — langgraph-swarm-py — LangGraph Multi-Agent Swarm" rel="noopener noreferrer" target="_blank">LangGraph Swarm</a> adds an explicit memory: the shared state holds the name of the active agent, and that agent resumes on the next turn. Each agent updates the part of the state that belongs to it. This idea of a single writer per variable, where only one routine may modify a given piece of data, is what prevents two peers from silently contradicting each other in the same field.</p>
+        <aside class="callout"><p>Three things coexist in a swarm and must not be confused: the conversation history, which circulates; the shared state, each variable of which has an owner; and the active agent, which is a piece of data like any other, remembered between turns.</p></aside>
+        <h2 id="what-breaks-measured">What breaks, measured</h2>
+        <p>Letting agents talk to each other opens gaps you do not see with a single assistant. The study <a class="src" href="https://arxiv.org/abs/2503.13657" title="arXiv — Cemri et al., UC Berkeley — Why Do Multi-Agent LLM Systems Fail? (2503.13657)" rel="noopener noreferrer" target="_blank">“Why Do Multi-Agent LLM Systems Fail?”</a> from the University of California, Berkeley, starts from an observation: despite the enthusiasm, the gains of multi-agent systems on popular benchmarks are often minimal. The authors annotated more than 1,600 execution traces from seven popular frameworks and derived a taxonomy, MAST, of fourteen failure modes grouped into three categories.</p>
+        <ul class="mini-cards">
+          <li><strong>System design</strong><span>The specification is vague, roles overlap, an agent ignores its instructions or forgets the step that was its own. The problem is set before the first message leaves.</span></li>
+          <li><strong>Inter-agent misalignment</strong><span>Agents talk but do not understand each other: one starts over, another waits for an answer that never comes, a third repeats what is already settled. Handoff loops and overlong chains live here.</span></li>
+          <li><strong>Task verification</strong><span>Nobody really checks the result: the end is declared too early, verification is incomplete or absent, and one peer’s error becomes a fact for everyone.</span></li>
+        </ul>
+        <p>Anyone who has watched a swarm run recognizes these categories: two agents passing the conversation back and forth, a chain of handoffs in which the last agent no longer knows the original request, a peer finding never cross-checked. The study concludes that these failures call for more sophisticated solutions than prompt adjustments.</p>
+        <div class="pullstat"><strong>3 categories</strong><span>of failures identified by the Berkeley study: system design, inter-agent misalignment, task verification</span></div>
+        <h2 id="what-ai-kido-takes-up-and-where-it-goes-further">What AI-KIDO takes up, and where it goes further</h2>
+        <p>AI-KIDO did not invent the swarm. It takes up the essentials, a coordinator that splits the work and peers that exchange findings, and it answers each weak point measured above with a rule of its Swarm policy, a public file in the method’s repository shared by every AI-KIDO agent, including the ones you create. Rather than list those rules, this part stops on each one: the problem it avoids, the rule itself, then what you see when it applies to your Monday-morning request.</p>
+        <p>A definition first, to set the vocabulary. An AI-KIDO Swarm is a bounded team of workers with separate contexts, who receive ready, independent tasks and exchange findings when useful. One coordinator keeps integration, acceptance, budgets and resource locks. The policy also says what a Swarm is not: a second orchestrator, unlimited fan-out, recursive delegation, or several writers of the same files.</p>
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-tree" viewBox="0 0 360 291" role="img" aria-label="A tree: one coordinator owns integration, acceptance, budgets and locks; each worker has its own context and scope." focusable="false"><title>One coordinator, separate workers</title><g class="dg-node dg-accent" style="--i:0"><rect class="dg-box" x="16" y="12" width="328" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="30.5" text-anchor="middle"><tspan x="180" dy="0">Coordinator</tspan></text><text class="dg-s" x="180" y="50.5" text-anchor="middle"><tspan x="180" dy="0">integration, acceptance, budgets, locks</tspan></text></g><path class="dg-flow" d="M28 66 V105 H42" fill="none"/><g class="dg-node " style="--i:1"><rect class="dg-box" x="42" y="78" width="302" height="54" rx="10"/><text class="dg-t dg-b" x="193" y="96.5" text-anchor="middle"><tspan x="193" dy="0">Worker A</tspan></text><text class="dg-s" x="193" y="116.5" text-anchor="middle"><tspan x="193" dy="0">own context, own scope</tspan></text></g><path class="dg-flow" d="M28 66 V171 H42" fill="none"/><g class="dg-node " style="--i:2"><rect class="dg-box" x="42" y="144" width="302" height="54" rx="10"/><text class="dg-t dg-b" x="193" y="162.5" text-anchor="middle"><tspan x="193" dy="0">Worker B</tspan></text><text class="dg-s" x="193" y="182.5" text-anchor="middle"><tspan x="193" dy="0">independent ready task</tspan></text></g><path class="dg-flow" d="M28 66 V244.5 H42" fill="none"/><g class="dg-node " style="--i:3"><rect class="dg-box" x="42" y="210" width="302" height="69" rx="10"/><text class="dg-t dg-b" x="193" y="228.5" text-anchor="middle"><tspan x="193" dy="0">Worker C</tspan></text><text class="dg-s" x="193" y="248.5" text-anchor="middle"><tspan x="193" dy="0">may exchange findings if the host allows</tspan><tspan x="193" dy="15">it</tspan></text></g></svg>
+          <figcaption>The basic shape: one coordinator, separate workers. The coordinator does not do the work; it splits, checks and integrates it. Each worker sees only its own scope.</figcaption>
+        </figure>
+        <h3>Select from verified capabilities, not model names</h3>
+        <p>The problem: a model name says nothing about what an agent can actually do in your tool. The same model, launched from Copilot, Claude Code or Roo Code, has neither the same delegation tools, nor the same way of returning a result, nor necessarily the right to write to a peer. Picking a team by “which model” amounts to promising a mailbox that may not exist.</p>
+        <p>The rule fits in one sentence: before choosing a form of collaboration, the coordinator maps the host’s actual tools, capability by capability, and treats any unknown capability as absent. It verifies separately launch, concurrent execution, result, peer send and receive, relay, follow-up on a retained conversation, reset and close, and records the exact identifier of each tool.</p>
+        <p>The lived case: you ask for the CSV export with its tests and its docs. The coordinator finds that your host can launch subtasks and read their result, but that no tool lets one worker write to another. It does not simulate a peer exchange: it writes “communication: relay” and will carry findings itself. If a send tool only works from the coordinator, it is not a peer mailbox; if a worker is one-shot, giving it an identifier does not give it follow-up capability.</p>
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-hub" viewBox="0 0 360 340" role="img" aria-label="In the centre, the collaboration choice: direct, parallel, peer communication, retain, or clean and reuse. Around it, the capabilities the coordinator must verify on the real host before choosing: launch and concurrency, result and notification tools, peer send and receive at both ends, coordinator relay, retained follow-up, reset or clear, and remaining budget." focusable="false"><title>Verified capabilities decide the team</title><g class="dg-node dg-accent dg-hub" style="--i:0"><rect class="dg-box" x="90" y="12" width="180" height="69" rx="10"/><text class="dg-t dg-b" x="180" y="30.5" text-anchor="middle"><tspan x="180" dy="0">Collaboration choice</tspan></text><text class="dg-s" x="180" y="50.5" text-anchor="middle"><tspan x="180" dy="0">direct · parallel · peer</tspan><tspan x="180" dy="15">· retain · reuse</tspan></text></g><line class="dg-flow" x1="180" y1="81" x2="180" y2="324"/><g class="dg-node " style="--i:1"><rect class="dg-box" x="12" y="97" width="148" height="52" rx="10"/><text class="dg-t" x="86" y="119.5" text-anchor="middle"><tspan x="86" dy="0">Launch &amp;</tspan><tspan x="86" dy="17">concurrency</tspan></text></g><line class="dg-flow" x1="160" y1="123" x2="162" y2="123"/><g class="dg-node " style="--i:2"><rect class="dg-box" x="200" y="97" width="148" height="52" rx="10"/><text class="dg-t" x="274" y="119.5" text-anchor="middle"><tspan x="274" dy="0">Result &amp;</tspan><tspan x="274" dy="17">notification</tspan></text></g><line class="dg-flow" x1="200" y1="123" x2="198" y2="123"/><g class="dg-node " style="--i:3"><rect class="dg-box" x="12" y="161" width="148" height="52" rx="10"/><text class="dg-t" x="86" y="183.5" text-anchor="middle"><tspan x="86" dy="0">Peer send AND</tspan><tspan x="86" dy="17">receive</tspan></text></g><line class="dg-flow" x1="160" y1="187" x2="162" y2="187"/><g class="dg-node " style="--i:4"><rect class="dg-box" x="200" y="161" width="148" height="52" rx="10"/><text class="dg-t" x="274" y="183.5" text-anchor="middle"><tspan x="274" dy="0">Coordinator relay</tspan></text></g><line class="dg-flow" x1="200" y1="187" x2="198" y2="187"/><g class="dg-node " style="--i:5"><rect class="dg-box" x="12" y="225" width="148" height="52" rx="10"/><text class="dg-t" x="86" y="247.5" text-anchor="middle"><tspan x="86" dy="0">Retained</tspan><tspan x="86" dy="17">follow-up</tspan></text></g><line class="dg-flow" x1="160" y1="251" x2="162" y2="251"/><g class="dg-node " style="--i:6"><rect class="dg-box" x="200" y="225" width="148" height="52" rx="10"/><text class="dg-t" x="274" y="247.5" text-anchor="middle"><tspan x="274" dy="0">Reset / clear</tspan></text></g><line class="dg-flow" x1="200" y1="251" x2="198" y2="251"/><g class="dg-node " style="--i:7"><rect class="dg-box" x="12" y="289" width="148" height="35" rx="10"/><text class="dg-t" x="86" y="311.5" text-anchor="middle"><tspan x="86" dy="0">Remaining budget</tspan></text></g><line class="dg-flow" x1="160" y1="306.5" x2="162" y2="306.5"/></svg>
+          <figcaption>In the centre, the collaboration choice; around it, the capabilities the coordinator verifies on the real host before choosing. An unknown capability stays off: “none” for communication, “fresh” for the lifecycle.</figcaption>
+        </figure>
+        <p>These checks feed five choices, each with its fallback. Direct for a small task, no team. Parallel if prerequisites are accepted, effects disjoint, concurrency verified and budget sufficient, otherwise sequential. Peer communication if send and receive are authorized at both ends and recipients are known, otherwise relay through the coordinator. Retain a worker if the follow-up concerns the same task and the host allows it, otherwise a fresh worker. Clean and reuse if a real reset has been verified, otherwise a fresh worker, never a simulated reset. And Swarm is chosen only when context isolation or an early exchange reduces duplication enough to pay for the launch and message cost.</p>
+        <h3>The delegation brief, written before delegating</h3>
+        <p>The problem: the first failure category of the <a class="src" href="https://arxiv.org/abs/2503.13657" title="arXiv — Cemri et al., UC Berkeley — Why Do Multi-Agent LLM Systems Fail? (2503.13657)" rel="noopener noreferrer" target="_blank">Berkeley study</a>, vague design. A worker that receives “take care of the tests” without knowing what it may touch, whom to talk to or when to stop improvises, and two improvising workers end up writing the same files.</p>
+        <p>The rule: every delegation is a bounded request in the <code>task-request/2</code> format, in which the coordinator writes its collaboration decision, even when it is disabled. An unknown capability there means “none”, never a promise to configure it later.</p>
+        <ul class="mini-cards">
+          <li><strong>Mode and reason</strong><span>Direct, sequential or parallel, with the reason in plain words, for example “independent implementation and fixture preparation”.</span></li>
+          <li><strong>Channel and peers</strong><span>None, relay or peer; then the list of verified peers, each with its task identifier and its scope.</span></li>
+          <li><strong>Tools and lifecycle</strong><span>The tools actually authorized to send and receive, and the worker’s lifecycle: fresh, retained or reset.</span></li>
+          <li><strong>Stop condition</strong><span>What ends the task, for example “return after implementation and targeted tests; no further delegation”.</span></li>
+        </ul>
+        <p>The brief also carries the source revision, acceptance checks, resource ownership, message scope and remaining budget. The lived case: the worker in charge of tests gets the right to read the service and to write in the tests folder, nothing else. It is not granted broad write access because it will need to discuss a finding with the service worker. And when a new agent joins the team, it receives these rules through a link to the policy or a compact handoff; it is not made to reload the whole knowledge base.</p>
+        <h3>Peer work and the relay</h3>
+        <p>The problem: Berkeley’s second category, inter-agent misalignment. Two workers that talk freely pass the conversation back and forth, wait for each other, or ask the same question every thirty seconds; and one of them can announce “done” without anyone checking.</p>
+        <p>The rule has two parts. A worker first checks its own capabilities and scope; if communication is requested but unavailable, it reports this to the coordinator and continues only the permitted independent work, without simulating a conversation. Then it sends a message only when another task would otherwise duplicate its work, use a wrong interface or remain blocked: no broadcast, no busy polling, no mutual wait cycles, no repeated queries for an unchanged status.</p>
+        <p>The lived case: the tests worker discovers that the expected endpoint returns a field the service does not produce. That is exactly the planned case: it writes a short finding, marked provisional, in the host tool’s exact format, one strict JSON object in a text field. Since your host offers no peer channel, the message goes to the coordinator, which relays it to the service worker. A peer message is never a completion or an acceptance: the coordinator still validates final results and alone decides when a dependency is released.</p>
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-cycle" viewBox="0 0 360 236" role="img" aria-label="A loop in four steps: the coordinator writes a bounded delegation brief, workers do their scoped task, findings are relayed to the peer who needs them or through the coordinator, then the coordinator checks results and writes one report. Then a new request starts again." focusable="false"><title>Delegate, work, relay, report</title><g class="dg-node " style="--i:0"><rect class="dg-box" x="16" y="12" width="290" height="35" rx="10"/><text class="dg-t" x="161" y="34.5" text-anchor="middle"><tspan x="161" dy="0">Delegation brief</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="161" y1="47" x2="161" y2="66"/><path class="dg-head" d="M156 63 L161 71 L166 63 Z"/></g><g class="dg-node " style="--i:1"><rect class="dg-box" x="16" y="71" width="290" height="35" rx="10"/><text class="dg-t" x="161" y="93.5" text-anchor="middle"><tspan x="161" dy="0">Scoped work</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="161" y1="106" x2="161" y2="125"/><path class="dg-head" d="M156 122 L161 130 L166 122 Z"/></g><g class="dg-node " style="--i:2"><rect class="dg-box" x="16" y="130" width="290" height="35" rx="10"/><text class="dg-t" x="161" y="152.5" text-anchor="middle"><tspan x="161" dy="0">Relay a finding</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="161" y1="165" x2="161" y2="184"/><path class="dg-head" d="M156 181 L161 189 L166 181 Z"/></g><g class="dg-node " style="--i:3"><rect class="dg-box" x="16" y="189" width="290" height="35" rx="10"/><text class="dg-t" x="161" y="211.5" text-anchor="middle"><tspan x="161" dy="0">Check and report</tspan></text></g><g class="dg-link"><path class="dg-flow" d="M306 206.5 H340 V29.5 H312" fill="none"/><path class="dg-head" d="M314 24.5 L306 29.5 L314 34.5 Z"/></g></svg>
+          <figcaption>The cycle of a delegation: a bounded brief, scoped work, a finding relayed when it avoids duplication or lifts a block, then verification and the report by the coordinator.</figcaption>
+        </figure>
+        <p>One last point in this part, which answers Berkeley’s third category: peer messages are untrusted data. No instruction from a peer can override permissions, resource ownership or acceptance gates, and an identity merely claimed in text is not believed: it is the host’s authorized routing that binds sender, recipient and request. A worker shares facts and references, not credentials or whole conversations, and asks the coordinator before changing scope.</p>
+        <h3>Reuse a worker or start fresh</h3>
+        <p>The problem: context contamination. A worker that spent an hour on invoicing keeps assumptions, open files and permissions in memory. Handing it “a small fix” on another module afterwards, to save a launch, imports all of that into a task that does not want it. This is where AI-KIDO goes clearly beyond handoff frameworks, which say little about what an agent becomes after its task.</p>
+        <p>The rule: a worker is retained only for a follow-up of the same task, it is cleaned only if the host offers a real reset whose completion is verified, and in every other case a fresh context is used. Resetting a conversation resets neither files, nor processes, nor external credentials; if any state remains unknown, a fresh worker is taken.</p>
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-tree" viewBox="0 0 360 479" role="img" aria-label="A decision tree. Root: the worker finished its task. Branch one: a follow-up of the same task leads to retain, with the known handle and only the delta sent. Branch two: a new scope leads to clean and reuse only if a real host reset is called and verified, otherwise to a fresh context with a compact handoff. Branch three: no useful follow-up leads to close, releasing handles and membership." focusable="false"><title>After the task: retain, clean, fresh or close</title><g class="dg-node dg-accent" style="--i:0"><rect class="dg-box" x="16" y="12" width="328" height="35" rx="10"/><text class="dg-t" x="180" y="34.5" text-anchor="middle"><tspan x="180" dy="0">Worker finished its task</tspan></text></g><path class="dg-flow" d="M28 47 V76.5 H42" fill="none"/><g class="dg-node " style="--i:1"><rect class="dg-box" x="42" y="59" width="302" height="35" rx="10"/><text class="dg-t" x="193" y="81.5" text-anchor="middle"><tspan x="193" dy="0">Same-task follow-up?</tspan></text></g><path class="dg-flow" d="M54 94 V133 H68" fill="none"/><g class="dg-node " style="--i:2"><rect class="dg-box" x="68" y="106" width="276" height="54" rx="10"/><text class="dg-t dg-b" x="206" y="124.5" text-anchor="middle"><tspan x="206" dy="0">Retain</tspan></text><text class="dg-s" x="206" y="144.5" text-anchor="middle"><tspan x="206" dy="0">known handle, send only the delta</tspan></text></g><path class="dg-flow" d="M28 47 V189.5 H42" fill="none"/><g class="dg-node " style="--i:3"><rect class="dg-box" x="42" y="172" width="302" height="35" rx="10"/><text class="dg-t" x="193" y="194.5" text-anchor="middle"><tspan x="193" dy="0">New scope?</tspan></text></g><path class="dg-flow" d="M54 207 V246 H68" fill="none"/><g class="dg-node " style="--i:4"><rect class="dg-box" x="68" y="219" width="276" height="54" rx="10"/><text class="dg-t dg-b" x="206" y="237.5" text-anchor="middle"><tspan x="206" dy="0">Clean &amp; reuse</tspan></text><text class="dg-s" x="206" y="257.5" text-anchor="middle"><tspan x="206" dy="0">only after a real, verified host reset</tspan></text></g><path class="dg-flow" d="M54 207 V319.5 H68" fill="none"/><g class="dg-node " style="--i:5"><rect class="dg-box" x="68" y="285" width="276" height="69" rx="10"/><text class="dg-t dg-b" x="206" y="303.5" text-anchor="middle"><tspan x="206" dy="0">Fresh context</tspan></text><text class="dg-s" x="206" y="323.5" text-anchor="middle"><tspan x="206" dy="0">otherwise, or unknown state: compact</tspan><tspan x="206" dy="15">handoff</tspan></text></g><path class="dg-flow" d="M28 47 V383.5 H42" fill="none"/><g class="dg-node " style="--i:6"><rect class="dg-box" x="42" y="366" width="302" height="35" rx="10"/><text class="dg-t" x="193" y="388.5" text-anchor="middle"><tspan x="193" dy="0">No useful follow-up?</tspan></text></g><path class="dg-flow" d="M54 401 V440 H68" fill="none"/><g class="dg-node " style="--i:7"><rect class="dg-box" x="68" y="413" width="276" height="54" rx="10"/><text class="dg-t dg-b" x="206" y="431.5" text-anchor="middle"><tspan x="206" dy="0">Close</tspan></text><text class="dg-s" x="206" y="451.5" text-anchor="middle"><tspan x="206" dy="0">release handles and membership</tspan></text></g></svg>
+          <figcaption>The decision tree after a task. Same task: retain, sending only the delta. New scope: clean only if the host reset is real and verified, otherwise a fresh context with a compact handoff. No useful follow-up: close.</figcaption>
+        </figure>
+        <p>The lived case: the tests passed, but you ask to add a date filter to the same export. The coordinator reuses the service worker through its known handle, after verifying identity, project, source freshness, permissions and worker state, and passes only the delta: turns are serialized, and concurrent work would require a separate worker. Had you asked for a fix in payroll, an unrelated task, it would have created a fresh worker with a compact handoff rather than a full transcript. And when no follow-up is useful anymore, it releases membership and handles, never claiming a worker was unloaded because it finished a turn.</p>
+        <p>Reusing a worker, reusing a persona and reusing a cached result are three different operations. Reusing a persona does not reuse a conversation; a cached result needs unchanged sources and the same acceptance checks; and a retained context can still require a fresh source check, because a cheaper reload is no reason to keep a false assumption.</p>
+        <h3>Runtime thresholds</h3>
+        <p>The problem: rules without numbers stay wishes. The loops, overlong chains and stale results the Berkeley study describes do not stop by themselves. The policy published in the same folder therefore sets thresholds, and each one closes a specific drift.</p>
+        <ul class="stats">
+          <li><strong>3</strong><span>parallel tasks at most: no unlimited fan-out, no overlong chains</span></li>
+          <li><strong>1</strong><span>retry per task: a failure loop stops on the second round</span></li>
+          <li><strong>900 s</strong><span>without news and the task is stale: a silent worker does not block the team</span></li>
+          <li><strong>30 days</strong><span>after which a routing price source expires: no decision on stale figures</span></li>
+        </ul>
+        <p>The lived case: the documentation worker fails because the site generator is not installed. It is relaunched once; if it fails again, the coordinator returns a partial result rather than retrying forever. And if the cause is an unavailable tool, a denied permission or an invalid request, there is not even a second attempt, because those codes are never retryable. The other thresholds keep exchanges small: 800 output tokens for the coordinator, a result summary of at most 2,000 characters, an execution cut after 120 seconds with its output truncated to 4,000 characters. That is what keeps the coordinator from becoming the bottleneck it must avoid.</p>
+        <h3>The strict JSON contract</h3>
+        <p>The problem: most inter-agent failures come from a misread message: a result announced in prose, a task without an explicit dependency, an invented key nobody reads. The rule: every exchange between the coordinator, a worker or a native orchestrator is a JSON object validated against a public schema, and any unknown key is rejected.</p>
+        <p>A <code>task-request/2</code> requires an identifier, a caller, a coordination mode among lead, collaborate or direct, an objective, constraints and tasks that each declare their dependencies, transport, tools, read and write resources, state and acceptance check. A <code>task-result/1</code> carries a status among ok, partial, blocked or error, a summary, artifacts, errors and next actions. The lived case: the provisional finding of the tests worker, above, travels in this envelope. Under the hood, it looks like this.</p>
+        <figure class="code-block">
+          <div class="code-lang">json</div>
+          <pre tabindex="0"><code class="language-json">{
+  &quot;id&quot;: &quot;tests&quot;,
+  &quot;status&quot;: &quot;partial&quot;,
+  &quot;summary&quot;: &quot;Provisional: fixtures ready; the endpoint expects a field the service does not produce.&quot;,
+  &quot;artifacts&quot;: [{ &quot;type&quot;: &quot;file&quot;, &quot;ref&quot;: &quot;tests/fixtures/invoices.json&quot; }],
+  &quot;errors&quot;: [],
+  &quot;next&quot;: [&quot;Rerun the tests once the service is accepted&quot;]
+}</code></pre>
+          <figcaption>A peer finding in the task-result/1 envelope: the six required keys, nothing else. The word “provisional” in the summary recalls that a peer message is neither a completion nor an acceptance.</figcaption>
+        </figure>
+        <p>A Node evaluator, published in the same place, validates this contract and schedules dependency- and resource-safe batches, exclusive locks included. It does not create workers, send messages, verify a reset or authenticate a sender: the host and the coordinator must do that. The contract makes the exchange verifiable; it does not replace verification.</p>
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-pyramid" viewBox="0 0 360 320" role="img" aria-label="A pyramid of four levels. At the top, the host’s native orchestrator and its rules, which always win. Below, the strict JSON contract: task-request/2 and task-result/1. Below again, the runtime limits: at most 3 parallel tasks, 1 retry per task, 800 coordinator output tokens, a 2000-character result summary. At the base, the shared Swarm policy: verified capabilities, bounded brief, scoped workers, reuse lifecycle." focusable="false"><title>AI-KIDO guardrails, from the host down</title><g class="dg-node dg-accent" style="--i:0"><rect class="dg-box" x="120" y="12" width="120" height="86" rx="10"/><text class="dg-t dg-b" x="180" y="30.5" text-anchor="middle"><tspan x="180" dy="0">Host’s native</tspan><tspan x="180" dy="17">orchestrator</tspan></text><text class="dg-s" x="180" y="67.5" text-anchor="middle"><tspan x="180" dy="0">always has</tspan><tspan x="180" dy="15">priority</tspan></text></g><g class="dg-node dg-layer dg-l1" style="--i:1"><rect class="dg-box" x="84" y="104" width="193" height="69" rx="10"/><text class="dg-t dg-b" x="180.5" y="122.5" text-anchor="middle"><tspan x="180.5" dy="0">Strict JSON contract</tspan></text><text class="dg-s" x="180.5" y="142.5" text-anchor="middle"><tspan x="180.5" dy="0">task-request/2 ·</tspan><tspan x="180.5" dy="15">task-result/1</tspan></text></g><g class="dg-node dg-layer dg-l1" style="--i:2"><rect class="dg-box" x="47" y="179" width="267" height="69" rx="10"/><text class="dg-t dg-b" x="180.5" y="197.5" text-anchor="middle"><tspan x="180.5" dy="0">Runtime limits</tspan></text><text class="dg-s" x="180.5" y="217.5" text-anchor="middle"><tspan x="180.5" dy="0">3 parallel · 1 retry · 800 tokens · 2</tspan><tspan x="180.5" dy="15">000 chars</tspan></text></g><g class="dg-node dg-layer dg-l1" style="--i:3"><rect class="dg-box" x="10" y="254" width="340" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="272.5" text-anchor="middle"><tspan x="180" dy="0">Shared Swarm policy</tspan></text><text class="dg-s" x="180" y="292.5" text-anchor="middle"><tspan x="180" dy="0">capabilities, brief, scope, reuse</tspan></text></g></svg>
+          <figcaption>The guardrails stack up: the host’s native orchestrator on top, then the JSON contract, then the numbered limits, and at the base the Swarm policy every agent shares.</figcaption>
+        </figure>
+        <h3>The native orchestrator keeps priority</h3>
+        <p>The problem: two bosses. Your tool often already has its orchestrator, and a second one claiming command produces exactly the role conflicts described in Berkeley’s first category. The rule: AI-KIDO never installs itself over your tool’s orchestrator; its orchestrator agent determines once, per capability snapshot, which of three postures applies.</p>
+        <ol class="steps">
+          <li><strong>Lead</strong>: only on a verified Copilot host, with a complete inventory and no other general orchestrator. Lived case: in Copilot, with no other coordinator declared, the AI-KIDO agent writes the brief and distributes the three tasks.</li>
+          <li><strong>Collaborate</strong>: as soon as a native orchestrator exists, the host is Claude Code, Kiro, Codex or Roo Code, or a role is ambiguous. Lived case: in Roo Code, the AI-KIDO agent does itself what needs no delegation, guides the native orchestrator with a JSON plan and delegates a bounded subtask to it.</li>
+          <li><strong>Execute directly</strong>: when the host or the inventory cannot be established. Lived case: in an unknown tool, the agent does the work itself, sequentially, with its own tools, rather than inventing a delegation.</li>
+        </ol>
+        <p>When collaborating, it takes over a task only if the native orchestrator verifiably cannot do it, for example a parallel batch when it is established that it does not parallelize. An unknown native capability is never a reason to take the lead. So much for the mechanics; what remains is what all this looks like from your chair, in the conversation you read.</p>
+        <h2 id="what-you-type-what-you-read">What you type, what you read</h2>
+        <p>Back to your Monday morning, with AI-KIDO installed in your assistant. You write your request without saying anything about organization: it is up to the coordinator to decide whether there is a case for a team.</p>
+        <ol class="chat" aria-label="Prompt">
+          <li class="chat-msg chat-you"><span class="chat-who">You</span><div class="chat-bubble"><span class="chat-text">Add the CSV export of the month’s invoices: service + endpoint, integration tests, and the “Export” page in the user docs. Same column format as the PDF export.</span></div></li>
+          <li class="chat-msg chat-assistant"><span class="chat-who">Assistant</span><div class="chat-bubble"><span class="chat-text">Three independent tasks, disjoint effects: service and endpoint, tests with fixtures, docs page. Concurrency verified on this host, coordinator relay available, no direct peer messaging. Launching in parallel (limit: 3), at most one retry per task. Stop: after targeted tests, no further delegation.</span></div></li>
+          <li class="chat-msg chat-assistant"><span class="chat-who">Assistant</span><div class="chat-bubble"><span class="chat-text">Finding relayed from task “service” to “tests”: column “amount_incl_tax” becomes “total_incl_tax” to match the PDF export. Marked provisional; waiting for the final result before releasing the dependency.</span></div></li>
+          <li class="chat-msg chat-assistant"><span class="chat-who">Assistant</span><div class="chat-bubble"><span class="chat-text">Report. Service and endpoint: ok, 2 files, unit tests green. Integration tests: ok, fixtures added, column aligned. Docs: ok, “Export” page in EN and FR. No retry used. For you to decide: keep the “;” separator for French Excel or switch to “,”.</span></div></li>
+        </ol>
+        <p>You saw these four messages. Underneath, there was one <code>task-request/2</code> with three tasks, then three <code>task-result/1</code> answers validated by the coordinator before the report. No handoff loop, because nobody had the right to pass the conversation around indefinitely; a short chain, because recursive delegation is forbidden; a cross-checked finding, because it was marked provisional; and the separator question comes back to you, because the coordinator does not decide in your place.</p>
+        <h2 id="try-it">Try it</h2>
+        <ol class="steps">
+          <li>Pick a request genuinely made of two or three independent pieces, for example a feature, its tests and its documentation.</li>
+          <li>Phrase it in one go, without describing the organization: let the coordinator announce its mode (direct, sequential or parallel) and its reason.</li>
+          <li>Read the stop condition it states before launching; if it is missing, ask for it.</li>
+          <li>In the report, spot what is marked as verified by the coordinator and what is left for you to decide; that is where the value of a team is judged.</li>
+        </ol>
+        <h2 id="references">References</h2>
+        <ol class="references" aria-label="References">
+          <li id="ref-1"><span class="ref-pub">ActuIA</span> <a href="https://www.actuia.com/actualite/openai-devoile-swarm-un-framework-dorchestration-multi-agents-open-source/" rel="noopener noreferrer" target="_blank">OpenAI dévoile Swarm, un framework d’orchestration multi-agents open source</a></li>
+          <li id="ref-2"><span class="ref-pub">OpenAI (GitHub)</span> <a href="https://github.com/openai/swarm" rel="noopener noreferrer" target="_blank">openai/swarm — Educational framework exploring ergonomic, lightweight multi-agent orchestration</a></li>
+          <li id="ref-3"><span class="ref-pub">OpenAI Agents SDK</span> <a href="https://openai.github.io/openai-agents-python/handoffs/" rel="noopener noreferrer" target="_blank">Handoffs</a></li>
+          <li id="ref-4"><span class="ref-pub">OpenAI Cookbook</span> <a href="https://cookbook.openai.com/examples/orchestrating_agents" rel="noopener noreferrer" target="_blank">Orchestrating Agents: Routines and Handoffs</a></li>
+          <li id="ref-5"><span class="ref-pub">LangChain (GitHub)</span> <a href="https://github.com/langchain-ai/langgraph-swarm-py" rel="noopener noreferrer" target="_blank">langgraph-swarm-py — LangGraph Multi-Agent Swarm</a></li>
+          <li id="ref-6"><span class="ref-pub">arXiv — Cemri et al., UC Berkeley</span> <a href="https://arxiv.org/abs/2503.13657" rel="noopener noreferrer" target="_blank">Why Do Multi-Agent LLM Systems Fail? (2503.13657)</a></li>
+          <li id="ref-7"><span class="ref-pub">Anthropic</span> <a href="https://www.anthropic.com/engineering/multi-agent-research-system" rel="noopener noreferrer" target="_blank">How we built our multi-agent research system</a></li>
+          <li id="ref-8"><span class="ref-pub">CrewAI</span> <a href="https://docs.crewai.com/en/concepts/processes" rel="noopener noreferrer" target="_blank">Processes — CrewAI documentation</a></li>
+        </ol>
+        </div>
+        </div>
+        <nav class="article-nav" aria-label="News">
+          <a class="newer" href="source-hierarchy.html" rel="next">← Newer : Greenfield or legacy: which one is the truth, the spec or the code?</a>
+          <a class="older" href="task-store.html" rel="prev">Older : Task Store: the evening my request became a card →</a>
+        </nav>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-intro">
+          <a class="footer-brand" href=".././">AI-KIDO</a>
+          <p class="footer-tagline">Give your AI a memory. Give your team a method.</p>
+          <p>Structure knowledge, share rules and build the harnesses your projects need.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-group">
+            <h2>The method</h2>
+            <ul>
+              <li><a href=".././">Discover AI-KIDO</a></li>
+              <li><a href="../harness.html">Create a harness</a></li>
+              <li><a href="../history.html">Our story</a></li>
+              <li><a href="../news.html">News</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h2>Tools</h2>
+            <ul>
+              <li><a href="../install.html">Installation</a></li>
+              <li><a href="../kimono.html">Kimono MCP</a></li>
+              <li><a href="../local-designer.html">Local Designer</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h2>Resources</h2>
+            <ul>
+              <li><a href="https://github.com/lcalmejane/aikido">Documentation</a></li>
+              <li><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Kimono benchmarks</a></li>
+              <li><a href="../technical-friends.html">Technical friends</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <a href="https://github.com/lcalmejane/aikido/blob/main/LICENSE">Method licensed under MIT</a>
+        <nav class="footer-languages" aria-label="Language">
+          <a href="swarm-team.html" hreflang="en" lang="en" aria-current="page">English</a>
+          <a href="../fr/news/swarm-team.html" hreflang="fr" lang="fr">Français</a>
+        </nav>
+      </div>
+      <p class="footer-driven">Driven by the AI-KIDO method · <a href="https://github.com/lcalmejane/aikido" lang="en">AI-KIDO: The Self-Forged Engine</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

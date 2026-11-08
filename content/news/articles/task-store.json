@@ -1,0 +1,251 @@
+{
+  "slug": "task-store",
+  "date": "2026-11-08",
+  "tag": {
+    "en": "Tools",
+    "fr": "Outils"
+  },
+  "nature": "guide",
+  "domains": [
+    "orchestration",
+    "development"
+  ],
+  "image": "hero-task-store",
+  "layout": "chronique",
+  "en": {
+    "title": "Task Store: the evening my request became a card",
+    "summary": "A developer, her editor, a migration too long for one conversation. What separates a plain prompt from a task worth tracking, two ways to follow it, and the direction we are taking for cards.",
+    "body": [
+      "<p>Nadia works on a payment service. It is 6 pm on a Friday. In her editor, the assistant has just fixed a test in three exchanges, and she is about to close the laptop. One thing has been waiting for two weeks: forty configuration files to migrate to a new format. It is not hard. It is long and repetitive, and she wants neither to watch it happen nor to find it half done on Monday in a lost conversation.</p>",
+      {
+        "h2": "Friday, 6 pm: the request that does not fit in a conversation"
+      },
+      "<p>She types her request the way she would say it to a colleague. One word changes everything: “launch”. She is not asking for an explanation or a fix in the open window; she is asking for a piece of work to be taken on, run, and reported back later.</p>",
+      {
+        "chat": [
+          {
+            "role": "you",
+            "text": "Launch the migration of the 40 config files to the new format, and tell me tomorrow what was done and what got stuck."
+          },
+          {
+            "role": "assistant",
+            "html": "Explicit execution request: I am preparing a <strong>task card</strong> rather than working here.<br>Title: “Migration of the 40 configuration files”. Workflow: <code>automatic@1.0.0</code>. Mode: Act.<br>Your prompt stays in a private file, outside the repository and the Memory Bank.<br>Before any launch, I check that this host exposes an authenticated launch action. If it does not, I stop and tell you: no partial card, no launch announced without an acknowledgement."
+          }
+        ],
+        "title": "What Nadia typed, and what she read"
+      },
+      "<p>The answer is deliberately cautious, and that is by design. The <a href=\"https://github.com/lcalmejane/aikido\" title=\"lcalmejane/aikido — AI-KIDO public repository, aikido-launch-task command\">/aikido-launch-task</a> command is used only when the person explicitly asks to launch or execute a task. It collects a private prompt, a title, the installed agent and the mode, then looks for the host’s real capability. Without a launch adapter, it stops and says so. AI-KIDO launches nothing itself: it starts no resident process and makes no network request.</p>",
+      {
+        "h2": "Prompt or card: what tips the balance"
+      },
+      "<p>The problem this rule avoids is simple: turning every exchange into a tracked task would make the assistant heavy and bureaucratic. The rule fits in one sentence: ordinary conversation, analysis or implementation requests stay in the current conversation unless the person asks for a task card. “Fix this test”, “explain this function”, “add a field to the form”: all of that stays a prompt, and Nadia made three such requests this afternoon without a single card appearing.</p>",
+      "<p>The card comes when the request carries one of three explicit intents: <em>launch</em> a piece of work now, <em>schedule</em> it for a date, or turn it into a <em>plan</em> to instantiate. “Launch the migration of the 40 files tonight and tell me tomorrow” ticks the first. “Prepare a plan to split the migration, I will approve each step” ticks the third: the <code>/aikido-plan-task</code> command saves the approved plan to a private file, creates it against a versioned workflow, shows it with its ID, version and hash, and only after authorization instantiates it as cards linked in a cycle-free graph.</p>",
+      {
+        "diagram": "task-decision",
+        "caption": "The starting point is always what the person said, never the assistant’s guess about the size of the work."
+      },
+      {
+        "h2": "Following by prompt: what Nadia reads on Saturday morning"
+      },
+      "<p>Saturday, coffee in hand, Nadia reopens her terminal. She wants to change nothing, only to know where things stand. The <code>/aikido-show-tasks</code> command is made for that: it lists or inspects cards without mutating their state. A read touches neither the revision nor the timestamps, and the output stays limited to her workspace. Her private prompt does not appear in a shared response.</p>",
+      {
+        "code": "/aikido-show-tasks\naikido task list --state review\naikido task show <id>\naikido task resume <id> --revision <n>\naikido task resume <id> --revision <n> --acknowledge-rejection",
+        "lang": "bash",
+        "caption": "What Nadia types, in order: the assistant command, the list filtered by state, one card’s detail, then resuming a waiting card with its current revision."
+      },
+      "<p>What she reads is each card’s state and its revision. If the migration produced a result, the card is in review: a result, whether <code>ok</code>, <code>partial</code>, <code>blocked</code> or <code>error</code>, moves the card to review or waiting, never to accepted or done. If a card is waiting, <code>aikido task resume</code> changes it back to ready, provided she passes the revision she just read; after a rejection, an explicit acknowledgement is also required. Resuming launches nothing: the authenticated host authorizes and dispatches.</p>",
+      {
+        "diagram": "task-prompt-view",
+        "caption": "Read, read again, then a single action that changes state, always with the current revision."
+      },
+      {
+        "h2": "Following in the directory: what the files say"
+      },
+      "<p>Nadia could also look at where these cards live. By default the store sits outside the checkout, in the operating system’s user-data directory, under <code>aikido/tasks/&lt;workspace-id&gt;</code>. The Task Store rejects a path inside the workspace, rejects symlink components in the path, and rejects any write without its exclusive lock. None of it goes into Git, the Memory Bank or Kimono.</p>",
+      {
+        "diagram": "task-store-tree",
+        "caption": "What the private files say: an authoritative journal, reconstructible projections, and a store.json file that identifies the root."
+      },
+      "<p>The journal is the authority: the projections, that is the views of the cards, can always be rebuilt from it. The <code>store.json</code> file carries the store schema; it is how indexing, search and package generation recognise a Task Store root and exclude it. The rule is never to edit these files by hand, and never to let a model choose or apply a state transition.</p>",
+      "<p>To check the store’s health, Nadia types <code>aikido task store doctor</code>. Here is what lies under the cards: the only raw output in this article, from a still-empty store, identifiers removed.</p>",
+      {
+        "code": "{\n  \"status\": \"ok\",\n  \"schemaVersion\": \"task-store/1\",\n  \"events\": 0,\n  \"tasks\": 0,\n  \"plans\": 0,\n  \"pendingHookCommands\": 0,\n  \"tombstones\": 0,\n  \"writerOwned\": true\n}",
+        "lang": "json",
+        "caption": "Output of the doctor command on an empty store. The events counter is the journal; tasks and plans are the projections."
+      },
+      {
+        "h2": "What a card keeps, and what it refuses"
+      },
+      "<p>On Sunday the migration ran. Thirty-eight files went through; two got stuck on an unexpected format. The temptation would be to say “done”. The card refuses to say it on its own: the result is <code>partial</code>, the card enters review, and it stays there until Nadia decides.</p>",
+      {
+        "diagram": "task-flow",
+        "caption": "Arrows show the order. A result never accepts itself, and “done” is one more explicit step."
+      },
+      "<p>The problem avoided here is work declared finished by whoever did it. The rule: acceptance is an explicit, authorized decision separate from the result, and “done” is a further transition that requires acceptance and verified criteria. Concretely, Nadia accepts the card by stating her decision and her reason; the two stubborn files become a new attempt on the same card, never a replacement card. If the card has required children, it cannot be done before them.</p>",
+      {
+        "h2": "And if she had said “tonight at 10 pm”?"
+      },
+      "<p>The scheduled version of the same request goes through <code>/aikido-schedule-task</code>. It requires a future date with its offset and an explicit IANA timezone; an ambiguous or past time is rejected rather than silently converted. The Task Store then records an <em>intent</em>, nothing more: the card carries a registration status that starts at “intent recorded”. The authenticated host requests the schedule, reports it through a <code>requested</code>, <code>acknowledged</code>, <code>unavailable</code> or <code>error</code> event, and keeps the job ID. A date does not wake a closed editor, and <code>aikido task run --due</code> only previews the due cards.</p>",
+      {
+        "h2": "The vision: cards you look at, not only cards you query"
+      },
+      "<p>Everything above exists today in AI-KIDO’s public files: the commands, the private store, the journal, the states and the transitions. What follows is the direction we are taking, not a shipped feature. We want cards to be read the way one reads a board, without typing a command.</p>",
+      {
+        "cards": [
+          {
+            "title": "History and state of play",
+            "text": "Look back at what was asked, by whom, when, with which revision and which decision; and, at a glance, the cards that are ready, running, waiting with their reason, in review, done."
+          },
+          {
+            "title": "View by workflow",
+            "text": "The automatic path on one side, the person-defined workflows on the other, each card at its step."
+          },
+          {
+            "title": "View by agent and by task nature",
+            "text": "Which agent or persona was wanted, which one actually worked; and group cards by what they do: analysis, implementation, migration."
+          },
+          {
+            "title": "Dashboard",
+            "text": "Parents and children, dates, possible resume, and only the actions allowed by the current transition."
+          }
+        ]
+      },
+      {
+        "diagram": "task-vision-timeline",
+        "caption": "At the top of the line, what is shipped; below it, the direction. A viewer does not walk the private disk: it only sees the cards an authorized adapter provides."
+      },
+      "<p>The vision rests on a rule we already enforce in shipped code: a view never renames a state, it triggers an authorized transition. Dragging a card from one column to another will have to pass the same revision check as <code>aikido task transition</code> does today. And whatever the view, no card enters the search corpus or a shared export.</p>",
+      {
+        "h2": "Try it at home"
+      },
+      {
+        "steps": [
+          "Keep ordinary requests in the conversation: fix a test, explain a function, add a field.",
+          "When a piece of work must outlive the open window, say so explicitly: “launch”, “schedule for”, “prepare a plan”.",
+          "The next day, type <code>/aikido-show-tasks</code> and read the state and revision before any action.",
+          "Accept what was done yourself, then mark the card done: two gestures, not one.",
+          "Check the store with <code>aikido task store doctor</code>; never open its files to edit them."
+        ]
+      },
+      "<p>On Monday, Nadia found a card in review, two files to redo and a journal that says exactly what happened. Nothing in Git, nothing in the Memory Bank, nothing forgotten.</p>"
+    ]
+  },
+  "fr": {
+    "title": "Task Store : le soir où ma demande est devenue une carte",
+    "summary": "Une développeuse, son éditeur, une migration trop longue pour une conversation. Ce qui sépare un simple prompt d’une tâche à suivre, deux façons de la suivre, et la direction que nous prenons pour les cartes.",
+    "body": [
+      "<p>Nadia travaille sur un service de paiement. Il est 18 h, un vendredi. Dans son éditeur, l’assistant vient de corriger un test en trois échanges, et elle s’apprête à fermer la machine. Reste une chose qu’elle repousse depuis deux semaines : quarante fichiers de configuration à migrer vers un nouveau format. Ce n’est pas difficile. C’est long, répétitif, et elle ne veut ni le regarder faire ni le retrouver à moitié fait lundi dans une conversation perdue.</p>",
+      {
+        "h2": "Vendredi, 18 h : la demande qui ne tient pas dans une conversation"
+      },
+      "<p>Elle tape sa demande comme elle l’aurait dite à un collègue. Ce qui change tout, c’est un mot : « lance ». Elle ne demande pas une explication ni un correctif dans la fenêtre ouverte ; elle demande qu’un travail soit pris en charge, exécuté, et qu’on lui rende des comptes plus tard.</p>",
+      {
+        "chat": [
+          {
+            "role": "you",
+            "text": "Lance la migration des 40 fichiers de config vers le nouveau format, et dis-moi demain ce qui a été fait et ce qui a coincé."
+          },
+          {
+            "role": "assistant",
+            "html": "Demande explicite d’exécution : je prépare une <strong>carte de tâche</strong> plutôt que de travailler ici.<br>Titre : « Migration des 40 fichiers de configuration ». Workflow : <code>automatic@1.0.0</code>. Mode : Act.<br>Votre prompt reste dans un fichier privé, hors du dépôt et de la Memory Bank.<br>Avant tout lancement, je vérifie que cet hôte expose une action de lancement authentifiée. S’il n’en expose pas, je m’arrête et je vous le dis : aucune carte partielle, aucun lancement annoncé sans accusé de réception."
+          }
+        ],
+        "title": "Ce que Nadia a tapé, et ce qu’elle a lu"
+      },
+      "<p>La réponse est volontairement prudente, et c’est voulu. La commande <a href=\"https://github.com/lcalmejane/aikido\" title=\"lcalmejane/aikido — dépôt public d’AI-KIDO, commande aikido-launch-task\">/aikido-launch-task</a> ne s’emploie que lorsque la personne demande explicitement de lancer ou d’exécuter une tâche. Elle collecte un prompt privé, un titre, l’agent installé et le mode, puis cherche la capacité réelle de l’hôte. Sans adaptateur de lancement, elle s’arrête et le dit. AI-KIDO ne lance rien lui-même : il ne démarre aucun processus résident et ne fait aucun appel réseau.</p>",
+      {
+        "h2": "Prompt ou carte : ce qui fait basculer"
+      },
+      "<p>Le problème que cette règle évite est simple : transformer chaque échange en tâche à suivre rendrait l’assistant lourd et bureaucratique. La règle tient en une phrase : une conversation ordinaire, une analyse ou une demande d’implémentation restent dans la conversation en cours, sauf si la personne demande une carte de tâche. « Corrige ce test », « explique-moi cette fonction », « ajoute un champ au formulaire » : tout cela reste un prompt, et Nadia en a fait trois cet après-midi sans qu’aucune carte n’apparaisse.</p>",
+      "<p>La carte arrive quand la demande porte en elle une des trois intentions explicites : <em>lancer</em> maintenant un travail, le <em>planifier</em> pour une date, ou en faire un <em>plan</em> à instancier. « Lance la migration des 40 fichiers ce soir et dis-moi demain » coche la première. « Prépare un plan pour découper la migration, je validerai chaque étape » coche la troisième : la commande <code>/aikido-plan-task</code> enregistre le plan approuvé dans un fichier privé, le crée contre un workflow versionné, le montre avec son identifiant, sa version et son empreinte, puis, seulement après autorisation, l’instancie en cartes liées par un graphe sans cycle.</p>",
+      {
+        "diagram": "task-decision",
+        "caption": "Le point de départ est toujours ce que la personne a dit, jamais une déduction de l’assistant sur la taille du travail."
+      },
+      {
+        "h2": "Suivre par le prompt : ce que Nadia lit samedi matin"
+      },
+      "<p>Samedi, café à la main, Nadia rouvre son terminal. Elle ne veut rien changer, seulement savoir où en sont les choses. La commande <code>/aikido-show-tasks</code> est faite pour ça : elle liste ou inspecte les cartes sans modifier leur état. Une lecture ne touche ni la révision ni les dates, et la sortie reste limitée à son espace de travail. Son prompt privé n’apparaît pas dans une réponse partagée.</p>",
+      {
+        "code": "/aikido-show-tasks\naikido task list --state review\naikido task show <id>\naikido task resume <id> --revision <n>\naikido task resume <id> --revision <n> --acknowledge-rejection",
+        "lang": "bash",
+        "caption": "Ce que Nadia tape, dans l’ordre : la commande de l’assistant, la liste filtrée par état, le détail d’une carte, puis la reprise d’une carte en attente, avec sa révision courante."
+      },
+      "<p>Ce qu’elle lit, c’est l’état de chaque carte et sa révision. Si la migration a produit un résultat, la carte est en revue : un résultat, qu’il soit <code>ok</code>, <code>partial</code>, <code>blocked</code> ou <code>error</code>, amène la carte en revue ou en attente, jamais à acceptée ni terminée. Si une carte attend, <code>aikido task resume</code> la repasse à prête, à condition de donner la révision lue juste avant ; après un rejet, il faut en plus accuser réception explicitement. Reprendre ne relance rien : c’est l’hôte authentifié qui autorise et exécute.</p>",
+      {
+        "diagram": "task-prompt-view",
+        "caption": "Lire, lire encore, puis une seule action qui change l’état, toujours avec la révision courante."
+      },
+      {
+        "h2": "Suivre dans le répertoire : ce que les fichiers disent"
+      },
+      "<p>Nadia pourrait aussi regarder où vivent ces cartes. Par défaut, le magasin est en dehors du dépôt, dans le répertoire de données utilisateur du système, sous <code>aikido/tasks/&lt;identifiant-d’espace-de-travail&gt;</code>. Le Task Store refuse un chemin situé dans l’espace de travail, refuse les liens symboliques dans le chemin, et refuse toute écriture sans son verrou exclusif. Rien de tout cela ne va dans Git, ni dans la Memory Bank, ni dans Kimono.</p>",
+      {
+        "diagram": "task-store-tree",
+        "caption": "Ce que les fichiers privés disent : un journal qui fait foi, des projections reconstructibles, un fichier store.json qui identifie la racine."
+      },
+      "<p>Le journal est la source d’autorité : les projections, c’est-à-dire les vues des cartes, peuvent toujours être reconstruites à partir de lui. Le fichier <code>store.json</code> porte le schéma du magasin ; c’est grâce à lui que l’indexation, la recherche et la génération de paquets reconnaissent une racine de Task Store et l’excluent. La règle est de ne jamais éditer ces fichiers à la main, et de ne jamais laisser un modèle choisir ou appliquer une transition d’état.</p>",
+      "<p>Pour vérifier l’état de santé du magasin, Nadia tape <code>aikido task store doctor</code>. Voici le dessous des cartes : la seule sortie brute de cet article, celle d’un magasin encore vide, identifiants retirés.</p>",
+      {
+        "code": "{\n  \"status\": \"ok\",\n  \"schemaVersion\": \"task-store/1\",\n  \"events\": 0,\n  \"tasks\": 0,\n  \"plans\": 0,\n  \"pendingHookCommands\": 0,\n  \"tombstones\": 0,\n  \"writerOwned\": true\n}",
+        "lang": "json",
+        "caption": "Sortie de la commande doctor sur un magasin vide. Le compteur d’événements est le journal ; les tâches et les plans sont les projections."
+      },
+      {
+        "h2": "Ce qu’une carte garde, et ce qu’elle refuse"
+      },
+      "<p>Le dimanche, la migration a tourné. Trente-huit fichiers sont passés, deux ont bloqué sur un format inattendu. La tentation serait de dire « c’est fait ». La carte, elle, refuse de le dire toute seule : le résultat est <code>partial</code>, la carte entre en revue, et elle y reste tant que Nadia n’a pas décidé.</p>",
+      {
+        "diagram": "task-flow",
+        "caption": "Les flèches montrent l’ordre. Un résultat ne s’accepte jamais seul, et « terminée » est une étape explicite de plus."
+      },
+      "<p>Le problème évité ici est celui du travail déclaré fini par celui qui l’a fait. La règle : l’acceptation est une décision explicite et autorisée, séparée du résultat, et « terminée » est une transition de plus qui exige l’acceptation et des critères vérifiés. Concrètement, Nadia accepte la carte en indiquant sa décision et sa raison ; les deux fichiers récalcitrants deviennent une nouvelle tentative sur la même carte, jamais une carte de remplacement. Si la carte a des enfants requis, elle ne peut être terminée avant eux.</p>",
+      {
+        "h2": "Et si elle avait dit « ce soir à 22 h » ?"
+      },
+      "<p>La version planifiée de la même demande passe par <code>/aikido-schedule-task</code>. Elle exige une date future avec son décalage et un fuseau IANA explicite ; une heure ambiguë ou passée est refusée plutôt que convertie en silence. Le Task Store enregistre alors une <em>intention</em>, rien de plus : la carte porte un statut d’enregistrement qui commence à « intention enregistrée ». C’est l’hôte authentifié qui demande la planification, en rend compte par un événement <code>requested</code>, <code>acknowledged</code>, <code>unavailable</code> ou <code>error</code>, et conserve l’identifiant de job. Une date ne réveille pas un éditeur fermé, et <code>aikido task run --due</code> ne fait que prévisualiser les cartes échues.</p>",
+      {
+        "h2": "La vision : des cartes que l’on regarde, pas seulement que l’on interroge"
+      },
+      "<p>Tout ce qui précède existe aujourd’hui dans les fichiers publics d’AI-KIDO : les commandes, le magasin privé, le journal, les états et les transitions. Ce qui suit est la direction que nous prenons, pas une fonction livrée. Nous voulons que les cartes se lisent comme on lit un tableau, sans taper une commande.</p>",
+      {
+        "cards": [
+          {
+            "title": "Historique et état des lieux",
+            "text": "Revoir ce qui a été demandé, par qui, quand, avec quelle révision et quelle décision ; et, en un regard, les cartes prêtes, en cours, en attente et leur motif, en revue, terminées."
+          },
+          {
+            "title": "Vue par workflow",
+            "text": "Le chemin automatique d’un côté, les workflows définis par la personne de l’autre, chaque carte à son étape."
+          },
+          {
+            "title": "Vue par agent et par nature de tâche",
+            "text": "Quel agent ou persona a été souhaité, lequel a réellement travaillé ; et regrouper les cartes par ce qu’elles font : analyse, implémentation, migration."
+          },
+          {
+            "title": "Tableau de bord",
+            "text": "Parents et enfants, dates, reprise possible, et les seules actions permises par la transition courante."
+          }
+        ]
+      },
+      {
+        "diagram": "task-vision-timeline",
+        "caption": "En haut de la ligne, ce qui est livré ; en dessous, la direction. Un viewer ne parcourt pas le disque privé : il ne voit que les cartes qu’un adaptateur autorisé lui fournit."
+      },
+      "<p>La vision tient en une règle que nous nous imposons déjà dans le code livré : une vue ne renomme jamais un état, elle déclenche une transition autorisée. Glisser une carte d’une colonne à l’autre devra passer par la même vérification de révision que <code>aikido task transition</code> aujourd’hui. Et quelle que soit la vue, aucune carte n’entre dans le corpus de recherche ni dans un export partagé.</p>",
+      {
+        "h2": "Essayer chez vous"
+      },
+      {
+        "steps": [
+          "Gardez vos demandes ordinaires dans la conversation : corriger un test, expliquer une fonction, ajouter un champ.",
+          "Quand un travail doit survivre à la fenêtre ouverte, dites-le explicitement : « lance », « planifie pour », « prépare un plan ».",
+          "Le lendemain, tapez <code>/aikido-show-tasks</code> et lisez l’état et la révision avant toute action.",
+          "Acceptez vous-même ce qui a été fait, puis marquez la carte terminée : deux gestes, pas un.",
+          "Vérifiez le magasin avec <code>aikido task store doctor</code> ; n’ouvrez jamais ses fichiers pour les modifier."
+        ]
+      },
+      "<p>Lundi, Nadia a trouvé une carte en revue, deux fichiers à reprendre et un journal qui dit exactement ce qui s’est passé. Rien dans Git, rien dans la Memory Bank, rien d’oublié.</p>"
+    ]
+  }
+}

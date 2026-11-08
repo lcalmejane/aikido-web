@@ -33,8 +33,10 @@
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="../../assets/js/theme.js?v=1"></script>
   <link rel="stylesheet" href="../../assets/css/home.css?v=10">
-  <link rel="stylesheet" href="../../assets/css/inner.css?v=9">
+  <link rel="stylesheet" href="../../assets/css/inner.css?v=10">
+  <link rel="stylesheet" href="../../assets/css/news-layouts.css?v=3">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kimono RAG MCP est sur le Marketplace de VS Code","description":"Kimono trouve des passages dans le code et les documents en local et renvoie d’abord chemins et plages de lignes. Sur deux tâches, les tokens d’entrée cumulés baissent de 67,5 % et 71,4 %.","datePublished":"2026-10-25","inLanguage":"fr","mainEntityOfPage":"https://www.ai-kido.fr/fr/news/kimono-marketplace.html","image":"https://www.ai-kido.fr/assets/images/news/kimono-marketplace.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
+  <script src="../../assets/js/news-navigation.js?v=1" defer></script>
 </head>
 <body class="inner">
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -76,17 +78,28 @@
     </header>
 
   <main id="top">
-    <article class="news-article">
+    <article class="news-article nl-journal hero-band w-narrow acc-forest lead-serif h2-tag dropcap title-normal meta-inline body-prose rail-toc-cta">
       <div class="container">
         <p class="back"><a href="../news.html">← Toutes les actualités</a></p>
-        <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-10-25">25 octobre 2026</time></p>
-        <h1>Kimono RAG MCP est sur le Marketplace de VS Code</h1>
-        <p class="lead">Kimono trouve des passages dans le code et les documents en local et renvoie d’abord chemins et plages de lignes. Sur deux tâches, les tokens d’entrée cumulés baissent de 67,5 % et 71,4 %.</p>
+        <header class="article-head">
+          <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-10-25">25 octobre 2026</time></p>
+          <h1>Kimono RAG MCP est sur le Marketplace de VS Code</h1>
+          <p class="lead">Kimono trouve des passages dans le code et les documents en local et renvoie d’abord chemins et plages de lignes. Sur deux tâches, les tokens d’entrée cumulés baissent de 67,5 % et 71,4 %.</p>
+        </header>
         <img class="article-hero" src="../../assets/images/news/kimono-marketplace.webp" alt="Kido, le petit robot en kimono blanc, sort quelques fiches dorées lumineuses d’un tiroir ouvert dans un long mur de tiroirs de classement en bois" width="960" height="576" decoding="async">
-        <div class="article-body">
+        <div class="article-grid">
+          <div class="article-mobile-tools">
+          <details name="article-tools"><summary>Dans cet article</summary><nav class="article-toc" aria-label="Dans cet article"><strong>Dans cet article</strong><ol><li><a href="#l-idee-en-une-image">L’idée en une image</a></li><li><a href="#ce-que-l-on-fait-dans-vs-code">Ce que l’on fait dans VS Code</a></li><li><a href="#sous-le-capot">Sous le capot</a></li><li><a href="#ce-que-nous-avons-mesure">Ce que nous avons mesuré</a></li><li><a href="#a-essayer">À essayer</a></li></ol></nav></details>
+          <details name="article-tools"><summary>Essayer AI-KIDO</summary><aside class="article-cta" aria-label="Essayer AI-KIDO"><strong>Essayer AI-KIDO</strong><p>Installez la Memory Bank en une commande et laissez votre assistant la lire.</p><a class="cta-btn" href="../install.html">Installer</a></aside></details>
+        </div>
+          <nav class="article-toc" aria-label="Dans cet article"><strong>Dans cet article</strong><ol><li><a href="#l-idee-en-une-image">L’idée en une image</a></li><li><a href="#ce-que-l-on-fait-dans-vs-code">Ce que l’on fait dans VS Code</a></li><li><a href="#sous-le-capot">Sous le capot</a></li><li><a href="#ce-que-nous-avons-mesure">Ce que nous avons mesuré</a></li><li><a href="#a-essayer">À essayer</a></li></ol></nav><aside class="article-cta" aria-label="Essayer AI-KIDO"><strong>Essayer AI-KIDO</strong><p>Installez la Memory Bank en une commande et laissez votre assistant la lire.</p><a class="cta-btn" href="../install.html">Installer</a></aside>
+          <div class="article-body">
           <p>Vous demandez à un assistant de préparer une modification dans un projet qu’il ne connaît pas. Pour le comprendre, il ouvre un fichier après l’autre, et chaque fichier ouvert est facturé à nouveau à chaque étape de la conversation. La plus grande partie de ce qu’il lit se révèle inutile.</p>
         <h2 id="l-idee-en-une-image">L’idée en une image</h2>
         <p>Kimono indexe un projet sur votre machine et donne aux assistants compatibles MCP une recherche lexicale et sémantique. Le choix clé porte sur ce qui revient : <strong>des chemins de fichiers et des plages de lignes, pas du code source</strong>. L’assistant ne lit ensuite que les plages qu’il a retenues. Kimono fonctionne avec ou sans base AI-KIDO, et l’indexation comme les embeddings s’exécutent en local.</p>
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-funnel" viewBox="0 0 360 199" role="img" aria-label="Un entonnoir : le corpus entier se réduit à quelques résultats de recherche, puis aux seules lignes réellement lues." focusable="false"><title>Du corpus entier à quelques lignes</title><g class="dg-node " style="--i:0"><rect class="dg-box" x="20" y="12" width="320" height="35" rx="10"/><text class="dg-t" x="180" y="34.5" text-anchor="middle"><tspan x="180" dy="0">Le corpus entier</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="180" y1="47" x2="180" y2="60"/><path class="dg-head" d="M175 57 L180 65 L185 57 Z"/></g><g class="dg-node " style="--i:1"><rect class="dg-box" x="60" y="65" width="240" height="52" rx="10"/><text class="dg-t" x="180" y="87.5" text-anchor="middle"><tspan x="180" dy="0">Recherche : chemins et</tspan><tspan x="180" dy="17">plages de lignes</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="180" y1="117" x2="180" y2="130"/><path class="dg-head" d="M175 127 L180 135 L185 127 Z"/></g><g class="dg-node dg-accent" style="--i:2"><rect class="dg-box" x="100" y="135" width="160" height="52" rx="10"/><text class="dg-t" x="180" y="157.5" text-anchor="middle"><tspan x="180" dy="0">Lire seulement les</tspan><tspan x="180" dy="17">lignes choisies</tspan></text></g></svg>
+        </figure>
         <figure class="article-figure">
           <img src="../../assets/images/news/kimono-loop-fr.svg" alt="Schéma de la boucle de recherche de Kimono : aikido_snapshot begin fige le corpus, aikido_search renvoie chemins et plages de lignes seulement, aikido_file ranges ne lit que les lignes choisies, aikido_snapshot end libère le snapshot ; aikido_structure est une première étape facultative" width="900" height="266" loading="lazy" decoding="async">
           <figcaption>La boucle de recherche. Chaque snapshot est immuable : une recherche en plusieurs étapes voit un corpus cohérent.</figcaption>
@@ -130,6 +143,7 @@
           <li>Ouvrez et approuvez le dossier de votre projet, lancez <strong>MCP: List Servers</strong>, démarrez <strong>Kimono</strong> et activez ses outils dans votre client de chat.</li>
           <li>Comparez sur votre propre tâche. Les détails sont sur la <a href="../kimono.html#performance">page Kimono</a>.</li>
         </ol>
+        </div>
         </div>
         <nav class="article-nav" aria-label="Actualités">
           <a class="newer" href="version-1-5.html" rel="next">← Plus récent : Version 1.5 : une base de connaissance, neuf assistants</a>

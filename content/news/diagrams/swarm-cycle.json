@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "swarm-cycle",
+  "type": "cycle",
+  "title": {"en": "Delegate, work, relay, report", "fr": "Déléguer, travailler, relayer, rendre compte"},
+  "desc": {"en": "A loop in four steps: the coordinator writes a bounded delegation brief, workers do their scoped task, findings are relayed to the peer who needs them or through the coordinator, then the coordinator checks results and writes one report. Then a new request starts again.", "fr": "Une boucle en quatre étapes : le coordinateur écrit un brief de délégation borné, les workers font leur tâche cadrée, les constats sont relayés au pair qui en a besoin ou via le coordinateur, puis le coordinateur vérifie et rédige un seul compte rendu. Puis une nouvelle demande recommence."},
+  "nodes": [
+    {"label": {"en": "Delegation brief", "fr": "Brief de délégation"}},
+    {"label": {"en": "Scoped work", "fr": "Travail cadré"}},
+    {"label": {"en": "Relay a finding", "fr": "Relayer un constat"}},
+    {"label": {"en": "Check and report", "fr": "Vérifier et rendre compte"}}
+  ]
+}

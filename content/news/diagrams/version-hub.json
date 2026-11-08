@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "version-hub",
+  "type": "hub",
+  "title": {
+    "en": "One source, many assistants",
+    "fr": "Une source, plusieurs assistants"
+  },
+  "desc": {
+    "en": "One canonical source in the center feeds the packages for Claude Code, Codex, Copilot, Kiro CLI, Zoo Code and the other supported assistants.",
+    "fr": "Une source canonique au centre alimente les paquets pour Claude Code, Codex, Copilot, Kiro CLI, Zoo Code et les autres assistants pris en charge."
+  },
+  "center": {
+    "label": {
+      "en": "hard_points/",
+      "fr": "hard_points/"
+    },
+    "note": {
+      "en": "one canonical source",
+      "fr": "une source canonique"
+    }
+  },
+  "nodes": [
+    {
+      "label": {
+        "en": "Claude Code",
+        "fr": "Claude Code"
+      }
+    },
+    {
+      "label": {
+        "en": "Codex",
+        "fr": "Codex"
+      }
+    },
+    {
+      "label": {
+        "en": "Copilot",
+        "fr": "Copilot"
+      }
+    },
+    {
+      "label": {
+        "en": "Kiro CLI",
+        "fr": "Kiro CLI"
+      }
+    },
+    {
+      "label": {
+        "en": "Zoo Code",
+        "fr": "Zoo Code"
+      }
+    },
+    {
+      "label": {
+        "en": "…and more",
+        "fr": "…et d’autres"
+      }
+    }
+  ]
+}

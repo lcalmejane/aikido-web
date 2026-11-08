@@ -1,0 +1,520 @@
+{
+  "slug": "swarm-team",
+  "nature": "presentation",
+  "domains": ["orchestration"],
+  "date": "2026-11-08",
+  "tag": {
+    "en": "Method",
+    "fr": "Méthode"
+  },
+  "image": "hero-swarm-team",
+  "layout": "guide",
+  "en": {
+    "title": "Letting agents talk to each other: swarms, from peer handoffs to AI-KIDO’s guardrails",
+    "summary": "A coordinator splits the work, peers hand off to one another, you read one report. What a swarm changes, what breaks, and how AI-KIDO frames it.",
+    "body": [
+      "<p>Monday morning, in your IDE. You type a broad request: add a CSV export to a billing module, with its tests and its documentation page. A single assistant would spend an hour doing everything in one thread, losing the beginning of the context halfway through. This time a coordinator reads the request, spots three independent pieces, hands them to three agents that each work in their own context, and one of them warns a colleague that a column name has changed. You see only one report: what was done, what was checked, what is left for you to decide.</p>",
+      "<p>That is the promise of an agent swarm. It is real, but it is not free: every delegation costs a launch and messages, and every handoff is a chance to get lost. This feature describes what a swarm changes, the mechanics of a handoff, the failures measured by research, then what AI-KIDO takes from all this and where it goes further.</p>",
+      {
+        "h2": "What a swarm changes"
+      },
+      "<p>The simplest way to make several agents work is a supervisor: one agent receives everything, hands out sub-tasks, reads every answer and decides who speaks next. It is easy to audit, but it becomes a bottleneck: all the context flows back up to it, and every round trip costs it tokens. {ref:7|Anthropic} describes its research system this way, as an orchestrator-worker pattern in which a lead agent develops a strategy and then spawns subagents that explore different aspects in parallel.</p>",
+      "<p>A swarm reverses part of this logic. In the account given by {ref:1|ActuIA}, OpenAI’s Swarm is an experimental framework that orchestrates multi-agent systems using routines and task handoffs between agents. The {ref:2|openai/swarm} repository describes itself as an educational framework exploring lightweight orchestration: each agent has its own instructions and tools, and can hand the conversation to another agent when it judges that the request leaves its domain.</p>",
+      "<p>Peer-to-peer handoff is the heart of the model. With {ref:5|LangGraph Swarm}, agents hand off control to one another based on their specializations, and the system remembers which agent was last active so that the conversation resumes with it on the next turn. Governance is no longer centralized in a supervisor: each agent decides its own routing, which removes round trips but moves the responsibility for stopping properly.</p>",
+      {
+        "diagram": "swarm-versus",
+        "caption": "Two ways to organize a team of agents: a supervisor that reads everything, or peers that hand off to one another. Both exist in public libraries; AI-KIDO combines a coordinator with peer exchanges, under conditions."
+      },
+      "<p>{ref:8|CrewAI} offers side by side a sequential process and a hierarchical one in which a manager delegates along a chain of command: the swarm is not the end of the supervisor, it is the possibility for peers to talk without always going back up.</p>",
+      {
+        "h2": "The mechanics: the next agent is a tool"
+      },
+      "<p>How does an agent hand off? The answer given by public libraries is disarmingly simple: a handoff is a function call. In the {ref:3|Agents SDK Handoffs} documentation, handoffs are represented to the model as tools; a handoff to an agent named “Refund Agent” becomes a tool named <code>transfer_to_refund_agent</code>. The agent handling the conversation “calls” its successor the way it would call a search or a calculation.</p>",
+      "<p>The {ref:4|OpenAI Cookbook} sets out the two notions that structure everything else. A routine is a set of steps in natural language, carried by a system message, with the tools needed to carry them out. A handoff is the moment when one routine passes the conversation to another. The {ref:2|openai/swarm} repository spells out what changes then: the system prompt is replaced by the new agent’s, but the chat history is not.</p>",
+      "<p>Under the hood, it looks like this. You wrote “I want a refund”; the triage agent calls its handoff tool; the orchestrator updates the active agent and replays the history to the new one. In the Cookbook’s style, the core fits in a few lines:</p>",
+      {
+        "code": "def transfer_to_refunds():\n    return refunds_agent          # the next agent is a return value\n\ntriage_agent = Agent(\n    instructions=\"Triage the user issue, then hand off.\",\n    tools=[transfer_to_refunds],  # a handoff is just a tool\n)\n# the runner swaps the active agent, keeps the message history",
+        "lang": "python"
+      },
+      "<p>Two consequences. First, the model decides the handoff itself, as it decides to call any tool: routing is a model output, not a coded rule. Second, the {ref:2|openai/swarm} repository describes itself as stateless between calls and running client-side: state lives in the history you pass, nowhere else. The same repository now points to the {ref:3|Agents SDK}, presented as its production-ready evolution.</p>",
+      {
+        "h2": "Shared state and the team’s memory"
+      },
+      "<p>If agents hand off to one another, what becomes of what they know? The simplest answer is the cumulative message log: each agent appends its turns to one list, and the next receives it whole. That is what Swarm does, and it is why a handoff there is so light. The price is a history that grows with every handoff and ends up carrying exchanges that no longer concern the active agent.</p>",
+      "<p>{ref:5|LangGraph Swarm} adds an explicit memory: the shared state holds the name of the active agent, and that agent resumes on the next turn. Each agent updates the part of the state that belongs to it. This idea of a single writer per variable, where only one routine may modify a given piece of data, is what prevents two peers from silently contradicting each other in the same field.</p>",
+      {
+        "callout": "Three things coexist in a swarm and must not be confused: the conversation history, which circulates; the shared state, each variable of which has an owner; and the active agent, which is a piece of data like any other, remembered between turns."
+      },
+      {
+        "h2": "What breaks, measured"
+      },
+      "<p>Letting agents talk to each other opens gaps you do not see with a single assistant. The study {ref:6|“Why Do Multi-Agent LLM Systems Fail?”} from the University of California, Berkeley, starts from an observation: despite the enthusiasm, the gains of multi-agent systems on popular benchmarks are often minimal. The authors annotated more than 1,600 execution traces from seven popular frameworks and derived a taxonomy, MAST, of fourteen failure modes grouped into three categories.</p>",
+      {
+        "cards": [
+          {
+            "title": "System design",
+            "text": "The specification is vague, roles overlap, an agent ignores its instructions or forgets the step that was its own. The problem is set before the first message leaves."
+          },
+          {
+            "title": "Inter-agent misalignment",
+            "text": "Agents talk but do not understand each other: one starts over, another waits for an answer that never comes, a third repeats what is already settled. Handoff loops and overlong chains live here."
+          },
+          {
+            "title": "Task verification",
+            "text": "Nobody really checks the result: the end is declared too early, verification is incomplete or absent, and one peer’s error becomes a fact for everyone."
+          }
+        ]
+      },
+      "<p>Anyone who has watched a swarm run recognizes these categories: two agents passing the conversation back and forth, a chain of handoffs in which the last agent no longer knows the original request, a peer finding never cross-checked. The study concludes that these failures call for more sophisticated solutions than prompt adjustments.</p>",
+      {
+        "pullstat": {
+          "value": "3 categories",
+          "label": "of failures identified by the Berkeley study: system design, inter-agent misalignment, task verification"
+        }
+      },
+      {
+        "h2": "What AI-KIDO takes up, and where it goes further"
+      },
+      "<p>AI-KIDO did not invent the swarm. It takes up the essentials, a coordinator that splits the work and peers that exchange findings, and it answers each weak point measured above with a rule of its Swarm policy, a public file in the method’s repository shared by every AI-KIDO agent, including the ones you create. Rather than list those rules, this part stops on each one: the problem it avoids, the rule itself, then what you see when it applies to your Monday-morning request.</p>",
+      "<p>A definition first, to set the vocabulary. An AI-KIDO Swarm is a bounded team of workers with separate contexts, who receive ready, independent tasks and exchange findings when useful. One coordinator keeps integration, acceptance, budgets and resource locks. The policy also says what a Swarm is not: a second orchestrator, unlimited fan-out, recursive delegation, or several writers of the same files.</p>",
+      {
+        "diagram": "swarm-tree",
+        "caption": "The basic shape: one coordinator, separate workers. The coordinator does not do the work; it splits, checks and integrates it. Each worker sees only its own scope."
+      },
+      "<h3>Select from verified capabilities, not model names</h3>",
+      "<p>The problem: a model name says nothing about what an agent can actually do in your tool. The same model, launched from Copilot, Claude Code or Roo Code, has neither the same delegation tools, nor the same way of returning a result, nor necessarily the right to write to a peer. Picking a team by “which model” amounts to promising a mailbox that may not exist.</p>",
+      "<p>The rule fits in one sentence: before choosing a form of collaboration, the coordinator maps the host’s actual tools, capability by capability, and treats any unknown capability as absent. It verifies separately launch, concurrent execution, result, peer send and receive, relay, follow-up on a retained conversation, reset and close, and records the exact identifier of each tool.</p>",
+      "<p>The lived case: you ask for the CSV export with its tests and its docs. The coordinator finds that your host can launch subtasks and read their result, but that no tool lets one worker write to another. It does not simulate a peer exchange: it writes “communication: relay” and will carry findings itself. If a send tool only works from the coordinator, it is not a peer mailbox; if a worker is one-shot, giving it an identifier does not give it follow-up capability.</p>",
+      {
+        "diagram": "swarm-capabilities",
+        "caption": "In the centre, the collaboration choice; around it, the capabilities the coordinator verifies on the real host before choosing. An unknown capability stays off: “none” for communication, “fresh” for the lifecycle."
+      },
+      "<p>These checks feed five choices, each with its fallback. Direct for a small task, no team. Parallel if prerequisites are accepted, effects disjoint, concurrency verified and budget sufficient, otherwise sequential. Peer communication if send and receive are authorized at both ends and recipients are known, otherwise relay through the coordinator. Retain a worker if the follow-up concerns the same task and the host allows it, otherwise a fresh worker. Clean and reuse if a real reset has been verified, otherwise a fresh worker, never a simulated reset. And Swarm is chosen only when context isolation or an early exchange reduces duplication enough to pay for the launch and message cost.</p>",
+      "<h3>The delegation brief, written before delegating</h3>",
+      "<p>The problem: the first failure category of the {ref:6|Berkeley study}, vague design. A worker that receives “take care of the tests” without knowing what it may touch, whom to talk to or when to stop improvises, and two improvising workers end up writing the same files.</p>",
+      "<p>The rule: every delegation is a bounded request in the <code>task-request/2</code> format, in which the coordinator writes its collaboration decision, even when it is disabled. An unknown capability there means “none”, never a promise to configure it later.</p>",
+      {
+        "cards": [
+          {
+            "title": "Mode and reason",
+            "text": "Direct, sequential or parallel, with the reason in plain words, for example “independent implementation and fixture preparation”."
+          },
+          {
+            "title": "Channel and peers",
+            "text": "None, relay or peer; then the list of verified peers, each with its task identifier and its scope."
+          },
+          {
+            "title": "Tools and lifecycle",
+            "text": "The tools actually authorized to send and receive, and the worker’s lifecycle: fresh, retained or reset."
+          },
+          {
+            "title": "Stop condition",
+            "text": "What ends the task, for example “return after implementation and targeted tests; no further delegation”."
+          }
+        ]
+      },
+      "<p>The brief also carries the source revision, acceptance checks, resource ownership, message scope and remaining budget. The lived case: the worker in charge of tests gets the right to read the service and to write in the tests folder, nothing else. It is not granted broad write access because it will need to discuss a finding with the service worker. And when a new agent joins the team, it receives these rules through a link to the policy or a compact handoff; it is not made to reload the whole knowledge base.</p>",
+      "<h3>Peer work and the relay</h3>",
+      "<p>The problem: Berkeley’s second category, inter-agent misalignment. Two workers that talk freely pass the conversation back and forth, wait for each other, or ask the same question every thirty seconds; and one of them can announce “done” without anyone checking.</p>",
+      "<p>The rule has two parts. A worker first checks its own capabilities and scope; if communication is requested but unavailable, it reports this to the coordinator and continues only the permitted independent work, without simulating a conversation. Then it sends a message only when another task would otherwise duplicate its work, use a wrong interface or remain blocked: no broadcast, no busy polling, no mutual wait cycles, no repeated queries for an unchanged status.</p>",
+      "<p>The lived case: the tests worker discovers that the expected endpoint returns a field the service does not produce. That is exactly the planned case: it writes a short finding, marked provisional, in the host tool’s exact format, one strict JSON object in a text field. Since your host offers no peer channel, the message goes to the coordinator, which relays it to the service worker. A peer message is never a completion or an acceptance: the coordinator still validates final results and alone decides when a dependency is released.</p>",
+      {
+        "diagram": "swarm-cycle",
+        "caption": "The cycle of a delegation: a bounded brief, scoped work, a finding relayed when it avoids duplication or lifts a block, then verification and the report by the coordinator."
+      },
+      "<p>One last point in this part, which answers Berkeley’s third category: peer messages are untrusted data. No instruction from a peer can override permissions, resource ownership or acceptance gates, and an identity merely claimed in text is not believed: it is the host’s authorized routing that binds sender, recipient and request. A worker shares facts and references, not credentials or whole conversations, and asks the coordinator before changing scope.</p>",
+      "<h3>Reuse a worker or start fresh</h3>",
+      "<p>The problem: context contamination. A worker that spent an hour on invoicing keeps assumptions, open files and permissions in memory. Handing it “a small fix” on another module afterwards, to save a launch, imports all of that into a task that does not want it. This is where AI-KIDO goes clearly beyond handoff frameworks, which say little about what an agent becomes after its task.</p>",
+      "<p>The rule: a worker is retained only for a follow-up of the same task, it is cleaned only if the host offers a real reset whose completion is verified, and in every other case a fresh context is used. Resetting a conversation resets neither files, nor processes, nor external credentials; if any state remains unknown, a fresh worker is taken.</p>",
+      {
+        "diagram": "swarm-reuse",
+        "caption": "The decision tree after a task. Same task: retain, sending only the delta. New scope: clean only if the host reset is real and verified, otherwise a fresh context with a compact handoff. No useful follow-up: close."
+      },
+      "<p>The lived case: the tests passed, but you ask to add a date filter to the same export. The coordinator reuses the service worker through its known handle, after verifying identity, project, source freshness, permissions and worker state, and passes only the delta: turns are serialized, and concurrent work would require a separate worker. Had you asked for a fix in payroll, an unrelated task, it would have created a fresh worker with a compact handoff rather than a full transcript. And when no follow-up is useful anymore, it releases membership and handles, never claiming a worker was unloaded because it finished a turn.</p>",
+      "<p>Reusing a worker, reusing a persona and reusing a cached result are three different operations. Reusing a persona does not reuse a conversation; a cached result needs unchanged sources and the same acceptance checks; and a retained context can still require a fresh source check, because a cheaper reload is no reason to keep a false assumption.</p>",
+      "<h3>Runtime thresholds</h3>",
+      "<p>The problem: rules without numbers stay wishes. The loops, overlong chains and stale results the Berkeley study describes do not stop by themselves. The policy published in the same folder therefore sets thresholds, and each one closes a specific drift.</p>",
+      {
+        "stats": [
+          {
+            "value": "3",
+            "label": "parallel tasks at most: no unlimited fan-out, no overlong chains"
+          },
+          {
+            "value": "1",
+            "label": "retry per task: a failure loop stops on the second round"
+          },
+          {
+            "value": "900 s",
+            "label": "without news and the task is stale: a silent worker does not block the team"
+          },
+          {
+            "value": "30 days",
+            "label": "after which a routing price source expires: no decision on stale figures"
+          }
+        ]
+      },
+      "<p>The lived case: the documentation worker fails because the site generator is not installed. It is relaunched once; if it fails again, the coordinator returns a partial result rather than retrying forever. And if the cause is an unavailable tool, a denied permission or an invalid request, there is not even a second attempt, because those codes are never retryable. The other thresholds keep exchanges small: 800 output tokens for the coordinator, a result summary of at most 2,000 characters, an execution cut after 120 seconds with its output truncated to 4,000 characters. That is what keeps the coordinator from becoming the bottleneck it must avoid.</p>",
+      "<h3>The strict JSON contract</h3>",
+      "<p>The problem: most inter-agent failures come from a misread message: a result announced in prose, a task without an explicit dependency, an invented key nobody reads. The rule: every exchange between the coordinator, a worker or a native orchestrator is a JSON object validated against a public schema, and any unknown key is rejected.</p>",
+      "<p>A <code>task-request/2</code> requires an identifier, a caller, a coordination mode among lead, collaborate or direct, an objective, constraints and tasks that each declare their dependencies, transport, tools, read and write resources, state and acceptance check. A <code>task-result/1</code> carries a status among ok, partial, blocked or error, a summary, artifacts, errors and next actions. The lived case: the provisional finding of the tests worker, above, travels in this envelope. Under the hood, it looks like this.</p>",
+      {
+        "lang": "json",
+        "code": "{\n  \"id\": \"tests\",\n  \"status\": \"partial\",\n  \"summary\": \"Provisional: fixtures ready; the endpoint expects a field the service does not produce.\",\n  \"artifacts\": [{ \"type\": \"file\", \"ref\": \"tests/fixtures/invoices.json\" }],\n  \"errors\": [],\n  \"next\": [\"Rerun the tests once the service is accepted\"]\n}",
+        "caption": "A peer finding in the task-result/1 envelope: the six required keys, nothing else. The word “provisional” in the summary recalls that a peer message is neither a completion nor an acceptance."
+      },
+      "<p>A Node evaluator, published in the same place, validates this contract and schedules dependency- and resource-safe batches, exclusive locks included. It does not create workers, send messages, verify a reset or authenticate a sender: the host and the coordinator must do that. The contract makes the exchange verifiable; it does not replace verification.</p>",
+      {
+        "diagram": "swarm-guardrails",
+        "caption": "The guardrails stack up: the host’s native orchestrator on top, then the JSON contract, then the numbered limits, and at the base the Swarm policy every agent shares."
+      },
+      "<h3>The native orchestrator keeps priority</h3>",
+      "<p>The problem: two bosses. Your tool often already has its orchestrator, and a second one claiming command produces exactly the role conflicts described in Berkeley’s first category. The rule: AI-KIDO never installs itself over your tool’s orchestrator; its orchestrator agent determines once, per capability snapshot, which of three postures applies.</p>",
+      {
+        "steps": [
+          "<strong>Lead</strong>: only on a verified Copilot host, with a complete inventory and no other general orchestrator. Lived case: in Copilot, with no other coordinator declared, the AI-KIDO agent writes the brief and distributes the three tasks.",
+          "<strong>Collaborate</strong>: as soon as a native orchestrator exists, the host is Claude Code, Kiro, Codex or Roo Code, or a role is ambiguous. Lived case: in Roo Code, the AI-KIDO agent does itself what needs no delegation, guides the native orchestrator with a JSON plan and delegates a bounded subtask to it.",
+          "<strong>Execute directly</strong>: when the host or the inventory cannot be established. Lived case: in an unknown tool, the agent does the work itself, sequentially, with its own tools, rather than inventing a delegation."
+        ]
+      },
+      "<p>When collaborating, it takes over a task only if the native orchestrator verifiably cannot do it, for example a parallel batch when it is established that it does not parallelize. An unknown native capability is never a reason to take the lead. So much for the mechanics; what remains is what all this looks like from your chair, in the conversation you read.</p>",
+      {
+        "h2": "What you type, what you read"
+      },
+      "<p>Back to your Monday morning, with AI-KIDO installed in your assistant. You write your request without saying anything about organization: it is up to the coordinator to decide whether there is a case for a team.</p>",
+      {
+        "chat": [
+          {
+            "role": "you",
+            "text": "Add the CSV export of the month’s invoices: service + endpoint, integration tests, and the “Export” page in the user docs. Same column format as the PDF export."
+          },
+          {
+            "role": "assistant",
+            "text": "Three independent tasks, disjoint effects: service and endpoint, tests with fixtures, docs page. Concurrency verified on this host, coordinator relay available, no direct peer messaging. Launching in parallel (limit: 3), at most one retry per task. Stop: after targeted tests, no further delegation."
+          },
+          {
+            "role": "assistant",
+            "text": "Finding relayed from task “service” to “tests”: column “amount_incl_tax” becomes “total_incl_tax” to match the PDF export. Marked provisional; waiting for the final result before releasing the dependency."
+          },
+          {
+            "role": "assistant",
+            "text": "Report. Service and endpoint: ok, 2 files, unit tests green. Integration tests: ok, fixtures added, column aligned. Docs: ok, “Export” page in EN and FR. No retry used. For you to decide: keep the “;” separator for French Excel or switch to “,”."
+          }
+        ]
+      },
+      "<p>You saw these four messages. Underneath, there was one <code>task-request/2</code> with three tasks, then three <code>task-result/1</code> answers validated by the coordinator before the report. No handoff loop, because nobody had the right to pass the conversation around indefinitely; a short chain, because recursive delegation is forbidden; a cross-checked finding, because it was marked provisional; and the separator question comes back to you, because the coordinator does not decide in your place.</p>",
+      {
+        "h2": "Try it"
+      },
+      {
+        "steps": [
+          "Pick a request genuinely made of two or three independent pieces, for example a feature, its tests and its documentation.",
+          "Phrase it in one go, without describing the organization: let the coordinator announce its mode (direct, sequential or parallel) and its reason.",
+          "Read the stop condition it states before launching; if it is missing, ask for it.",
+          "In the report, spot what is marked as verified by the coordinator and what is left for you to decide; that is where the value of a team is judged."
+        ]
+      },
+      {
+        "h2": "References"
+      },
+      {
+        "references": [
+          {
+            "publisher": "ActuIA",
+            "title": "OpenAI dévoile Swarm, un framework d’orchestration multi-agents open source",
+            "url": "https://www.actuia.com/actualite/openai-devoile-swarm-un-framework-dorchestration-multi-agents-open-source/"
+          },
+          {
+            "publisher": "OpenAI (GitHub)",
+            "title": "openai/swarm — Educational framework exploring ergonomic, lightweight multi-agent orchestration",
+            "url": "https://github.com/openai/swarm"
+          },
+          {
+            "publisher": "OpenAI Agents SDK",
+            "title": "Handoffs",
+            "url": "https://openai.github.io/openai-agents-python/handoffs/"
+          },
+          {
+            "publisher": "OpenAI Cookbook",
+            "title": "Orchestrating Agents: Routines and Handoffs",
+            "url": "https://cookbook.openai.com/examples/orchestrating_agents"
+          },
+          {
+            "publisher": "LangChain (GitHub)",
+            "title": "langgraph-swarm-py — LangGraph Multi-Agent Swarm",
+            "url": "https://github.com/langchain-ai/langgraph-swarm-py"
+          },
+          {
+            "publisher": "arXiv — Cemri et al., UC Berkeley",
+            "title": "Why Do Multi-Agent LLM Systems Fail? (2503.13657)",
+            "url": "https://arxiv.org/abs/2503.13657"
+          },
+          {
+            "publisher": "Anthropic",
+            "title": "How we built our multi-agent research system",
+            "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+          },
+          {
+            "publisher": "CrewAI",
+            "title": "Processes — CrewAI documentation",
+            "url": "https://docs.crewai.com/en/concepts/processes"
+          }
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "title": "Faire parler les agents entre eux : l’essaim, du transfert pair à pair aux garde-fous d’AI-KIDO",
+    "summary": "Un coordinateur découpe, des pairs se passent la main, vous lisez un seul compte rendu. Ce que l’essaim change, ce qui casse, et comment AI-KIDO l’encadre.",
+    "body": [
+      "<p>Lundi matin, dans votre IDE. Vous tapez une demande large : ajouter une exportation CSV à un module de facturation, avec ses tests et sa page de documentation. Un seul assistant mettrait une heure à tout faire dans un unique fil, en perdant le début du contexte à mi-parcours. Cette fois, un coordinateur lit la demande, repère trois morceaux indépendants, les confie à trois agents qui travaillent chacun dans leur propre contexte, et l’un d’eux prévient un collègue qu’un nom de colonne a changé. Vous, vous ne voyez qu’un compte rendu : ce qui a été fait, ce qui a été vérifié, ce qui reste à décider.</p>",
+      "<p>C’est la promesse de l’essaim d’agents. Elle est réelle, mais elle n’est pas gratuite : chaque délégation coûte un lancement et des messages, et chaque transfert est une occasion de se perdre. Ce dossier décrit ce que l’essaim change, la mécanique du transfert, les échecs mesurés par la recherche, puis ce qu’AI-KIDO en reprend et là où il va plus loin.</p>",
+      {
+        "h2": "Ce qu’un essaim change"
+      },
+      "<p>Le modèle le plus simple pour faire travailler plusieurs agents est le superviseur : un agent reçoit tout, confie des sous-tâches, relit chaque réponse et décide qui parle ensuite. Il est facile à auditer, mais il devient un goulot : tout le contexte remonte vers lui, et chaque aller-retour lui coûte des jetons. {ref:7|Anthropic} décrit ainsi son système de recherche comme un schéma orchestrateur-travailleurs, où un agent principal élabore une stratégie puis lance des sous-agents qui explorent des aspects différents en parallèle.</p>",
+      "<p>L’essaim renverse une partie de cette logique. Dans la présentation qu’en fait {ref:1|ActuIA}, Swarm d’OpenAI est un cadre expérimental qui orchestre des systèmes multi-agents à l’aide de routines et de transferts de tâches entre agents. Le dépôt {ref:2|openai/swarm} se définit lui-même comme un cadre éducatif pour explorer une orchestration légère : chaque agent possède ses instructions et ses outils, et peut passer la main à un autre agent au moment où il juge que la demande sort de son domaine.</p>",
+      "<p>Le transfert pair à pair est le cœur du modèle. Avec {ref:5|LangGraph Swarm}, les agents se passent le contrôle les uns aux autres selon leurs spécialisations, et le système se souvient du dernier agent actif pour que la conversation reprenne avec lui au tour suivant. La gouvernance n’est plus centralisée dans un superviseur : chaque agent décide de son routage, ce qui supprime des allers-retours mais déplace la responsabilité de bien s’arrêter.</p>",
+      {
+        "diagram": "swarm-versus",
+        "caption": "Deux façons d’organiser une équipe d’agents : le superviseur qui relit tout, ou les pairs qui se passent la main. Les deux existent dans les bibliothèques publiques ; AI-KIDO combine un coordinateur et des échanges entre pairs, sous conditions."
+      },
+      "<p>{ref:8|CrewAI} propose côte à côte un processus séquentiel et un processus hiérarchique où un responsable délègue selon une chaîne de commandement : l’essaim n’est pas la fin du superviseur, c’est la possibilité pour les pairs de se parler sans toujours remonter.</p>",
+      {
+        "h2": "La mécanique : le prochain agent est un outil"
+      },
+      "<p>Comment un agent passe-t-il la main ? La réponse des bibliothèques publiques est d’une simplicité désarmante : le transfert est un appel de fonction. Dans la documentation des {ref:3|Handoffs de l’Agents SDK}, les transferts sont représentés pour le modèle comme des outils ; un transfert vers un agent nommé « Refund Agent » devient un outil nommé <code>transfer_to_refund_agent</code>. L’agent qui traite la conversation « appelle » son successeur comme il appellerait une recherche ou un calcul.</p>",
+      "<p>Le {ref:4|Cookbook d’OpenAI} pose les deux notions qui structurent tout le reste. Une routine est un ensemble d’étapes en langage naturel, portées par un message système, avec les outils nécessaires pour les accomplir. Un transfert est le moment où une routine confie la conversation à une autre. Le dépôt {ref:2|openai/swarm} précise ce qui change alors : le prompt système est remplacé par celui du nouvel agent, mais l’historique de la conversation ne l’est pas.</p>",
+      "<p>Sous le capot, cela donne ceci. Vous avez écrit « je veux un remboursement » ; l’agent de triage appelle son outil de transfert ; l’orchestrateur met à jour l’agent actif et rejoue l’historique au nouvel agent. Dans le style du Cookbook, le cœur tient en quelques lignes :</p>",
+      {
+        "code": "def transfer_to_refunds():\n    return refunds_agent          # the next agent is a return value\n\ntriage_agent = Agent(\n    instructions=\"Triage the user issue, then hand off.\",\n    tools=[transfer_to_refunds],  # a handoff is just a tool\n)\n# the runner swaps the active agent, keeps the message history",
+        "lang": "python"
+      },
+      "<p>Deux conséquences. D’abord, le modèle décide lui-même du transfert, comme il décide d’appeler n’importe quel outil : le routage est une sortie du modèle, pas une règle codée. Ensuite, le dépôt {ref:2|openai/swarm} se dit sans état entre deux appels et exécuté côté client : l’état vit dans l’historique que vous passez, nulle part ailleurs. Le même dépôt renvoie aujourd’hui vers l’{ref:3|Agents SDK}, présenté comme son évolution prête pour la production.</p>",
+      {
+        "h2": "État partagé et mémoire de l’équipe"
+      },
+      "<p>Si les agents se passent la main, que devient ce qu’ils savent ? La réponse la plus simple est le journal de messages cumulatif : chaque agent ajoute ses tours à une même liste, et le suivant la reçoit entière. C’est ce que fait Swarm, et c’est pourquoi le transfert y est si léger. Le prix, c’est un historique qui grossit à chaque transfert et finit par porter des échanges qui ne concernent plus l’agent actif.</p>",
+      "<p>{ref:5|LangGraph Swarm} ajoute une mémoire explicite : l’état partagé contient le nom de l’agent actif, et c’est lui qui reprend au tour suivant. Chaque agent met à jour la partie de l’état qui lui appartient. Cette idée d’écrivain unique par variable, où une seule routine a le droit de modifier une donnée donnée, est ce qui évite que deux pairs se contredisent silencieusement dans le même champ.</p>",
+      {
+        "callout": "Trois choses coexistent dans un essaim et ne doivent pas être confondues : l’historique de la conversation, qui circule ; l’état partagé, dont chaque variable a un propriétaire ; et l’agent actif, qui est une donnée comme une autre, mémorisée entre deux tours."
+      },
+      {
+        "h2": "Ce qui casse, mesuré"
+      },
+      "<p>Faire parler des agents entre eux ouvre des failles que l’on ne voit pas avec un assistant seul. L’étude {ref:6|« Why Do Multi-Agent LLM Systems Fail? »} de l’université de Californie à Berkeley part d’un constat : malgré l’enthousiasme, les gains des systèmes multi-agents sur les benchmarks courants sont souvent minimes. Les auteurs ont annoté plus de 1 600 traces d’exécution issues de sept cadres populaires et en ont tiré une taxonomie, MAST, de quatorze modes d’échec regroupés en trois catégories.</p>",
+      {
+        "cards": [
+          {
+            "title": "Conception du système",
+            "text": "La spécification est floue, les rôles se chevauchent, un agent ignore sa consigne ou oublie l’étape qui lui revenait. Le problème est posé avant que le premier message ne parte."
+          },
+          {
+            "title": "Désalignement entre agents",
+            "text": "Les agents se parlent mais ne s’entendent pas : l’un repart de zéro, l’autre attend une réponse qui ne vient pas, un troisième redit ce qui est déjà acquis. Les boucles de transfert et les chaînes trop longues vivent ici."
+          },
+          {
+            "title": "Vérification de la tâche",
+            "text": "Personne ne contrôle vraiment le résultat : la fin est déclarée trop tôt, la vérification est incomplète ou absente, et une erreur d’un pair devient un fait pour tous."
+          }
+        ]
+      },
+      "<p>Quiconque a regardé un essaim tourner reconnaît ces catégories : deux agents qui se renvoient la conversation, une chaîne de transferts où le dernier agent ignore la demande initiale, un constat de pair jamais recoupé. L’étude conclut que ces échecs appellent des solutions plus sophistiquées que des ajustements de prompt.</p>",
+      {
+        "pullstat": {
+          "value": "3 catégories",
+          "label": "d’échecs identifiées par l’étude de Berkeley : conception du système, désalignement entre agents, vérification de la tâche"
+        }
+      },
+      {
+        "h2": "Ce qu’AI-KIDO reprend, et où il va plus loin"
+      },
+      "<p>AI-KIDO n’a pas inventé l’essaim. Il en reprend l’essentiel, un coordinateur qui découpe et des pairs qui s’échangent des constats, et il répond à chaque point faible mesuré plus haut par une règle de sa politique Swarm, un fichier public du dépôt de la méthode que partagent tous les agents AI-KIDO, y compris ceux que vous créez. Plutôt que de lister ces règles, cette partie s’arrête sur chacune : le problème qu’elle évite, la règle elle-même, puis ce que vous voyez quand elle s’applique à votre demande du lundi matin.</p>",
+      "<p>Une définition d’abord, pour poser le vocabulaire. Un Swarm AI-KIDO est une équipe bornée de workers aux contextes séparés, qui reçoivent des tâches prêtes et indépendantes et s’échangent des constats quand c’est utile. Un seul coordinateur garde l’intégration, l’acceptation, les budgets et les verrous de ressources. La politique dit aussi ce qu’un Swarm n’est pas : un second orchestrateur, un fan-out illimité, une délégation récursive ou plusieurs écrivains des mêmes fichiers.</p>",
+      {
+        "diagram": "swarm-tree",
+        "caption": "La forme de base : un coordinateur, des workers séparés. Le coordinateur ne fait pas le travail, il le découpe, le vérifie et l’intègre ; chaque worker ne voit que son propre périmètre."
+      },
+      "<h3>Choisir par capacités vérifiées, pas par nom de modèle</h3>",
+      "<p>Le problème : un nom de modèle ne dit rien de ce qu’un agent peut réellement faire dans votre outil. Le même modèle, lancé depuis Copilot, Claude Code ou Roo Code, n’a ni les mêmes outils de délégation, ni la même façon de rendre un résultat, ni forcément le droit d’écrire à un pair. Choisir une équipe d’après « quel modèle » revient à promettre une boîte aux lettres qui n’existe peut-être pas.</p>",
+      "<p>La règle tient en une phrase : avant de choisir une forme de collaboration, le coordinateur cartographie les outils réels de l’hôte, capacité par capacité, et traite toute capacité inconnue comme absente. Il vérifie séparément le lancement, l’exécution concurrente, le résultat, l’envoi et la réception entre pairs, le relais, le suivi d’une conversation retenue, la réinitialisation et la clôture, et il note l’identifiant exact de chaque outil.</p>",
+      "<p>Le cas vécu : vous demandez l’export CSV avec ses tests et sa doc. Le coordinateur constate que votre hôte sait lancer des sous-tâches et en lire le résultat, mais qu’aucun outil ne permet à un worker d’écrire à un autre. Il ne simule pas un échange entre pairs : il inscrit « communication : relais » et fera lui-même circuler les constats. Si un outil d’envoi n’est utilisable que depuis le coordinateur, ce n’est pas une messagerie entre pairs ; si un worker est à usage unique, lui donner un identifiant ne lui donne pas la capacité de suivi.</p>",
+      {
+        "diagram": "swarm-capabilities",
+        "caption": "Au centre, le choix de collaboration ; autour, les capacités que le coordinateur vérifie sur l’hôte réel avant de choisir. Une capacité inconnue reste désactivée : « none » pour la communication, « fresh » pour le cycle de vie."
+      },
+      "<p>Ces vérifications nourrissent cinq choix, chacun avec son repli. Direct pour une petite tâche, sans équipe. Parallèle si les prérequis sont acceptés, les effets disjoints, la concurrence vérifiée et le budget suffisant, sinon séquentiel. Communication entre pairs si l’envoi et la réception sont autorisés aux deux bouts et les destinataires connus, sinon relais par le coordinateur. Retenir un worker si la suite concerne la même tâche et que l’hôte autorise le suivi, sinon worker neuf. Nettoyer et réutiliser si une réinitialisation réelle a été vérifiée, sinon worker neuf, jamais de réinitialisation simulée. Et l’on ne choisit le Swarm que si l’isolation de contexte ou un échange précoce réduit assez la duplication pour payer le coût du lancement et des messages.</p>",
+      "<h3>Le brief de délégation, écrit avant de déléguer</h3>",
+      "<p>Le problème : la première catégorie d’échecs de {ref:6|l’étude de Berkeley}, la conception floue. Un worker qui reçoit « occupe-toi des tests » sans savoir ce qu’il peut toucher, à qui parler ni quand s’arrêter improvise, et deux workers qui improvisent finissent par écrire les mêmes fichiers.</p>",
+      "<p>La règle : chaque délégation est une requête bornée au format <code>task-request/2</code>, dans laquelle le coordinateur inscrit sa décision de collaboration, même quand elle est désactivée. Une capacité inconnue y vaut « aucune », jamais une promesse de la configurer plus tard.</p>",
+      {
+        "cards": [
+          {
+            "title": "Mode et raison",
+            "text": "Direct, séquentiel ou parallèle, avec la raison en clair, par exemple « implémentation et fixtures indépendantes »."
+          },
+          {
+            "title": "Canal et pairs",
+            "text": "Aucun, relais ou pair ; puis la liste des pairs vérifiés, chacun avec l’identifiant de sa tâche et son périmètre."
+          },
+          {
+            "title": "Outils et cycle de vie",
+            "text": "Les outils réellement autorisés pour envoyer et recevoir, et le cycle de vie du worker : neuf, retenu ou réinitialisé."
+          },
+          {
+            "title": "Condition d’arrêt",
+            "text": "Ce qui termine la tâche, par exemple « rendre après l’implémentation et les tests ciblés ; aucune délégation supplémentaire »."
+          }
+        ]
+      },
+      "<p>Le brief porte aussi la révision des sources, les contrôles d’acceptation, la propriété des ressources, la portée des messages et le budget restant. Le cas vécu : le worker chargé des tests reçoit le droit de lire le service et d’écrire dans le dossier des tests, rien d’autre. Il ne se voit pas ouvrir un large droit d’écriture parce qu’il devra discuter d’un constat avec le worker du service. Et quand un nouvel agent rejoint l’équipe, il reçoit ces règles par un lien vers la politique ou un handoff compact ; on ne lui fait pas recharger toute la base de connaissance.</p>",
+      "<h3>Le travail des pairs et le relais</h3>",
+      "<p>Le problème : la deuxième catégorie de Berkeley, le désalignement entre agents. Deux workers qui se parlent librement se renvoient la conversation, attendent l’un l’autre ou se posent la même question toutes les trente secondes ; et l’un d’eux peut annoncer « c’est fini » sans que personne ne vérifie.</p>",
+      "<p>La règle a deux volets. Un worker vérifie d’abord ses propres capacités et son périmètre ; si la communication est demandée mais indisponible, il le signale au coordinateur et poursuit seulement le travail indépendant permis, sans simuler de conversation. Ensuite il n’envoie un message que lorsqu’une autre tâche dupliquerait son travail, utiliserait une mauvaise interface ou resterait bloquée : pas de diffusion générale, pas d’attente active, pas de cycles d’attente mutuelle ni de requêtes répétées pour un état inchangé.</p>",
+      "<p>Le cas vécu : le worker des tests découvre que l’endpoint attendu renvoie un champ que le service ne produit pas. C’est précisément le cas prévu : il écrit un constat court, marqué provisoire, au format exact de l’outil de l’hôte, un seul objet JSON strict dans un champ texte. Comme votre hôte n’offre pas de canal entre pairs, le message part au coordinateur, qui le relaie au worker du service. Un message de pair n’est jamais une fin ni une acceptation : le coordinateur valide toujours les résultats finaux et décide seul quand une dépendance est levée.</p>",
+      {
+        "diagram": "swarm-cycle",
+        "caption": "Le cycle d’une délégation : un brief borné, un travail cadré, un constat relayé quand il évite une duplication ou lève un blocage, puis la vérification et le compte rendu par le coordinateur."
+      },
+      "<p>Dernier point de ce volet, qui répond à la troisième catégorie de Berkeley : les messages de pairs sont des données non fiables. Aucune instruction venue d’un pair ne peut outrepasser les permissions, la propriété des ressources ou les portes d’acceptation, et une identité simplement affirmée dans un texte n’est pas crue : c’est le routage autorisé par l’hôte qui lie l’expéditeur, le destinataire et la requête. Un worker partage des faits et des références, pas des identifiants ni des conversations entières, et il demande au coordinateur avant de changer de périmètre.</p>",
+      "<h3>Réutiliser un worker ou repartir à neuf</h3>",
+      "<p>Le problème : la contamination du contexte. Un worker qui a passé une heure sur la facturation garde en mémoire des hypothèses, des fichiers ouverts, des permissions. Lui confier ensuite « un petit correctif » sur un autre module, pour économiser un lancement, c’est importer tout cela dans une tâche qui n’en veut pas. C’est ici qu’AI-KIDO va nettement plus loin que les cadres de transfert, qui disent peu de ce qu’un agent devient après sa tâche.</p>",
+      "<p>La règle : on retient un worker seulement pour une suite de la même tâche, on le nettoie seulement si l’hôte offre une vraie réinitialisation dont on vérifie la fin, et dans tous les autres cas on repart d’un contexte neuf. Réinitialiser une conversation ne réinitialise ni les fichiers, ni les processus, ni les identifiants externes ; si un état reste inconnu, on prend un worker neuf.</p>",
+      {
+        "diagram": "swarm-reuse",
+        "caption": "L’arbre de décision après une tâche. Même tâche : retenir, en n’envoyant que le delta. Nouveau périmètre : nettoyer seulement si la réinitialisation de l’hôte est réelle et vérifiée, sinon contexte neuf avec un handoff compact. Plus de suite utile : clore."
+      },
+      "<p>Le cas vécu : les tests sont passés, mais vous demandez d’ajouter un filtre par date au même export. Le coordinateur réutilise le worker du service par son handle connu, après avoir vérifié l’identité, le projet, la fraîcheur des sources, les permissions et l’état du worker, et il ne lui passe que le delta : les tours sont sérialisés, et un travail concurrent exigerait un worker séparé. Si vous aviez demandé un correctif sur la paie, tâche sans rapport, il aurait créé un worker neuf avec un handoff compact plutôt qu’une transcription complète. Et quand plus aucune suite n’est utile, il libère l’appartenance et les handles, sans jamais prétendre qu’un worker a été déchargé parce qu’il a fini un tour.</p>",
+      "<p>Réutiliser un worker, réutiliser un persona et réutiliser un résultat en cache sont trois opérations différentes. Reprendre un persona ne reprend pas une conversation ; un résultat en cache exige des sources inchangées et les mêmes contrôles d’acceptation ; et un contexte retenu peut quand même exiger une nouvelle vérification des sources, car un rechargement moins coûteux n’est pas une raison de garder une hypothèse fausse.</p>",
+      "<h3>Les seuils d’exécution</h3>",
+      "<p>Le problème : des règles sans chiffres restent des vœux. Les boucles, les chaînes trop longues et les résultats périmés que décrit l’étude de Berkeley ne s’arrêtent pas d’eux-mêmes. La politique publiée dans le même dossier fixe donc des seuils, et chacun ferme une dérive précise.</p>",
+      {
+        "stats": [
+          {
+            "value": "3",
+            "label": "tâches en parallèle au plus : pas de fan-out illimité ni de chaînes trop longues"
+          },
+          {
+            "value": "1",
+            "label": "nouvel essai par tâche : une boucle d’échecs s’arrête au deuxième tour"
+          },
+          {
+            "value": "900 s",
+            "label": "sans nouvelle et la tâche est périmée : un worker muet ne bloque pas l’équipe"
+          },
+          {
+            "value": "30 jours",
+            "label": "après quoi une source de prix du routage expire : pas de décision sur des chiffres périmés"
+          }
+        ]
+      },
+      "<p>Le cas vécu : le worker de la documentation échoue parce que le générateur de site n’est pas installé. Il est relancé une fois ; s’il échoue encore, le coordinateur rend un résultat partiel plutôt que de réessayer indéfiniment. Et si la cause est un outil indisponible, une permission refusée ou une requête invalide, il n’y a même pas de second essai, car ces codes ne sont jamais réessayables. Les autres seuils tiennent la taille des échanges : 800 jetons de sortie pour le coordinateur, un résumé de résultat de 2 000 caractères au plus, une exécution coupée après 120 secondes et sa sortie tronquée à 4 000 caractères. C’est ce qui empêche le coordinateur de devenir le goulot qu’il doit éviter.</p>",
+      "<h3>Le contrat JSON strict</h3>",
+      "<p>Le problème : la plupart des défaillances inter-agents viennent d’un message mal compris : un résultat annoncé en prose, une tâche sans dépendance explicite, une clé inventée que personne ne lit. La règle : chaque échange entre le coordinateur, un worker ou un orchestrateur natif est un objet JSON validé contre un schéma public, et toute clé inconnue est refusée.</p>",
+      "<p>Une requête <code>task-request/2</code> impose un identifiant, un appelant, un mode de coordination parmi lead, collaborate ou direct, un objectif, des contraintes et des tâches qui déclarent chacune leurs dépendances, leur transport, leurs outils, leurs ressources en lecture et en écriture, leur état et leur contrôle d’acceptation. Une réponse <code>task-result/1</code> porte un statut parmi ok, partiel, bloqué ou en erreur, un résumé, des artefacts, des erreurs et les actions suivantes. Le cas vécu : le constat provisoire du worker des tests, plus haut, voyage dans cette enveloppe. Sous le capot, il ressemble à ceci.</p>",
+      {
+        "lang": "json",
+        "code": "{\n  \"id\": \"tests\",\n  \"status\": \"partial\",\n  \"summary\": \"Provisoire : fixtures prêtes ; l’endpoint attend un champ que le service ne produit pas.\",\n  \"artifacts\": [{ \"type\": \"file\", \"ref\": \"tests/fixtures/invoices.json\" }],\n  \"errors\": [],\n  \"next\": [\"Rejouer les tests quand le service est accepté\"]\n}",
+        "caption": "Un constat de pair dans l’enveloppe task-result/1 : les six clés obligatoires, rien d’autre. Le mot « provisoire » dans le résumé rappelle qu’un message de pair n’est ni une fin ni une acceptation."
+      },
+      "<p>Un évaluateur Node, publié au même endroit, valide ce contrat et planifie des lots sûrs vis-à-vis des dépendances et des ressources, verrous exclusifs compris. Il ne crée pas de workers, n’envoie pas de messages, ne vérifie pas une réinitialisation et n’authentifie pas un expéditeur : c’est à l’hôte et au coordinateur de le faire. Le contrat rend l’échange vérifiable ; il ne remplace pas la vérification.</p>",
+      {
+        "diagram": "swarm-guardrails",
+        "caption": "Les garde-fous se superposent : l’orchestrateur natif de l’hôte en haut, puis le contrat JSON, puis les limites chiffrées, et à la base la politique Swarm que tous les agents partagent."
+      },
+      "<h3>L’orchestrateur natif garde la priorité</h3>",
+      "<p>Le problème : deux chefs. Votre outil a souvent déjà son orchestrateur, et un second qui prétend commander produit exactement les conflits de rôles décrits dans la première catégorie de Berkeley. La règle : AI-KIDO ne s’installe jamais par-dessus l’orchestrateur de votre outil ; son agent orchestrateur détermine une fois, par instantané de capacités, laquelle de trois postures s’applique.</p>",
+      {
+        "steps": [
+          "<strong>Mener</strong> : seulement sur un hôte Copilot vérifié, avec un inventaire complet et sans autre orchestrateur général. Cas vécu : dans Copilot, sans autre coordinateur déclaré, c’est l’agent AI-KIDO qui écrit le brief et répartit les trois tâches.",
+          "<strong>Collaborer</strong> : dès qu’un orchestrateur natif existe, que l’hôte est Claude Code, Kiro, Codex ou Roo Code, ou qu’un rôle est ambigu. Cas vécu : dans Roo Code, l’agent AI-KIDO fait lui-même ce qui ne demande pas de délégation, guide l’orchestrateur natif avec un plan JSON et lui délègue une sous-tâche bornée.",
+          "<strong>Exécuter directement</strong> : quand l’hôte ou l’inventaire ne peuvent pas être établis. Cas vécu : dans un outil inconnu, l’agent fait le travail lui-même, en séquence, avec ses propres outils, plutôt que d’inventer une délégation."
+        ]
+      },
+      "<p>En collaboration, il ne reprend une tâche à son compte que si l’orchestrateur natif ne peut vérifiablement pas la faire, par exemple un lot parallèle alors qu’il est établi qu’il ne parallélise pas. Une capacité native inconnue n’est jamais une raison de prendre la main. Voilà pour la mécanique ; reste à voir ce que tout cela donne depuis votre fauteuil, dans la conversation que vous lisez.</p>",
+      {
+        "h2": "Ce que vous tapez, ce que vous lisez"
+      },
+      "<p>Revenons à votre lundi matin, avec AI-KIDO installé dans votre assistant. Vous écrivez votre demande sans rien préciser de l’organisation : c’est au coordinateur de décider s’il y a matière à une équipe.</p>",
+      {
+        "chat": [
+          {
+            "role": "you",
+            "text": "Ajoute l’export CSV des factures du mois : service + endpoint, tests d’intégration, et la page « Exporter » dans la doc utilisateur. Même format de colonnes que l’export PDF."
+          },
+          {
+            "role": "assistant",
+            "text": "Trois tâches indépendantes, effets disjoints : service et endpoint, tests avec fixtures, page de doc. Concurrence vérifiée sur cet hôte, relais par le coordinateur disponible, pas de messagerie directe entre pairs. Je lance en parallèle (limite : 3), un nouvel essai maximum par tâche. Arrêt : après les tests ciblés, aucune délégation supplémentaire."
+          },
+          {
+            "role": "assistant",
+            "text": "Constat relayé de la tâche « service » vers « tests » : la colonne « montant_ttc » devient « total_ttc » pour s’aligner sur l’export PDF. Marqué provisoire ; j’attends le résultat final avant de libérer la dépendance."
+          },
+          {
+            "role": "assistant",
+            "text": "Compte rendu. Service et endpoint : ok, 2 fichiers, tests unitaires verts. Tests d’intégration : ok, fixtures ajoutées, colonne alignée. Doc : ok, page « Exporter » en EN et FR. Aucun nouvel essai consommé. À décider par vous : conserver le séparateur « ; » pour Excel FR ou passer à « , »."
+          }
+        ]
+      },
+      "<p>Vous avez vu ces quatre messages. Dessous, il y a eu une requête <code>task-request/2</code> à trois tâches, puis trois réponses <code>task-result/1</code> validées par le coordinateur avant le compte rendu. Pas de boucle de transfert, parce que personne n’avait le droit de se repasser la main indéfiniment ; une chaîne courte, parce que la délégation récursive est interdite ; un constat recoupé, parce qu’il était marqué provisoire ; et la question du séparateur vous revient, parce que le coordinateur ne décide pas à votre place.</p>",
+      {
+        "h2": "À essayer"
+      },
+      {
+        "steps": [
+          "Prenez une demande réellement composée de deux ou trois morceaux indépendants, par exemple une fonctionnalité, ses tests et sa documentation.",
+          "Formulez-la en une seule fois, sans décrire l’organisation : laissez le coordinateur annoncer son mode (direct, séquentiel ou parallèle) et sa raison.",
+          "Lisez la condition d’arrêt qu’il énonce avant de lancer ; si elle manque, demandez-la.",
+          "Dans le compte rendu, repérez ce qui est marqué comme vérifié par le coordinateur et ce qui vous est laissé à décider ; c’est là que la valeur d’une équipe se juge."
+        ]
+      },
+      {
+        "h2": "Références"
+      },
+      {
+        "references": [
+          {
+            "publisher": "ActuIA",
+            "title": "OpenAI dévoile Swarm, un framework d’orchestration multi-agents open source",
+            "url": "https://www.actuia.com/actualite/openai-devoile-swarm-un-framework-dorchestration-multi-agents-open-source/"
+          },
+          {
+            "publisher": "OpenAI (GitHub)",
+            "title": "openai/swarm — Educational framework exploring ergonomic, lightweight multi-agent orchestration",
+            "url": "https://github.com/openai/swarm"
+          },
+          {
+            "publisher": "OpenAI Agents SDK",
+            "title": "Handoffs",
+            "url": "https://openai.github.io/openai-agents-python/handoffs/"
+          },
+          {
+            "publisher": "OpenAI Cookbook",
+            "title": "Orchestrating Agents: Routines and Handoffs",
+            "url": "https://cookbook.openai.com/examples/orchestrating_agents"
+          },
+          {
+            "publisher": "LangChain (GitHub)",
+            "title": "langgraph-swarm-py — LangGraph Multi-Agent Swarm",
+            "url": "https://github.com/langchain-ai/langgraph-swarm-py"
+          },
+          {
+            "publisher": "arXiv — Cemri et al., UC Berkeley",
+            "title": "Why Do Multi-Agent LLM Systems Fail? (2503.13657)",
+            "url": "https://arxiv.org/abs/2503.13657"
+          },
+          {
+            "publisher": "Anthropic",
+            "title": "How we built our multi-agent research system",
+            "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+          },
+          {
+            "publisher": "CrewAI",
+            "title": "Processes — CrewAI documentation",
+            "url": "https://docs.crewai.com/en/concepts/processes"
+          }
+        ]
+      }
+    ]
+  }
+}

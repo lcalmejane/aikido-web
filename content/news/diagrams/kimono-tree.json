@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "kimono-tree",
+  "type": "tree",
+  "title": {
+    "en": "The shape of a project",
+    "fr": "La forme d’un projet"
+  },
+  "desc": {
+    "en": "A tree: the project root holds the prompts folder, which holds the hard points and the project Truth Tables; the source folder sits beside it.",
+    "fr": "Un arbre : la racine du projet contient le dossier prompts, qui contient les hard points et les Truth Tables du projet ; le dossier source est à côté."
+  },
+  "nodes": [
+    {
+      "label": {
+        "en": "Project root",
+        "fr": "Racine du projet"
+      },
+      "depth": 0
+    },
+    {
+      "label": {
+        "en": "prompts/",
+        "fr": "prompts/"
+      },
+      "depth": 1,
+      "note": {
+        "en": "the Memory Bank",
+        "fr": "la Memory Bank"
+      }
+    },
+    {
+      "label": {
+        "en": "hard_points/",
+        "fr": "hard_points/"
+      },
+      "depth": 2,
+      "note": {
+        "en": "the method",
+        "fr": "la méthode"
+      }
+    },
+    {
+      "label": {
+        "en": "gen/",
+        "fr": "gen/"
+      },
+      "depth": 2,
+      "note": {
+        "en": "the project Truth Tables",
+        "fr": "les Truth Tables du projet"
+      }
+    },
+    {
+      "label": {
+        "en": "src/",
+        "fr": "src/"
+      },
+      "depth": 1,
+      "note": {
+        "en": "the code",
+        "fr": "le code"
+      }
+    }
+  ]
+}

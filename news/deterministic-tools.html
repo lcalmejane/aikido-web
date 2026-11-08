@@ -33,8 +33,10 @@
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="../assets/js/theme.js?v=1"></script>
   <link rel="stylesheet" href="../assets/css/home.css?v=10">
-  <link rel="stylesheet" href="../assets/css/inner.css?v=9">
+  <link rel="stylesheet" href="../assets/css/inner.css?v=10">
+  <link rel="stylesheet" href="../assets/css/news-layouts.css?v=3">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Let scripts do what a script can do exactly","description":"A model understands, chooses and explains; a script runs the exact steps. Two real runs show what that buys you: the same plan twice, and a site build that rewrites nothing.","datePublished":"2026-11-07","inLanguage":"en","mainEntityOfPage":"https://www.ai-kido.fr/news/deterministic-tools.html","image":"https://www.ai-kido.fr/assets/images/news/deterministic-tools.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
+  <script src="../assets/js/news-navigation.js?v=1" defer></script>
 </head>
 <body class="inner">
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -76,19 +78,27 @@
     </header>
 
   <main id="top">
-    <article class="news-article">
+    <article class="news-article nl-magazine hero-wide w-wide acc-navy lead-large h2-ruled dropcap title-normal meta-inline body-prose rail-toc-cta">
       <div class="container">
         <p class="back"><a href="../news.html">← All news</a></p>
-        <p class="news-meta"><span class="tag">Method</span><time datetime="2026-11-07">7 November 2026</time></p>
-        <h1>Let scripts do what a script can do exactly</h1>
-        <p class="lead">A model understands, chooses and explains; a script runs the exact steps. Two real runs show what that buys you: the same plan twice, and a site build that rewrites nothing.</p>
+        <header class="article-head">
+          <p class="news-meta"><span class="tag">Method</span><time datetime="2026-11-07">7 November 2026</time></p>
+          <h1>Let scripts do what a script can do exactly</h1>
+          <p class="lead">A model understands, chooses and explains; a script runs the exact steps. Two real runs show what that buys you: the same plan twice, and a site build that rewrites nothing.</p>
+        </header>
         <img class="article-hero" src="../assets/images/news/deterministic-tools.webp" alt="Kido, the small robot in a karate gi, slides golden beads on a wooden abacus on a low table, with an open notebook and a pocket watch beside it and a garden behind" width="960" height="576" decoding="async">
-        <div class="article-body">
+        <div class="article-grid">
+          <div class="article-mobile-tools">
+          <details name="article-tools"><summary>In this article</summary><nav class="article-toc" aria-label="In this article"><strong>In this article</strong><ol><li><a href="#the-idea-in-one-picture">The idea in one picture</a></li><li><a href="#what-you-see-the-same-plan-twice">What you see: the same plan twice</a></li><li><a href="#what-you-see-a-site-that-rewrites-nothing">What you see: a site that rewrites nothing</a></li><li><a href="#try-it">Try it</a></li></ol></nav></details>
+          <details name="article-tools"><summary>Try AI-KIDO</summary><aside class="article-cta" aria-label="Try AI-KIDO"><strong>Try AI-KIDO</strong><p>Install the Memory Bank in one command and let your assistant read it.</p><a class="cta-btn" href="../install.html">Install</a></aside></details>
+        </div>
+          <nav class="article-toc" aria-label="In this article"><strong>In this article</strong><ol><li><a href="#the-idea-in-one-picture">The idea in one picture</a></li><li><a href="#what-you-see-the-same-plan-twice">What you see: the same plan twice</a></li><li><a href="#what-you-see-a-site-that-rewrites-nothing">What you see: a site that rewrites nothing</a></li><li><a href="#try-it">Try it</a></li></ol></nav><aside class="article-cta" aria-label="Try AI-KIDO"><strong>Try AI-KIDO</strong><p>Install the Memory Bank in one command and let your assistant read it.</p><a class="cta-btn" href="../install.html">Install</a></aside>
+          <div class="article-body">
           <p>Ask a model to list the 170 files an installation would create, and you will get an answer that looks right. Ask it again tomorrow, and the answer may differ. Nothing is wrong with the model: counting and listing are simply not what it is for.</p>
         <h2 id="the-idea-in-one-picture">The idea in one picture</h2>
         <p>A harness is more than prompts. The most reliable ones hand every exact, repeatable step to a deterministic tool, and keep the model for what only a model can do: understand the request, choose among options, and explain the result. Between them sits a document you can read, usually a plan in JSON.</p>
-        <figure class="article-figure">
-          <img src="../assets/images/news/deterministic-flow-en.svg" alt="Diagram in four steps: the model understands, chooses and explains; the script runs the exact steps; a JSON plan gives the same input the same planId; you approve this exact plan, then it is applied" width="900" height="210" loading="lazy" decoding="async">
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-flow dg-animated" viewBox="0 0 360 293" role="img" aria-label="Four steps: the model understands and chooses, the script runs the exact steps, a readable plan is reviewed, then it is applied." focusable="false"><title>Who does what</title><g class="dg-node " style="--i:0"><rect class="dg-box" x="20" y="12" width="320" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="30.5" text-anchor="middle"><tspan x="180" dy="0">The model understands and chooses</tspan></text><text class="dg-s" x="180" y="50.5" text-anchor="middle"><tspan x="180" dy="0">what only a model can do</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="180" y1="66" x2="180" y2="85"/><path class="dg-head" d="M175 82 L180 90 L185 82 Z"/></g><g class="dg-node " style="--i:1"><rect class="dg-box" x="20" y="90" width="320" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="108.5" text-anchor="middle"><tspan x="180" dy="0">The script runs the exact steps</tspan></text><text class="dg-s" x="180" y="128.5" text-anchor="middle"><tspan x="180" dy="0">same input, same result</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="180" y1="144" x2="180" y2="163"/><path class="dg-head" d="M175 160 L180 168 L185 160 Z"/></g><g class="dg-node " style="--i:2"><rect class="dg-box" x="20" y="168" width="320" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="186.5" text-anchor="middle"><tspan x="180" dy="0">A readable plan</tspan></text><text class="dg-s" x="180" y="206.5" text-anchor="middle"><tspan x="180" dy="0">reviewed before anything is written</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="180" y1="222" x2="180" y2="241"/><path class="dg-head" d="M175 238 L180 246 L185 238 Z"/></g><g class="dg-node dg-accent" style="--i:3"><rect class="dg-box" x="20" y="246" width="320" height="35" rx="10"/><text class="dg-t" x="180" y="268.5" text-anchor="middle"><tspan x="180" dy="0">Applied</tspan></text></g></svg>
           <figcaption>The model decides, the script executes, the plan is reviewed before anything is written.</figcaption>
         </figure>
         <h2 id="what-you-see-the-same-plan-twice">What you see: the same plan twice</h2>
@@ -139,7 +149,9 @@ node --test scripts/</code></pre>
           <li>Let the model read that result, decide, and explain. The four principles are on the <a href="../harness.html">harness creation page</a>.</li>
         </ol>
         </div>
+        </div>
         <nav class="article-nav" aria-label="News">
+          <a class="newer" href="task-store.html" rel="next">← Newer : Task Store: the evening my request became a card</a>
           <a class="older" href="kimono-structure.html" rel="prev">Older : Kimono 0.9.6: see the shape of a project before searching it →</a>
         </nav>
       </div>

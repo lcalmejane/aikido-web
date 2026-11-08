@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "classic",
+  "name": {
+    "en": "Classic",
+    "fr": "Classique"
+  },
+  "description": {
+    "en": "Wide hero, narrow column, understated.",
+    "fr": "Image large en tête, colonne étroite, sobriété."
+  },
+  "hero": "wide",
+  "width": "narrow",
+  "accent": "terra",
+  "lead": "serif",
+  "h2": "plain",
+  "toc": false,
+  "dropcap": false
+}

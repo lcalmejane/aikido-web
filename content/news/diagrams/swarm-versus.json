@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "swarm-versus",
+  "type": "versus",
+  "title": {"en": "Central supervisor or peer swarm", "fr": "Superviseur central ou essaim de pairs"},
+  "desc": {"en": "Two columns. Left, a central supervisor: one agent receives every answer, decides who speaks next and holds the whole context. Right, a peer swarm: each agent can hand the conversation to a colleague, the active agent changes, the history is shared.", "fr": "Deux colonnes. À gauche, un superviseur central : un seul agent reçoit toutes les réponses, décide qui parle ensuite et porte tout le contexte. À droite, un essaim de pairs : chaque agent peut passer la main à un collègue, l’agent actif change, l’historique est partagé."},
+  "left": {
+    "title": {"en": "Central supervisor", "fr": "Superviseur central"},
+    "items": [
+      {"en": "Every answer goes back up", "fr": "Chaque réponse remonte"},
+      {"en": "One context grows", "fr": "Un seul contexte grossit"},
+      {"en": "Routing decided above", "fr": "Routage décidé en haut"},
+      {"en": "Easy to audit", "fr": "Facile à auditer"}
+    ]
+  },
+  "right": {
+    "title": {"en": "Peer swarm", "fr": "Essaim de pairs"},
+    "items": [
+      {"en": "Peer-to-peer handoff", "fr": "Transfert pair à pair"},
+      {"en": "Active agent changes", "fr": "L’agent actif change"},
+      {"en": "Routing chosen by the agent", "fr": "Routage choisi par l’agent"},
+      {"en": "Needs explicit limits", "fr": "Exige des limites explicites"}
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "guide",
+  "name": {
+    "en": "Guide",
+    "fr": "Guide"
+  },
+  "description": {
+    "en": "Side image, wide column, contents.",
+    "fr": "Image à gauche, colonne large, sommaire."
+  },
+  "hero": "left",
+  "width": "wide",
+  "accent": "forest",
+  "lead": "plain",
+  "h2": "numbered",
+  "toc": true,
+  "dropcap": false
+}

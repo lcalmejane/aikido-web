@@ -1,0 +1,254 @@
+{
+  "slug": "local-designer",
+  "nature": "guide",
+  "domains": ["design"],
+  "date": "2026-11-08",
+  "tag": {
+    "en": "Tools",
+    "fr": "Outils"
+  },
+  "image": "hero-local-designer",
+  "layout": "reportage",
+  "en": {
+    "title": "Local Designer: validate the look before your agent draws anything",
+    "summary": "A skill that gives your agents an art director: a brief, a mood board, a lock until you validate a direction, then local renders in the identity you chose.",
+    "body": [
+      "<p>Ask an agent for five images without a direction and you get five different looks. Local Designer adds a decision step before the first render and keeps it, so the whole project speaks with one visual voice.</p>",
+      {
+        "h2": "The idea in one picture"
+      },
+      {
+        "diagram": "designer-bars",
+        "caption": "What the skill puts in your hands, counted. The styles are the biggest block."
+      },
+      "<p>The skill turns a brief into a mood board, waits for your validation, then renders images on your machine with Draw Things. The charter, the mood boards and the UI kit live in one design folder that you can version with your project.</p>",
+      {
+        "h2": "From brief to final render"
+      },
+      {
+        "timeline": [
+          {
+            "when": "Brief",
+            "text": "A structured brief captures the message, audience, uses, palette, fonts and what to avoid."
+          },
+          {
+            "when": "Mood board",
+            "text": "Three directions are shown on the same scenes, with palette, typography and what each one rules out."
+          },
+          {
+            "when": "Validation",
+            "text": "Generation refuses to run until a direction is validated or the charter is active. The decision and the validator’s name are recorded."
+          },
+          {
+            "when": "Render",
+            "text": "Quick drafts first, then a contact sheet kept outside Git, then the final image. Seed and prompt are saved so any image can be reproduced."
+          }
+        ]
+      },
+      {
+        "h2": "What you see at each step"
+      },
+      "<p>You open the mood board in your browser and the first thing you read is your own brief, summarised: the message, the audience, the uses and the format. Under it comes the direction that was validated, shown on real scenes rather than described in words.</p>",
+      {
+        "figure": "ld-moodboard-brief",
+        "alt": "Screenshot of a mood board page: a summary of the validated brief (positioning, message, audience, uses, format), then the validated direction with four scenes of people and the Kido robot in a sunlit dojo.",
+        "caption": "You open the mood board: the validated brief on top, the chosen direction with its four scenes below. Example project: the AI-KIDO site."
+      },
+      "<p>Before that, you had been shown three directions on the same four scenes. You scroll through A, B and C, compare the lighting, the backdrop and the mood, and answer with a letter and a remark such as “A, but fewer shadows”. Nothing is rendered until you do.</p>",
+      {
+        "figure": "ld-moodboard-directions",
+        "alt": "Three stacked mood board cards labelled A, B and C. Each shows four renders of the Kido robot on the same scenes (home hero, reading, guard stance, garden) in a different direction: plain dojo, studio backdrop, photographic dojo.",
+        "caption": "You scroll through three directions on identical scenes (home hero, reading, guard stance, garden) and pick one by its letter."
+      },
+      "<p>Then you choose how the final images are drawn. The skill ships with 29 render styles, each with a thumbnail, so you point at a look instead of describing it: watercolor, flat vector, line art, isometric, riso, technical blueprint.</p>",
+      {
+        "figure": "ld-style-thumbs",
+        "alt": "Six render style thumbnails in two rows: watercolor, flat vector and line art lighthouses on top; an isometric cloud setup, a two-colour riso sunrise and a technical blueprint of robot arms below.",
+        "caption": "You pick a render style by its thumbnail; six of the 29 are shown here."
+      },
+      "<p>For the interface, the UI kit comparison page puts five personalities side by side on the same screen and the same brand colours. You look at corners, shadows and density, then decide with one command, <code>uikit decide A</code>. Here the soft variant A is the one kept.</p>",
+      {
+        "figure": "ld-uikit-personalities",
+        "alt": "Screenshot of the UI kit comparison page: the five-track header, then variants A (Soft, marked as chosen) and B (Sharp) showing the same colour and typography cards with different corner radii and shadows.",
+        "caption": "You compare UI kit personalities on the same screen; variant A (Soft) is marked as chosen, variant B (Sharp) is shown beside it."
+      },
+      "<p>When the mascot is part of the project, you also get a character sheet to keep every image consistent: the same robot seen from the front, three-quarter, side and back.</p>",
+      {
+        "figure": "ld-kido-sheet",
+        "alt": "Character sheet of Kido in four views side by side: front, three-quarter, side and back, a small white robot with cyan eyes in a cream karate uniform.",
+        "caption": "The character sheet of Kido, from the project design folder: four views that later renders must match."
+      },
+      {
+        "h2": "Every image is read"
+      },
+      "<p>An image analyst agent checks each result for defects, text and likeness to a reference before you see it. It uses a local vision model if you set one, otherwise your current model. A reader can still miss defects, so “ok” is not a guarantee.</p>",
+      {
+        "pullstat": {
+          "value": "29",
+          "label": "render styles, each with its own thumbnail"
+        }
+      },
+      {
+        "h2": "What it does not do"
+      },
+      {
+        "compare": {
+          "left": {
+            "title": "Works without an image engine",
+            "items": [
+              "The brief",
+              "The mood board, without trial renders",
+              "Style browsing",
+              "The UI kit",
+              "Image analysis"
+            ]
+          },
+          "right": {
+            "title": "Needs Draw Things on a Mac",
+            "items": [
+              "Draft renders",
+              "Tuning sweeps",
+              "The final render"
+            ]
+          }
+        }
+      },
+      {
+        "callout": "Local mode is the verified path. Sending anything outside your machine requires your agreement. Image models sometimes ignore instructions, so check text, hands and faces.",
+        "title": "To remember"
+      },
+      {
+        "h2": "Try it"
+      },
+      {
+        "steps": [
+          "Install the skill with the skills manager: <code>/skill-manage get --skill local-designer</code>.",
+          "In Draw Things, enable the API server: gRPC on port 7859 (recommended) or HTTP on port 7860.",
+          "Run the status command to see the model in use and whether the target is local or remote.",
+          "Write a short brief, compare the three directions, validate one, then ask for your first image."
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "title": "Local Designer : validez le style avant que votre agent ne dessine quoi que ce soit",
+    "summary": "Une compétence qui donne un directeur artistique à vos agents : un brief, une planche d’ambiance, un verrou tant que vous n’avez pas validé une direction, puis des rendus locaux dans l’identité choisie.",
+    "body": [
+      "<p>Demandez cinq images à un agent sans direction et vous obtenez cinq styles différents. Local Designer ajoute une étape de décision avant le premier rendu et la conserve, pour que tout le projet parle d’une seule voix visuelle.</p>",
+      {
+        "h2": "L’idée en une image"
+      },
+      {
+        "diagram": "designer-bars",
+        "caption": "Ce que la compétence met entre vos mains, chiffré. Les styles en sont le plus gros bloc."
+      },
+      "<p>La compétence transforme un brief en planche d’ambiance, attend votre validation, puis produit les images sur votre machine avec Draw Things. La charte, les planches d’ambiance et le kit d’interface vivent dans un seul dossier de design que vous pouvez versionner avec votre projet.</p>",
+      {
+        "h2": "Du brief au rendu final"
+      },
+      {
+        "timeline": [
+          {
+            "when": "Brief",
+            "text": "Un brief structuré fixe le message, le public, les usages, la palette, les polices et ce qu’il faut éviter."
+          },
+          {
+            "when": "Planche d’ambiance",
+            "text": "Trois directions sont montrées sur les mêmes scènes, avec palette, typographie et ce que chacune exclut."
+          },
+          {
+            "when": "Validation",
+            "text": "La génération refuse de tourner tant qu’une direction n’est pas validée ou que la charte n’est pas active. La décision et le nom du valideur sont enregistrés."
+          },
+          {
+            "when": "Rendu",
+            "text": "D’abord des brouillons rapides, puis une planche-contact gardée hors de Git, puis l’image finale. La graine et le prompt sont sauvegardés pour pouvoir reproduire toute image."
+          }
+        ]
+      },
+      {
+        "h2": "Ce que vous voyez à chaque étape"
+      },
+      "<p>Vous ouvrez la planche d’ambiance dans votre navigateur et la première chose que vous lisez est votre propre brief, résumé : le message, le public, les usages et le format. En dessous vient la direction validée, montrée sur de vraies scènes plutôt que décrite avec des mots.</p>",
+      {
+        "figure": "ld-moodboard-brief",
+        "alt": "Capture d’une page de planche d’ambiance : le résumé du brief validé (positionnement, message, cible, usages, format), puis la piste validée avec quatre mises en situation de personnes et du robot Kido dans un dojo ensoleillé.",
+        "caption": "Vous ouvrez la planche d’ambiance : le brief validé en haut, la direction choisie et ses quatre scènes en dessous. Projet d’exemple : le site AI-KIDO."
+      },
+      "<p>Avant cela, on vous avait montré trois directions sur les quatre mêmes scènes. Vous faites défiler A, B et C, vous comparez la lumière, le décor et l’ambiance, puis vous répondez par une lettre et une remarque du type « A, mais moins d’ombres ». Rien n’est dessiné tant que vous ne l’avez pas fait.</p>",
+      {
+        "figure": "ld-moodboard-directions",
+        "alt": "Trois cartes de planche d’ambiance empilées, étiquetées A, B et C. Chacune montre quatre rendus du robot Kido sur les mêmes scènes (accueil, lecture, garde, jardin) dans une direction différente : dojo simple, fond de studio, dojo photographique.",
+        "caption": "Vous faites défiler trois directions sur des scènes identiques (accueil, lecture, garde, jardin) et en choisissez une par sa lettre."
+      },
+      "<p>Ensuite, vous choisissez la manière dont les images finales sont dessinées. La compétence fournit 29 styles de rendu, chacun avec sa vignette : vous montrez un rendu du doigt au lieu de le décrire. Aquarelle, vecteur plat, trait, isométrique, risographie, plan technique.</p>",
+      {
+        "figure": "ld-style-thumbs",
+        "alt": "Six vignettes de styles de rendu sur deux rangées : phares en aquarelle, vecteur plat et trait en haut ; une installation cloud isométrique, un lever de soleil risographie en deux couleurs et un plan technique de bras de robot en bas.",
+        "caption": "Vous choisissez un style de rendu grâce à sa vignette ; six des 29 sont montrés ici."
+      },
+      "<p>Pour l’interface, la page de comparaison du kit d’interface place cinq personnalités côte à côte, sur le même écran et avec les mêmes couleurs de marque. Vous regardez les angles, les ombres et la densité, puis vous décidez avec une seule commande, <code>uikit decide A</code>. Ici, la variante douce A est celle qui est retenue.</p>",
+      {
+        "figure": "ld-uikit-personalities",
+        "alt": "Capture de la page de comparaison du kit d’interface : l’en-tête des cinq pistes, puis les variantes A (Doux, marquée retenue) et B (Net) qui montrent les mêmes cartes de couleurs et de typographie avec des angles et des ombres différents.",
+        "caption": "Vous comparez les personnalités du kit d’interface sur un même écran ; la variante A (Doux) est marquée retenue, la variante B (Net) est affichée à côté."
+      },
+      "<p>Quand une mascotte fait partie du projet, vous obtenez aussi une fiche personnage pour garder toutes les images cohérentes : le même robot vu de face, de trois quarts, de profil et de dos.</p>",
+      {
+        "figure": "ld-kido-sheet",
+        "alt": "Fiche personnage de Kido en quatre vues côte à côte : face, trois quarts, profil et dos, un petit robot blanc aux yeux cyan en kimono crème.",
+        "caption": "La fiche personnage de Kido, issue du dossier de design du projet : quatre vues que les rendus suivants doivent respecter."
+      },
+      {
+        "h2": "Chaque image est lue"
+      },
+      "<p>Un agent analyste d’images vérifie chaque résultat : défauts, texte, ressemblance à une référence, avant que vous ne le voyiez. Il utilise un modèle de vision local si vous en définissez un, sinon votre modèle courant. Un lecteur peut manquer des défauts : « ok » n’est donc pas une garantie.</p>",
+      {
+        "pullstat": {
+          "value": "29",
+          "label": "styles de rendu, chacun avec sa vignette"
+        }
+      },
+      {
+        "h2": "Ce qu’elle ne fait pas"
+      },
+      {
+        "compare": {
+          "left": {
+            "title": "Fonctionne sans moteur d’images",
+            "items": [
+              "Le brief",
+              "La planche d’ambiance, sans rendus d’essai",
+              "La navigation dans les styles",
+              "Le kit d’interface",
+              "L’analyse d’images"
+            ]
+          },
+          "right": {
+            "title": "Demande Draw Things sur Mac",
+            "items": [
+              "Les brouillons",
+              "Les balayages de réglages",
+              "Le rendu final"
+            ]
+          }
+        }
+      },
+      {
+        "callout": "Le mode local est le chemin vérifié. Envoyer quoi que ce soit hors de votre machine demande votre accord. Les modèles d’images ignorent parfois les consignes : vérifiez le texte, les mains et les visages.",
+        "title": "À retenir"
+      },
+      {
+        "h2": "À essayer"
+      },
+      {
+        "steps": [
+          "Installez la compétence avec le gestionnaire : <code>/skill-manage get --skill local-designer</code>.",
+          "Dans Draw Things, activez le serveur d’API : gRPC sur le port 7859 (recommandé) ou HTTP sur le port 7860.",
+          "Lancez la commande status pour voir le modèle utilisé et si la cible est locale ou distante.",
+          "Écrivez un court brief, comparez les trois directions, validez-en une, puis demandez votre première image."
+        ]
+      }
+    ]
+  }
+}

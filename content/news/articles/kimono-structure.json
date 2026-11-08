@@ -1,11 +1,14 @@
 {
   "slug": "kimono-structure",
+  "nature": "presentation",
+  "domains": ["search", "development"],
   "date": "2026-11-07",
   "tag": {
     "en": "Kimono",
     "fr": "Kimono"
   },
   "image": "hero-kimono-structure",
+  "layout": "affiche",
   "en": {
     "title": "Kimono 0.9.6: see the shape of a project before searching it",
     "summary": "The new aikido_structure tool returns a compact file tree with the type of each file and whether it is indexed. A first look at an unfamiliar project, in a few lines.",
@@ -15,6 +18,9 @@
         "h2": "The idea in one picture"
       },
       "<p>Kimono 0.9.6 adds <code>aikido_structure</code>, a read-only tool that returns the file tree of your snapshot, under the same ignore rules as the rest of Kimono. Each file carries a <strong>type</strong> and an <strong>idx</strong> flag telling whether Kimono indexes it, so the assistant sees at once what a search can reach and what it cannot.</p>",
+      {
+        "diagram": "kimono-tree"
+      },
       {
         "figure": "kimono-loop",
         "caption": "aikido_structure is the optional first step of the loop: look at the shape, then search."
@@ -86,6 +92,9 @@
         "h2": "L’idée en une image"
       },
       "<p>Kimono 0.9.6 ajoute <code>aikido_structure</code>, un outil en lecture seule qui renvoie l’arbre de fichiers de votre snapshot, selon les mêmes règles d’exclusion que le reste de Kimono. Chaque fichier porte un <strong>type</strong> et un indicateur <strong>idx</strong> qui dit si Kimono l’indexe : l’assistant voit tout de suite ce qu’une recherche peut atteindre et ce qu’elle ne peut pas.</p>",
+      {
+        "diagram": "kimono-tree"
+      },
       {
         "figure": "kimono-loop",
         "caption": "aikido_structure est la première étape facultative de la boucle : regarder la forme, puis chercher."

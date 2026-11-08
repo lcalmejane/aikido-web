@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "task-flow",
+  "type": "flow",
+  "title": {
+    "en": "The life of a private task",
+    "fr": "La vie d’une tâche privée"
+  },
+  "desc": {
+    "en": "Arrows show the order: plan, run, review, explicit acceptance, then a separate done transition.",
+    "fr": "Les flèches montrent l’ordre : plan, exécution, revue, acceptation explicite, puis une transition distincte vers terminé."
+  },
+  "nodes": [
+    {
+      "label": {
+        "en": "Plan",
+        "fr": "Plan"
+      },
+      "note": {
+        "en": "the card enters the workflow",
+        "fr": "la carte entre dans le workflow"
+      }
+    },
+    {
+      "label": {
+        "en": "Run (host)",
+        "fr": "Exécution (hôte)"
+      },
+      "note": {
+        "en": "only the host executes",
+        "fr": "seul l’hôte exécute"
+      }
+    },
+    {
+      "label": {
+        "en": "Review",
+        "fr": "Revue"
+      },
+      "note": {
+        "en": "a result never accepts itself",
+        "fr": "un résultat ne s’accepte jamais seul"
+      }
+    },
+    {
+      "label": {
+        "en": "Accepted",
+        "fr": "Acceptée"
+      },
+      "note": {
+        "en": "explicit, authorized decision",
+        "fr": "décision explicite et autorisée"
+      },
+      "accent": true
+    },
+    {
+      "label": {
+        "en": "Done",
+        "fr": "Terminée"
+      },
+      "note": {
+        "en": "a further explicit transition",
+        "fr": "une transition explicite de plus"
+      }
+    }
+  ]
+}

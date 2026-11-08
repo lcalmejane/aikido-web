@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "name": "AI-KIDO News",
+  "minLayouts": 10,
+  "noConsecutiveSameLayout": true,
+  "stripCount": 3,
+  "cssVersion": 3,
+  "requireVisual": true,
+  "maxAnimatedPerArticle": 1,
+  "noConsecutiveAnimated": true,
+  "maxAnimatedShare": 0.5
+}

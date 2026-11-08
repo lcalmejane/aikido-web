@@ -33,8 +33,10 @@
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="../../assets/js/theme.js?v=1"></script>
   <link rel="stylesheet" href="../../assets/css/home.css?v=10">
-  <link rel="stylesheet" href="../../assets/css/inner.css?v=9">
+  <link rel="stylesheet" href="../../assets/css/inner.css?v=10">
+  <link rel="stylesheet" href="../../assets/css/news-layouts.css?v=3">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller","description":"Le nouvel outil aikido_structure renvoie un arbre de fichiers compact avec le type de chaque fichier et son état d’indexation. Un premier regard sur un projet inconnu, en quelques lignes.","datePublished":"2026-11-07","inLanguage":"fr","mainEntityOfPage":"https://www.ai-kido.fr/fr/news/kimono-structure.html","image":"https://www.ai-kido.fr/assets/images/news/kimono-structure.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
+  <script src="../../assets/js/news-navigation.js?v=1" defer></script>
 </head>
 <body class="inner">
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -76,17 +78,28 @@
     </header>
 
   <main id="top">
-    <article class="news-article">
+    <article class="news-article nl-affiche hero-wide w-wide acc-gold lead-large h2-tag title-huge meta-mono body-prose rail-toc-cta">
       <div class="container">
         <p class="back"><a href="../news.html">← Toutes les actualités</a></p>
-        <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-11-07">7 novembre 2026</time></p>
-        <h1>Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller</h1>
-        <p class="lead">Le nouvel outil aikido_structure renvoie un arbre de fichiers compact avec le type de chaque fichier et son état d’indexation. Un premier regard sur un projet inconnu, en quelques lignes.</p>
+        <header class="article-head">
+          <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-11-07">7 novembre 2026</time><span class="read">2 min de lecture</span></p>
+          <h1>Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller</h1>
+          <p class="lead">Le nouvel outil aikido_structure renvoie un arbre de fichiers compact avec le type de chaque fichier et son état d’indexation. Un premier regard sur un projet inconnu, en quelques lignes.</p>
+        </header>
         <img class="article-hero" src="../../assets/images/news/kimono-structure.webp" alt="Kido, le petit robot en kimono blanc, se tient dans un dojo avec une lanterne allumée, à côté d’un panneau de bois sculpté d’un arbre dont les branches portent de petites tuiles dorées" width="960" height="576" decoding="async">
-        <div class="article-body">
+        <div class="article-grid">
+          <div class="article-mobile-tools">
+          <details name="article-tools"><summary>Dans cet article</summary><nav class="article-toc" aria-label="Dans cet article"><strong>Dans cet article</strong><ol><li><a href="#l-idee-en-une-image">L’idée en une image</a></li><li><a href="#ce-que-vous-demandez-a-votre-assistant">Ce que vous demandez à votre assistant</a></li><li><a href="#sous-le-capot">Sous le capot</a></li><li><a href="#a-essayer">À essayer</a></li></ol></nav></details>
+          <details name="article-tools"><summary>Essayer AI-KIDO</summary><aside class="article-cta" aria-label="Essayer AI-KIDO"><strong>Essayer AI-KIDO</strong><p>Installez la Memory Bank en une commande et laissez votre assistant la lire.</p><a class="cta-btn" href="../install.html">Installer</a></aside></details>
+        </div>
+          <nav class="article-toc" aria-label="Dans cet article"><strong>Dans cet article</strong><ol><li><a href="#l-idee-en-une-image">L’idée en une image</a></li><li><a href="#ce-que-vous-demandez-a-votre-assistant">Ce que vous demandez à votre assistant</a></li><li><a href="#sous-le-capot">Sous le capot</a></li><li><a href="#a-essayer">À essayer</a></li></ol></nav><aside class="article-cta" aria-label="Essayer AI-KIDO"><strong>Essayer AI-KIDO</strong><p>Installez la Memory Bank en une commande et laissez votre assistant la lire.</p><a class="cta-btn" href="../install.html">Installer</a></aside>
+          <div class="article-body">
           <p>Un assistant arrive dans un projet inconnu et doit choisir où regarder. Sans mot-clé évident, la carte lui sert de premier repère.</p>
         <h2 id="l-idee-en-une-image">L’idée en une image</h2>
         <p>Kimono 0.9.6 ajoute <code>aikido_structure</code>, un outil en lecture seule qui renvoie l’arbre de fichiers de votre snapshot, selon les mêmes règles d’exclusion que le reste de Kimono. Chaque fichier porte un <strong>type</strong> et un indicateur <strong>idx</strong> qui dit si Kimono l’indexe : l’assistant voit tout de suite ce qu’une recherche peut atteindre et ce qu’elle ne peut pas.</p>
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-tree" viewBox="0 0 360 323" role="img" aria-label="Un arbre : la racine du projet contient le dossier prompts, qui contient les hard points et les Truth Tables du projet ; le dossier source est à côté." focusable="false"><title>La forme d’un projet</title><g class="dg-node dg-accent" style="--i:0"><rect class="dg-box" x="16" y="12" width="328" height="35" rx="10"/><text class="dg-t" x="180" y="34.5" text-anchor="middle"><tspan x="180" dy="0">Racine du projet</tspan></text></g><path class="dg-flow" d="M28 47 V86 H42" fill="none"/><g class="dg-node " style="--i:1"><rect class="dg-box" x="42" y="59" width="302" height="54" rx="10"/><text class="dg-t dg-b" x="193" y="77.5" text-anchor="middle"><tspan x="193" dy="0">prompts/</tspan></text><text class="dg-s" x="193" y="97.5" text-anchor="middle"><tspan x="193" dy="0">la Memory Bank</tspan></text></g><path class="dg-flow" d="M54 113 V152 H68" fill="none"/><g class="dg-node " style="--i:2"><rect class="dg-box" x="68" y="125" width="276" height="54" rx="10"/><text class="dg-t dg-b" x="206" y="143.5" text-anchor="middle"><tspan x="206" dy="0">hard_points/</tspan></text><text class="dg-s" x="206" y="163.5" text-anchor="middle"><tspan x="206" dy="0">la méthode</tspan></text></g><path class="dg-flow" d="M54 113 V218 H68" fill="none"/><g class="dg-node " style="--i:3"><rect class="dg-box" x="68" y="191" width="276" height="54" rx="10"/><text class="dg-t dg-b" x="206" y="209.5" text-anchor="middle"><tspan x="206" dy="0">gen/</tspan></text><text class="dg-s" x="206" y="229.5" text-anchor="middle"><tspan x="206" dy="0">les Truth Tables du projet</tspan></text></g><path class="dg-flow" d="M28 47 V284 H42" fill="none"/><g class="dg-node " style="--i:4"><rect class="dg-box" x="42" y="257" width="302" height="54" rx="10"/><text class="dg-t dg-b" x="193" y="275.5" text-anchor="middle"><tspan x="193" dy="0">src/</tspan></text><text class="dg-s" x="193" y="295.5" text-anchor="middle"><tspan x="193" dy="0">le code</tspan></text></g></svg>
+        </figure>
         <figure class="article-figure">
           <img src="../../assets/images/news/kimono-loop-fr.svg" alt="Schéma de la boucle de recherche de Kimono : aikido_snapshot begin fige le corpus, aikido_search renvoie chemins et plages de lignes seulement, aikido_file ranges ne lit que les lignes choisies, aikido_snapshot end libère le snapshot ; aikido_structure est une première étape facultative" width="900" height="266" loading="lazy" decoding="async">
           <figcaption>aikido_structure est la première étape facultative de la boucle : regarder la forme, puis chercher.</figcaption>
@@ -137,6 +150,7 @@ src/
           <li>Appelez <code>aikido_structure</code> sur la racine, puis restreignez avec <code>path</code> et <code>depth</code>.</li>
           <li>Cherchez là où la carte pointe. La liste complète des options est dans le <a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/CHANGELOG.md">changelog</a>.</li>
         </ol>
+        </div>
         </div>
         <nav class="article-nav" aria-label="Actualités">
           <a class="newer" href="deterministic-tools.html" rel="next">← Plus récent : Laissez les scripts faire ce qu’un script fait exactement</a>

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "reportage",
+  "name": {
+    "en": "Report",
+    "fr": "Reportage"
+  },
+  "description": {
+    "en": "Side image, narrow column, drop cap and rules.",
+    "fr": "Image à gauche, colonne étroite, lettrine et filets."
+  },
+  "hero": "left",
+  "width": "narrow",
+  "accent": "terra",
+  "lead": "large",
+  "h2": "ruled",
+  "toc": false,
+  "dropcap": true
+}

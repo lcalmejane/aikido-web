@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "fiche",
+  "name": {
+    "en": "Fact sheet",
+    "fr": "Fiche"
+  },
+  "description": {
+    "en": "No image: sticky contents beside a narrow column, monospaced meta.",
+    "fr": "Sans image : sommaire collant à côté d'une colonne étroite, méta en police mono."
+  },
+  "hero": "none",
+  "width": "wide",
+  "accent": "forest",
+  "lead": "plain",
+  "h2": "ruled",
+  "toc": true,
+  "dropcap": false,
+  "meta": "mono",
+  "rail": "toc"
+}

@@ -33,8 +33,10 @@
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="../../assets/js/theme.js?v=1"></script>
   <link rel="stylesheet" href="../../assets/css/home.css?v=10">
-  <link rel="stylesheet" href="../../assets/css/inner.css?v=9">
+  <link rel="stylesheet" href="../../assets/css/inner.css?v=10">
+  <link rel="stylesheet" href="../../assets/css/news-layouts.css?v=3">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Laissez les scripts faire ce qu’un script fait exactement","description":"Un modèle comprend, choisit et explique ; un script exécute les étapes exactes. Deux exécutions réelles montrent le gain : le même plan deux fois, et un build de site qui ne réécrit rien.","datePublished":"2026-11-07","inLanguage":"fr","mainEntityOfPage":"https://www.ai-kido.fr/fr/news/deterministic-tools.html","image":"https://www.ai-kido.fr/assets/images/news/deterministic-tools.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
+  <script src="../../assets/js/news-navigation.js?v=1" defer></script>
 </head>
 <body class="inner">
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -76,19 +78,27 @@
     </header>
 
   <main id="top">
-    <article class="news-article">
+    <article class="news-article nl-magazine hero-wide w-wide acc-navy lead-large h2-ruled dropcap title-normal meta-inline body-prose rail-toc-cta">
       <div class="container">
         <p class="back"><a href="../news.html">← Toutes les actualités</a></p>
-        <p class="news-meta"><span class="tag">Méthode</span><time datetime="2026-11-07">7 novembre 2026</time></p>
-        <h1>Laissez les scripts faire ce qu’un script fait exactement</h1>
-        <p class="lead">Un modèle comprend, choisit et explique ; un script exécute les étapes exactes. Deux exécutions réelles montrent le gain : le même plan deux fois, et un build de site qui ne réécrit rien.</p>
+        <header class="article-head">
+          <p class="news-meta"><span class="tag">Méthode</span><time datetime="2026-11-07">7 novembre 2026</time></p>
+          <h1>Laissez les scripts faire ce qu’un script fait exactement</h1>
+          <p class="lead">Un modèle comprend, choisit et explique ; un script exécute les étapes exactes. Deux exécutions réelles montrent le gain : le même plan deux fois, et un build de site qui ne réécrit rien.</p>
+        </header>
         <img class="article-hero" src="../../assets/images/news/deterministic-tools.webp" alt="Kido, le petit robot en kimono, fait glisser des perles dorées sur un boulier en bois posé sur une table basse, avec un carnet ouvert et une montre de poche à côté, un jardin derrière" width="960" height="576" decoding="async">
-        <div class="article-body">
+        <div class="article-grid">
+          <div class="article-mobile-tools">
+          <details name="article-tools"><summary>Dans cet article</summary><nav class="article-toc" aria-label="Dans cet article"><strong>Dans cet article</strong><ol><li><a href="#l-idee-en-une-image">L’idée en une image</a></li><li><a href="#ce-que-l-on-voit-deux-fois-le-meme-plan">Ce que l’on voit : deux fois le même plan</a></li><li><a href="#ce-que-l-on-voit-un-site-qui-ne-reecrit-rien">Ce que l’on voit : un site qui ne réécrit rien</a></li><li><a href="#a-essayer">À essayer</a></li></ol></nav></details>
+          <details name="article-tools"><summary>Essayer AI-KIDO</summary><aside class="article-cta" aria-label="Essayer AI-KIDO"><strong>Essayer AI-KIDO</strong><p>Installez la Memory Bank en une commande et laissez votre assistant la lire.</p><a class="cta-btn" href="../install.html">Installer</a></aside></details>
+        </div>
+          <nav class="article-toc" aria-label="Dans cet article"><strong>Dans cet article</strong><ol><li><a href="#l-idee-en-une-image">L’idée en une image</a></li><li><a href="#ce-que-l-on-voit-deux-fois-le-meme-plan">Ce que l’on voit : deux fois le même plan</a></li><li><a href="#ce-que-l-on-voit-un-site-qui-ne-reecrit-rien">Ce que l’on voit : un site qui ne réécrit rien</a></li><li><a href="#a-essayer">À essayer</a></li></ol></nav><aside class="article-cta" aria-label="Essayer AI-KIDO"><strong>Essayer AI-KIDO</strong><p>Installez la Memory Bank en une commande et laissez votre assistant la lire.</p><a class="cta-btn" href="../install.html">Installer</a></aside>
+          <div class="article-body">
           <p>Demandez à un modèle de lister les 170 fichiers qu’une installation créerait : vous obtiendrez une réponse qui a l’air juste. Redemandez demain, la réponse peut changer. Le modèle n’est pas en cause : compter et lister ne sont simplement pas sa fonction.</p>
         <h2 id="l-idee-en-une-image">L’idée en une image</h2>
         <p>Un harnais, ce n’est pas seulement des prompts. Les plus fiables confient chaque étape exacte et répétable à un outil déterministe, et gardent le modèle pour ce que lui seul sait faire : comprendre la demande, choisir entre des options et expliquer le résultat. Entre les deux, un document que l’on peut relire, souvent un plan en JSON.</p>
-        <figure class="article-figure">
-          <img src="../../assets/images/news/deterministic-flow-fr.svg" alt="Schéma en quatre étapes : le modèle comprend, choisit et explique ; le script exécute les étapes exactes ; un plan JSON donne à la même entrée le même planId ; vous validez ce plan exact, puis il est appliqué" width="900" height="210" loading="lazy" decoding="async">
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-flow dg-animated" viewBox="0 0 360 293" role="img" aria-label="Quatre étapes : le modèle comprend et choisit, le script exécute les étapes exactes, un plan lisible est relu, puis il est appliqué." focusable="false"><title>Qui fait quoi</title><g class="dg-node " style="--i:0"><rect class="dg-box" x="20" y="12" width="320" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="30.5" text-anchor="middle"><tspan x="180" dy="0">Le modèle comprend et choisit</tspan></text><text class="dg-s" x="180" y="50.5" text-anchor="middle"><tspan x="180" dy="0">ce que seul un modèle sait faire</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="180" y1="66" x2="180" y2="85"/><path class="dg-head" d="M175 82 L180 90 L185 82 Z"/></g><g class="dg-node " style="--i:1"><rect class="dg-box" x="20" y="90" width="320" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="108.5" text-anchor="middle"><tspan x="180" dy="0">Le script exécute les étapes exactes</tspan></text><text class="dg-s" x="180" y="128.5" text-anchor="middle"><tspan x="180" dy="0">même entrée, même résultat</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="180" y1="144" x2="180" y2="163"/><path class="dg-head" d="M175 160 L180 168 L185 160 Z"/></g><g class="dg-node " style="--i:2"><rect class="dg-box" x="20" y="168" width="320" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="186.5" text-anchor="middle"><tspan x="180" dy="0">Un plan lisible</tspan></text><text class="dg-s" x="180" y="206.5" text-anchor="middle"><tspan x="180" dy="0">relu avant toute écriture</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="180" y1="222" x2="180" y2="241"/><path class="dg-head" d="M175 238 L180 246 L185 238 Z"/></g><g class="dg-node dg-accent" style="--i:3"><rect class="dg-box" x="20" y="246" width="320" height="35" rx="10"/><text class="dg-t" x="180" y="268.5" text-anchor="middle"><tspan x="180" dy="0">Appliqué</tspan></text></g></svg>
           <figcaption>Le modèle décide, le script exécute, le plan est relu avant toute écriture.</figcaption>
         </figure>
         <h2 id="ce-que-l-on-voit-deux-fois-le-meme-plan">Ce que l’on voit : deux fois le même plan</h2>
@@ -139,7 +149,9 @@ node --test scripts/</code></pre>
           <li>Laissez le modèle lire ce résultat, décider et expliquer. Les quatre principes sont sur la <a href="../harness.html">page de création de harnais</a>.</li>
         </ol>
         </div>
+        </div>
         <nav class="article-nav" aria-label="Actualités">
+          <a class="newer" href="task-store.html" rel="next">← Plus récent : Task Store : le soir où ma demande est devenue une carte</a>
           <a class="older" href="kimono-structure.html" rel="prev">Plus ancien : Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller →</a>
         </nav>
       </div>

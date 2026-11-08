@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "truth-quadrant",
+  "type": "quadrant",
+  "title": {
+    "en": "Two axes: where you start, what you trust",
+    "fr": "Deux axes : d’où vous partez, ce que vous croyez"
+  },
+  "desc": {
+    "en": "A grid with two axes. Horizontally, greenfield on the left and existing code on the right. Vertically, the specification is the truth on top and the code is the truth at the bottom. Spec-driven tools sit top left, code-as-truth approaches bottom right, and AI-KIDO spans the whole grid.",
+    "fr": "Une grille à deux axes. À l’horizontale, projet neuf à gauche et code existant à droite. À la verticale, la spécification fait foi en haut et le code fait foi en bas. Les outils spec-driven occupent le haut à gauche, les approches « code as truth » le bas à droite, et AI-KIDO couvre toute la grille."
+  },
+  "axes": {
+    "x": {
+      "left": { "en": "Greenfield", "fr": "Projet neuf" },
+      "right": { "en": "Existing code", "fr": "Code existant" }
+    },
+    "y": {
+      "top": { "en": "The spec is the truth", "fr": "La spec fait foi" },
+      "bottom": { "en": "The code is the truth", "fr": "Le code fait foi" }
+    }
+  },
+  "nodes": [
+    {
+      "cell": "tl",
+      "accent": true,
+      "label": { "en": "Spec-driven", "fr": "Spec-driven" },
+      "note": { "en": "Spec first, then plan, tasks, code", "fr": "La spec d’abord, puis plan, tâches, code" }
+    },
+    {
+      "cell": "tr",
+      "muted": true,
+      "label": { "en": "Rarely covered", "fr": "Rarement couvert" },
+      "note": { "en": "A spec to write for a system that already exists", "fr": "Une spec à écrire pour un système qui existe déjà" }
+    },
+    {
+      "cell": "bl",
+      "muted": true,
+      "label": { "en": "Rarely needed", "fr": "Rarement utile" },
+      "note": { "en": "No code yet, so nothing to document from", "fr": "Pas encore de code, donc rien à documenter" }
+    },
+    {
+      "cell": "br",
+      "accent": true,
+      "label": { "en": "Code as truth", "fr": "Code as truth" },
+      "note": { "en": "Read the code, document from it, modernise step by step", "fr": "Lire le code, documenter à partir de lui, moderniser pas à pas" }
+    },
+    {
+      "cell": "band",
+      "label": { "en": "AI-KIDO: the request decides", "fr": "AI-KIDO : la demande décide" },
+      "note": { "en": "The truth evaluator picks the leading source for each scenario", "fr": "L’évaluateur de vérité choisit la source qui mène pour chaque scénario" }
+    }
+  ]
+}

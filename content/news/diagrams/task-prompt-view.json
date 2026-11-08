@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "task-prompt-view",
+  "type": "flow",
+  "title": {
+    "en": "Following a card from the prompt",
+    "fr": "Suivre une carte depuis le prompt"
+  },
+  "desc": {
+    "en": "Reads change nothing; a single revision-checked action changes state.",
+    "fr": "Les lectures ne changent rien ; une seule action vérifiée par révision change l’état."
+  },
+  "nodes": [
+    {
+      "label": {
+        "en": "/aikido-show-tasks",
+        "fr": "/aikido-show-tasks"
+      },
+      "note": {
+        "en": "you ask to see",
+        "fr": "vous demandez à voir"
+      }
+    },
+    {
+      "label": {
+        "en": "task list --state",
+        "fr": "task list --state"
+      },
+      "note": {
+        "en": "states, no prompt text",
+        "fr": "les états, sans le prompt"
+      }
+    },
+    {
+      "label": {
+        "en": "task show <id>",
+        "fr": "task show <id>"
+      },
+      "note": {
+        "en": "one card, its revision",
+        "fr": "une carte, sa révision"
+      }
+    },
+    {
+      "label": {
+        "en": "task resume --revision",
+        "fr": "task resume --revision"
+      },
+      "note": {
+        "en": "waiting → ready",
+        "fr": "en attente → prête"
+      },
+      "accent": true
+    },
+    {
+      "label": {
+        "en": "The host dispatches",
+        "fr": "L’hôte exécute"
+      },
+      "note": {
+        "en": "never AI-KIDO itself",
+        "fr": "jamais AI-KIDO lui-même"
+      }
+    }
+  ]
+}

@@ -33,8 +33,10 @@
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="../assets/js/theme.js?v=1"></script>
   <link rel="stylesheet" href="../assets/css/home.css?v=10">
-  <link rel="stylesheet" href="../assets/css/inner.css?v=9">
+  <link rel="stylesheet" href="../assets/css/inner.css?v=10">
+  <link rel="stylesheet" href="../assets/css/news-layouts.css?v=3">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Version 1.5: one knowledge base, nine assistants","description":"AI-KIDO 1.5 ships packages for nine assistants, all generated from one source and installed through a plan you read before anything is written. Figures measured on the 1.5.2 package.","datePublished":"2026-10-28","inLanguage":"en","mainEntityOfPage":"https://www.ai-kido.fr/news/version-1-5.html","image":"https://www.ai-kido.fr/assets/images/news/version-1-5.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
+  <script src="../assets/js/news-navigation.js?v=1" defer></script>
 </head>
 <body class="inner">
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -76,19 +78,27 @@
     </header>
 
   <main id="top">
-    <article class="news-article">
+    <article class="news-article nl-classic hero-wide w-narrow acc-terra lead-serif h2-plain title-normal meta-inline body-prose rail-toc-cta">
       <div class="container">
         <p class="back"><a href="../news.html">← All news</a></p>
-        <p class="news-meta"><span class="tag">Release</span><time datetime="2026-10-28">28 October 2026</time></p>
-        <h1>Version 1.5: one knowledge base, nine assistants</h1>
-        <p class="lead">AI-KIDO 1.5 ships packages for nine assistants, all generated from one source and installed through a plan you read before anything is written. Figures measured on the 1.5.2 package.</p>
+        <header class="article-head">
+          <p class="news-meta"><span class="tag">Release</span><time datetime="2026-10-28">28 October 2026</time></p>
+          <h1>Version 1.5: one knowledge base, nine assistants</h1>
+          <p class="lead">AI-KIDO 1.5 ships packages for nine assistants, all generated from one source and installed through a plan you read before anything is written. Figures measured on the 1.5.2 package.</p>
+        </header>
         <img class="article-hero" src="../assets/images/news/version-1-5.webp" alt="Kido, the small robot in a white karate gi, hands a golden card to three smaller robots waiting in line inside a calm tatami room" width="960" height="576" decoding="async">
-        <div class="article-body">
+        <div class="article-grid">
+          <div class="article-mobile-tools">
+          <details name="article-tools"><summary>In this article</summary><nav class="article-toc" aria-label="In this article"><strong>In this article</strong><ol><li><a href="#the-idea-in-one-picture">The idea in one picture</a></li><li><a href="#what-you-do-preview-before-installing">What you do: preview before installing</a></li><li><a href="#under-the-hood">Under the hood</a></li><li><a href="#updates-and-removal-keep-your-work">Updates and removal keep your work</a></li><li><a href="#try-it">Try it</a></li></ol></nav></details>
+          <details name="article-tools"><summary>Try AI-KIDO</summary><aside class="article-cta" aria-label="Try AI-KIDO"><strong>Try AI-KIDO</strong><p>Install the Memory Bank in one command and let your assistant read it.</p><a class="cta-btn" href="../install.html">Install</a></aside></details>
+        </div>
+          <nav class="article-toc" aria-label="In this article"><strong>In this article</strong><ol><li><a href="#the-idea-in-one-picture">The idea in one picture</a></li><li><a href="#what-you-do-preview-before-installing">What you do: preview before installing</a></li><li><a href="#under-the-hood">Under the hood</a></li><li><a href="#updates-and-removal-keep-your-work">Updates and removal keep your work</a></li><li><a href="#try-it">Try it</a></li></ol></nav><aside class="article-cta" aria-label="Try AI-KIDO"><strong>Try AI-KIDO</strong><p>Install the Memory Bank in one command and let your assistant read it.</p><a class="cta-btn" href="../install.html">Install</a></aside>
+          <div class="article-body">
           <p>You change one rule in your project's Memory Bank, and now several assistants must follow it. Until 1.5, that meant copying files by hand into whichever folder each tool expects, and hoping nothing drifted. Version 1.5 removes that chore.</p>
         <h2 id="the-idea-in-one-picture">The idea in one picture</h2>
         <p>AI-KIDO keeps a single canonical source: the <code>hard_points/</code> folder of the method repository. A build step generates, for each assistant, the files that assistant understands natively. Claude Code gets a marketplace plugin with slash commands, Skills and agents. GitHub Copilot, Codex, Kiro, Zoo Code, Roo Code and Antigravity get workspace files. Claude Cowork gets a plugin you upload to your account. That makes nine packages from one source.</p>
-        <figure class="article-figure">
-          <img src="../assets/images/news/version-15-fan-en.svg" alt="Diagram: the hard_points folder feeds a build step that generates the packages for nine assistants: claude-code, claude-cowork, copilot-vscode, copilot-github, codex, kiro-cli, zoo-code, roo-code-legacy and antigravity" width="900" height="320" loading="lazy" decoding="async">
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-hub" viewBox="0 0 360 227" role="img" aria-label="One canonical source in the center feeds the packages for Claude Code, Codex, Copilot, Kiro CLI, Zoo Code and the other supported assistants." focusable="false"><title>One source, many assistants</title><g class="dg-node dg-accent dg-hub" style="--i:0"><rect class="dg-box" x="90" y="12" width="180" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="30.5" text-anchor="middle"><tspan x="180" dy="0">hard_points/</tspan></text><text class="dg-s" x="180" y="50.5" text-anchor="middle"><tspan x="180" dy="0">one canonical source</tspan></text></g><line class="dg-flow" x1="180" y1="66" x2="180" y2="211"/><g class="dg-node " style="--i:1"><rect class="dg-box" x="12" y="82" width="148" height="35" rx="10"/><text class="dg-t" x="86" y="104.5" text-anchor="middle"><tspan x="86" dy="0">Claude Code</tspan></text></g><line class="dg-flow" x1="160" y1="99.5" x2="162" y2="99.5"/><g class="dg-node " style="--i:2"><rect class="dg-box" x="200" y="82" width="148" height="35" rx="10"/><text class="dg-t" x="274" y="104.5" text-anchor="middle"><tspan x="274" dy="0">Codex</tspan></text></g><line class="dg-flow" x1="200" y1="99.5" x2="198" y2="99.5"/><g class="dg-node " style="--i:3"><rect class="dg-box" x="12" y="129" width="148" height="35" rx="10"/><text class="dg-t" x="86" y="151.5" text-anchor="middle"><tspan x="86" dy="0">Copilot</tspan></text></g><line class="dg-flow" x1="160" y1="146.5" x2="162" y2="146.5"/><g class="dg-node " style="--i:4"><rect class="dg-box" x="200" y="129" width="148" height="35" rx="10"/><text class="dg-t" x="274" y="151.5" text-anchor="middle"><tspan x="274" dy="0">Kiro CLI</tspan></text></g><line class="dg-flow" x1="200" y1="146.5" x2="198" y2="146.5"/><g class="dg-node " style="--i:5"><rect class="dg-box" x="12" y="176" width="148" height="35" rx="10"/><text class="dg-t" x="86" y="198.5" text-anchor="middle"><tspan x="86" dy="0">Zoo Code</tspan></text></g><line class="dg-flow" x1="160" y1="193.5" x2="162" y2="193.5"/><g class="dg-node " style="--i:6"><rect class="dg-box" x="200" y="176" width="148" height="35" rx="10"/><text class="dg-t" x="274" y="198.5" text-anchor="middle"><tspan x="274" dy="0">…and more</tspan></text></g><line class="dg-flow" x1="200" y1="193.5" x2="198" y2="193.5"/></svg>
           <figcaption>One canonical source, one build step, nine generated packages.</figcaption>
         </figure>
         <p>Because the wrappers are generated rather than written by hand, they cannot quietly diverge: every enabled assistant gets a native wrapper for the same 15 agents.</p>
@@ -142,6 +152,7 @@ node aikido-dist/claude-code/scripts/bootstrap-plan.mjs \
           <li>Run the plan command and read the paths it lists.</li>
           <li>Apply with <code>--confirm</code> and the plan id. The full list of changes is in the <a href="https://github.com/lcalmejane/aikido/blob/main/CHANGELOG.md">changelog</a>.</li>
         </ol>
+        </div>
         </div>
         <nav class="article-nav" aria-label="News">
           <a class="newer" href="kimono-structure.html" rel="next">← Newer : Kimono 0.9.6: see the shape of a project before searching it</a>

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "carnet",
+  "name": {
+    "en": "Notebook",
+    "fr": "Carnet"
+  },
+  "description": {
+    "en": "Square image, narrow column, discreet contents.",
+    "fr": "Image carrée, colonne étroite, sommaire discret."
+  },
+  "hero": "square",
+  "width": "narrow",
+  "accent": "navy",
+  "lead": "serif",
+  "h2": "tag",
+  "toc": true,
+  "dropcap": false,
+  "body": "spaced"
+}

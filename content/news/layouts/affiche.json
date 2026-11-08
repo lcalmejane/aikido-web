@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "affiche",
+  "name": {
+    "en": "Poster",
+    "fr": "Affiche"
+  },
+  "description": {
+    "en": "Huge capitalised title, monospaced meta line, full-width image.",
+    "fr": "Titre géant en capitales, ligne de méta en police mono, image pleine largeur."
+  },
+  "hero": "wide",
+  "width": "wide",
+  "accent": "gold",
+  "lead": "large",
+  "h2": "tag",
+  "toc": false,
+  "dropcap": false,
+  "title": "huge",
+  "meta": "mono"
+}

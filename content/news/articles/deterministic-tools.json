@@ -1,11 +1,14 @@
 {
   "slug": "deterministic-tools",
+  "nature": "analysis",
+  "domains": ["development", "orchestration"],
   "date": "2026-11-07",
   "tag": {
     "en": "Method",
     "fr": "Méthode"
   },
   "image": "hero-deterministic-tools",
+  "layout": "magazine",
   "en": {
     "title": "Let scripts do what a script can do exactly",
     "summary": "A model understands, chooses and explains; a script runs the exact steps. Two real runs show what that buys you: the same plan twice, and a site build that rewrites nothing.",
@@ -16,7 +19,7 @@
       },
       "<p>A harness is more than prompts. The most reliable ones hand every exact, repeatable step to a deterministic tool, and keep the model for what only a model can do: understand the request, choose among options, and explain the result. Between them sits a document you can read, usually a plan in JSON.</p>",
       {
-        "figure": "deterministic-flow",
+        "diagram": "det-flow",
         "caption": "The model decides, the script executes, the plan is reviewed before anything is written."
       },
       {
@@ -90,7 +93,7 @@
       },
       "<p>Un harnais, ce n’est pas seulement des prompts. Les plus fiables confient chaque étape exacte et répétable à un outil déterministe, et gardent le modèle pour ce que lui seul sait faire : comprendre la demande, choisir entre des options et expliquer le résultat. Entre les deux, un document que l’on peut relire, souvent un plan en JSON.</p>",
       {
-        "figure": "deterministic-flow",
+        "diagram": "det-flow",
         "caption": "Le modèle décide, le script exécute, le plan est relu avant toute écriture."
       },
       {

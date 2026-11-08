@@ -1,0 +1,204 @@
+{
+  "slug": "learn-rules",
+  "nature": "guide",
+  "domains": ["memory"],
+  "date": "2026-11-08",
+  "tag": {
+    "en": "Method",
+    "fr": "Méthode"
+  },
+  "image": "hero-learn-rules",
+  "layout": "revue",
+  "en": {
+    "title": "/learn: you correct, it proposes, you validate, your agents remember",
+    "summary": "Learning has been part of AI-KIDO from day one. /learn makes it easier to use: a command shortcut turns your corrections into rules you approve. See it in the Tatami Agent interface.",
+    "body": [
+      "<p>You correct your assistant for the second time on the same point: the wrong file, a missed check, an ignored convention. Next week it will do it again, because the lesson only lived in that conversation. Yet AI-KIDO has never been a frozen method: from the start, its hard points, its Truth Tables and the Memory Bank rules are written, reviewed and corrected by the people of the project, and agents read them to comply. That is AI-KIDO’s self-learning: the knowledge base evolves with what you teach it.</p>",
+      {
+        "h2": "You guide, the command assists"
+      },
+      "<p>The learning rule did not begin with <code>/learn</code>. Introspection and continuous improvement already belong to AI-KIDO’s original foundations, documented in the <a href=\"https://github.com/lcalmejane/aikido/blob/1.4/prompts/hard_points/ai-kido.md\">first public baseline</a>. You teach, correct and improve the knowledge base; the command gives this practice a shorter, repeatable route.</p>",
+      "<p><code>/learn</code> arrived as reinforcement with <a href=\"https://github.com/lcalmejane/aikido/releases/tag/1.5.2\">AI-KIDO 1.5.2</a>. It does not replace that mechanism and decides nothing on its own: it helps you guide your agents and your knowledge base by turning the corrections of a session into short rules. You read them, you choose which ones to keep, and they are stored in <code>prompts/gen/learned.md</code>, a file read at the start of every request.</p>",
+      {
+        "diagram": "learn-loop",
+        "caption": "You correct, the command proposes, you validate: nothing is written before you agree."
+      },
+      {
+        "h2": "What you type, what you see"
+      },
+      "<p>A named command also becomes an interface shortcut. In the Tatami Agent development interface below, the <strong>Learn</strong> button sits beside the composer. Its tooltip explains the learning action: review the context, identify an error and propose a rule for the knowledge base. The conversation, command suggestions and interactive visualization remain visible around it: learning belongs to the same workspace where you exchange, inspect and guide the assistant. You can also type <code>/learn</code> in the composer to select the project command; choosing that suggestion alone neither starts work nor saves a rule.</p>",
+      {
+        "figure": "learn-command-tatami",
+        "width": 1200,
+        "height": 664,
+        "caption": "Development preview supplied on 8 November 2026: the Learn button and its tooltip, within Tatami Agent on the Tatami Core stack. The conversation and command controls show the working context; the interactive mathematics panel illustrates the workspace’s visual tools, not a result of /learn. <a href=\"assets/images/news/learn-ecosystem-tatami.png\">View the larger screenshot</a>."
+      },
+      "<p>This is a preview of Tatami Agent, the AI-KIDO LLM CLI interface under development. The <a href=\"https://www.npmjs.com/package/@aikido-method/cli\">public npm CLI of the method</a> installs and updates the Memory Bank; it is a different tool. The same written command can guide an assistant that loads the AI-KIDO instructions, while each host provides its own interface.</p>",
+      "<p>After a session where you had to steer the assistant back, you type <code>/learn</code>, with a hint in quotes if you like. The assistant rereads the conversation, shows its proposals, then asks which ones to keep. The exchange below is an illustration.</p>",
+      {
+        "chat": [
+          {
+            "role": "you",
+            "text": "/learn \"I had to remind it to run the tests before pushing\""
+          },
+          {
+            "role": "assistant",
+            "html": "I reread the session and I propose one rule: <strong>L-build-001, run the tests before pushing</strong>. It applies before any push to the main branch and asks to read the test result. Do you validate? <code>y</code> accepts all, <code>n</code> rejects all, <code>1</code> keeps rule 1, <code>e1</code> rewords it."
+          },
+          {
+            "role": "you",
+            "text": "y"
+          },
+          {
+            "role": "assistant",
+            "html": "Rule stored in <code>prompts/gen/learned.md</code>. It will be read at the start of the next request."
+          }
+        ]
+      },
+      {
+        "h2": "What it looks for"
+      },
+      "<p>Each finding carries a type, so a rule can say where it comes from. There are six: <code>error</code>, <code>correction</code>, <code>preference</code>, <code>workflow</code>, <code>gap</code> and <code>conflict</code>. Without <code>--type</code>, all of them are scanned.</p>",
+      {
+        "stats": [
+          {
+            "value": "6",
+            "label": "learning types"
+          },
+          {
+            "value": "3",
+            "label": "steps: analyze, propose, commit"
+          },
+          {
+            "value": "40",
+            "label": "lines of rules at most in learned.md"
+          }
+        ]
+      },
+      {
+        "h2": "What a rule looks like"
+      },
+      "<p>Every rule has the same four parts: when it applies, what to do, how to check it, and why it exists. The example below is an illustration, not a rule from a real project.</p>",
+      {
+        "code": "### L-build-001 — Run the tests before pushing\n- **When**: before any push to the main branch\n- **Rule**: run the test command and read its result before pushing\n- **Check**: the last test run in the session is green\n- **Why**: a broken build reached the main branch (evidence: user correction)",
+        "lang": "markdown",
+        "caption": "An illustrative rule in the format used by learned.md."
+      },
+      {
+        "h2": "Why the file stays small"
+      },
+      "<p><code>learned.md</code> is read at the start of every request, together with the fundamental rules, so it is kept cheap to read. Beyond 40 lines of rules, <code>/learn</code> moves the detail into scoped files that are opened only when their trigger words match the task.</p>",
+      {
+        "callout": "No rule is written without your agreement. And no Markdown file can force a model to read it: on Claude Code the file is imported by the host; elsewhere the rule sits in <code>AGENTS.md</code>. <code>/learn</code> re-checks this wiring on every run.",
+        "title": "To remember"
+      },
+      {
+        "h2": "Try it"
+      },
+      {
+        "steps": [
+          "Install or update the method using the <a href=\"install.html\">installation guide</a>. /learn has shipped since 1.5.2; the rule file ships empty and updates preserve the rules you add.",
+          "After a session where you corrected the assistant, run <code>/learn --dry-run</code> to see the proposals without writing anything.",
+          "Read each proposed rule, then accept it, reword it or refuse it. Only the rules you validate are stored.",
+          "Later, run <code>/learn --review</code> to confirm, retire or merge rules."
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "title": "/learn : vous corrigez, elle propose, vous validez, vos agents s’en souviennent",
+    "summary": "L’apprentissage fait partie d’AI-KIDO depuis le début. /learn en facilite l’usage : un raccourci de commande transforme vos corrections en règles validées. Découvrez-le dans l’interface Tatami Agent.",
+    "body": [
+      "<p>Vous corrigez votre assistant pour la deuxième fois sur le même point : le mauvais fichier, un contrôle oublié, une convention ignorée. La semaine prochaine il recommencera, parce que la leçon n’a vécu que dans cette conversation. Or AI-KIDO n’a jamais été une méthode figée : depuis l’origine, ses points durs, ses Truth Tables et les règles de la Memory Bank sont écrits, relus et corrigés par les personnes du projet, et les agents les lisent pour s’y conformer. C’est cela, l’auto-apprentissage d’AI-KIDO : la base de connaissance évolue avec ce que vous lui apprenez.</p>",
+      {
+        "h2": "Vous guidez, la commande vous assiste"
+      },
+      "<p>La règle d’apprentissage n’est pas née avec <code>/learn</code>. L’introspection et l’amélioration continue font déjà partie des fondements d’AI-KIDO, documentés dans la <a href=\"https://github.com/lcalmejane/aikido/blob/1.4/prompts/hard_points/ai-kido.md\">première version publique de référence</a>. Vous enseignez, corrigez et enrichissez la base ; la commande donne à cette pratique un chemin plus court et réutilisable.</p>",
+      "<p><code>/learn</code> est arrivée en renfort avec <a href=\"https://github.com/lcalmejane/aikido/releases/tag/1.5.2\">AI-KIDO 1.5.2</a>. Elle ne remplace pas ce mécanisme et ne décide rien seule : elle vous aide à guider vos agents et votre base de connaissance en transformant vos corrections de la session en règles courtes. Vous les relisez, vous choisissez celles que vous gardez, et elles sont rangées dans <code>prompts/gen/learned.md</code>, un fichier lu au début de chaque demande.</p>",
+      {
+        "diagram": "learn-loop",
+        "caption": "Vous corrigez, la commande propose, vous validez : rien n’est écrit avant votre accord."
+      },
+      {
+        "h2": "Ce que vous tapez, ce que vous voyez"
+      },
+      "<p>Une commande nommée devient aussi un raccourci dans l’interface. Dans l’interface de développement de Tatami Agent ci-dessous, le bouton <strong>Learn</strong> se trouve à côté du compositeur. Son infobulle explique l’action d’apprentissage : relire le contexte, identifier une erreur et proposer une règle pour la base de connaissance. La conversation, les suggestions de commandes et la visualisation interactive restent visibles autour : l’apprentissage s’inscrit dans le même espace où vous échangez, examinez et guidez l’assistant. Vous pouvez aussi saisir <code>/learn</code> dans le compositeur pour sélectionner la commande du projet ; choisir cette suggestion ne lance aucun travail et n’enregistre aucune règle.</p>",
+      {
+        "figure": "learn-command-tatami",
+        "width": 1200,
+        "height": 664,
+        "caption": "Aperçu de développement fourni le 8 novembre 2026 : le bouton Learn et son infobulle, dans Tatami Agent sur la stack Tatami Core. La conversation et les commandes montrent le contexte de travail ; le panneau mathématique interactif illustre les outils visuels de l’espace, pas un résultat de /learn. <a href=\"../assets/images/news/learn-ecosystem-tatami.png\">Voir la capture agrandie</a>."
+      },
+      "<p>C’est un aperçu de Tatami Agent, l’interface CLI LLM d’AI-KIDO en développement. Le <a href=\"https://www.npmjs.com/package/@aikido-method/cli\">CLI npm public de la méthode</a> installe et met à jour la Memory Bank : il s’agit d’un autre outil. La même commande écrite peut guider un assistant qui charge les instructions AI-KIDO, chaque hôte proposant sa propre interface.</p>",
+      "<p>Après une session où vous avez dû reprendre l’assistant, vous tapez <code>/learn</code>, avec si vous le souhaitez un indice entre guillemets. L’assistant relit la conversation et vous présente ses propositions, puis vous demande lesquelles garder. L’échange ci-dessous est une illustration.</p>",
+      {
+        "chat": [
+          {
+            "role": "you",
+            "text": "/learn \"j’ai dû rappeler de lancer les tests avant de pousser\""
+          },
+          {
+            "role": "assistant",
+            "html": "J’ai relu la session et je propose une règle : <strong>L-build-001, lancer les tests avant de pousser</strong>. Elle s’applique avant tout push vers la branche principale et demande de lire le résultat des tests. Validez-vous ? <code>y</code> accepte tout, <code>n</code> refuse tout, <code>1</code> garde la règle 1, <code>e1</code> la reformule."
+          },
+          {
+            "role": "you",
+            "text": "y"
+          },
+          {
+            "role": "assistant",
+            "html": "Règle enregistrée dans <code>prompts/gen/learned.md</code>. Elle sera lue au début de la prochaine demande."
+          }
+        ]
+      },
+      {
+        "h2": "Ce qu’elle cherche"
+      },
+      "<p>Chaque constat porte un type, pour qu’une règle dise d’où elle vient. Il y en a six : <code>error</code>, <code>correction</code>, <code>preference</code>, <code>workflow</code>, <code>gap</code> et <code>conflict</code>. Sans <code>--type</code>, tous sont examinés.</p>",
+      {
+        "stats": [
+          {
+            "value": "6",
+            "label": "types d’apprentissage"
+          },
+          {
+            "value": "3",
+            "label": "étapes : analyser, proposer, enregistrer"
+          },
+          {
+            "value": "40",
+            "label": "lignes de règles au plus dans learned.md"
+          }
+        ]
+      },
+      {
+        "h2": "À quoi ressemble une règle"
+      },
+      "<p>Chaque règle a les mêmes quatre parties : quand elle s’applique, ce qu’il faut faire, comment le vérifier, et pourquoi elle existe. L’exemple ci-dessous est une illustration, pas une règle d’un vrai projet.</p>",
+      {
+        "code": "### L-build-001 — Lancer les tests avant de pousser\n- **When**: avant tout push vers la branche principale\n- **Rule**: lancer la commande de tests et lire son résultat avant de pousser\n- **Check**: le dernier lancement de tests de la session est vert\n- **Why**: un build cassé est arrivé sur la branche principale (evidence: correction de l'utilisateur)",
+        "lang": "markdown",
+        "caption": "Une règle d’illustration, au format utilisé par learned.md."
+      },
+      {
+        "h2": "Pourquoi le fichier reste petit"
+      },
+      "<p><code>learned.md</code> est lu au début de chaque requête, avec les règles fondamentales ; il doit donc rester peu coûteux à lire. Au-delà de 40 lignes de règles, <code>/learn</code> déplace le détail dans des fichiers ciblés, ouverts seulement quand leurs mots déclencheurs correspondent à la tâche.</p>",
+      {
+        "callout": "Aucune règle n’est écrite sans votre accord. Et aucun fichier Markdown ne peut obliger un modèle à le lire : sur Claude Code, le fichier est importé par l’hôte ; ailleurs, la règle figure dans <code>AGENTS.md</code>. <code>/learn</code> revérifie ce câblage à chaque exécution.",
+        "title": "À retenir"
+      },
+      {
+        "h2": "À essayer"
+      },
+      {
+        "steps": [
+          "Installez ou mettez à jour la méthode avec le <a href=\"install.html\">guide d’installation</a>. /learn est distribuée depuis la 1.5.2 ; le fichier de règles est livré vide et les mises à jour préservent vos ajouts.",
+          "Après une session où vous avez corrigé l’assistant, lancez <code>/learn --dry-run</code> pour voir les propositions sans rien écrire.",
+          "Lisez chaque règle proposée, puis acceptez-la, reformulez-la ou refusez-la. Seules les règles que vous validez sont enregistrées.",
+          "Plus tard, lancez <code>/learn --review</code> pour confirmer, retirer ou fusionner des règles."
+        ]
+      }
+    ]
+  }
+}

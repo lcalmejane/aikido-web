@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "task-vision-timeline",
+  "type": "timeline",
+  "title": {
+    "en": "Shipped today, direction tomorrow",
+    "fr": "Livré aujourd’hui, direction pour demain"
+  },
+  "desc": {
+    "en": "What exists in the public files, then the views we want to make visible.",
+    "fr": "Ce qui existe dans les fichiers publics, puis les vues que nous voulons rendre visibles."
+  },
+  "nodes": [
+    {
+      "when": {
+        "en": "Shipped",
+        "fr": "Livré"
+      },
+      "label": {
+        "en": "Private store, journal, revisions, explicit acceptance",
+        "fr": "Magasin privé, journal, révisions, acceptation explicite"
+      }
+    },
+    {
+      "when": {
+        "en": "Shipped",
+        "fr": "Livré"
+      },
+      "label": {
+        "en": "Commands: launch, plan, show, resume, schedule, import",
+        "fr": "Commandes : lancer, planifier, voir, reprendre, programmer, importer"
+      }
+    },
+    {
+      "when": {
+        "en": "Direction",
+        "fr": "Direction"
+      },
+      "label": {
+        "en": "Card history and state of play without a command",
+        "fr": "Historique et état des lieux sans commande"
+      }
+    },
+    {
+      "when": {
+        "en": "Direction",
+        "fr": "Direction"
+      },
+      "label": {
+        "en": "Views by workflow, by agent, by task nature",
+        "fr": "Vues par workflow, par agent, par nature de tâche"
+      }
+    },
+    {
+      "when": {
+        "en": "Direction",
+        "fr": "Direction"
+      },
+      "label": {
+        "en": "Dashboard whose every move is an authorized transition",
+        "fr": "Tableau de bord dont chaque geste est une transition autorisée"
+      }
+    }
+  ]
+}

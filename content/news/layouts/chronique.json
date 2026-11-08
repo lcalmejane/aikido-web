@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "chronique",
+  "name": {
+    "en": "Chronicle",
+    "fr": "Chronique"
+  },
+  "description": {
+    "en": "Image band, wide column, calm tone.",
+    "fr": "Bandeau d’image, colonne large, ton posé."
+  },
+  "hero": "band",
+  "width": "wide",
+  "accent": "gold",
+  "lead": "serif",
+  "h2": "plain",
+  "toc": false,
+  "dropcap": false,
+  "title": "caps"
+}

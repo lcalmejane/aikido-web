@@ -33,8 +33,10 @@
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="../../assets/js/theme.js?v=1"></script>
   <link rel="stylesheet" href="../../assets/css/home.css?v=10">
-  <link rel="stylesheet" href="../../assets/css/inner.css?v=9">
+  <link rel="stylesheet" href="../../assets/css/inner.css?v=10">
+  <link rel="stylesheet" href="../../assets/css/news-layouts.css?v=3">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Version 1.5 : une base de connaissance, neuf assistants","description":"AI-KIDO 1.5 propose des paquets pour neuf assistants, tous générés depuis une seule source et installés via un plan relu avant toute écriture. Chiffres mesurés sur le paquet 1.5.2.","datePublished":"2026-10-28","inLanguage":"fr","mainEntityOfPage":"https://www.ai-kido.fr/fr/news/version-1-5.html","image":"https://www.ai-kido.fr/assets/images/news/version-1-5.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
+  <script src="../../assets/js/news-navigation.js?v=1" defer></script>
 </head>
 <body class="inner">
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -76,19 +78,27 @@
     </header>
 
   <main id="top">
-    <article class="news-article">
+    <article class="news-article nl-classic hero-wide w-narrow acc-terra lead-serif h2-plain title-normal meta-inline body-prose rail-toc-cta">
       <div class="container">
         <p class="back"><a href="../news.html">← Toutes les actualités</a></p>
-        <p class="news-meta"><span class="tag">Version</span><time datetime="2026-10-28">28 octobre 2026</time></p>
-        <h1>Version 1.5 : une base de connaissance, neuf assistants</h1>
-        <p class="lead">AI-KIDO 1.5 propose des paquets pour neuf assistants, tous générés depuis une seule source et installés via un plan relu avant toute écriture. Chiffres mesurés sur le paquet 1.5.2.</p>
+        <header class="article-head">
+          <p class="news-meta"><span class="tag">Version</span><time datetime="2026-10-28">28 octobre 2026</time></p>
+          <h1>Version 1.5 : une base de connaissance, neuf assistants</h1>
+          <p class="lead">AI-KIDO 1.5 propose des paquets pour neuf assistants, tous générés depuis une seule source et installés via un plan relu avant toute écriture. Chiffres mesurés sur le paquet 1.5.2.</p>
+        </header>
         <img class="article-hero" src="../../assets/images/news/version-1-5.webp" alt="Kido, le petit robot en kimono blanc, tend une carte dorée à trois robots plus petits qui attendent en file dans une salle de tatamis calme" width="960" height="576" decoding="async">
-        <div class="article-body">
+        <div class="article-grid">
+          <div class="article-mobile-tools">
+          <details name="article-tools"><summary>Dans cet article</summary><nav class="article-toc" aria-label="Dans cet article"><strong>Dans cet article</strong><ol><li><a href="#l-idee-en-une-image">L’idée en une image</a></li><li><a href="#ce-que-l-on-fait-previsualiser-avant-d-installer">Ce que l’on fait : prévisualiser avant d’installer</a></li><li><a href="#sous-le-capot">Sous le capot</a></li><li><a href="#mises-a-jour-et-retrait-respectent-votre-travail">Mises à jour et retrait respectent votre travail</a></li><li><a href="#a-essayer">À essayer</a></li></ol></nav></details>
+          <details name="article-tools"><summary>Essayer AI-KIDO</summary><aside class="article-cta" aria-label="Essayer AI-KIDO"><strong>Essayer AI-KIDO</strong><p>Installez la Memory Bank en une commande et laissez votre assistant la lire.</p><a class="cta-btn" href="../install.html">Installer</a></aside></details>
+        </div>
+          <nav class="article-toc" aria-label="Dans cet article"><strong>Dans cet article</strong><ol><li><a href="#l-idee-en-une-image">L’idée en une image</a></li><li><a href="#ce-que-l-on-fait-previsualiser-avant-d-installer">Ce que l’on fait : prévisualiser avant d’installer</a></li><li><a href="#sous-le-capot">Sous le capot</a></li><li><a href="#mises-a-jour-et-retrait-respectent-votre-travail">Mises à jour et retrait respectent votre travail</a></li><li><a href="#a-essayer">À essayer</a></li></ol></nav><aside class="article-cta" aria-label="Essayer AI-KIDO"><strong>Essayer AI-KIDO</strong><p>Installez la Memory Bank en une commande et laissez votre assistant la lire.</p><a class="cta-btn" href="../install.html">Installer</a></aside>
+          <div class="article-body">
           <p>Vous modifiez une règle de la Memory Bank de votre projet, et plusieurs assistants doivent maintenant la suivre. Jusqu’à la 1.5, cela voulait dire copier des fichiers à la main dans le dossier attendu par chaque outil, en espérant que rien ne dérive. La version 1.5 supprime cette corvée.</p>
         <h2 id="l-idee-en-une-image">L’idée en une image</h2>
         <p>AI-KIDO garde une seule source canonique : le dossier <code>hard_points/</code> du dépôt de la méthode. Une étape de génération produit, pour chaque assistant, les fichiers qu’il comprend nativement. Claude Code reçoit un plugin de marketplace avec commandes slash, Skills et agents. GitHub Copilot, Codex, Kiro, Zoo Code, Roo Code et Antigravity reçoivent des fichiers d’espace de travail. Claude Cowork reçoit un plugin à téléverser dans votre compte. Cela fait neuf paquets issus d’une seule source.</p>
-        <figure class="article-figure">
-          <img src="../../assets/images/news/version-15-fan-fr.svg" alt="Schéma : le dossier hard_points alimente une étape de génération qui produit les paquets de neuf assistants : claude-code, claude-cowork, copilot-vscode, copilot-github, codex, kiro-cli, zoo-code, roo-code-legacy et antigravity" width="900" height="320" loading="lazy" decoding="async">
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-hub" viewBox="0 0 360 227" role="img" aria-label="Une source canonique au centre alimente les paquets pour Claude Code, Codex, Copilot, Kiro CLI, Zoo Code et les autres assistants pris en charge." focusable="false"><title>Une source, plusieurs assistants</title><g class="dg-node dg-accent dg-hub" style="--i:0"><rect class="dg-box" x="90" y="12" width="180" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="30.5" text-anchor="middle"><tspan x="180" dy="0">hard_points/</tspan></text><text class="dg-s" x="180" y="50.5" text-anchor="middle"><tspan x="180" dy="0">une source canonique</tspan></text></g><line class="dg-flow" x1="180" y1="66" x2="180" y2="211"/><g class="dg-node " style="--i:1"><rect class="dg-box" x="12" y="82" width="148" height="35" rx="10"/><text class="dg-t" x="86" y="104.5" text-anchor="middle"><tspan x="86" dy="0">Claude Code</tspan></text></g><line class="dg-flow" x1="160" y1="99.5" x2="162" y2="99.5"/><g class="dg-node " style="--i:2"><rect class="dg-box" x="200" y="82" width="148" height="35" rx="10"/><text class="dg-t" x="274" y="104.5" text-anchor="middle"><tspan x="274" dy="0">Codex</tspan></text></g><line class="dg-flow" x1="200" y1="99.5" x2="198" y2="99.5"/><g class="dg-node " style="--i:3"><rect class="dg-box" x="12" y="129" width="148" height="35" rx="10"/><text class="dg-t" x="86" y="151.5" text-anchor="middle"><tspan x="86" dy="0">Copilot</tspan></text></g><line class="dg-flow" x1="160" y1="146.5" x2="162" y2="146.5"/><g class="dg-node " style="--i:4"><rect class="dg-box" x="200" y="129" width="148" height="35" rx="10"/><text class="dg-t" x="274" y="151.5" text-anchor="middle"><tspan x="274" dy="0">Kiro CLI</tspan></text></g><line class="dg-flow" x1="200" y1="146.5" x2="198" y2="146.5"/><g class="dg-node " style="--i:5"><rect class="dg-box" x="12" y="176" width="148" height="35" rx="10"/><text class="dg-t" x="86" y="198.5" text-anchor="middle"><tspan x="86" dy="0">Zoo Code</tspan></text></g><line class="dg-flow" x1="160" y1="193.5" x2="162" y2="193.5"/><g class="dg-node " style="--i:6"><rect class="dg-box" x="200" y="176" width="148" height="35" rx="10"/><text class="dg-t" x="274" y="198.5" text-anchor="middle"><tspan x="274" dy="0">…et d’autres</tspan></text></g><line class="dg-flow" x1="200" y1="193.5" x2="198" y2="193.5"/></svg>
           <figcaption>Une source canonique, une étape de génération, neuf paquets générés.</figcaption>
         </figure>
         <p>Comme les wrappers sont générés et non écrits à la main, ils ne peuvent pas diverger en silence : chaque assistant activé reçoit un wrapper natif pour les mêmes 15 agents.</p>
@@ -142,6 +152,7 @@ node aikido-dist/claude-code/scripts/bootstrap-plan.mjs \
           <li>Lancez la commande de plan et lisez les chemins qu’elle liste.</li>
           <li>Appliquez avec <code>--confirm</code> et l’identifiant du plan. La liste complète des changements est dans le <a href="https://github.com/lcalmejane/aikido/blob/main/CHANGELOG.md">changelog</a>.</li>
         </ol>
+        </div>
         </div>
         <nav class="article-nav" aria-label="Actualités">
           <a class="newer" href="kimono-structure.html" rel="next">← Plus récent : Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller</a>

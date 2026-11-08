@@ -33,8 +33,10 @@
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="../../assets/js/theme.js?v=1"></script>
   <link rel="stylesheet" href="../../assets/css/home.css?v=10">
-  <link rel="stylesheet" href="../../assets/css/inner.css?v=9">
+  <link rel="stylesheet" href="../../assets/css/inner.css?v=10">
+  <link rel="stylesheet" href="../../assets/css/news-layouts.css?v=3">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kimono MCP : la Memory Bank s’ouvre aux clients connectés","description":"En mode AI-KIDO, Kimono sert les mêmes documents, commandes, personas et workflows à tout client MCP. Une base partagée, quelques façons documentées de s’y connecter.","datePublished":"2026-10-16","inLanguage":"fr","mainEntityOfPage":"https://www.ai-kido.fr/fr/news/kimono-mcp.html","image":"https://www.ai-kido.fr/assets/images/news/kimono-mcp.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
+  <script src="../../assets/js/news-navigation.js?v=1" defer></script>
 </head>
 <body class="inner">
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -76,19 +78,27 @@
     </header>
 
   <main id="top">
-    <article class="news-article">
+    <article class="news-article nl-atelier hero-square w-wide acc-terra lead-plain h2-numbered title-normal meta-inline body-prose rail-toc-cta">
       <div class="container">
         <p class="back"><a href="../news.html">← Toutes les actualités</a></p>
-        <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-10-16">16 octobre 2026</time></p>
-        <h1>Kimono MCP : la Memory Bank s’ouvre aux clients connectés</h1>
-        <p class="lead">En mode AI-KIDO, Kimono sert les mêmes documents, commandes, personas et workflows à tout client MCP. Une base partagée, quelques façons documentées de s’y connecter.</p>
+        <header class="article-head">
+          <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-10-16">16 octobre 2026</time></p>
+          <h1>Kimono MCP : la Memory Bank s’ouvre aux clients connectés</h1>
+          <p class="lead">En mode AI-KIDO, Kimono sert les mêmes documents, commandes, personas et workflows à tout client MCP. Une base partagée, quelques façons documentées de s’y connecter.</p>
+        </header>
         <img class="article-hero" src="../../assets/images/news/kimono-mcp.webp" alt="Kido, le petit robot en kimono blanc, tend une carte dorée à trois robots plus petits qui attendent en file dans une salle de tatamis calme" width="960" height="576" decoding="async">
-        <div class="article-body">
+        <div class="article-grid">
+          <div class="article-mobile-tools">
+          <details name="article-tools"><summary>Dans cet article</summary><nav class="article-toc" aria-label="Dans cet article"><strong>Dans cet article</strong><ol><li><a href="#l-idee-en-une-image">L’idée en une image</a></li><li><a href="#choisir-le-mode">Choisir le mode</a></li><li><a href="#trois-facons-de-se-connecter">Trois façons de se connecter</a></li><li><a href="#sous-le-capot">Sous le capot</a></li><li><a href="#ce-que-l-on-obtient-en-posant-une-question">Ce que l’on obtient en posant une question</a></li><li><a href="#a-essayer">À essayer</a></li></ol></nav></details>
+          <details name="article-tools"><summary>Essayer AI-KIDO</summary><aside class="article-cta" aria-label="Essayer AI-KIDO"><strong>Essayer AI-KIDO</strong><p>Installez la Memory Bank en une commande et laissez votre assistant la lire.</p><a class="cta-btn" href="../install.html">Installer</a></aside></details>
+        </div>
+          <nav class="article-toc" aria-label="Dans cet article"><strong>Dans cet article</strong><ol><li><a href="#l-idee-en-une-image">L’idée en une image</a></li><li><a href="#choisir-le-mode">Choisir le mode</a></li><li><a href="#trois-facons-de-se-connecter">Trois façons de se connecter</a></li><li><a href="#sous-le-capot">Sous le capot</a></li><li><a href="#ce-que-l-on-obtient-en-posant-une-question">Ce que l’on obtient en posant une question</a></li><li><a href="#a-essayer">À essayer</a></li></ol></nav><aside class="article-cta" aria-label="Essayer AI-KIDO"><strong>Essayer AI-KIDO</strong><p>Installez la Memory Bank en une commande et laissez votre assistant la lire.</p><a class="cta-btn" href="../install.html">Installer</a></aside>
+          <div class="article-body">
           <p>Votre équipe garde ses règles, ses personas et ses workflows dans une Memory Bank AI-KIDO. Une personne utilise VS Code, une autre un assistant en ligne de commande, et un agent de code tourne dans le cloud. Chacun a besoin des mêmes connaissances, et personne ne doit recevoir une copie périmée.</p>
         <h2 id="l-idee-en-une-image">L’idée en une image</h2>
         <p>Kimono est un serveur MCP. En <strong>mode AI-KIDO</strong>, il prend un dossier racine contenant <code>prompts/index.md</code> ou <code>index.md</code> et expose cette Memory Bank, via le même petit jeu d’outils, à tout client qui parle MCP. La méthode devient quelque chose que les clients connectés peuvent chercher, et non quelque chose qu’il faut apprendre à chacun.</p>
-        <figure class="article-figure">
-          <img src="../../assets/images/news/kimono-loop-fr.svg" alt="Schéma de la boucle de recherche de Kimono : aikido_snapshot begin fige le corpus, aikido_search renvoie chemins et plages de lignes seulement, aikido_file ranges ne lit que les lignes choisies, aikido_snapshot end libère le snapshot ; aikido_structure est une première étape facultative" width="900" height="266" loading="lazy" decoding="async">
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-cycle dg-animated" viewBox="0 0 360 236" role="img" aria-label="Une boucle en quatre étapes : figer un snapshot, chercher, lire seulement les lignes choisies, libérer le snapshot ; puis recommencer." focusable="false"><title>La boucle de recherche</title><g class="dg-node " style="--i:0"><rect class="dg-box" x="16" y="12" width="290" height="35" rx="10"/><text class="dg-t" x="161" y="34.5" text-anchor="middle"><tspan x="161" dy="0">Figer un snapshot</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="161" y1="47" x2="161" y2="66"/><path class="dg-head" d="M156 63 L161 71 L166 63 Z"/></g><g class="dg-node " style="--i:1"><rect class="dg-box" x="16" y="71" width="290" height="35" rx="10"/><text class="dg-t" x="161" y="93.5" text-anchor="middle"><tspan x="161" dy="0">Chercher</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="161" y1="106" x2="161" y2="125"/><path class="dg-head" d="M156 122 L161 130 L166 122 Z"/></g><g class="dg-node " style="--i:2"><rect class="dg-box" x="16" y="130" width="290" height="35" rx="10"/><text class="dg-t" x="161" y="152.5" text-anchor="middle"><tspan x="161" dy="0">Lire les lignes choisies</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="161" y1="165" x2="161" y2="184"/><path class="dg-head" d="M156 181 L161 189 L166 181 Z"/></g><g class="dg-node " style="--i:3"><rect class="dg-box" x="16" y="189" width="290" height="35" rx="10"/><text class="dg-t" x="161" y="211.5" text-anchor="middle"><tspan x="161" dy="0">Libérer le snapshot</tspan></text></g><g class="dg-link"><path class="dg-flow" d="M306 206.5 H340 V29.5 H312" fill="none"/><path class="dg-head" d="M314 24.5 L306 29.5 L314 34.5 Z"/></g></svg>
           <figcaption>Tous les clients utilisent la même boucle, quel que soit l’assistant.</figcaption>
         </figure>
         <h2 id="choisir-le-mode">Choisir le mode</h2>
@@ -146,6 +156,7 @@ KIMONO_CORPUS_MODE=aikido
           <li>Activez le mode AI-KIDO et pointez le serveur vers un dossier contenant votre Memory Bank.</li>
           <li>Posez à votre assistant une question à laquelle votre base peut répondre. Plus de détails sur la <a href="../kimono.html">page Kimono</a>.</li>
         </ol>
+        </div>
         </div>
         <nav class="article-nav" aria-label="Actualités">
           <a class="newer" href="kimono-marketplace.html" rel="next">← Plus récent : Kimono RAG MCP est sur le Marketplace de VS Code</a>

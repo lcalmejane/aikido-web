@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "magazine",
+  "name": {
+    "en": "Magazine",
+    "fr": "Magazine"
+  },
+  "description": {
+    "en": "Large standfirst, drop cap, rules under headings.",
+    "fr": "Chapeau grand format, lettrine, filets sous les intertitres."
+  },
+  "hero": "wide",
+  "width": "wide",
+  "accent": "navy",
+  "lead": "large",
+  "h2": "ruled",
+  "toc": false,
+  "dropcap": true
+}

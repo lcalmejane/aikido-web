@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "learn-loop",
+  "type": "flow",
+  "title": {
+    "en": "You guide, /learn assists",
+    "fr": "Vous guidez, /learn vous assiste"
+  },
+  "desc": {
+    "en": "Four steps: you correct your assistant, /learn proposes a rule, you validate it, then the rule applies in every next request.",
+    "fr": "Quatre étapes : vous corrigez votre assistant, /learn propose une règle, vous la validez, puis la règle s’applique à chaque demande suivante."
+  },
+  "nodes": [
+    {
+      "label": {
+        "en": "You correct",
+        "fr": "Vous corrigez"
+      },
+      "note": {
+        "en": "the assistant goes the wrong way",
+        "fr": "l’assistant se trompe de direction"
+      }
+    },
+    {
+      "label": {
+        "en": "/learn proposes",
+        "fr": "/learn propose"
+      },
+      "note": {
+        "en": "a short, verifiable rule",
+        "fr": "une règle courte et vérifiable"
+      }
+    },
+    {
+      "label": {
+        "en": "You validate",
+        "fr": "Vous validez"
+      },
+      "note": {
+        "en": "nothing is written before this step",
+        "fr": "rien n’est écrit avant cette étape"
+      },
+      "accent": true
+    },
+    {
+      "label": {
+        "en": "The rule applies",
+        "fr": "La règle s’applique"
+      },
+      "note": {
+        "en": "in learned.md, read with every request",
+        "fr": "dans learned.md, lu à chaque demande"
+      }
+    }
+  ]
+}

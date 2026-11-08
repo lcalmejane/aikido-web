@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "det-flow",
+  "type": "flow",
+  "animate": true,
+  "title": {
+    "en": "Who does what",
+    "fr": "Qui fait quoi"
+  },
+  "desc": {
+    "en": "Four steps: the model understands and chooses, the script runs the exact steps, a readable plan is reviewed, then it is applied.",
+    "fr": "Quatre étapes : le modèle comprend et choisit, le script exécute les étapes exactes, un plan lisible est relu, puis il est appliqué."
+  },
+  "nodes": [
+    {
+      "label": {
+        "en": "The model understands and chooses",
+        "fr": "Le modèle comprend et choisit"
+      },
+      "note": {
+        "en": "what only a model can do",
+        "fr": "ce que seul un modèle sait faire"
+      }
+    },
+    {
+      "label": {
+        "en": "The script runs the exact steps",
+        "fr": "Le script exécute les étapes exactes"
+      },
+      "note": {
+        "en": "same input, same result",
+        "fr": "même entrée, même résultat"
+      }
+    },
+    {
+      "label": {
+        "en": "A readable plan",
+        "fr": "Un plan lisible"
+      },
+      "note": {
+        "en": "reviewed before anything is written",
+        "fr": "relu avant toute écriture"
+      }
+    },
+    {
+      "label": {
+        "en": "Applied",
+        "fr": "Appliqué"
+      },
+      "accent": true
+    }
+  ]
+}

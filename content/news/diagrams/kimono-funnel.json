@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "kimono-funnel",
+  "type": "funnel",
+  "title": {
+    "en": "From the whole corpus to a few lines",
+    "fr": "Du corpus entier à quelques lignes"
+  },
+  "desc": {
+    "en": "A funnel: the whole corpus narrows to a handful of search hits, then to the few lines actually read.",
+    "fr": "Un entonnoir : le corpus entier se réduit à quelques résultats de recherche, puis aux seules lignes réellement lues."
+  },
+  "nodes": [
+    {
+      "label": {
+        "en": "The whole corpus",
+        "fr": "Le corpus entier"
+      }
+    },
+    {
+      "label": {
+        "en": "Search: paths and line ranges",
+        "fr": "Recherche : chemins et plages de lignes"
+      }
+    },
+    {
+      "label": {
+        "en": "Read only the chosen lines",
+        "fr": "Lire seulement les lignes choisies"
+      }
+    }
+  ]
+}

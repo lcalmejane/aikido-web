@@ -33,8 +33,10 @@
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="../assets/js/theme.js?v=1"></script>
   <link rel="stylesheet" href="../assets/css/home.css?v=10">
-  <link rel="stylesheet" href="../assets/css/inner.css?v=9">
+  <link rel="stylesheet" href="../assets/css/inner.css?v=10">
+  <link rel="stylesheet" href="../assets/css/news-layouts.css?v=3">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kimono MCP: the Memory Bank opens up to connected clients","description":"In AI-KIDO mode, Kimono serves the same documents, commands, personas and workflows to any MCP client. One shared base, a few documented ways to connect to it.","datePublished":"2026-10-16","inLanguage":"en","mainEntityOfPage":"https://www.ai-kido.fr/news/kimono-mcp.html","image":"https://www.ai-kido.fr/assets/images/news/kimono-mcp.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
+  <script src="../assets/js/news-navigation.js?v=1" defer></script>
 </head>
 <body class="inner">
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -76,19 +78,27 @@
     </header>
 
   <main id="top">
-    <article class="news-article">
+    <article class="news-article nl-atelier hero-square w-wide acc-terra lead-plain h2-numbered title-normal meta-inline body-prose rail-toc-cta">
       <div class="container">
         <p class="back"><a href="../news.html">← All news</a></p>
-        <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-10-16">16 October 2026</time></p>
-        <h1>Kimono MCP: the Memory Bank opens up to connected clients</h1>
-        <p class="lead">In AI-KIDO mode, Kimono serves the same documents, commands, personas and workflows to any MCP client. One shared base, a few documented ways to connect to it.</p>
+        <header class="article-head">
+          <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-10-16">16 October 2026</time></p>
+          <h1>Kimono MCP: the Memory Bank opens up to connected clients</h1>
+          <p class="lead">In AI-KIDO mode, Kimono serves the same documents, commands, personas and workflows to any MCP client. One shared base, a few documented ways to connect to it.</p>
+        </header>
         <img class="article-hero" src="../assets/images/news/kimono-mcp.webp" alt="Kido, the small robot in a white karate gi, hands a golden card to three smaller robots waiting in line inside a calm tatami room" width="960" height="576" decoding="async">
-        <div class="article-body">
+        <div class="article-grid">
+          <div class="article-mobile-tools">
+          <details name="article-tools"><summary>In this article</summary><nav class="article-toc" aria-label="In this article"><strong>In this article</strong><ol><li><a href="#the-idea-in-one-picture">The idea in one picture</a></li><li><a href="#choose-the-mode">Choose the mode</a></li><li><a href="#three-ways-to-connect">Three ways to connect</a></li><li><a href="#under-the-hood">Under the hood</a></li><li><a href="#what-you-get-when-you-ask-a-question">What you get when you ask a question</a></li><li><a href="#try-it">Try it</a></li></ol></nav></details>
+          <details name="article-tools"><summary>Try AI-KIDO</summary><aside class="article-cta" aria-label="Try AI-KIDO"><strong>Try AI-KIDO</strong><p>Install the Memory Bank in one command and let your assistant read it.</p><a class="cta-btn" href="../install.html">Install</a></aside></details>
+        </div>
+          <nav class="article-toc" aria-label="In this article"><strong>In this article</strong><ol><li><a href="#the-idea-in-one-picture">The idea in one picture</a></li><li><a href="#choose-the-mode">Choose the mode</a></li><li><a href="#three-ways-to-connect">Three ways to connect</a></li><li><a href="#under-the-hood">Under the hood</a></li><li><a href="#what-you-get-when-you-ask-a-question">What you get when you ask a question</a></li><li><a href="#try-it">Try it</a></li></ol></nav><aside class="article-cta" aria-label="Try AI-KIDO"><strong>Try AI-KIDO</strong><p>Install the Memory Bank in one command and let your assistant read it.</p><a class="cta-btn" href="../install.html">Install</a></aside>
+          <div class="article-body">
           <p>Your team keeps its rules, personas and workflows in an AI-KIDO Memory Bank. One member uses VS Code, another a command-line assistant, and a coding agent runs in the cloud. Each of them needs the same knowledge, and none of them should get a stale copy.</p>
         <h2 id="the-idea-in-one-picture">The idea in one picture</h2>
         <p>Kimono is an MCP server. In <strong>AI-KIDO mode</strong> it takes a root folder containing <code>prompts/index.md</code> or <code>index.md</code> and exposes that Memory Bank through the same small set of tools to every client that speaks MCP. The method becomes something connected clients can search, not something each of them has to be taught.</p>
-        <figure class="article-figure">
-          <img src="../assets/images/news/kimono-loop-en.svg" alt="Diagram of the Kimono retrieval loop: aikido_snapshot begin freezes the corpus, aikido_search returns paths and line ranges only, aikido_file ranges reads only the chosen lines, aikido_snapshot end releases the snapshot; aikido_structure is an optional first step" width="900" height="266" loading="lazy" decoding="async">
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-cycle dg-animated" viewBox="0 0 360 236" role="img" aria-label="A loop in four steps: freeze a snapshot, search, read only the chosen lines, release the snapshot; then start again." focusable="false"><title>The retrieval loop</title><g class="dg-node " style="--i:0"><rect class="dg-box" x="16" y="12" width="290" height="35" rx="10"/><text class="dg-t" x="161" y="34.5" text-anchor="middle"><tspan x="161" dy="0">Freeze a snapshot</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="161" y1="47" x2="161" y2="66"/><path class="dg-head" d="M156 63 L161 71 L166 63 Z"/></g><g class="dg-node " style="--i:1"><rect class="dg-box" x="16" y="71" width="290" height="35" rx="10"/><text class="dg-t" x="161" y="93.5" text-anchor="middle"><tspan x="161" dy="0">Search</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="161" y1="106" x2="161" y2="125"/><path class="dg-head" d="M156 122 L161 130 L166 122 Z"/></g><g class="dg-node " style="--i:2"><rect class="dg-box" x="16" y="130" width="290" height="35" rx="10"/><text class="dg-t" x="161" y="152.5" text-anchor="middle"><tspan x="161" dy="0">Read the chosen lines</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="161" y1="165" x2="161" y2="184"/><path class="dg-head" d="M156 181 L161 189 L166 181 Z"/></g><g class="dg-node " style="--i:3"><rect class="dg-box" x="16" y="189" width="290" height="35" rx="10"/><text class="dg-t" x="161" y="211.5" text-anchor="middle"><tspan x="161" dy="0">Release the snapshot</tspan></text></g><g class="dg-link"><path class="dg-flow" d="M306 206.5 H340 V29.5 H312" fill="none"/><path class="dg-head" d="M314 24.5 L306 29.5 L314 34.5 Z"/></g></svg>
           <figcaption>Every client uses the same loop, whatever the assistant.</figcaption>
         </figure>
         <h2 id="choose-the-mode">Choose the mode</h2>
@@ -146,6 +156,7 @@ KIMONO_CORPUS_MODE=aikido
           <li>Set AI-KIDO mode and point the server at a folder holding your Memory Bank.</li>
           <li>Ask your assistant a question your base can answer. More on the <a href="../kimono.html">Kimono page</a>.</li>
         </ol>
+        </div>
         </div>
         <nav class="article-nav" aria-label="News">
           <a class="newer" href="kimono-marketplace.html" rel="next">← Newer : Kimono RAG MCP is on the VS Code Marketplace</a>

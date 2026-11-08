@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "task-store-tree",
+  "type": "tree",
+  "title": {
+    "en": "The private store on disk",
+    "fr": "Le magasin privé sur le disque"
+  },
+  "desc": {
+    "en": "Default location outside the checkout, in the OS user-data directory.",
+    "fr": "Emplacement par défaut hors du dépôt, dans le répertoire de données utilisateur du système."
+  },
+  "nodes": [
+    {
+      "depth": 0,
+      "label": {
+        "en": "OS user-data directory",
+        "fr": "Répertoire de données utilisateur"
+      },
+      "note": {
+        "en": "never inside the workspace",
+        "fr": "jamais dans l’espace de travail"
+      }
+    },
+    {
+      "depth": 1,
+      "label": {
+        "en": "aikido/tasks/",
+        "fr": "aikido/tasks/"
+      }
+    },
+    {
+      "depth": 2,
+      "label": {
+        "en": "<workspace-id>/",
+        "fr": "<identifiant-d’espace>/"
+      },
+      "note": {
+        "en": "one store per workspace",
+        "fr": "un magasin par espace de travail"
+      }
+    },
+    {
+      "depth": 3,
+      "label": {
+        "en": "store.json",
+        "fr": "store.json"
+      },
+      "note": {
+        "en": "schema that identifies the root",
+        "fr": "le schéma qui identifie la racine"
+      }
+    },
+    {
+      "depth": 3,
+      "label": {
+        "en": "journal",
+        "fr": "journal"
+      },
+      "note": {
+        "en": "authoritative events",
+        "fr": "les événements, qui font foi"
+      },
+      "accent": true
+    },
+    {
+      "depth": 3,
+      "label": {
+        "en": "projections",
+        "fr": "projections"
+      },
+      "note": {
+        "en": "cards and plans, rebuildable",
+        "fr": "cartes et plans, reconstructibles"
+      }
+    },
+    {
+      "depth": 3,
+      "label": {
+        "en": "exclusive lock",
+        "fr": "verrou exclusif"
+      },
+      "note": {
+        "en": "no write without it",
+        "fr": "aucune écriture sans lui"
+      }
+    }
+  ]
+}
