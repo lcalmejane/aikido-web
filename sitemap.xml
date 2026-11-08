@@ -101,87 +101,17 @@
   <!-- news:begin -->
   <url>
     <loc>https://www.ai-kido.fr/news.html</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news.html"/>
   </url>
   <url>
     <loc>https://www.ai-kido.fr/fr/news.html</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news.html"/>
-  </url>
-  <url>
-    <loc>https://www.ai-kido.fr/news/learn-rules.html</loc>
-    <lastmod>2026-11-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/learn-rules.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/learn-rules.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/learn-rules.html"/>
-  </url>
-  <url>
-    <loc>https://www.ai-kido.fr/fr/news/learn-rules.html</loc>
-    <lastmod>2026-11-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/learn-rules.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/learn-rules.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/learn-rules.html"/>
-  </url>
-  <url>
-    <loc>https://www.ai-kido.fr/news/local-designer.html</loc>
-    <lastmod>2026-11-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/local-designer.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/local-designer.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/local-designer.html"/>
-  </url>
-  <url>
-    <loc>https://www.ai-kido.fr/fr/news/local-designer.html</loc>
-    <lastmod>2026-11-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/local-designer.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/local-designer.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/local-designer.html"/>
-  </url>
-  <url>
-    <loc>https://www.ai-kido.fr/news/source-hierarchy.html</loc>
-    <lastmod>2026-11-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/source-hierarchy.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/source-hierarchy.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/source-hierarchy.html"/>
-  </url>
-  <url>
-    <loc>https://www.ai-kido.fr/fr/news/source-hierarchy.html</loc>
-    <lastmod>2026-11-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/source-hierarchy.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/source-hierarchy.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/source-hierarchy.html"/>
-  </url>
-  <url>
-    <loc>https://www.ai-kido.fr/news/swarm-team.html</loc>
-    <lastmod>2026-11-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/swarm-team.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/swarm-team.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/swarm-team.html"/>
-  </url>
-  <url>
-    <loc>https://www.ai-kido.fr/fr/news/swarm-team.html</loc>
-    <lastmod>2026-11-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/swarm-team.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/swarm-team.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/swarm-team.html"/>
-  </url>
-  <url>
-    <loc>https://www.ai-kido.fr/news/task-store.html</loc>
-    <lastmod>2026-11-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/task-store.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/task-store.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/task-store.html"/>
-  </url>
-  <url>
-    <loc>https://www.ai-kido.fr/fr/news/task-store.html</loc>
-    <lastmod>2026-11-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/task-store.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/task-store.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/task-store.html"/>
   </url>
   <url>
     <loc>https://www.ai-kido.fr/news/deterministic-tools.html</loc>

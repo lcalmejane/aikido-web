@@ -125,52 +125,32 @@ The site is static HTML/CSS, with no build step.
 
 ## News and roadmap
 
-The news pages are **generated** from the folder `content/news/` (one JSON file per article, per layout and per diagram; EN and FR text side by side).
+The news pages are **generated** from a single source, `data/news.json` (EN and FR text, date, image, tag per item).
 Never edit the generated files by hand: `news.html`, `fr/news.html`, `news/*.html`, `fr/news/*.html`, the block between
 `<!-- news:begin -->` and `<!-- news:end -->` on both home pages (the compact strip in the first screen) and the same block in `sitemap.xml`.
 
 ```bash
-node scripts/build-news.mjs --validate  # validate content/news/ only (no write)
-node scripts/build-news.mjs             # validate and regenerate everything
-node scripts/build-news.mjs --check     # fail if a generated file is out of date (no write)
-node --test scripts/build-news.test.mjs # tests (validation, layouts, diagrams, hreflang, sitemap, idempotence)
+node scripts/build-news.mjs           # validate data/news.json and regenerate everything
+node scripts/build-news.mjs --check   # fail if a generated file is out of date (no write)
+node --test scripts/                  # tests (validation, hreflang, sitemap, strip, idempotence)
 ```
 
-Layout of `content/news/`:
-
-| Path | Role |
-|---|---|
-| `articles/<slug>.json` | one article: `slug`, `date`, `tag`, `image`, `layout`, and an `en` / `fr` block with `title`, `summary` (220 characters at most) and `body` |
-| `layouts/<id>.json` | one page layout (13 available). Options: hero position, width, accent, lead, `h2` style, drop cap, `title` (normal, caps, huge), `meta` (inline, mono, byline), `rail` (none, toc, toc-cta) and `body` |
-| `diagrams/<id>.json` | one SVG diagram generated from data (`flow`, `tree`, `funnel`, `cycle`, `hub`, `bars`, `pyramid`) |
-| `assets.json` | images with size and EN / FR alt text |
-| `ui.json`, `bundle.json` | interface strings and global rules (minimum layouts, no two neighbours alike, animation quotas) |
-
-The code that reads this folder is in `scripts/news/` (`load`, `validate`, `blocks`, `diagrams`, `pages`, `build`).
-
-To add an article, create `content/news/articles/<slug>.json`, give it a layout different from its neighbours, add its image to
-`assets.json`, then run the build. The script rejects duplicate slugs, invalid dates, missing images, two neighbouring articles
-with the same layout, an article without a visual, EN and FR with different block counts, unbalanced tags and broken local links.
-Menu and footer of the news pages are copied from `history.html` / `fr/history.html`, so a menu change is made there first.
+To add an item, add an object at the top of `items` in `data/news.json` (kebab-case `slug`, `date` as `YYYY-MM-DD`,
+an existing `image` with its size, a `tag` and an `en` / `fr` block with `title`, `summary` (220 characters at most),
+`alt` and `body`), then run the build. The script rejects duplicate slugs, invalid dates, missing images,
+unbalanced tags and broken local links. Menu and footer of the news pages are copied from `history.html` / `fr/history.html`,
+so a menu change is made there first.
 
 `body` is a list of blocks. A plain string is an HTML paragraph (`<p>…</p>`, lists, inline code and links). Other blocks are objects:
 
 | Block | Fields |
 |---|---|
 | `{ h2 }` | section heading |
-| `{ code, lang, caption }` | code block, wrapped (no horizontal scroll) |
-| `{ figure, width, height, alt, caption }` | image from `assets/images/news/` |
-| `{ diagram, caption, animate }` | diagram from `diagrams/`; static by default, `animate` only for a flow and only when motion explains something |
+| `{ code, lang, caption }` | code block, shown as text, scrolls sideways if long |
+| `{ figure, width, height, alt, caption }` | SVG or image from `assets/images/news/` (one file per language) |
 | `{ callout, title }` | highlighted note |
-| `{ stats: [{ value, label }] }` | two to four figures |
-| `{ pullstat: { value, label } }` | one large figure |
-| `{ compare: { left, right } }` | two columns, each with `title` and `items` |
-| `{ timeline: [{ when, text }] }` | dated or ordered steps |
+| `{ stats: [{ value, label }] }` | up to three figures |
 | `{ steps: [...] }` | numbered list of things to try |
-| `{ quote }`, `{ chat }`, `{ faq }`, `{ cards }` | quotation, conversation, questions, cards |
-
-Diagrams are static by default. At most one animated diagram per article, no two animated articles in a row,
-and at most half of the diagrams animated. Only the arrows move, never the text, and `prefers-reduced-motion` stops them.
 
 Write local links from the site root (`news/version-1-5.html`, `install.html`): the generator adds `../` on article pages
 and the French pages resolve them under `fr/`. Everything shown must come from a public repository or a real run;
