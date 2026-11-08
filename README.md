@@ -18,6 +18,8 @@ URL: https://www.ai-kido.fr/
 | Distributions and installation | `install.html` | `fr/install.html` |
 | Story (project timeline) | `history.html` | `fr/history.html` |
 | Kimono (diagrams and setup tutorial) | `kimono.html` | `fr/kimono.html` |
+| Local Designer | `local-designer.html` | `fr/local-designer.html` |
+| News | `news.html` | `fr/news.html` |
 | Technical friends (footer only) | `technical-friends.html` | `fr/technical-friends.html` |
 
 Each page has a language switcher (`EN` / `FR`) and `hreflang` tags (`x-default` = EN).
@@ -84,7 +86,9 @@ The site is static HTML/CSS, with no build step.
 
 - The EN and FR home pages introduce AI-KIDO as a method for structured knowledge and lasting collaboration with AI, keeping the “AI Memory Bank Construction Method by Meta-Harness” positioning. A “The meta-harness: AI-KIDO in practice” section (`#meta-harness` / `#meta-harnais`, reachable from the navigation and a hero button) offers six teaser cards linking to each section of the harness page; the method / meta-harness / use-case cards and team / integration cards also link there.
 - `harness.html` / `fr/harness.html` open with `#what-is-a-harness` (what a harness is, why it matters, and how its components — context, roles, workflow, capabilities, checks — map to AI-KIDO features), then explain personas and agents (`/create-persona`), commands (`/create-command`), skills (`/create-skill`) and compiled agents (`/compile-agent-from-use`), with links to the canonical command documentation.
-- Both pages use matching `#what-is-a-harness`, `#building-blocks`, `#personas`, `#commands`, `#skills`, `#compilation`, `#example`, `#improve` and `#start` anchors, language switchers and links back to the method. They illustrate the create → use → improve loop with a product-publication example and explain command optimization with `/optimize-command-with-aikido-agents`.
+- Both pages use matching `#what-is-a-harness`, `#building-blocks`, `#personas`, `#commands`, `#skills`, `#compilation`, `#example`, `#improve`, `#deterministic` and `#start` anchors, language switchers and links back to the method. They illustrate the create → use → improve loop with a product-publication example and explain command optimization with `/optimize-command-with-aikido-agents`.
+- `#deterministic` (added 7 November 2026, reworked the same day) states the AI-KIDO philosophy: the model talks and decides, deterministic tools execute. Its third card explains that creating a command or compiling an agent analyses the request and, per the tooling standard, asks for the exact part to be written as a reusable Node.js script packaged in the skill (never claim that a script is generated for every request). It covers reliability, token cost (TCO) and auditability; the four rules (Node.js 24+ `.mjs` tooling standard of `prompts/hard_points/system/Skills.md`); a table of what AI-KIDO already hands to scripts (`/create-skill` and `/skill-manage`, `/create-persona` and `/compile-agent-from-use` with host-sync, `/validate-search-plan`, `/download-site`, the orchestrator JSON contract); and the refactoring agent (four routes, temporary scripts, wide batches, short JSON reports). Token and TCO benefits are presented as expected, never measured: the only measured figures are the Kimono benchmark, which the section links to. Every command, route and number named there must match `agent-aikido-refactoring.md`, the refactoring skill and `Skills.md`; re-check it when they change.
+- The three illustrations of `#deterministic` (`det-by-hand`, `det-script-runs`, `det-toolbox`, Kido 512 × 512, style `kido-mascot-photo`, Qwen, `Euler A Trailing`, 16 steps, seed 42) were generated locally with Local Designer on 7 November 2026. Working files, sidecars and discarded variants are in `~/local-designer-lab/aikido-web-det/`. A small dark badge on the belt of `det-script-runs` and `det-toolbox` is the known recurring artifact; replace the seed if it matters.
 - Keep AI-KIDO (the method) distinct from its tools (the meta-harness). Do not promise automatic service connections or arbitrary executable-tool generation: execution depends on the host assistant, available tools/MCP and permissions. Retain the existing knowledge-maintenance capabilities and learning path.
 
 ## Kimono MCP content / Contenu Kimono MCP
@@ -96,8 +100,8 @@ The site is static HTML/CSS, with no build step.
 - Dedicated pages: `kimono.html` / `fr/kimono.html`, with Marketplace-first installation (`ai-kido.kimono-rag-mcp`, VS Code 1.106+), plain-language RAG and AI-KIDO use cases, document retrieval, screenshots and a three-step onboarding. Docker and native alternatives link to the upstream guides. No diagram library or JavaScript runtime is required.
 - `#performance` presents the two measured research/planning tasks in an accessible, horizontally scrollable table. Preserve exact counts and elapsed times from the [benchmark](https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md): Gemini 3.8 Flash, Copilot CLI 1.0.103, local lexical RAG, 51 identical files, one run per method/task. Cumulative input includes cache reads. Do not equate token reductions to invoice savings, claim a measured full TCO reduction or generalize two trials to every project.
 - Both home pages introduce practical efficiency, token FinOps and TCO considerations, linking to the Kimono measurements and screenshots. Attribute measured gains to Kimono, not to the AI-KIDO method as a whole; distinguish expected organizational benefits from measured results.
-- Marketplace: [Kimono RAG MCP by AI-KIDO](https://marketplace.visualstudio.com/items?itemName=ai-kido.kimono-rag-mcp). Office/PDF and metadata retrieval require the 0.6.6 document features; screenshots show the locally installed 0.6.5 panel, not those newer document features. Direct LLM CLI integrations are explicitly planned, not shipped.
-- AI-KIDO 1.5 is published (`aikido-dist-v1.5.2`): the site reflects the meta-harness positioning, the nine distributions and the install guide on `main`.
+- Marketplace: [Kimono RAG MCP by AI-KIDO](https://marketplace.visualstudio.com/items?itemName=ai-kido.kimono-rag-mcp). Office/PDF and metadata retrieval require the 0.6.6 document features; screenshots show the locally installed 0.6.5 panel, not those newer document features. Direct LLM CLI integrations are listed on the roadmap.
+- AI-KIDO 1.5.3 is published (`aikido-dist-v1.5.3`): the site reflects the meta-harness positioning, the nine distributions and the install guide on `main`.
 - Shared Kimono visuals: `assets/images/K1.webp` (header), `K2.webp` (shared practice), `K3.webp` (connected knowledge), `K4.webp` (local setup), `K5.webp` (separate workspaces). Originals stay in the ignored `assets/images/generated/` folder. K3–K5 retain their full aspect ratio without cropping. K2 keeps its scoped saturation/brightness adjustment.
 - Harness page header: `assets/images/H5.webp` (1664×832, 34 KB) is the background of `.page-head` on `harness.html` and `fr/harness.html` only (body class `harness-page`, so `install.html` is unaffected). Generated locally with Draw Things through the `drawthing` skill of `aikido-skills` (Qwen Image 2512, 16 steps, seed 20261031); the prompt and parameters are in `assets/images/generated/H5.json` next to the lossless PNG. The artwork keeps its centre dark for the headline. A WebP preload is declared in both pages; bump `style.css?v=` when the CSS changes.
 - Harness page illustrations: `R1`–`R3` (the Without / With a harness / With the meta-harness cards), `R4`–`R7` (persona, command, skill and composition cards) are 192×192 icons in the style of `C1`–`C8`; `S4`–`S6` (create / use / improve steps) are 832×512 like `S1`–`S3`; `R8` (1200×400) is the banner of `#improve`. Icons must keep transparent rounded corners like `C1.webp` (flood-fill the PNG corners before `cwebp`), otherwise white corners show on the cards. Pictures must not contain text, dimension marks or faces; regenerate any that do. Originals stay in the ignored `assets/images/generated/`.
@@ -112,9 +116,50 @@ The site is static HTML/CSS, with no build step.
 - `404.html` is `noindex, follow`.
 - Icons: every page (including `404.html`) uses the same block: `favicon.ico` (16 + 32 px), PNG 32, 96 and 192 px, `apple-touch-icon` (180 px), `manifest.webmanifest` and two `theme-color` tags (`#f6efe0` in light mode, `#111524` in dark mode, the site background). Icon URLs carry a `?v=3` cache-buster; bump it on every page when an icon file changes. Source artwork: `assets/images/logo-512.png`.
 - All canonical, Open Graph, social image, JSON-LD and language-alternate URLs use `https://www.ai-kido.fr/`. Home URLs are `/` and `/fr/`, not `index.html`. The 404 keeps `noindex` and root-relative links/assets so nested missing URLs work on the custom domain.
-- `sitemap.xml` lists the 12 pages with their `xhtml:link` alternates. When adding or renaming a page, update the sitemap, the `canonical`/`og:url`/`hreflang` tags of both versions, and bump `<lastmod>` on pages whose content changed.
+- `sitemap.xml` lists every public page and news article with their `xhtml:link` language alternates. When adding or renaming a page, update the sitemap, the `canonical`/`og:url`/`hreflang` tags of both versions, and bump `<lastmod>` on pages whose content changed.
 - `robots.txt` at the custom domain root allows crawling and declares `Sitemap: https://www.ai-kido.fr/sitemap.xml`.
 - Search engines: add the property `https://www.ai-kido.fr/` (URL prefix) in Google Search Console, submit `sitemap.xml`, then request indexing of the home pages; import it into Bing Webmaster Tools. For ownership verification, add a `google-site-verification` meta tag (or an HTML verification file at the site root) only once the token is known. After the DNS check passes and GitHub issues the certificate, enable **Enforce HTTPS** in Pages settings to redirect HTTP traffic.
+
+## News and roadmap
+
+The news pages are **generated** from a single source, `data/news.json` (EN and FR text, date, image, tag per item).
+Never edit the generated files by hand: `news.html`, `fr/news.html`, `news/*.html`, `fr/news/*.html`, the block between
+`<!-- news:begin -->` and `<!-- news:end -->` on both home pages (the compact strip in the first screen) and the same block in `sitemap.xml`.
+
+```bash
+node scripts/build-news.mjs           # validate data/news.json and regenerate everything
+node scripts/build-news.mjs --check   # fail if a generated file is out of date (no write)
+node --test scripts/                  # tests (validation, hreflang, sitemap, strip, idempotence)
+```
+
+To add an item, add an object at the top of `items` in `data/news.json` (kebab-case `slug`, `date` as `YYYY-MM-DD`,
+an existing `image` with its size, a `tag` and an `en` / `fr` block with `title`, `summary` (220 characters at most),
+`alt` and `body`), then run the build. The script rejects duplicate slugs, invalid dates, missing images,
+unbalanced tags and broken local links. Menu and footer of the news pages are copied from `history.html` / `fr/history.html`,
+so a menu change is made there first.
+
+`body` is a list of blocks. A plain string is an HTML paragraph (`<p>…</p>`, lists, inline code and links). Other blocks are objects:
+
+| Block | Fields |
+|---|---|
+| `{ h2 }` | section heading |
+| `{ code, lang, caption }` | code block, shown as text, scrolls sideways if long |
+| `{ figure, width, height, alt, caption }` | SVG or image from `assets/images/news/` (one file per language) |
+| `{ callout, title }` | highlighted note |
+| `{ stats: [{ value, label }] }` | up to three figures |
+| `{ steps: [...] }` | numbered list of things to try |
+
+Write local links from the site root (`news/version-1-5.html`, `install.html`): the generator adds `../` on article pages
+and the French pages resolve them under `fr/`. Everything shown must come from a public repository or a real run;
+see `prompts/gen/concepts/qa-docs-ux/consignes-articles-news.md` for the editorial rules.
+
+`assets/js/theme.js` must be loaded exactly once per page; a second copy binds the theme button twice so it flips back
+and looks broken. A test checks every HTML page of the site.
+
+The roadmap is a section of the story page (`#roadmap`, `#feuille-de-route`). It lists intentions without dates; an item moves
+to the timeline only once it ships, and every item must match the project's own roadmap (status "in progress" or "planned", never presented as installed or deployed).
+
+The home page also has a "On this page" bar that stays hidden over the hero and appears on scroll (`assets/js/home-nav.js`, `data-home-subnav`).
 
 ## Working directory
 

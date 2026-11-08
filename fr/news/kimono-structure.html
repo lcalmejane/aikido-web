@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller – AI-KIDO</title>
+  <meta name="description" content="Le nouvel outil aikido_structure renvoie un arbre de fichiers compact avec le type de chaque fichier et son état d’indexation. Un premier regard sur un projet inconnu, en quelques lignes.">
+  <meta property="og:title" content="Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller – AI-KIDO">
+  <meta property="og:description" content="Le nouvel outil aikido_structure renvoie un arbre de fichiers compact avec le type de chaque fichier et son état d’indexation. Un premier regard sur un projet inconnu, en quelques lignes.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image" content="https://www.ai-kido.fr/assets/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
+  <meta property="og:image:alt" content="Kido, le petit robot en kimono blanc, se tient dans un dojo avec une lanterne allumée, à côté d’un panneau de bois sculpté d’un arbre dont les branches portent de petites tuiles dorées">
+  <meta property="og:url" content="https://www.ai-kido.fr/fr/news/kimono-structure.html">
+  <meta property="og:site_name" content="AI-KIDO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.ai-kido.fr/assets/images/og.jpg">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://www.ai-kido.fr/fr/news/kimono-structure.html">
+  <link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/kimono-structure.html">
+  <link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/kimono-structure.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/kimono-structure.html">
+  <link rel="icon" href="../../favicon.ico?v=3" sizes="16x16 32x32">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32.png?v=3">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../assets/images/favicon-48.png?v=3">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../assets/images/icon-192.png?v=3">
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png?v=3">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="theme-color" content="#f6efe0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
+  <script src="../../assets/js/theme.js?v=1"></script>
+  <link rel="stylesheet" href="../../assets/css/home.css?v=10">
+  <link rel="stylesheet" href="../../assets/css/inner.css?v=9">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller","description":"Le nouvel outil aikido_structure renvoie un arbre de fichiers compact avec le type de chaque fichier et son état d’indexation. Un premier regard sur un projet inconnu, en quelques lignes.","datePublished":"2026-11-07","inLanguage":"fr","mainEntityOfPage":"https://www.ai-kido.fr/fr/news/kimono-structure.html","image":"https://www.ai-kido.fr/assets/images/news/kimono-structure.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
+</head>
+<body class="inner">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+</svg>
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="../index.html"><img src="../../assets/images/favicon-48.png?v=2" alt="" width="30" height="30"><span class="word">AI<span>-</span>KIDO</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav">
+      <label class="nav-burger" for="nav-toggle"><svg class="icon" aria-hidden="true"><use href="#menu"/></svg> Menu</label>
+      <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+        <details class="nav-group">
+          <summary>Méthode <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
+          <div class="nav-panel">
+            <a href="../index.html">Accueil</a>
+            <a href="../harness.html">Création de harnais</a>
+            <a href="../history.html">Historique</a>
+          </div>
+        </details>
+        <a href="../install.html">Installer</a>
+        <a href="../news.html" aria-current="page">Actualités</a>
+        <details class="nav-group">
+          <summary>Outils <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
+          <div class="nav-panel">
+            <a href="../kimono.html">Kimono MCP</a>
+            <a href="../local-designer.html">Local Designer</a>
+          </div>
+        </details>
+        <a href="https://github.com/lcalmejane/aikido">GitHub</a>
+        <span class="lang" role="group" aria-label="Langue">
+          <a href="../../news/kimono-structure.html" hreflang="en" lang="en">EN</a>
+          <a class="active" href="kimono-structure.html" hreflang="fr" lang="fr" aria-current="true">FR</a>
+        </span>
+      </nav>
+      <button type="button" class="theme-toggle" data-theme-toggle data-label-dark="Passer au thème sombre" data-label-light="Passer au thème clair" aria-label="Passer au thème sombre" title="Passer au thème sombre"><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></svg></button>
+    </div>
+    </header>
+
+  <main id="top">
+    <article class="news-article">
+      <div class="container">
+        <p class="back"><a href="../news.html">← Toutes les actualités</a></p>
+        <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-11-07">7 novembre 2026</time></p>
+        <h1>Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller</h1>
+        <p class="lead">Le nouvel outil aikido_structure renvoie un arbre de fichiers compact avec le type de chaque fichier et son état d’indexation. Un premier regard sur un projet inconnu, en quelques lignes.</p>
+        <img class="article-hero" src="../../assets/images/news/kimono-structure.webp" alt="Kido, le petit robot en kimono blanc, se tient dans un dojo avec une lanterne allumée, à côté d’un panneau de bois sculpté d’un arbre dont les branches portent de petites tuiles dorées" width="960" height="576" decoding="async">
+        <div class="article-body">
+          <p>Un assistant arrive dans un projet inconnu et doit choisir où regarder. Sans mot-clé évident, la carte lui sert de premier repère.</p>
+        <h2 id="l-idee-en-une-image">L’idée en une image</h2>
+        <p>Kimono 0.9.6 ajoute <code>aikido_structure</code>, un outil en lecture seule qui renvoie l’arbre de fichiers de votre snapshot, selon les mêmes règles d’exclusion que le reste de Kimono. Chaque fichier porte un <strong>type</strong> et un indicateur <strong>idx</strong> qui dit si Kimono l’indexe : l’assistant voit tout de suite ce qu’une recherche peut atteindre et ce qu’elle ne peut pas.</p>
+        <figure class="article-figure">
+          <img src="../../assets/images/news/kimono-loop-fr.svg" alt="Schéma de la boucle de recherche de Kimono : aikido_snapshot begin fige le corpus, aikido_search renvoie chemins et plages de lignes seulement, aikido_file ranges ne lit que les lignes choisies, aikido_snapshot end libère le snapshot ; aikido_structure est une première étape facultative" width="900" height="266" loading="lazy" decoding="async">
+          <figcaption>aikido_structure est la première étape facultative de la boucle : regarder la forme, puis chercher.</figcaption>
+        </figure>
+        <h2 id="ce-que-vous-demandez-a-votre-assistant">Ce que vous demandez à votre assistant</h2>
+        <p>Dans VS Code, vous ouvrez le chat de votre assistant avec Kimono connecté et vous écrivez, comme à un collègue :</p>
+        <figure class="code-block">
+          <div class="code-lang">text</div>
+          <pre tabindex="0"><code class="language-text">Montre-moi la forme de ce projet, limitée au dossier src. Puis dis-moi quels fichiers Kimono n’indexe pas.</code></pre>
+          <figcaption>Le prompt tapé par la personne, sur un petit projet d’exemple de huit fichiers.</figcaption>
+        </figure>
+        <p>L’assistant répond en quelques secondes, sans avoir ouvert un seul fichier. Il vous montre d’abord <code>src</code> : un dossier <code>api/</code> et un fichier <code>index.ts</code>. Il précise ensuite que deux fichiers échappent à la recherche : un fichier d’exclusion (<code>.gitignore</code>) et une image (<code>logo.png</code>). Vous savez déjà ce qu’une recherche pourra trouver, et ce qu’elle ne trouvera jamais.</p>
+        <p>Vous poursuivez : « Donne-moi tout l’arbre, en format compact ». Voici ce qui s’affiche, douze lignes pour tout le projet :</p>
+        <figure class="code-block">
+          <div class="code-lang">text</div>
+          <pre tabindex="0"><code class="language-text">.gitignore ignore 0 14
+Dockerfile docker 1 13
+README.md readme 1 32
+assets/
+ logo.png image 0 5
+docs/
+ architecture.md md 1 37
+package.json manifest 1 16
+src/
+ api/
+  ping.ts ts 1 34
+ index.ts ts 1 31</code></pre>
+          <figcaption>L’arbre complet affiché par l’assistant. Colonnes : chemin, type, indexé (1 ou 0), lignes.</figcaption>
+        </figure>
+        <h2 id="sous-le-capot">Sous le capot</h2>
+        <p>Derrière votre question sur les fichiers non indexés, l’assistant a appelé <code>aikido_structure</code> avec <code>idx: 0</code>. Voici la réponse brute qu’il a reçue :</p>
+        <figure class="code-block">
+          <div class="code-lang">json</div>
+          <pre tabindex="0"><code class="language-json">{&quot;v&quot;:&quot;a0de78c5…&quot;,&quot;n&quot;:2,&quot;idx&quot;:0,
+ &quot;data&quot;:{&quot;.gitignore&quot;:[&quot;ignore&quot;,0,14],&quot;assets/&quot;:{&quot;logo.png&quot;:[&quot;image&quot;,0,5]}}}</code></pre>
+          <figcaption>Réponse réelle de l’outil, raccourcie par « … ».</figcaption>
+        </figure>
+        <ul class="stats">
+          <li><strong>8</strong><span>fichiers dans le projet d’exemple</span></li>
+          <li><strong>6</strong><span>indexés ; 2 ne le sont pas (un fichier d’exclusion et une image)</span></li>
+          <li><strong>12</strong><span>lignes pour l’arbre complet en texte</span></li>
+        </ul>
+        <p>La réponse porte aussi un marqueur de version <code>v</code>. Renvoyez-le en <code>since</code> : si rien n’a changé, l’outil répond <code>{"unchanged":true}</code> au lieu de renvoyer l’arbre.</p>
+        <aside class="callout"><strong class="callout-title">À retenir</strong><p>Les types viennent d’une table intégrée qui couvre tout ce que Kimono indexe et des fichiers courants qu’il n’indexe pas. Vous pouvez la remplacer par un fichier de règles (<code>KIMONO_TYPES_FILE</code>). L’outil décrit les fichiers de votre snapshot ; il ne les lit pas.</p></aside>
+        <h2 id="a-essayer">À essayer</h2>
+        <ol class="steps">
+          <li>Mettez Kimono à jour en <a href="https://github.com/lcalmejane/kimono-mcp-server/releases/tag/v0.9.6">0.9.6</a> ou plus récent et ouvrez un snapshot avec <code>aikido_snapshot</code>.</li>
+          <li>Appelez <code>aikido_structure</code> sur la racine, puis restreignez avec <code>path</code> et <code>depth</code>.</li>
+          <li>Cherchez là où la carte pointe. La liste complète des options est dans le <a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/CHANGELOG.md">changelog</a>.</li>
+        </ol>
+        </div>
+        <nav class="article-nav" aria-label="Actualités">
+          <a class="newer" href="deterministic-tools.html" rel="next">← Plus récent : Laissez les scripts faire ce qu’un script fait exactement</a>
+          <a class="older" href="version-1-5.html" rel="prev">Plus ancien : Version 1.5 : une base de connaissance, neuf assistants →</a>
+        </nav>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-intro">
+          <a class="footer-brand" href=".././">AI-KIDO</a>
+          <p class="footer-tagline">Une mémoire pour l’IA. Une méthode pour votre équipe.</p>
+          <p>Structurez les connaissances, partagez les règles et construisez les harnais adaptés à vos projets.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Navigation de pied de page">
+          <div class="footer-group">
+            <h2>La méthode</h2>
+            <ul>
+              <li><a href=".././">Découvrir AI-KIDO</a></li>
+              <li><a href="../harness.html">Créer un harnais</a></li>
+              <li><a href="../history.html">L’histoire</a></li>
+              <li><a href="../news.html">Actualités</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h2>Les outils</h2>
+            <ul>
+              <li><a href="../install.html">Installation</a></li>
+              <li><a href="../kimono.html">Kimono MCP</a></li>
+              <li><a href="../local-designer.html">Local Designer</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h2>Ressources</h2>
+            <ul>
+              <li><a href="https://github.com/lcalmejane/aikido">Documentation</a></li>
+              <li><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Mesures Kimono</a></li>
+              <li><a href="../technical-friends.html">Sites amis techniques</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <a href="https://github.com/lcalmejane/aikido/blob/main/LICENSE">Méthode sous licence MIT</a>
+        <nav class="footer-languages" aria-label="Langue">
+          <a href="../../news/kimono-structure.html" hreflang="en" lang="en">English</a>
+          <a href="kimono-structure.html" hreflang="fr" lang="fr" aria-current="page">Français</a>
+        </nav>
+      </div>
+      <p class="footer-driven">Propulsé par la méthode AI-KIDO · <a href="https://github.com/lcalmejane/aikido" lang="en">AI-KIDO: The Self-Forged Engine</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

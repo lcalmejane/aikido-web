@@ -16,14 +16,14 @@
   </url>
   <url>
     <loc>https://www.ai-kido.fr/harness.html</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/harness.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/harness.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/harness.html"/>
   </url>
   <url>
     <loc>https://www.ai-kido.fr/fr/harness.html</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/harness.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/harness.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/harness.html"/>
@@ -86,16 +86,102 @@
   </url>
   <url>
     <loc>https://www.ai-kido.fr/technical-friends.html</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/technical-friends.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/technical-friends.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/technical-friends.html"/>
   </url>
   <url>
     <loc>https://www.ai-kido.fr/fr/technical-friends.html</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/technical-friends.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/technical-friends.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/technical-friends.html"/>
   </url>
+  <!-- news:begin -->
+  <url>
+    <loc>https://www.ai-kido.fr/news.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/fr/news.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/news/deterministic-tools.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/deterministic-tools.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/deterministic-tools.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/deterministic-tools.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/fr/news/deterministic-tools.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/deterministic-tools.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/deterministic-tools.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/deterministic-tools.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/news/kimono-structure.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/kimono-structure.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/kimono-structure.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/kimono-structure.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/fr/news/kimono-structure.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/kimono-structure.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/kimono-structure.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/kimono-structure.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/news/version-1-5.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/version-1-5.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/version-1-5.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/version-1-5.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/fr/news/version-1-5.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/version-1-5.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/version-1-5.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/version-1-5.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/news/kimono-marketplace.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/kimono-marketplace.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/kimono-marketplace.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/kimono-marketplace.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/fr/news/kimono-marketplace.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/kimono-marketplace.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/kimono-marketplace.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/kimono-marketplace.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/news/kimono-mcp.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/kimono-mcp.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/kimono-mcp.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/kimono-mcp.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/fr/news/kimono-mcp.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/kimono-mcp.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/kimono-mcp.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/kimono-mcp.html"/>
+  </url>
+  <!-- news:end -->
 </urlset>

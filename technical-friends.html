@@ -29,8 +29,8 @@
   <meta name="theme-color" content="#f6efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="assets/js/theme.js?v=1"></script>
-  <link rel="stylesheet" href="assets/css/home.css?v=6">
-  <link rel="stylesheet" href="assets/css/inner.css?v=5">
+  <link rel="stylesheet" href="assets/css/home.css?v=10">
+  <link rel="stylesheet" href="assets/css/inner.css?v=9">
   <link rel="stylesheet" href="assets/css/technical-friends.css?v=1">
 </head>
 <body class="inner">
@@ -49,6 +49,7 @@
           <div class="nav-panel"><a href="index.html">Home</a><a href="harness.html">Harness creation</a><a href="history.html">History</a></div>
         </details>
         <a href="install.html">Install</a>
+        <a href="news.html">News</a>
         <details class="nav-group">
           <summary>Tools <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
           <div class="nav-panel"><a href="kimono.html">Kimono MCP</a><a href="local-designer.html">Local Designer</a></div>
@@ -83,6 +84,7 @@
           <article class="card"><span class="reference-logo"><img src="assets/images/technical-friends/nodejs.png" alt="" width="48" height="48" loading="lazy"></span><h3><a href="https://nodejs.org/">Node.js</a></h3><p>The JavaScript runtime behind the distribution tooling, Local Designer scripts and Kimono's MCP server.</p></article>
           <article class="card"><span class="reference-logo"><img src="assets/images/technical-friends/docker.png" alt="" width="48" height="48" loading="lazy"></span><h3><a href="https://www.docker.com/">Docker</a></h3><p>Container tooling for the Tatami environment and Kimono's shared MCP server.</p></article>
           <article class="card"><span class="reference-logo"><img src="assets/images/technical-friends/vscode.png" alt="" width="48" height="48" loading="lazy"></span><h3><a href="https://code.visualstudio.com/">Visual Studio Code</a></h3><p>An editor environment for Copilot integrations and the Kimono extension.</p></article>
+          <article class="card"><span class="reference-logo"><img src="assets/images/technical-friends/rtk.png" alt="" width="48" height="48" loading="lazy"></span><h3><a href="https://www.rtk-ai.app/">RTK</a></h3><p>A Rust command-line proxy that compresses shell output before it reaches the model. The Tatami environment ships it and enables it for the assistants that can rewrite commands.</p></article>
         </div>
       </div>
     </section>
@@ -137,7 +139,8 @@
       <div class="footer-grid">
         <div class="footer-intro"><a class="footer-brand" href="./">AI-KIDO</a><p class="footer-tagline">Give your AI a memory. Give your team a method.</p><p>Structure knowledge, share rules and build the harnesses your projects need.</p></div>
         <nav class="footer-nav" aria-label="Footer navigation">
-          <div class="footer-group"><h2>The method</h2><ul><li><a href="./">Discover AI-KIDO</a></li><li><a href="harness.html">Create a harness</a></li><li><a href="history.html">Our story</a></li></ul></div>
+          <div class="footer-group"><h2>The method</h2><ul><li><a href="./">Discover AI-KIDO</a></li><li><a href="harness.html">Create a harness</a></li><li><a href="history.html">Our story</a></li>
+              <li><a href="news.html">News</a></li></ul></div>
           <div class="footer-group"><h2>Tools</h2><ul><li><a href="install.html">Installation</a></li><li><a href="kimono.html">Kimono MCP</a></li><li><a href="local-designer.html">Local Designer</a></li></ul></div>
           <div class="footer-group"><h2>Resources</h2><ul><li><a href="https://github.com/lcalmejane/aikido">Documentation</a></li><li><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Kimono benchmarks</a></li><li><a href="technical-friends.html" aria-current="page">Technical friends</a></li></ul></div>
         </nav>
@@ -146,6 +149,7 @@
         <a href="https://github.com/lcalmejane/aikido/blob/main/LICENSE">Method licensed under MIT</a>
         <nav class="footer-languages" aria-label="Language"><a href="technical-friends.html" hreflang="en" lang="en" aria-current="page">English</a><a href="fr/technical-friends.html" hreflang="fr" lang="fr">Français</a></nav>
       </div>
+      <p class="footer-driven">Driven by the AI-KIDO method · <a href="https://github.com/lcalmejane/aikido" lang="en">AI-KIDO: The Self-Forged Engine</a></p>
     </div>
   </footer>
 </body>

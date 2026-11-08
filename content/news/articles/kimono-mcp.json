@@ -1,0 +1,165 @@
+{
+  "slug": "kimono-mcp",
+  "date": "2026-10-16",
+  "tag": {
+    "en": "Kimono",
+    "fr": "Kimono"
+  },
+  "image": "hero-kimono-mcp",
+  "en": {
+    "title": "Kimono MCP: the Memory Bank opens up to connected clients",
+    "summary": "In AI-KIDO mode, Kimono serves the same documents, commands, personas and workflows to any MCP client. One shared base, a few documented ways to connect to it.",
+    "body": [
+      "<p>Your team keeps its rules, personas and workflows in an AI-KIDO Memory Bank. One member uses VS Code, another a command-line assistant, and a coding agent runs in the cloud. Each of them needs the same knowledge, and none of them should get a stale copy.</p>",
+      {
+        "h2": "The idea in one picture"
+      },
+      "<p>Kimono is an MCP server. In <strong>AI-KIDO mode</strong> it takes a root folder containing <code>prompts/index.md</code> or <code>index.md</code> and exposes that Memory Bank through the same small set of tools to every client that speaks MCP. The method becomes something connected clients can search, not something each of them has to be taught.</p>",
+      {
+        "figure": "kimono-loop",
+        "caption": "Every client uses the same loop, whatever the assistant."
+      },
+      {
+        "h2": "Choose the mode"
+      },
+      "<p>RAG is the default, and the presence of an AI-KIDO index does not switch modes by itself. You choose explicitly, on the surface you configure:</p>",
+      {
+        "code": "# Environment\nKIMONO_CORPUS_MODE=aikido\n\n# CLI\n--corpus-mode aikido\n\n# VS Code setting\n\"kimono.corpusMode\": \"aikido\"",
+        "lang": "text",
+        "caption": "The three equivalent ways to select AI-KIDO mode, from the <a href=\"https://github.com/lcalmejane/kimono-mcp-server/blob/main/docs/usage.en.md\">usage guide</a>. For RAG, use <code>rag</code> instead."
+      },
+      {
+        "h2": "Three ways to connect"
+      },
+      "<ul><li><strong>IDE extension (recommended):</strong> install it from the Visual Studio Marketplace in VS Code or a compatible IDE.</li><li><strong>Docker server:</strong> a shared corpus for several MCP clients, including GitHub Copilot cloud agent, through the <code>/mcp</code> endpoint.</li><li><strong>Native install from source:</strong> a local stdio server for an MCP client that supports it.</li></ul>",
+      "<p>For the cloud agent, you open your repository settings, Copilot section, and paste the MCP configuration that declares a remote server. The token is stored as an Agents secret, never in the file.</p>",
+      {
+        "h2": "Under the hood"
+      },
+      "<p>The pasted configuration is the following; the token only appears as a variable:</p>",
+      {
+        "code": "{\n  \"mcpServers\": {\n    \"kimono\": {\n      \"type\": \"http\",\n      \"url\": \"https://kimono.example.com/mcp\",\n      \"headers\": {\n        \"Authorization\": \"Bearer ${COPILOT_MCP_AUTH_TOKEN}\"\n      },\n      \"tools\": [\"aikido_snapshot\", \"aikido_search\", \"aikido_file\", \"aikido_structure\", \"aikido_index\"]\n    }\n  }\n}",
+        "lang": "json",
+        "caption": "Copied from the <a href=\"https://github.com/lcalmejane/kimono-mcp-server\">Kimono README</a>. The URL is a placeholder for your own HTTPS endpoint."
+      },
+      {
+        "callout": "A server on your laptop is not visible to a cloud agent. Local Docker Compose binds to loopback and is not directly reachable by GitHub. The endpoint must be reachable over HTTPS, protected by authentication, and point at a checkout the server can read.",
+        "title": "Watch for"
+      },
+      {
+        "h2": "What you get when you ask a question"
+      },
+      "<p>On a small example project of eight files, you write in your assistant’s chat:</p>",
+      {
+        "code": "Where is the ping endpoint handled in this project?",
+        "lang": "text",
+        "caption": "The prompt typed by the person, in RAG mode (AI-KIDO mode serves a Memory Bank with the same tools)."
+      },
+      "<p>The assistant answers by citing three paths with their line ranges, without a single line of source code, then opens only those ranges to explain. The snapshot is released at the end.</p>",
+      {
+        "stats": [
+          {
+            "value": "3",
+            "label": "matches returned for one query"
+          },
+          {
+            "value": "0",
+            "label": "lines of source text in that answer"
+          },
+          {
+            "value": "1",
+            "label": "snapshot, released at the end"
+          }
+        ]
+      },
+      {
+        "h2": "Try it"
+      },
+      {
+        "steps": [
+          "Pick a connection from the <a href=\"https://github.com/lcalmejane/kimono-mcp-server\">Kimono repository</a> README.",
+          "Set AI-KIDO mode and point the server at a folder holding your Memory Bank.",
+          "Ask your assistant a question your base can answer. More on the <a href=\"kimono.html\">Kimono page</a>."
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "title": "Kimono MCP : la Memory Bank s’ouvre aux clients connectés",
+    "summary": "En mode AI-KIDO, Kimono sert les mêmes documents, commandes, personas et workflows à tout client MCP. Une base partagée, quelques façons documentées de s’y connecter.",
+    "body": [
+      "<p>Votre équipe garde ses règles, ses personas et ses workflows dans une Memory Bank AI-KIDO. Une personne utilise VS Code, une autre un assistant en ligne de commande, et un agent de code tourne dans le cloud. Chacun a besoin des mêmes connaissances, et personne ne doit recevoir une copie périmée.</p>",
+      {
+        "h2": "L’idée en une image"
+      },
+      "<p>Kimono est un serveur MCP. En <strong>mode AI-KIDO</strong>, il prend un dossier racine contenant <code>prompts/index.md</code> ou <code>index.md</code> et expose cette Memory Bank, via le même petit jeu d’outils, à tout client qui parle MCP. La méthode devient quelque chose que les clients connectés peuvent chercher, et non quelque chose qu’il faut apprendre à chacun.</p>",
+      {
+        "figure": "kimono-loop",
+        "caption": "Tous les clients utilisent la même boucle, quel que soit l’assistant."
+      },
+      {
+        "h2": "Choisir le mode"
+      },
+      "<p>RAG est le mode par défaut, et la présence d’un index AI-KIDO ne change pas de mode toute seule. Vous choisissez explicitement, sur la surface que vous configurez :</p>",
+      {
+        "code": "# Environment\nKIMONO_CORPUS_MODE=aikido\n\n# CLI\n--corpus-mode aikido\n\n# VS Code setting\n\"kimono.corpusMode\": \"aikido\"",
+        "lang": "text",
+        "caption": "Les trois façons équivalentes de choisir le mode AI-KIDO, d’après le <a href=\"https://github.com/lcalmejane/kimono-mcp-server/blob/main/docs/usage.fr.md\">guide d’usage</a>. Pour RAG, utilisez <code>rag</code>."
+      },
+      {
+        "h2": "Trois façons de se connecter"
+      },
+      "<ul><li><strong>Extension d’IDE (recommandée) :</strong> à installer depuis le Visual Studio Marketplace dans VS Code ou un IDE compatible.</li><li><strong>Serveur Docker :</strong> un corpus partagé pour plusieurs clients MCP, dont l’agent cloud GitHub Copilot, via le point d’accès <code>/mcp</code>.</li><li><strong>Installation native depuis les sources :</strong> un serveur stdio local pour un client MCP qui le prend en charge.</li></ul>",
+      "<p>Pour l’agent cloud, vous ouvrez les réglages de votre dépôt, section Copilot, et vous y collez la configuration MCP qui déclare un serveur distant. Le jeton est enregistré comme secret des Agents, jamais dans le fichier.</p>",
+      {
+        "h2": "Sous le capot"
+      },
+      "<p>La configuration collée est la suivante ; le jeton y apparaît seulement comme une variable :</p>",
+      {
+        "code": "{\n  \"mcpServers\": {\n    \"kimono\": {\n      \"type\": \"http\",\n      \"url\": \"https://kimono.example.com/mcp\",\n      \"headers\": {\n        \"Authorization\": \"Bearer ${COPILOT_MCP_AUTH_TOKEN}\"\n      },\n      \"tools\": [\"aikido_snapshot\", \"aikido_search\", \"aikido_file\", \"aikido_structure\", \"aikido_index\"]\n    }\n  }\n}",
+        "lang": "json",
+        "caption": "Copié du <a href=\"https://github.com/lcalmejane/kimono-mcp-server\">README de Kimono</a>. L’URL est un exemple à remplacer par votre propre point d’accès HTTPS."
+      },
+      {
+        "callout": "Un serveur sur votre portable n’est pas visible d’un agent cloud. Docker Compose en local écoute sur la boucle locale et GitHub ne peut pas l’atteindre directement. Le point d’accès doit être joignable en HTTPS, protégé par authentification, et pointer vers une copie du dépôt que le serveur peut lire.",
+        "title": "À surveiller"
+      },
+      {
+        "h2": "Ce que l’on obtient en posant une question"
+      },
+      "<p>Sur un petit projet d’exemple de huit fichiers, vous écrivez dans le chat de votre assistant :</p>",
+      {
+        "code": "Où est géré le endpoint ping dans ce projet ?",
+        "lang": "text",
+        "caption": "Le prompt tapé par la personne, en mode RAG (le mode AI-KIDO sert une Memory Bank avec les mêmes outils)."
+      },
+      "<p>L’assistant répond en citant trois chemins avec leurs plages de lignes, sans une ligne de code source, puis n’ouvre que ces plages pour vous expliquer. Le snapshot est libéré à la fin.</p>",
+      {
+        "stats": [
+          {
+            "value": "3",
+            "label": "correspondances renvoyées pour une requête"
+          },
+          {
+            "value": "0",
+            "label": "ligne de code source dans cette réponse"
+          },
+          {
+            "value": "1",
+            "label": "snapshot, libéré à la fin"
+          }
+        ]
+      },
+      {
+        "h2": "À essayer"
+      },
+      {
+        "steps": [
+          "Choisissez une connexion dans le README du <a href=\"https://github.com/lcalmejane/kimono-mcp-server\">dépôt Kimono</a>.",
+          "Activez le mode AI-KIDO et pointez le serveur vers un dossier contenant votre Memory Bank.",
+          "Posez à votre assistant une question à laquelle votre base peut répondre. Plus de détails sur la <a href=\"kimono.html\">page Kimono</a>."
+        ]
+      }
+    ]
+  }
+}

@@ -29,8 +29,8 @@
   <meta name="theme-color" content="#f6efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="../assets/js/theme.js?v=1"></script>
-  <link rel="stylesheet" href="../assets/css/home.css?v=6">
-  <link rel="stylesheet" href="../assets/css/inner.css?v=5">
+  <link rel="stylesheet" href="../assets/css/home.css?v=10">
+  <link rel="stylesheet" href="../assets/css/inner.css?v=9">
   <link rel="preload" as="image" href="../assets/images/pages/ph-harness.webp" type="image/webp">
 </head>
 <body class="harness-builder harness-page inner">
@@ -60,6 +60,7 @@
           </div>
         </details>
         <a href="install.html">Installer</a>
+        <a href="news.html">Actualités</a>
         <details class="nav-group">
           <summary>Outils <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
           <div class="nav-panel">
@@ -82,6 +83,7 @@
           <a href="#building-blocks">Les briques</a>
           <a href="#example">Exemple</a>
           <a href="#improve">Améliorer</a>
+          <a href="#deterministic">Outils déterministes</a>
           <a href="#start">Démarrer</a>
         </nav>
       </div>
@@ -216,7 +218,112 @@
       </div>
     </section>
 
-    <section id="start" class="alt">
+    <section id="deterministic" class="alt">
+      <div class="container">
+        <span class="tag">Principes · Outils déterministes</span>
+        <h2>Ne demandez pas au modèle ce qu'un script sait faire exactement.</h2>
+        <p class="sub">Un harnais n'est pas fait que de prompts. Les harnais les plus fiables confient chaque étape exacte et répétable à un outil déterministe, et gardent le modèle pour comprendre, choisir et juger. Le résultat est plus fiable, et il coûte beaucoup moins de tokens.</p>
+        <div class="grid cols-3">
+          <article class="card">
+            <img class="kido-img" src="../assets/images/pages/det-by-hand.webp" width="512" height="512" loading="lazy" decoding="async" alt="Kido le petit robot bondit, affolé, les deux bras en l’air, pendant qu’une pile de pièces dorées bascule sur un petit bureau et que des pièces se répandent sur le tatami">
+            <span class="tag">Laissé au modèle</span>
+            <h3>Chaque étape se paie en tokens</h3>
+            <p>Lire des centaines de fichiers pour renommer un terme, comparer des valeurs, réécrire chaque fichier, puis vérifier le résultat : chaque passe est facturée en entrée et en sortie, et chaque passe peut déraper. Plus le travail est long, plus la pile vacille.</p>
+          </article>
+          <article class="card">
+            <img class="kido-img" src="../assets/images/pages/det-script-runs.webp" width="512" height="512" loading="lazy" decoding="async" alt="Kido le petit robot sautille, poing levé de joie, à côté d’un rail où des panneaux dorés glissent jusqu’à former des piles bien rangées">
+            <span class="tag">Exécuté par un script</span>
+            <h3>Une commande, une réponse courte</h3>
+            <p>Le script parcourt, modifie et compte. Le modèle lit quelques lignes de JSON, par exemple le nombre de fichiers modifiés et ceux qui ont échoué, puis décide de la suite. Son contexte reste petit, donc chaque étape suivante reste rapide et peu coûteuse.</p>
+          </article>
+          <article class="card">
+            <img class="kido-img" src="../assets/images/pages/det-toolbox.webp" width="512" height="512" loading="lazy" decoding="async" alt="Kido le petit robot se dresse sur la pointe des pieds et brandit un nouvel outil doré lumineux près d’un râtelier plein de petits outils dorés">
+            <span class="tag">Commandes et agents qui fabriquent des outils</span>
+            <h3>Chaque nouvelle commande ajoute un outil au harnais</h3>
+            <p>Quand vous créez une commande ou compilez un agent, AI-KIDO sépare ce qui demande du jugement de ce qui a une réponse exacte, et réclame la part exacte sous forme de script Node.js sans dépendance. Chaque commande et chaque agent suivants peuvent le réutiliser : la boîte à outils grandit avec votre harnais.</p>
+          </article>
+        </div>
+
+        <h3 class="harness-components-title">Ce que cela change pour la fiabilité et pour le coût</h3>
+        <ul class="harness-components">
+          <li><strong>Fiabilité.</strong> Un script donne la même réponse pour la même entrée, à chaque exécution. Il se teste comme n'importe quel code, il renvoie un résultat JSON borné, et il échoue avec une erreur claire et un code de sortie non nul au lieu d'annoncer un succès. Les outils qui écrivent des fichiers planifient d'abord, appliquent ensuite, et gardent un retour arrière.</li>
+          <li><strong>Coût en tokens (TCO).</strong> On paie des tokens pour lire, décider, écrire et corriger. Un script remplace cette boucle par un appel et un court rapport : moins de passes, moins de reprises et un contexte plus petit à porter pendant une longue session. Une même étape coûte aussi la même chose à chaque fois, ce qui rend la facture plus prévisible.</li>
+          <li><strong>Auditabilité.</strong> Un plan, un essai à blanc et un rapport se rejouent et se relisent par votre équipe. Un raisonnement enfoui dans une conversation, non.</li>
+        </ul>
+
+        <h3 class="harness-components-title">Les principes déterministes d'AI-KIDO</h3>
+        <div class="grid cols-4">
+          <article class="card">
+            <img class="kido-img" src="../assets/images/pages/det-p1-decides.webp" width="512" height="512" loading="lazy" decoding="async" alt="Kido le petit robot désigne avec assurance un panneau indicateur doré, la tête penchée comme s’il choisissait la voie">
+            <span class="tag">Principe 1</span>
+            <h3>Le modèle dialogue et décide</h3>
+            <p>Il comprend la demande, pose les bonnes questions, choisit une voie et juge ce qu'aucune règle ne tranche.</p>
+          </article>
+          <article class="card">
+            <img class="kido-img" src="../assets/images/pages/det-p2-executes.webp" width="512" height="512" loading="lazy" decoding="async" alt="Kido le petit robot avance et pose la main sur un bouton doré posé sur une console en bois">
+            <span class="tag">Principe 2</span>
+            <h3>L'outil exécute</h3>
+            <p>Tout ce qui a une réponse exacte tourne dans un script. Par défaut, AI-KIDO l'écrit en Node.js 24+ (<code>.mjs</code>), sans dépendance, avec un objet JSON en sortie et des tests lancés par <code>node --test</code>. Voir le <a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/system/Skills.md#default-tooling-standard-nodejs">standard d'outillage</a>.</p>
+          </article>
+          <article class="card">
+            <img class="kido-img" src="../assets/images/pages/det-p3-cheapest.webp" width="512" height="512" loading="lazy" decoding="async" alt="Kido le petit robot saute sur la première marche dorée d’un escalier en bois et fait un signe de la main">
+            <span class="tag">Principe 3</span>
+            <h3>La voie déterministe la moins chère passe d'abord</h3>
+            <p>Un outil existant, puis un moteur générique, puis un script temporaire. La modification directe par le modèle est réservée à quelques fichiers ou aux changements qui demandent du jugement.</p>
+          </article>
+          <article class="card">
+            <img class="kido-img" src="../assets/images/pages/det-p4-limits.webp" width="512" height="512" loading="lazy" decoding="async" alt="Kido le petit robot se penche avec une loupe pour inspecter un petit cadre vide à côté d’une lanterne allumée">
+            <span class="tag">Principe 4</span>
+            <h3>Les limites restent visibles</h3>
+            <p>Un outil ne sait pas dire si une image est juste ou si une affirmation est vraie. Cette part revient à un lecteur et à votre équipe, et le rapport précise ce qui a été vérifié ou non.</p>
+          </article>
+        </div>
+
+        <h3 class="harness-components-title">Quelques exemples qui tournent déjà de façon déterministe</h3>
+        <p class="sub">Il y en a bien d'autres. AI-KIDO inclut des skills qui embarquent leurs propres scripts, et vous pouvez en télécharger d'autres depuis le catalogue AI-KIDO et des sources externes de confiance avec <code>/skill-manage</code>. Ces exemples montrent le partage entre ce que fait un script et ce qui reste au modèle.</p>
+        <div class="table-wrap" role="region" aria-label="Tâches qu'AI-KIDO confie aux scripts et au modèle" tabindex="0">
+          <table class="data">
+            <thead><tr><th scope="col">Tâche</th><th scope="col">Faite par un script</th><th scope="col">Laissé au modèle</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Créer un skill<br><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/create-skill.md"><code>/create-skill</code></a>, <a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/skill-manage.md"><code>/skill-manage</code></a></th><td>Les outils du skill sont des scripts Node.js avec leurs tests. La planification est séparée des écritures approuvées.</td><td>Comprendre le besoin et rédiger les instructions que le skill donne aux agents.</td></tr>
+              <tr><th scope="row">Créer un agent<br><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/create-persona.md"><code>/create-persona</code></a>, <a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/compile-agent-from-use.md"><code>/compile-agent-from-use</code></a></th><td>Une fois l'agent créé, host-sync repère les assistants installés sur la machine (en regardant le PATH et les extensions de l'éditeur, sans rien lancer) et rend le nouvel agent disponible dans chacun.</td><td>Définir avec vous le rôle, le périmètre et les instructions.</td></tr>
+              <tr><th scope="row">Valider un plan de recherche ou d'analyse<br><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/validate-search-plan.md"><code>/validate-search-plan</code></a></th><td>Contrôle l'en-tête, les sections et les expressions régulières, et affiche un score.</td><td>Décider comment corriger les points signalés.</td></tr>
+              <tr><th scope="row">Télécharger un site en Markdown<br><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/system/web/commands/download-site.md"><code>/download-site</code></a></th><td>Télécharge, convertit, refuse d'écraser des fichiers existants et ne publie rien si une conversion échoue.</td><td>Choisir le site et la profondeur, puis exploiter le contenu.</td></tr>
+              <tr><th scope="row">Échange entre agents</th><td>L'orchestrateur contrôle chaque requête et chaque résultat selon un contrat JSON avant de s'en servir.</td><td>Décider du plan et juger le contenu des résultats.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="harness-components-title">Les agents de refactoring : fabriquer l'outil, puis l'exécuter</h3>
+        <p>Renommer un terme dans 200 fichiers est le cas d'école du gaspillage de tokens. L'<a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/agents/agent-aikido-refactoring.md">agent de refactoring</a> d'AI-KIDO suit une règle : comparer les voies avant de toucher à quoi que ce soit, puis prendre la voie déterministe la moins chère.</p>
+        <div class="table-wrap" role="region" aria-label="Voies de refactoring de la moins chère à la plus chère" tabindex="0">
+          <table class="data">
+            <thead><tr><th scope="col">Voie</th><th scope="col">À utiliser quand</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">1 · Un outil existant</th><td>Un formateur, un codemod, le <code>--fix</code> d'un linter ou un script du projet fait déjà le travail.</td></tr>
+              <tr><th scope="row">2 · Le moteur générique</th><td>Le même remplacement littéral ou par expression régulière s'applique partout. Le moteur enchaîne <code>scan</code>, <code>plan</code>, <code>apply --dry-run</code>, puis <code>apply</code>, et <code>rollback</code> si les contrôles du projet échouent.</td></tr>
+              <tr><th scope="row">3 · Un script temporaire</th><td>La règle demande de la logique (un déplacement, une condition par fichier) mais reste déterministe. L'agent crée le script, le lance à blanc, l'applique, le relance pour prouver qu'il ne change plus rien, puis le supprime. Il n'est jamais commité.</td></tr>
+              <tr><th scope="row">4 · Une modification directe</th><td>Un à trois fichiers, ou quand chaque changement demande du jugement.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Quand le travail dépasse un seul contexte, l'agent le découpe en larges lots (40 fichiers ou 400 Ko par défaut). Un lot qui demande du jugement part chez un sous-agent propriétaire exclusif de ses fichiers, et seulement dans ce cas. Chacun répond en quelques lignes au lieu de listes de fichiers, de journaux ou de diffs :</p>
+        <pre><code>{"route":"engine","scope":"src/**/*.ts","files":212,"batches":6,"applied":212,"remaining":0,"failed":[],"checks":"ok"}</code></pre>
+        <p class="note">Ce sont les bénéfices que nous attendons de la démarche, et l'agent de refactoring a pour consigne de ne pas annoncer d'économies qu'il n'a pas mesurées. Les seuls chiffres de tokens mesurés sur ce site viennent du <a href="kimono.html#performance">benchmark Kimono</a>, sur deux tâches de recherche ; ils ne constituent pas une réduction mesurée du TCO complet. Les illustrations de cette section ont été générées en local avec <a href="local-designer.html">Local Designer</a>, qui applique le même partage : des scripts contrôlent le brief, le verrou et les couleurs, et un lecteur regarde chaque image.</p>
+
+        <div class="callout">
+          <h3>Là où un script peut trancher, il tranche. Là où il ne le peut pas, quelqu'un lit et le dit.</h3>
+          <p>Ce partage garde les tokens du modèle pour ce qui en a besoin, et donne à votre équipe des résultats auxquels se fier et qu'elle peut vérifier.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn primary" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/agents/agent-aikido-refactoring.md">Lire l'agent de refactoring</a>
+          <a class="btn" href="local-designer.html">Découvrir Local Designer</a>
+          <a class="btn" href="kimono.html#performance">Voir les mesures Kimono</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="start">
       <div class="container">
         <h2>Partez d'une tâche, puis enrichissez ce qui fonctionne.</h2>
         <p class="sub"><a href="index.html#demarrer">Initialisez AI-KIDO</a> si besoin, puis lancez ces commandes depuis votre assistant (ce ne sont pas des commandes shell).</p>
@@ -255,6 +362,7 @@
               <li><a href="./">Découvrir AI-KIDO</a></li>
               <li><a href="harness.html">Créer un harnais</a></li>
               <li><a href="history.html">L’histoire</a></li>
+              <li><a href="news.html">Actualités</a></li>
             </ul>
           </div>
           <div class="footer-group">
@@ -282,6 +390,7 @@
           <a href="harness.html" hreflang="fr" lang="fr" aria-current="page">Français</a>
         </nav>
       </div>
+      <p class="footer-driven">Propulsé par la méthode AI-KIDO · <a href="https://github.com/lcalmejane/aikido" lang="en">AI-KIDO: The Self-Forged Engine</a></p>
     </div>
   </footer>
 </body>

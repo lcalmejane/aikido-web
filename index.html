@@ -56,7 +56,7 @@
   <meta name="theme-color" content="#f6efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="assets/js/theme.js?v=1"></script>
-  <link rel="stylesheet" href="assets/css/home.css?v=6">
+  <link rel="stylesheet" href="assets/css/home.css?v=11">
   <link rel="preload" as="image" href="assets/images/home/hero-wide.webp" type="image/webp">
 </head>
 <body>
@@ -140,6 +140,7 @@
           </div>
         </details>
         <a href="install.html">Install</a>
+        <a href="news.html">News</a>
         <details class="nav-group">
           <summary>Tools <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
           <div class="nav-panel">
@@ -155,9 +156,36 @@
       </nav>
       <button type="button" class="theme-toggle" data-theme-toggle data-label-dark="Switch to dark theme" data-label-light="Switch to light theme" aria-label="Switch to dark theme" title="Switch to dark theme"><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></svg></button>
     </div>
+    <div class="subnav home-subnav" data-home-subnav>
+      <div class="container">
+        <nav aria-label="Page sections">
+          <span class="subnav-label">On this page</span>
+          <a href="#why">Why</a>
+          <a href="#efficiency">Efficiency</a>
+          <a href="#how">How it works</a>
+          <a href="#capabilities">Toolbox</a>
+          <a href="#path">Learning path</a>
+          <a href="#start">Get started</a>
+          <a href="news.html">News</a>
+        </nav>
+      </div>
+    </div>
   </header>
 
   <main id="top">
+    <!-- news:begin -->
+    <div class="news-band" role="region" aria-label="News">
+      <div class="container nb-in">
+        <a class="nb-label" href="news.html">News</a>
+        <ul class="nb-list">
+            <li><a href="news/deterministic-tools.html"><img src="assets/images/news/deterministic-tools.webp" alt="" width="72" height="54" loading="lazy" decoding="async"><span class="nb-txt"><time datetime="2026-11-07">7 November 2026</time><strong>Let scripts do what a script can do exactly</strong></span></a></li>
+            <li><a href="news/kimono-structure.html"><img src="assets/images/news/kimono-structure.webp" alt="" width="72" height="54" loading="lazy" decoding="async"><span class="nb-txt"><time datetime="2026-11-07">7 November 2026</time><strong>Kimono 0.9.6: see the shape of a project before searching it</strong></span></a></li>
+            <li><a href="news/version-1-5.html"><img src="assets/images/news/version-1-5.webp" alt="" width="72" height="54" loading="lazy" decoding="async"><span class="nb-txt"><time datetime="2026-10-28">28 October 2026</time><strong>Version 1.5: one knowledge base, nine assistants</strong></span></a></li>
+        </ul>
+        <a class="news-all" href="news.html">All news</a>
+      </div>
+    </div>
+    <!-- news:end -->
 
     <!-- 1. Héros plein cadre -->
     <section class="hero">
@@ -418,6 +446,7 @@
               <li><a href="./">Discover AI-KIDO</a></li>
               <li><a href="harness.html">Create a harness</a></li>
               <li><a href="history.html">Our story</a></li>
+              <li><a href="news.html">News</a></li>
             </ul>
           </div>
           <div class="footer-group">
@@ -445,8 +474,10 @@
           <a href="fr/" hreflang="fr" lang="fr">Français</a>
         </nav>
       </div>
+      <p class="footer-driven">Driven by the AI-KIDO method · <a href="https://github.com/lcalmejane/aikido" lang="en">AI-KIDO: The Self-Forged Engine</a></p>
     </div>
   </footer>
 
+  <script src="assets/js/home-nav.js?v=1" defer></script>
 </body>
 </html>

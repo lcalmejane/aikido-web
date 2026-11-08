@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "site": "https://www.ai-kido.fr",
+  "months": {
+    "en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "fr": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+  },
+  "labels": {
+    "en": {
+      "news": "News", "allNews": "All news", "readMore": "Read more", "back": "All news", "newer": "Newer", "older": "Older",
+      "listTitle": "News – AI-KIDO",
+      "listDescription": "The latest from AI-KIDO: releases, Kimono, the method and the toolbox.",
+      "listH1": "News", "listLead": "Releases, tools and changes to the method, newest first.",
+      "langLabel": "Language", "ogLocale": "en_US", "ogAlt": "fr_FR", "flag": "English",
+      "prompt": "Prompt", "you": "You", "assistant": "Assistant", "toc": "In this article", "diagram": "Diagram",
+      "before": "Before", "after": "After", "layout": "Format"
+    },
+    "fr": {
+      "news": "Actualités", "allNews": "Toutes les actualités", "readMore": "Lire la suite", "back": "Toutes les actualités", "newer": "Plus récent", "older": "Plus ancien",
+      "listTitle": "Actualités – AI-KIDO",
+      "listDescription": "Les nouveautés d’AI-KIDO : versions, Kimono, la méthode et la boîte à outils.",
+      "listH1": "Actualités", "listLead": "Versions, outils et évolutions de la méthode, des plus récentes aux plus anciennes.",
+      "langLabel": "Langue", "ogLocale": "fr_FR", "ogAlt": "en_US", "flag": "Français",
+      "prompt": "Prompt", "you": "Vous", "assistant": "Assistant", "toc": "Dans cet article", "diagram": "Schéma",
+      "before": "Avant", "after": "Après", "layout": "Format"
+    }
+  }
+}

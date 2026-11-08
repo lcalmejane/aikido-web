@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "assets": {
+    "hero-deterministic-tools": {
+      "src": "assets/images/news/deterministic-tools.webp",
+      "width": 960,
+      "height": 576,
+      "alt": {
+        "en": "Kido, the small robot in a karate gi, slides golden beads on a wooden abacus on a low table, with an open notebook and a pocket watch beside it and a garden behind",
+        "fr": "Kido, le petit robot en kimono, fait glisser des perles dorées sur un boulier en bois posé sur une table basse, avec un carnet ouvert et une montre de poche à côté, un jardin derrière"
+      }
+    },
+    "deterministic-flow": {
+      "src": {
+        "en": "assets/images/news/deterministic-flow-en.svg",
+        "fr": "assets/images/news/deterministic-flow-fr.svg"
+      },
+      "width": 900,
+      "height": 210,
+      "alt": {
+        "en": "Diagram in four steps: the model understands, chooses and explains; the script runs the exact steps; a JSON plan gives the same input the same planId; you approve this exact plan, then it is applied",
+        "fr": "Schéma en quatre étapes : le modèle comprend, choisit et explique ; le script exécute les étapes exactes ; un plan JSON donne à la même entrée le même planId ; vous validez ce plan exact, puis il est appliqué"
+      }
+    },
+    "hero-kimono-structure": {
+      "src": "assets/images/news/kimono-structure.webp",
+      "width": 960,
+      "height": 576,
+      "alt": {
+        "en": "Kido, the small robot in a white karate gi, stands in a dojo holding a lit lantern beside a wooden board carved with a tree whose branches carry small golden tiles",
+        "fr": "Kido, le petit robot en kimono blanc, se tient dans un dojo avec une lanterne allumée, à côté d’un panneau de bois sculpté d’un arbre dont les branches portent de petites tuiles dorées"
+      }
+    },
+    "kimono-loop": {
+      "src": {
+        "en": "assets/images/news/kimono-loop-en.svg",
+        "fr": "assets/images/news/kimono-loop-fr.svg"
+      },
+      "width": 900,
+      "height": 266,
+      "alt": {
+        "en": "Diagram of the Kimono retrieval loop: aikido_snapshot begin freezes the corpus, aikido_search returns paths and line ranges only, aikido_file ranges reads only the chosen lines, aikido_snapshot end releases the snapshot; aikido_structure is an optional first step",
+        "fr": "Schéma de la boucle de recherche de Kimono : aikido_snapshot begin fige le corpus, aikido_search renvoie chemins et plages de lignes seulement, aikido_file ranges ne lit que les lignes choisies, aikido_snapshot end libère le snapshot ; aikido_structure est une première étape facultative"
+      }
+    },
+    "hero-version-1-5": {
+      "src": "assets/images/news/version-1-5.webp",
+      "width": 960,
+      "height": 576,
+      "alt": {
+        "en": "Kido, the small robot in a white karate gi, hands a golden card to three smaller robots waiting in line inside a calm tatami room",
+        "fr": "Kido, le petit robot en kimono blanc, tend une carte dorée à trois robots plus petits qui attendent en file dans une salle de tatamis calme"
+      }
+    },
+    "version-15-fan": {
+      "src": {
+        "en": "assets/images/news/version-15-fan-en.svg",
+        "fr": "assets/images/news/version-15-fan-fr.svg"
+      },
+      "width": 900,
+      "height": 320,
+      "alt": {
+        "en": "Diagram: the hard_points folder feeds a build step that generates the packages for nine assistants: claude-code, claude-cowork, copilot-vscode, copilot-github, codex, kiro-cli, zoo-code, roo-code-legacy and antigravity",
+        "fr": "Schéma : le dossier hard_points alimente une étape de génération qui produit les paquets de neuf assistants : claude-code, claude-cowork, copilot-vscode, copilot-github, codex, kiro-cli, zoo-code, roo-code-legacy et antigravity"
+      }
+    },
+    "hero-kimono-marketplace": {
+      "src": "assets/images/news/kimono-marketplace.webp",
+      "width": 960,
+      "height": 576,
+      "alt": {
+        "en": "Kido, the small robot in a white karate gi, pulls a few glowing golden index cards out of one open drawer in a long wall of wooden filing drawers",
+        "fr": "Kido, le petit robot en kimono blanc, sort quelques fiches dorées lumineuses d’un tiroir ouvert dans un long mur de tiroirs de classement en bois"
+      }
+    },
+    "kimono-benchmark": {
+      "src": {
+        "en": "assets/images/news/kimono-benchmark-en.svg",
+        "fr": "assets/images/news/kimono-benchmark-fr.svg"
+      },
+      "width": 760,
+      "height": 322,
+      "alt": {
+        "en": "Bar chart: for indexing and ignore-policy research, 323,368 tokens with Copilot search and 105,223 with Kimono RAG (minus 67.5 percent); for a maxDepth implementation plan, 454,796 tokens and 130,244 (minus 71.4 percent)",
+        "fr": "Graphique en barres : pour la recherche sur l’indexation et la politique d’exclusion, 323 368 tokens avec la recherche Copilot et 105 223 avec Kimono RAG (moins 67,5 %) ; pour un plan d’implémentation de maxDepth, 454 796 tokens et 130 244 (moins 71,4 %)"
+      }
+    },
+    "hero-kimono-mcp": {
+      "src": "assets/images/news/kimono-mcp.webp",
+      "width": 960,
+      "height": 576,
+      "alt": {
+        "en": "Kido, the small robot in a white karate gi, hands a golden card to three smaller robots waiting in line inside a calm tatami room",
+        "fr": "Kido, le petit robot en kimono blanc, tend une carte dorée à trois robots plus petits qui attendent en file dans une salle de tatamis calme"
+      }
+    }
+  }
+}

@@ -29,8 +29,8 @@
   <meta name="theme-color" content="#f6efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="assets/js/theme.js?v=1"></script>
-  <link rel="stylesheet" href="assets/css/home.css?v=6">
-  <link rel="stylesheet" href="assets/css/inner.css?v=5">
+  <link rel="stylesheet" href="assets/css/home.css?v=10">
+  <link rel="stylesheet" href="assets/css/inner.css?v=9">
   <link rel="preload" as="image" href="assets/images/pages/ph-install.webp" type="image/webp">
 </head>
 <body class="harness-builder install-page inner">
@@ -65,6 +65,7 @@
           </div>
         </details>
         <a href="install.html" aria-current="page">Install</a>
+        <a href="news.html">News</a>
         <details class="nav-group">
           <summary>Tools <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
           <div class="nav-panel">
@@ -159,7 +160,7 @@
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#play"/></svg></span><span class="tag">3</span><h3>Apply and initialize</h3><p>Apply with the plan ID, then run <code>/init-aikido</code> in your assistant to start your Memory Bank.</p></article>
         </div>
         <pre><code># 1. Get the package
-git clone --depth 1 --branch aikido-dist-v1.5.1 \
+git clone --depth 1 --branch aikido-dist-v1.5.3 \
   https://github.com/lcalmejane/aikido.git aikido-dist
 
 # 2. Preview what will be installed in your project
@@ -172,7 +173,7 @@ node aikido-dist/&lt;package&gt;/scripts/bootstrap-plan.mjs \
   --apply --confirm &lt;plan-id&gt;</code></pre>
         <p><strong>Claude Code</strong> installs from a pinned marketplace instead:</p>
         <pre><code>claude plugin marketplace add \
-  https://github.com/lcalmejane/aikido.git#aikido-dist-v1.5.1
+  https://github.com/lcalmejane/aikido.git#aikido-dist-v1.5.3
 claude plugin install aikido@aikido</code></pre>
         <p><strong>Claude Cowork</strong>: zip the <code>claude-cowork</code> package and upload it in <em>Customize &gt; Plugins &gt; Add &gt; Upload plugin</em>.</p>
         <h3>Update or remove</h3>
@@ -230,6 +231,7 @@ claude plugin install aikido@aikido</code></pre>
               <li><a href="./">Discover AI-KIDO</a></li>
               <li><a href="harness.html">Create a harness</a></li>
               <li><a href="history.html">Our story</a></li>
+              <li><a href="news.html">News</a></li>
             </ul>
           </div>
           <div class="footer-group">
@@ -257,6 +259,7 @@ claude plugin install aikido@aikido</code></pre>
           <a href="fr/install.html" hreflang="fr" lang="fr">Français</a>
         </nav>
       </div>
+      <p class="footer-driven">Driven by the AI-KIDO method · <a href="https://github.com/lcalmejane/aikido" lang="en">AI-KIDO: The Self-Forged Engine</a></p>
     </div>
   </footer>
 </body>

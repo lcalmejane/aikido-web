@@ -32,8 +32,8 @@
   <meta name="theme-color" content="#f6efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="assets/js/theme.js?v=1"></script>
-  <link rel="stylesheet" href="assets/css/home.css?v=6">
-  <link rel="stylesheet" href="assets/css/inner.css?v=5">
+  <link rel="stylesheet" href="assets/css/home.css?v=10">
+  <link rel="stylesheet" href="assets/css/inner.css?v=9">
   <link rel="preload" as="image" href="assets/images/pages/ph-history.webp" type="image/webp">
 </head>
 <body class="inner">
@@ -57,6 +57,7 @@
           </div>
         </details>
         <a href="install.html">Install</a>
+        <a href="news.html">News</a>
         <details class="nav-group">
           <summary>Tools <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
           <div class="nav-panel">
@@ -80,6 +81,7 @@
           <a href="#philosophy">The way</a>
           <a href="#toolbox">The toolbox</a>
           <a href="#timeline">Timeline</a>
+          <a href="#roadmap">Roadmap</a>
         </nav>
       </div>
     </div>
@@ -449,6 +451,33 @@
       </div>
     </section>
 
+    <section id="roadmap" class="alt">
+      <div class="container">
+        <h2>Roadmap</h2>
+        <p class="sub">What we are building now, and what comes next. These are intentions, not commitments: no dates are promised, and an item only moves to the timeline once it ships.</p>
+        <div class="grid cols-3">
+          <article class="card">
+            <span class="tag">In progress</span>
+            <h3>Task planning and workflows</h3>
+            <p>Private task cards, versioned workflows with hooks before and after each step, a backlog with dates, and scheduling acknowledged by the tool that runs it. AI-KIDO provides the deterministic Node scripts; it never runs a server or a scheduler of its own.</p>
+            <a href="harness.html">See the deterministic principles</a>
+          </article>
+          <article class="card">
+            <span class="tag">In progress</span>
+            <h3>A self-hosted base for agentic development</h3>
+            <p>A Docker-based stack that brings a default agent hub (Core Agent), a client to follow missions, and Kimono MCP for shared project context. It is being tested in the sources; nothing is announced as installed or deployed yet.</p>
+            <a href="kimono.html">See Kimono MCP</a>
+          </article>
+          <article class="card">
+            <span class="tag">Planned</span>
+            <h3>More connectors, then a dedicated IDE</h3>
+            <p>Direct integrations for LLM command-line tools and for cloud agents, hubs that delegate work to each other, and later a VS Code distribution bringing these modules together. Each connector is enabled only after its own tests pass.</p>
+            <a href="install.html">See the assistants supported today</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="next" class="closing">
       <div class="container">
         <h2>And now?</h2>
@@ -480,6 +509,7 @@
               <li><a href="./">Discover AI-KIDO</a></li>
               <li><a href="harness.html">Create a harness</a></li>
               <li><a href="history.html">Our story</a></li>
+              <li><a href="news.html">News</a></li>
             </ul>
           </div>
           <div class="footer-group">
@@ -507,6 +537,7 @@
           <a href="fr/history.html" hreflang="fr" lang="fr">Français</a>
         </nav>
       </div>
+      <p class="footer-driven">Driven by the AI-KIDO method · <a href="https://github.com/lcalmejane/aikido" lang="en">AI-KIDO: The Self-Forged Engine</a></p>
     </div>
   </footer>
 

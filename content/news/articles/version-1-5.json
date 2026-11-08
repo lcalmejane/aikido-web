@@ -1,0 +1,141 @@
+{
+  "slug": "version-1-5",
+  "date": "2026-10-28",
+  "tag": {
+    "en": "Release",
+    "fr": "Version"
+  },
+  "image": "hero-version-1-5",
+  "en": {
+    "title": "Version 1.5: one knowledge base, nine assistants",
+    "summary": "AI-KIDO 1.5 ships packages for nine assistants, all generated from one source and installed through a plan you read before anything is written. Figures measured on the 1.5.2 package.",
+    "body": [
+      "<p>You change one rule in your project's Memory Bank, and now several assistants must follow it. Until 1.5, that meant copying files by hand into whichever folder each tool expects, and hoping nothing drifted. Version 1.5 removes that chore.</p>",
+      {
+        "h2": "The idea in one picture"
+      },
+      "<p>AI-KIDO keeps a single canonical source: the <code>hard_points/</code> folder of the method repository. A build step generates, for each assistant, the files that assistant understands natively. Claude Code gets a marketplace plugin with slash commands, Skills and agents. GitHub Copilot, Codex, Kiro, Zoo Code, Roo Code and Antigravity get workspace files. Claude Cowork gets a plugin you upload to your account. That makes nine packages from one source.</p>",
+      {
+        "figure": "version-15-fan",
+        "caption": "One canonical source, one build step, nine generated packages."
+      },
+      "<p>Because the wrappers are generated rather than written by hand, they cannot quietly diverge: every enabled assistant gets a native wrapper for the same 15 agents.</p>",
+      {
+        "h2": "What you do: preview before installing"
+      },
+      "<p>You pick your assistant on the Install page, then copy the two commands shown into a terminal opened on your project. An installation adds a few hundred files, so the installer never starts by writing. It starts by computing a plan, which you read before deciding. Here is the walkthrough for Claude Code, from the 1.5.2 distribution tag:</p>",
+      {
+        "code": "# 1. Get the 1.5.2 distribution\ngit clone --depth 1 --branch aikido-dist-v1.5.2 \\\n  https://github.com/lcalmejane/aikido.git aikido-dist\n\n# 2. Preview what would be installed (nothing is written)\nnode aikido-dist/claude-code/scripts/bootstrap-plan.mjs \\\n  --root . --package aikido-dist/claude-code --mode STANDARD\n\n# 3. Apply exactly the plan you reviewed\nnode aikido-dist/claude-code/scripts/bootstrap-plan.mjs \\\n  --root . --package aikido-dist/claude-code --mode STANDARD \\\n  --apply --confirm <plan-id>",
+        "lang": "bash",
+        "caption": "Commands from the <a href=\"install.html\">installation page</a>, with the 1.5.2 tag. Step 2 changes nothing in your project."
+      },
+      "<p>On an empty Git project, the terminal tells you <strong>170 files to create</strong>, no conflict, no blocked path, and that the plan is ready. You scroll through the list of paths: everything sits in the folders Claude Code expects, and nothing has been written yet.</p>",
+      {
+        "stats": [
+          {
+            "value": "170",
+            "label": "files planned for Claude Code in STANDARD mode"
+          },
+          {
+            "value": "0",
+            "label": "conflicts or blocked paths on an empty project"
+          },
+          {
+            "value": "9",
+            "label": "assistants packaged from one source"
+          }
+        ]
+      },
+      "<p>The apply step refuses to run unless you pass <code>--confirm</code> followed by this exact plan id. You approve the plan you read, not one that merely looks similar.</p>",
+      {
+        "h2": "Under the hood"
+      },
+      "<p>What you read on screen is the summary of a JSON plan. Here it is, shortened (the full plan also lists every target path); the numbers are the real output:</p>",
+      {
+        "code": "{\n  \"aikidoVersion\": \"1.5.2\",\n  \"mode\": \"STANDARD\",\n  \"hosts\": [\"claude-code\"],\n  \"summary\": { \"create\": 170, \"update-managed-block\": 0, \"adopt\": 0,\n               \"unchanged\": 0, \"keep-local\": 0, \"conflict\": 0, \"blocked\": 0 },\n  \"ready\": true,\n  \"confirmationRequired\": true,\n  \"confirmation\": \"Review every planned path and explicitly approve this exact plan before application.\",\n  \"planId\": \"60314f9d5a6f5213c406498c4263213326b94294c3d7398a358640b8a5f5ff46\"\n}",
+        "lang": "json",
+        "caption": "Plan output for Claude Code in STANDARD mode, package 1.5.2, in a throwaway project. Your own plan id will differ: it also covers the project path."
+      },
+      {
+        "h2": "Updates and removal keep your work"
+      },
+      "<p>Version 1.5.0 added package-based updates with a three-way merge, explicit conflicts, backups and recovery, plus an uninstall that removes only the adapter files. Your Memory Bank under <code>prompts/</code> stays where it is. The <code>/skill-manage</code> command also relies on a deterministic engine now to search, install and update skills from a catalog and from trusted external sources.</p>",
+      {
+        "h2": "Try it"
+      },
+      {
+        "steps": [
+          "Pick your assistant in the <a href=\"install.html\">installation page</a>.",
+          "Run the plan command and read the paths it lists.",
+          "Apply with <code>--confirm</code> and the plan id. The full list of changes is in the <a href=\"https://github.com/lcalmejane/aikido/blob/main/CHANGELOG.md\">changelog</a>."
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "title": "Version 1.5 : une base de connaissance, neuf assistants",
+    "summary": "AI-KIDO 1.5 propose des paquets pour neuf assistants, tous générés depuis une seule source et installés via un plan relu avant toute écriture. Chiffres mesurés sur le paquet 1.5.2.",
+    "body": [
+      "<p>Vous modifiez une règle de la Memory Bank de votre projet, et plusieurs assistants doivent maintenant la suivre. Jusqu’à la 1.5, cela voulait dire copier des fichiers à la main dans le dossier attendu par chaque outil, en espérant que rien ne dérive. La version 1.5 supprime cette corvée.</p>",
+      {
+        "h2": "L’idée en une image"
+      },
+      "<p>AI-KIDO garde une seule source canonique : le dossier <code>hard_points/</code> du dépôt de la méthode. Une étape de génération produit, pour chaque assistant, les fichiers qu’il comprend nativement. Claude Code reçoit un plugin de marketplace avec commandes slash, Skills et agents. GitHub Copilot, Codex, Kiro, Zoo Code, Roo Code et Antigravity reçoivent des fichiers d’espace de travail. Claude Cowork reçoit un plugin à téléverser dans votre compte. Cela fait neuf paquets issus d’une seule source.</p>",
+      {
+        "figure": "version-15-fan",
+        "caption": "Une source canonique, une étape de génération, neuf paquets générés."
+      },
+      "<p>Comme les wrappers sont générés et non écrits à la main, ils ne peuvent pas diverger en silence : chaque assistant activé reçoit un wrapper natif pour les mêmes 15 agents.</p>",
+      {
+        "h2": "Ce que l’on fait : prévisualiser avant d’installer"
+      },
+      "<p>Vous choisissez votre assistant dans la page Installation, puis vous copiez les deux commandes affichées dans un terminal ouvert sur votre projet. Une installation ajoute quelques centaines de fichiers : l’installateur ne commence donc jamais par écrire. Il commence par calculer un plan, que vous lisez avant de décider. Voici le déroulé pour Claude Code, depuis le tag de distribution 1.5.2 :</p>",
+      {
+        "code": "# 1. Get the 1.5.2 distribution\ngit clone --depth 1 --branch aikido-dist-v1.5.2 \\\n  https://github.com/lcalmejane/aikido.git aikido-dist\n\n# 2. Preview what would be installed (nothing is written)\nnode aikido-dist/claude-code/scripts/bootstrap-plan.mjs \\\n  --root . --package aikido-dist/claude-code --mode STANDARD\n\n# 3. Apply exactly the plan you reviewed\nnode aikido-dist/claude-code/scripts/bootstrap-plan.mjs \\\n  --root . --package aikido-dist/claude-code --mode STANDARD \\\n  --apply --confirm <plan-id>",
+        "lang": "bash",
+        "caption": "Commandes de la <a href=\"install.html\">page Installation</a>, avec le tag 1.5.2. L’étape 2 ne modifie rien dans votre projet."
+      },
+      "<p>Sur un projet Git vide, le terminal vous annonce <strong>170 fichiers à créer</strong>, aucun conflit, aucun chemin bloqué, et que le plan est prêt. Vous parcourez la liste des chemins : tout est dans les dossiers attendus par Claude Code, rien n’est encore écrit.</p>",
+      {
+        "stats": [
+          {
+            "value": "170",
+            "label": "fichiers prévus pour Claude Code en mode STANDARD"
+          },
+          {
+            "value": "0",
+            "label": "conflit ou chemin bloqué sur un projet vide"
+          },
+          {
+            "value": "9",
+            "label": "assistants packagés depuis une seule source"
+          }
+        ]
+      },
+      "<p>L’étape d’application refuse de s’exécuter sans <code>--confirm</code> suivi de cet identifiant de plan exact. Vous validez le plan que vous avez lu, pas un plan qui lui ressemble.</p>",
+      {
+        "h2": "Sous le capot"
+      },
+      "<p>Ce que vous avez lu à l’écran est le résumé d’un plan JSON. Le voici, raccourci (le plan complet liste aussi chaque chemin cible) ; les chiffres sont la sortie réelle :</p>",
+      {
+        "code": "{\n  \"aikidoVersion\": \"1.5.2\",\n  \"mode\": \"STANDARD\",\n  \"hosts\": [\"claude-code\"],\n  \"summary\": { \"create\": 170, \"update-managed-block\": 0, \"adopt\": 0,\n               \"unchanged\": 0, \"keep-local\": 0, \"conflict\": 0, \"blocked\": 0 },\n  \"ready\": true,\n  \"confirmationRequired\": true,\n  \"confirmation\": \"Review every planned path and explicitly approve this exact plan before application.\",\n  \"planId\": \"60314f9d5a6f5213c406498c4263213326b94294c3d7398a358640b8a5f5ff46\"\n}",
+        "lang": "json",
+        "caption": "Sortie du plan pour Claude Code en mode STANDARD, paquet 1.5.2, dans un projet jetable. Votre identifiant de plan sera différent : il couvre aussi le chemin du projet."
+      },
+      {
+        "h2": "Mises à jour et retrait respectent votre travail"
+      },
+      "<p>La version 1.5.0 a ajouté les mises à jour par paquet avec fusion à trois voies, conflits explicites, sauvegardes et reprise, ainsi qu’une désinstallation qui ne retire que les fichiers d’adaptation. Votre Memory Bank sous <code>prompts/</code> reste en place. La commande <code>/skill-manage</code> s’appuie aussi désormais sur un moteur déterministe pour chercher, installer et mettre à jour des compétences depuis un catalogue et des sources externes de confiance.</p>",
+      {
+        "h2": "À essayer"
+      },
+      {
+        "steps": [
+          "Choisissez votre assistant dans la <a href=\"install.html\">page Installation</a>.",
+          "Lancez la commande de plan et lisez les chemins qu’elle liste.",
+          "Appliquez avec <code>--confirm</code> et l’identifiant du plan. La liste complète des changements est dans le <a href=\"https://github.com/lcalmejane/aikido/blob/main/CHANGELOG.md\">changelog</a>."
+        ]
+      }
+    ]
+  }
+}

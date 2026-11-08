@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News – AI-KIDO</title>
+  <meta name="description" content="The latest from AI-KIDO: releases, Kimono, the method and the toolbox.">
+  <meta property="og:title" content="News – AI-KIDO">
+  <meta property="og:description" content="The latest from AI-KIDO: releases, Kimono, the method and the toolbox.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:image" content="https://www.ai-kido.fr/assets/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
+  <meta property="og:image:alt" content="News">
+  <meta property="og:url" content="https://www.ai-kido.fr/news.html">
+  <meta property="og:site_name" content="AI-KIDO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.ai-kido.fr/assets/images/og.jpg">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://www.ai-kido.fr/news.html">
+  <link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news.html">
+  <link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news.html">
+  <link rel="icon" href="favicon.ico?v=3" sizes="16x16 32x32">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png?v=3">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-48.png?v=3">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/icon-192.png?v=3">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=3">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#f6efe0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
+  <script src="assets/js/theme.js?v=1"></script>
+  <link rel="stylesheet" href="assets/css/home.css?v=10">
+  <link rel="stylesheet" href="assets/css/inner.css?v=9">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"News","url":"https://www.ai-kido.fr/news.html","inLanguage":"en","hasPart":[{"@type":"Article","headline":"Let scripts do what a script can do exactly","datePublished":"2026-11-07","url":"https://www.ai-kido.fr/news/deterministic-tools.html"},{"@type":"Article","headline":"Kimono 0.9.6: see the shape of a project before searching it","datePublished":"2026-11-07","url":"https://www.ai-kido.fr/news/kimono-structure.html"},{"@type":"Article","headline":"Version 1.5: one knowledge base, nine assistants","datePublished":"2026-10-28","url":"https://www.ai-kido.fr/news/version-1-5.html"},{"@type":"Article","headline":"Kimono RAG MCP is on the VS Code Marketplace","datePublished":"2026-10-25","url":"https://www.ai-kido.fr/news/kimono-marketplace.html"},{"@type":"Article","headline":"Kimono MCP: the Memory Bank opens up to connected clients","datePublished":"2026-10-16","url":"https://www.ai-kido.fr/news/kimono-mcp.html"}]}</script>
+</head>
+<body class="inner">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+</svg>
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html"><img src="assets/images/favicon-48.png?v=2" alt="" width="30" height="30"><span class="word">AI<span>-</span>KIDO</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav">
+      <label class="nav-burger" for="nav-toggle"><svg class="icon" aria-hidden="true"><use href="#menu"/></svg> Menu</label>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <details class="nav-group">
+          <summary>Method <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
+          <div class="nav-panel">
+            <a href="index.html">Home</a>
+            <a href="harness.html">Harness creation</a>
+            <a href="history.html">History</a>
+          </div>
+        </details>
+        <a href="install.html">Install</a>
+        <a href="news.html" aria-current="page">News</a>
+        <details class="nav-group">
+          <summary>Tools <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
+          <div class="nav-panel">
+            <a href="kimono.html">Kimono MCP</a>
+            <a href="local-designer.html">Local Designer</a>
+          </div>
+        </details>
+        <a href="https://github.com/lcalmejane/aikido">GitHub</a>
+        <span class="lang" role="group" aria-label="Language">
+          <a class="active" href="news.html" hreflang="en" lang="en" aria-current="true">EN</a>
+          <a href="fr/news.html" hreflang="fr" lang="fr">FR</a>
+        </span>
+      </nav>
+      <button type="button" class="theme-toggle" data-theme-toggle data-label-dark="Switch to dark theme" data-label-light="Switch to light theme" aria-label="Switch to dark theme" title="Switch to dark theme"><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></svg></button>
+    </div>
+    </header>
+
+  <main id="top">
+    <section class="news-intro">
+      <div class="container">
+        <h1>News</h1>
+        <p class="lead">Releases, tools and changes to the method, newest first.</p>
+      </div>
+    </section>
+
+    <section class="news-list">
+      <div class="container">
+        <div class="grid cols-3">
+          <article class="card news-card">
+            <img class="card-img" src="assets/images/news/deterministic-tools.webp" alt="Kido, the small robot in a karate gi, slides golden beads on a wooden abacus on a low table, with an open notebook and a pocket watch beside it and a garden behind" width="960" height="576" loading="lazy" decoding="async">
+            <p class="news-meta"><span class="tag">Method</span><time datetime="2026-11-07">7 November 2026</time></p>
+            <h2><a href="news/deterministic-tools.html">Let scripts do what a script can do exactly</a></h2>
+            <p>A model understands, chooses and explains; a script runs the exact steps. Two real runs show what that buys you: the same plan twice, and a site build that rewrites nothing.</p>
+            <a class="more" href="news/deterministic-tools.html">Read more<span class="sr-only"> : Let scripts do what a script can do exactly</span></a>
+          </article>
+          <article class="card news-card">
+            <img class="card-img" src="assets/images/news/kimono-structure.webp" alt="Kido, the small robot in a white karate gi, stands in a dojo holding a lit lantern beside a wooden board carved with a tree whose branches carry small golden tiles" width="960" height="576" loading="lazy" decoding="async">
+            <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-11-07">7 November 2026</time></p>
+            <h2><a href="news/kimono-structure.html">Kimono 0.9.6: see the shape of a project before searching it</a></h2>
+            <p>The new aikido_structure tool returns a compact file tree with the type of each file and whether it is indexed. A first look at an unfamiliar project, in a few lines.</p>
+            <a class="more" href="news/kimono-structure.html">Read more<span class="sr-only"> : Kimono 0.9.6: see the shape of a project before searching it</span></a>
+          </article>
+          <article class="card news-card">
+            <img class="card-img" src="assets/images/news/version-1-5.webp" alt="Kido, the small robot in a white karate gi, hands a golden card to three smaller robots waiting in line inside a calm tatami room" width="960" height="576" loading="lazy" decoding="async">
+            <p class="news-meta"><span class="tag">Release</span><time datetime="2026-10-28">28 October 2026</time></p>
+            <h2><a href="news/version-1-5.html">Version 1.5: one knowledge base, nine assistants</a></h2>
+            <p>AI-KIDO 1.5 ships packages for nine assistants, all generated from one source and installed through a plan you read before anything is written. Figures measured on the 1.5.2 package.</p>
+            <a class="more" href="news/version-1-5.html">Read more<span class="sr-only"> : Version 1.5: one knowledge base, nine assistants</span></a>
+          </article>
+          <article class="card news-card">
+            <img class="card-img" src="assets/images/news/kimono-marketplace.webp" alt="Kido, the small robot in a white karate gi, pulls a few glowing golden index cards out of one open drawer in a long wall of wooden filing drawers" width="960" height="576" loading="lazy" decoding="async">
+            <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-10-25">25 October 2026</time></p>
+            <h2><a href="news/kimono-marketplace.html">Kimono RAG MCP is on the VS Code Marketplace</a></h2>
+            <p>Kimono finds passages in code and documents locally and returns file paths and line ranges first. On two tasks, cumulative input tokens fell by 67.5% and 71.4%.</p>
+            <a class="more" href="news/kimono-marketplace.html">Read more<span class="sr-only"> : Kimono RAG MCP is on the VS Code Marketplace</span></a>
+          </article>
+          <article class="card news-card">
+            <img class="card-img" src="assets/images/news/kimono-mcp.webp" alt="Kido, the small robot in a white karate gi, hands a golden card to three smaller robots waiting in line inside a calm tatami room" width="960" height="576" loading="lazy" decoding="async">
+            <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-10-16">16 October 2026</time></p>
+            <h2><a href="news/kimono-mcp.html">Kimono MCP: the Memory Bank opens up to connected clients</a></h2>
+            <p>In AI-KIDO mode, Kimono serves the same documents, commands, personas and workflows to any MCP client. One shared base, a few documented ways to connect to it.</p>
+            <a class="more" href="news/kimono-mcp.html">Read more<span class="sr-only"> : Kimono MCP: the Memory Bank opens up to connected clients</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-intro">
+          <a class="footer-brand" href="./">AI-KIDO</a>
+          <p class="footer-tagline">Give your AI a memory. Give your team a method.</p>
+          <p>Structure knowledge, share rules and build the harnesses your projects need.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-group">
+            <h2>The method</h2>
+            <ul>
+              <li><a href="./">Discover AI-KIDO</a></li>
+              <li><a href="harness.html">Create a harness</a></li>
+              <li><a href="history.html">Our story</a></li>
+              <li><a href="news.html">News</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h2>Tools</h2>
+            <ul>
+              <li><a href="install.html">Installation</a></li>
+              <li><a href="kimono.html">Kimono MCP</a></li>
+              <li><a href="local-designer.html">Local Designer</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h2>Resources</h2>
+            <ul>
+              <li><a href="https://github.com/lcalmejane/aikido">Documentation</a></li>
+              <li><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Kimono benchmarks</a></li>
+              <li><a href="technical-friends.html">Technical friends</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <a href="https://github.com/lcalmejane/aikido/blob/main/LICENSE">Method licensed under MIT</a>
+        <nav class="footer-languages" aria-label="Language">
+          <a href="news.html" hreflang="en" lang="en" aria-current="page">English</a>
+          <a href="fr/news.html" hreflang="fr" lang="fr">Français</a>
+        </nav>
+      </div>
+      <p class="footer-driven">Driven by the AI-KIDO method · <a href="https://github.com/lcalmejane/aikido" lang="en">AI-KIDO: The Self-Forged Engine</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

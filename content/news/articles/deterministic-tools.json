@@ -1,0 +1,157 @@
+{
+  "slug": "deterministic-tools",
+  "date": "2026-11-07",
+  "tag": {
+    "en": "Method",
+    "fr": "Méthode"
+  },
+  "image": "hero-deterministic-tools",
+  "en": {
+    "title": "Let scripts do what a script can do exactly",
+    "summary": "A model understands, chooses and explains; a script runs the exact steps. Two real runs show what that buys you: the same plan twice, and a site build that rewrites nothing.",
+    "body": [
+      "<p>Ask a model to list the 170 files an installation would create, and you will get an answer that looks right. Ask it again tomorrow, and the answer may differ. Nothing is wrong with the model: counting and listing are simply not what it is for.</p>",
+      {
+        "h2": "The idea in one picture"
+      },
+      "<p>A harness is more than prompts. The most reliable ones hand every exact, repeatable step to a deterministic tool, and keep the model for what only a model can do: understand the request, choose among options, and explain the result. Between them sits a document you can read, usually a plan in JSON.</p>",
+      {
+        "figure": "deterministic-flow",
+        "caption": "The model decides, the script executes, the plan is reviewed before anything is written."
+      },
+      {
+        "h2": "What you see: the same plan twice"
+      },
+      "<p>In your assistant, you write: “prepare the AI-KIDO installation on this project, twice in a row, and show me the plan identifier”. The <a href=\"news/version-1-5.html\">version 1.5</a> installer is a script: the assistant runs it twice on the same project and only displays the plan identifier. Here is the command it runs, for those who want to look under the hood:</p>",
+      {
+        "code": "for i in 1 2; do\n  node aikido-dist/claude-code/scripts/bootstrap-plan.mjs \\\n    --root . --package aikido-dist/claude-code --mode STANDARD \\\n    | node -pe 'JSON.parse(require(\"fs\").readFileSync(0, \"utf8\")).planId'\ndone",
+        "lang": "bash",
+        "caption": "Run from a clone of the 1.5.2 distribution, on an empty Git project."
+      },
+      {
+        "code": "60314f9d5a6f5213c406498c4263213326b94294c3d7398a358640b8a5f5ff46\n60314f9d5a6f5213c406498c4263213326b94294c3d7398a358640b8a5f5ff46",
+        "lang": "text",
+        "caption": "Real output: two runs, one identifier (its value depends on the project path)."
+      },
+      "<p>The identifier is a hash of the whole plan: project path, mode, assistant, package version and every planned file. Yours will therefore differ from the one above, but on the same project it stays identical from one run to the next. If a single planned path changed, the identifier would change too and the apply step would refuse the old one.</p>",
+      {
+        "h2": "What you see: a site that rewrites nothing"
+      },
+      "<p>You now ask the assistant to regenerate this site’s News pages. They are produced from a data file by a dependency-free Node.js script. On an already up-to-date site, the assistant tells you nothing was written, then runs the tests, which also check that the versioned pages are identical to what the script would generate. Under the hood:</p>",
+      {
+        "code": "node scripts/build-news.mjs\nnode --test scripts/",
+        "lang": "bash",
+        "caption": "From the <a href=\"https://github.com/lcalmejane/aikido-web\">aikido-web</a> repository."
+      },
+      {
+        "code": "{\"ok\":true,\"items\":4,\"files\":13,\"written\":[]}\n...\nℹ tests 9\nℹ pass 9\nℹ fail 0",
+        "lang": "text",
+        "caption": "Real output, shortened with \"...\". An empty \"written\" list means every page was already up to date."
+      },
+      {
+        "stats": [
+          {
+            "value": "2 / 2",
+            "label": "identical plan identifiers over two runs"
+          },
+          {
+            "value": "0",
+            "label": "files rewritten when the site was already up to date"
+          },
+          {
+            "value": "9 / 9",
+            "label": "generator tests passing"
+          }
+        ]
+      },
+      {
+        "callout": "Deterministic does not mean correct. A script that always gives the same wrong answer is still wrong. What you gain is that the answer can be reproduced, reviewed and tested, which a model's free-form answer cannot offer.",
+        "title": "Keep in mind"
+      },
+      {
+        "h2": "Try it"
+      },
+      {
+        "steps": [
+          "List the steps of your own workflow that never need judgment: counting, listing, renaming, validating.",
+          "Move each one into a script that prints a short JSON result.",
+          "Let the model read that result, decide, and explain. The four principles are on the <a href=\"harness.html\">harness creation page</a>."
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "title": "Laissez les scripts faire ce qu’un script fait exactement",
+    "summary": "Un modèle comprend, choisit et explique ; un script exécute les étapes exactes. Deux exécutions réelles montrent le gain : le même plan deux fois, et un build de site qui ne réécrit rien.",
+    "body": [
+      "<p>Demandez à un modèle de lister les 170 fichiers qu’une installation créerait : vous obtiendrez une réponse qui a l’air juste. Redemandez demain, la réponse peut changer. Le modèle n’est pas en cause : compter et lister ne sont simplement pas sa fonction.</p>",
+      {
+        "h2": "L’idée en une image"
+      },
+      "<p>Un harnais, ce n’est pas seulement des prompts. Les plus fiables confient chaque étape exacte et répétable à un outil déterministe, et gardent le modèle pour ce que lui seul sait faire : comprendre la demande, choisir entre des options et expliquer le résultat. Entre les deux, un document que l’on peut relire, souvent un plan en JSON.</p>",
+      {
+        "figure": "deterministic-flow",
+        "caption": "Le modèle décide, le script exécute, le plan est relu avant toute écriture."
+      },
+      {
+        "h2": "Ce que l’on voit : deux fois le même plan"
+      },
+      "<p>Dans votre assistant, vous écrivez : « prépare l’installation d’AI-KIDO sur ce projet, deux fois de suite, et montre-moi l’identifiant du plan ». L’installateur de la <a href=\"news/version-1-5.html\">version 1.5</a> est un script : l’assistant le lance deux fois sur le même projet et n’affiche que l’identifiant du plan. Voici la commande qu’il exécute, pour qui veut voir sous le capot :</p>",
+      {
+        "code": "for i in 1 2; do\n  node aikido-dist/claude-code/scripts/bootstrap-plan.mjs \\\n    --root . --package aikido-dist/claude-code --mode STANDARD \\\n    | node -pe 'JSON.parse(require(\"fs\").readFileSync(0, \"utf8\")).planId'\ndone",
+        "lang": "bash",
+        "caption": "Lancé depuis un clone de la distribution 1.5.2, sur un projet Git vide."
+      },
+      {
+        "code": "60314f9d5a6f5213c406498c4263213326b94294c3d7398a358640b8a5f5ff46\n60314f9d5a6f5213c406498c4263213326b94294c3d7398a358640b8a5f5ff46",
+        "lang": "text",
+        "caption": "Sortie réelle : deux exécutions, un seul identifiant (sa valeur dépend du chemin du projet)."
+      },
+      "<p>L’identifiant est un hachage du plan entier : chemin du projet, mode, assistant, version du paquet et chaque fichier prévu. Le vôtre sera donc différent de celui ci-dessus, mais sur un même projet il reste identique d’une exécution à l’autre. Si un seul chemin prévu changeait, l’identifiant changerait aussi et l’étape d’application refuserait l’ancien.</p>",
+      {
+        "h2": "Ce que l’on voit : un site qui ne réécrit rien"
+      },
+      "<p>Vous demandez maintenant à l’assistant de régénérer les pages Actualités de ce site. Elles sont produites depuis un fichier de données par un script Node.js sans dépendance. Sur un site déjà à jour, l’assistant vous répond que rien n’a été écrit, puis lance les tests, qui vérifient aussi que les pages versionnées sont identiques à ce que le script générerait. Sous le capot :</p>",
+      {
+        "code": "node scripts/build-news.mjs\nnode --test scripts/",
+        "lang": "bash",
+        "caption": "Depuis le dépôt <a href=\"https://github.com/lcalmejane/aikido-web\">aikido-web</a>."
+      },
+      {
+        "code": "{\"ok\":true,\"items\":4,\"files\":13,\"written\":[]}\n...\nℹ tests 9\nℹ pass 9\nℹ fail 0",
+        "lang": "text",
+        "caption": "Sortie réelle, raccourcie par « ... ». Une liste « written » vide signifie que toutes les pages étaient déjà à jour."
+      },
+      {
+        "stats": [
+          {
+            "value": "2 / 2",
+            "label": "identifiants de plan identiques sur deux exécutions"
+          },
+          {
+            "value": "0",
+            "label": "fichier réécrit quand le site était déjà à jour"
+          },
+          {
+            "value": "9 / 9",
+            "label": "tests du générateur réussis"
+          }
+        ]
+      },
+      {
+        "callout": "Déterministe ne veut pas dire correct. Un script qui donne toujours la même mauvaise réponse reste faux. Ce que l’on gagne, c’est une réponse reproductible, relisible et testable, ce qu’une réponse libre de modèle ne peut pas offrir.",
+        "title": "À retenir"
+      },
+      {
+        "h2": "À essayer"
+      },
+      {
+        "steps": [
+          "Listez les étapes de votre propre flux qui n’exigent jamais de jugement : compter, lister, renommer, valider.",
+          "Placez chacune dans un script qui affiche un court résultat JSON.",
+          "Laissez le modèle lire ce résultat, décider et expliquer. Les quatre principes sont sur la <a href=\"harness.html\">page de création de harnais</a>."
+        ]
+      }
+    ]
+  }
+}

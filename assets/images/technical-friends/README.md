@@ -20,6 +20,7 @@ The images are served locally: no visitor request goes to an upstream site.
 | `nodejs.png` | [Node.js favicon](https://nodejs.org/static/images/favicons/favicon.png) |
 | `docker.png` | [Docker site icon](https://www.docker.com/app/uploads/2024/02/cropped-docker-logo-favicon-192x192.png) |
 | `vscode.png` | [Visual Studio Code touch icon](https://code.visualstudio.com/assets/apple-touch-icon.png) |
+| `rtk.png` | [RTK site icon](https://www.rtk-ai.app/brand/favicon/favicon-192.png), served as a JPEG and converted to PNG without resizing (192 px); the project's own mark, also used in its [README](https://github.com/rtk-ai/rtk) |
 | `claude-code.png` | [Claude Code documentation icon](https://code.claude.com/docs/mintlify-assets/_mintlify/favicons/claude-code/pLsy-mRpNksna2sx/_generated/favicon-dark/android-chrome-192x192.png) |
 | `copilot.svg` | [GitHub Octicons Copilot](https://raw.githubusercontent.com/github/octicons/main/icons/copilot-24.svg), MIT; see [retained license](OCTICONS-LICENSE.txt) |
 | `openai.png` | [OpenAI's GitHub organization avatar](https://avatars.githubusercontent.com/u/14957082?s=128), publisher identity on the Codex card, not a dedicated Codex logo |
