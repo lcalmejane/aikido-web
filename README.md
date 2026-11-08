@@ -31,6 +31,10 @@ and [project setup guide](https://github.com/lcalmejane/aikido/blob/main/distrib
 The primary installation path uses the public npm package `@aikido-method/cli`
 (Node.js 24+), pinned to stable 1.5.4 in the examples. Keep both languages, npm
 commands, catalog counts and Git distribution tags aligned when updating it.
+Home toolbox counters describe the published method catalog (1.5.4: 33 commands,
+16 internal agents, 8 system skills, 9 enabled distributions), not local project
+personas, optional skills or duplicate host wrappers. Keep EN/FR home, installation
+and history aligned with the release catalog; historical entries cite release tags.
 
 ## Navigation
 
