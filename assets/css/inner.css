@@ -7,12 +7,18 @@
 .inner h1 { font-size: clamp(2.2rem, 4.2vw, 3.5rem); }
 .inner h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); }
 .inner h3 { font-size: 1.2rem; }
-.inner .sub { margin: 16px 0 0; max-width: 46em; }
+.inner .sub { margin: 16px 0 0; max-width: none; } /* même largeur que le titre qui précède ; les articles News gardent leur propre colonne */
 .inner .sub + .sub { margin-top: 12px; }
 .inner .note { color: var(--muted); font-size: .9rem; margin-top: 14px; }
 .inner .nowrap { white-space: nowrap; }
 .inner .grid, .inner .steps, .inner .stats, .inner .span-bar, .inner .table-wrap,
 .inner .timeline, .inner .quote-feature, .inner .product-shot { margin-top: 36px; }
+.inner section > .container > h3 { margin-bottom: .6em; }
+.inner section > .container > h3:not(:first-child) { margin-top: 36px; }
+.inner section > .container > h3 + ul { padding-left: 1.5rem; }
+.inner section > .container > h3 + ul > li + li { margin-top: .75rem; }
+.inner section > .container > ul + p,
+.inner section > .container > p + p:not(.sub):not(.note) { margin-top: 1rem; }
 
 /* En-tête : état courant et barre de rubriques */
 .site-nav [aria-current="page"], .nav-group.current > summary { color: var(--accent); }
@@ -252,3 +258,31 @@ table.data tbody tr:last-child > * { border-bottom: 0; }
 .article-nav a { text-decoration: none; font-weight: 600; }
 .article-nav a:hover { text-decoration: underline; }
 .article-nav .older { margin-left: auto; text-align: right; }
+
+.inner .kimono-proof { padding-block: 0; }
+.kimono-proof ul { grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
+.kimono-proof li { padding-block: 10px; }
+.kimono-proof b { font-size: clamp(1.05rem, 1.45vw, 1.3rem); line-height: 1.15; }
+.kimono-proof span { display: block; margin-top: 1px; line-height: 1.25; }
+.inner #capabilities { scroll-margin-top: 120px; }
+.kimono-release { --nl-accent: var(--accent); }
+.kimono-release-detail { margin-top: 20px; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); scroll-margin-top: 120px; }
+.kimono-release-detail > summary { cursor: pointer; font-family: var(--serif); font-size: 1.2rem; font-weight: 700; }
+.kimono-release-detail > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+.kimono-release-detail .article-body { margin-top: 24px; scroll-margin-top: 120px; }
+.kimono-release .card > a { margin-top: 1rem; }
+.kimono-release-detail .article-body > * + * { margin-top: 20px; }
+.kimono-release-detail .article-body h3 { margin-top: 28px; margin-bottom: .6em; }
+.kimono-release-detail .article-body p, .kimono-release-detail .article-body li { overflow-wrap: anywhere; }
+.kimono-release-detail .article-body ul, .kimono-release-detail .article-body ol { padding-left: 24px; }
+.kimono-release-detail .article-body .mini-cards { padding-left: 0; }
+.kimono-release-detail .article-body .grammar-grid { padding-left: 0; }
+.kimono-release-detail .article-body .steps { padding-left: 0; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.kimono-release-detail .article-body .stats { padding-left: 0; list-style: none; }
+.kimono-release-detail .code-block { margin-inline: 0; }
+.kimono-release-detail .code-block pre { padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-alt); }
+.kimono-release-detail .faq ul { columns: 2 240px; column-gap: 32px; }
+.kimono-release-detail .faq li { break-inside: avoid; margin-block: 6px; }
+@media (max-width: 640px) {
+  .kimono-proof li { padding-block: 8px; }
+}

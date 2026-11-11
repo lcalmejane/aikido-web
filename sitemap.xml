@@ -101,17 +101,31 @@
   <!-- news:begin -->
   <url>
     <loc>https://www.ai-kido.fr/news.html</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news.html"/>
   </url>
   <url>
     <loc>https://www.ai-kido.fr/fr/news.html</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/news/kimono-099.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/kimono-099.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/kimono-099.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/kimono-099.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/fr/news/kimono-099.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/kimono-099.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/kimono-099.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/kimono-099.html"/>
   </url>
   <url>
     <loc>https://www.ai-kido.fr/news/learn-rules.html</loc>

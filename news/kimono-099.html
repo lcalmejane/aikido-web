@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kimono RAG MCP 0.9.9: syntax-aware code, one shared view for every agent – AI-KIDO</title>
+  <meta name="description" content="Kimono RAG MCP server 0.9.9 adds 169 compatible Tree-sitter grammars, nine embedding models and prompt-scoped snapshots that an orchestrator can share with delegated agents.">
+  <meta property="og:title" content="Kimono RAG MCP 0.9.9: syntax-aware code, one shared view for every agent – AI-KIDO">
+  <meta property="og:description" content="Kimono RAG MCP server 0.9.9 adds 169 compatible Tree-sitter grammars, nine embedding models and prompt-scoped snapshots that an orchestrator can share with delegated agents.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:image" content="https://www.ai-kido.fr/assets/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
+  <meta property="og:image:alt" content="Kido, the small robot in a white karate gi, stands in a dojo holding a lit lantern beside a wooden board carved with a tree whose branches carry small golden tiles">
+  <meta property="og:url" content="https://www.ai-kido.fr/news/kimono-099.html">
+  <meta property="og:site_name" content="AI-KIDO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.ai-kido.fr/assets/images/og.jpg">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://www.ai-kido.fr/news/kimono-099.html">
+  <link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/kimono-099.html">
+  <link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/kimono-099.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/kimono-099.html">
+  <link rel="icon" href="../favicon.ico?v=3" sizes="16x16 32x32">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png?v=3">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/favicon-48.png?v=3">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/icon-192.png?v=3">
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=3">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#f6efe0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
+  <script src="../assets/js/theme.js?v=1"></script>
+  <link rel="stylesheet" href="../assets/css/home.css?v=10">
+  <link rel="stylesheet" href="../assets/css/inner.css?v=13">
+  <link rel="stylesheet" href="../assets/css/news-layouts.css?v=3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kimono RAG MCP 0.9.9: syntax-aware code, one shared view for every agent","description":"Kimono RAG MCP server 0.9.9 adds 169 compatible Tree-sitter grammars, nine embedding models and prompt-scoped snapshots that an orchestrator can share with delegated agents.","datePublished":"2026-11-11","inLanguage":"en","mainEntityOfPage":"https://www.ai-kido.fr/news/kimono-099.html","image":"https://www.ai-kido.fr/assets/images/news/kimono-structure.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
+  <script src="../assets/js/news-navigation.js?v=1" defer></script>
+</head>
+<body class="inner">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+</svg>
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="../index.html"><img src="../assets/images/favicon-48.png?v=2" alt="" width="30" height="30"><span class="word">AI<span>-</span>KIDO</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav">
+      <label class="nav-burger" for="nav-toggle"><svg class="icon" aria-hidden="true"><use href="#menu"/></svg> Menu</label>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <details class="nav-group">
+          <summary>Method <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
+          <div class="nav-panel">
+            <a href="../index.html">Home</a>
+            <a href="../harness.html">Harness creation</a>
+            <a href="../history.html">History</a>
+          </div>
+        </details>
+        <a href="../install.html">Install</a>
+        <a href="../news.html" aria-current="page">News</a>
+        <details class="nav-group">
+          <summary>Tools <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
+          <div class="nav-panel">
+            <a href="../kimono.html">Kimono RAG MCP</a>
+            <a href="../local-designer.html">Local Designer</a>
+          </div>
+        </details>
+        <a href="https://github.com/lcalmejane/aikido">GitHub</a>
+        <span class="lang" role="group" aria-label="Language">
+          <a class="active" href="kimono-099.html" hreflang="en" lang="en" aria-current="true">EN</a>
+          <a href="../fr/news/kimono-099.html" hreflang="fr" lang="fr">FR</a>
+        </span>
+      </nav>
+      <button type="button" class="theme-toggle" data-theme-toggle data-label-dark="Switch to dark theme" data-label-light="Switch to light theme" aria-label="Switch to dark theme" title="Switch to dark theme"><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></svg></button>
+    </div>
+    </header>
+
+  <main id="top">
+    <article class="news-article nl-dossier hero-left w-narrow acc-gold lead-plain h2-numbered title-normal meta-inline body-prose rail-toc-cta">
+      <div class="container">
+        <p class="back"><a href="../news.html">← All news</a></p>
+        <header class="article-head">
+          <p class="news-meta"><span class="tag">Release</span><time datetime="2026-11-11">11 November 2026</time></p>
+          <h1>Kimono RAG MCP 0.9.9: syntax-aware code, one shared view for every agent</h1>
+          <p class="lead">Kimono RAG MCP server 0.9.9 adds 169 compatible Tree-sitter grammars, nine embedding models and prompt-scoped snapshots that an orchestrator can share with delegated agents.</p>
+        </header>
+        <div class="article-grid">
+          <div class="article-mobile-tools">
+          <details name="article-tools"><summary>In this article</summary><nav class="article-toc" aria-label="In this article"><strong>In this article</strong><ol><li><a href="#ask-once-then-let-the-task-fan-out">Ask once, then let the task fan out</a></li><li><a href="#one-freeze-for-the-swarm-not-one-per-search">One freeze for the swarm, not one per search</a></li><li><a href="#languages-and-syntax-aware-code-parsing">Languages and syntax-aware code parsing</a></li><li><a href="#index-documents-with-specialized-extractors">Index documents with specialized extractors</a></li><li><a href="#choose-embeddings-and-customize-code-and-documents">Choose embeddings and customize code and documents</a></li><li><a href="#keep-indexing-safe-across-repositories">Keep indexing safe across repositories</a></li><li><a href="#try-the-release">Try the release</a></li></ol></nav></details>
+          <details name="article-tools"><summary>Try AI-KIDO</summary><aside class="article-cta" aria-label="Try AI-KIDO"><strong>Try AI-KIDO</strong><p>Install the Memory Bank in one command and let your assistant read it.</p><a class="cta-btn" href="../install.html">Install</a></aside></details>
+        </div>
+          <aside class="article-side"><img class="article-hero" src="../assets/images/news/kimono-structure.webp" alt="Kido, the small robot in a white karate gi, stands in a dojo holding a lit lantern beside a wooden board carved with a tree whose branches carry small golden tiles" width="960" height="576" decoding="async"><nav class="article-toc" aria-label="In this article"><strong>In this article</strong><ol><li><a href="#ask-once-then-let-the-task-fan-out">Ask once, then let the task fan out</a></li><li><a href="#one-freeze-for-the-swarm-not-one-per-search">One freeze for the swarm, not one per search</a></li><li><a href="#languages-and-syntax-aware-code-parsing">Languages and syntax-aware code parsing</a></li><li><a href="#index-documents-with-specialized-extractors">Index documents with specialized extractors</a></li><li><a href="#choose-embeddings-and-customize-code-and-documents">Choose embeddings and customize code and documents</a></li><li><a href="#keep-indexing-safe-across-repositories">Keep indexing safe across repositories</a></li><li><a href="#try-the-release">Try the release</a></li></ol></nav><aside class="article-cta" aria-label="Try AI-KIDO"><strong>Try AI-KIDO</strong><p>Install the Memory Bank in one command and let your assistant read it.</p><a class="cta-btn" href="../install.html">Install</a></aside></aside>
+          <div class="article-body">
+          <p>A project question can cross source code, documentation and nested repositories. When an assistant delegates those checks, each agent needs to search the same project state. Kimono RAG MCP server 0.9.9 improves that retrieval layer: it helps an orchestrator share one snapshot, but it does not create or coordinate agents.</p>
+        <h2 id="ask-once-then-let-the-task-fan-out">Ask once, then let the task fan out</h2>
+        <p>In an MCP-capable chat, ask for a concrete investigation. If the assistant supports delegated work, tell it to keep those searches on the same Kimono RAG MCP snapshot:</p>
+        <figure class="code-block">
+          <div class="code-lang">text</div>
+          <pre tabindex="0"><code class="language-text">Find where requests are parsed across this project and its Git repositories. Compare the implementation with the documentation. Freeze one Kimono RAG MCP snapshot for the task and share its snapshotId with the code and documentation agents. Reuse it for all searches and reads, without a new freeze for each agent or search. Return relevant paths first, then read only the passages needed. End the shared snapshot once, after all agents have finished.</code></pre>
+          <figcaption>A prompt to type in your assistant; delegation and snapshot sharing depend on the orchestrator.</figcaption>
+        </figure>
+        <h2 id="one-freeze-for-the-swarm-not-one-per-search">One freeze for the swarm, not one per search</h2>
+        <p>The orchestrator calls <code>begin</code> once to freeze the relevant corpus, then passes the returned <code>snapshotId</code> to its delegated agents. The code agent can run several searches and read selected functions while the documentation agent checks the written rules against that same snapshot. Every <code>aikido_search</code> and <code>aikido_file</code> request reuses the shared ID: neither a new question nor a new agent requires its own freeze.</p>
+        <p>The optimization is shared preparation: one captured corpus instead of separate captures for every search or agent, fewer lifecycle calls, and one consistent project state for comparing their findings. Agents retrieve only their own relevant passages; sharing a snapshot does not mean sending the whole corpus to each model. Independent queries can also be grouped in one search request, and selected file ranges in one read request. The Kimono RAG MCP retrieval guide <a class="src" href="https://github.com/lcalmejane/kimono-mcp-server/blob/v0.9.9/docs/retrieval.md" title="Kimono RAG MCP — MCP retrieval reference" rel="noopener noreferrer" target="_blank">MCP retrieval reference</a> documents these operations.</p>
+        <p>Once all delegated searches and reads have finished, the orchestrator calls <code>end</code> once for the shared snapshot. Agents do not each release it after their own search. The task therefore follows <strong>one freeze → several agents, searches and reads → one end</strong>, not a complete freeze/search/read/end cycle repeated for every search.</p>
+        <p>In 0.9.9, the default <code>prompt</code> scope can also reuse a live snapshot on a subsequent <code>begin</code> for the same user, owner and paths while the corpus is unchanged. Explicitly passing the existing ID keeps delegated work on the captured state even if source files change meanwhile. <code>session</code> keeps a view for the server session; <code>call</code> closes it immediately on <code>end</code>. To inspect edits, start a new capture; <code>fresh: true</code> forces one.</p>
+        <p>Calling <code>end</code> releases a snapshot; released ones close after 120 seconds idle. A snapshot's sliding lifetime tops out at one hour. At the default limit of eight active snapshots or the byte budget, Kimono RAG MCP evicts released snapshots first.</p>
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-fork dg-animated" viewBox="0 0 360 306" role="img" aria-label="The orchestrator freezes the corpus once and shares one snapshotId with code, documentation and configuration agents. Each runs several searches and reads. The branches converge on one end after all agents finish." focusable="false"><title>One snapshot shared by several agents</title><g class="dg-node dg-accent" style="--i:0"><rect class="dg-box" x="20" y="12" width="320" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="30.5" text-anchor="middle"><tspan x="180" dy="0">Orchestrator: one freeze · begin</tspan></text><text class="dg-s" x="180" y="50.5" text-anchor="middle"><tspan x="180" dy="0">One snapshotId shared by every agent</tspan></text></g><path class="dg-flow" d="M180 66 V82"/><path class="dg-flow" d="M180 82 H64"/><g class="dg-link"><line class="dg-flow" x1="64" y1="82" x2="64" y2="101"/><path class="dg-head" d="M59 98 L64 106 L69 98 Z"/></g><g class="dg-node " style="--i:1"><rect class="dg-box" x="12" y="106" width="104" height="86" rx="10"/><text class="dg-t dg-b" x="64" y="124.5" text-anchor="middle"><tspan x="64" dy="0">Code agent</tspan></text><text class="dg-s" x="64" y="144.5" text-anchor="middle"><tspan x="64" dy="0">Search × N ·</tspan><tspan x="64" dy="15">Read × N</tspan></text></g><path class="dg-flow" d="M180 82 H180"/><g class="dg-link"><line class="dg-flow" x1="180" y1="82" x2="180" y2="101"/><path class="dg-head" d="M175 98 L180 106 L185 98 Z"/></g><g class="dg-node " style="--i:2"><rect class="dg-box" x="128" y="106" width="104" height="86" rx="10"/><text class="dg-t dg-b" x="180" y="124.5" text-anchor="middle"><tspan x="180" dy="0">Docs agent</tspan></text><text class="dg-s" x="180" y="144.5" text-anchor="middle"><tspan x="180" dy="0">Search × N ·</tspan><tspan x="180" dy="15">Read × N</tspan></text></g><path class="dg-flow" d="M180 82 H296"/><g class="dg-link"><line class="dg-flow" x1="296" y1="82" x2="296" y2="101"/><path class="dg-head" d="M291 98 L296 106 L301 98 Z"/></g><g class="dg-node " style="--i:3"><rect class="dg-box" x="244" y="106" width="104" height="86" rx="10"/><text class="dg-t dg-b" x="296" y="124.5" text-anchor="middle"><tspan x="296" dy="0">Config</tspan><tspan x="296" dy="17">agent</tspan></text><text class="dg-s" x="296" y="161.5" text-anchor="middle"><tspan x="296" dy="0">Search × N ·</tspan><tspan x="296" dy="15">Read × N</tspan></text></g><path class="dg-flow" d="M64 192 V216 H180"/><path class="dg-flow" d="M180 192 V216 H180"/><path class="dg-flow" d="M296 192 V216 H180"/><g class="dg-link"><line class="dg-flow" x1="180" y1="216" x2="180" y2="235"/><path class="dg-head" d="M175 232 L180 240 L185 232 Z"/></g><g class="dg-node dg-accent" style="--i:4"><rect class="dg-box" x="20" y="240" width="320" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="258.5" text-anchor="middle"><tspan x="180" dy="0">Orchestrator: one end</tspan></text><text class="dg-s" x="180" y="278.5" text-anchor="middle"><tspan x="180" dy="0">After every agent has finished</tspan></text></g></svg>
+          <figcaption>One freeze and one final end surround all agents' searches and reads on the same snapshot.</figcaption>
+        </figure>
+        <figure class="article-figure">
+          <img src="../assets/images/kimono-search-en.png" alt="Real Kimono RAG MCP search panel from extension 0.6.5, testing the public Kimono RAG MCP documentation and comparing text and semantic results" width="1120" height="980" loading="lazy" decoding="async">
+          <figcaption>Real search against public Kimono RAG MCP documentation, captured with extension 0.6.5. This illustrates the existing search-panel workflow; it is not a screenshot of the 0.9.9 release.</figcaption>
+        </figure>
+        <h2 id="languages-and-syntax-aware-code-parsing">Languages and syntax-aware code parsing</h2>
+        <p>Version 0.9.9 upgrades Tree-sitter from 0.25.10 to 0.27.2. The registry contains 24 official grammars and 169 compatible third-party grammar crates, covering 174 additional languages. Four GPL/LGPL-licensed grammars are excluded from the MIT binary. The complete, versioned Tree-sitter registry <a class="src" href="https://github.com/lcalmejane/kimono-mcp-server/blob/v0.9.9/scripts/tree-sitter-grammars.json" title="Kimono RAG MCP — tree-sitter-grammars.json — v0.9.9" rel="noopener noreferrer" target="_blank">tree-sitter-grammars.json</a> lists every compatible crate.</p>
+        <p>Instead of splitting every source file at an arbitrary line count, Kimono RAG MCP can split many languages around syntax definitions. It also recognizes top-level JSON keys and JSDoc <code>@typedef</code>, <code>@callback</code> and <code>@interface</code> blocks. That gives search smaller code passages with their structure intact.</p>
+        <h3>The 24 official grammars</h3>
+        <ul class="grammar-grid"><li>Agda</li><li>Bash / Shell</li><li>C</li><li>C#</li><li>C++</li><li>CSS</li><li>ERB / EJS</li><li>Go</li><li>Haskell</li><li>HTML</li><li>Java</li><li>JavaScript / JSX</li><li>JSDoc</li><li>JSON / JSONC</li><li>Julia</li><li>OCaml</li><li>PHP</li><li>Python</li><li>Regex</li><li>Ruby</li><li>Rust</li><li>Scala</li><li>TypeScript / TSX</li><li>Verilog</li></ul>
+        <div class="faq">
+          <details><summary>Which files are indexed?</summary><p><p>A code parser is not required for indexing. Within the selected folders and configured extensions, readable text files remain indexed even without a syntax parser: they use standard text chunking instead of syntax-aware code chunking.</p><p>Files whose content cannot be indexed, including non-text files, remain represented by their metadata: name, path, extension, size and modification date. Their presence can therefore be found without indexing their binary content. Ignore rules and configured size limits still apply.</p></p></details>
+          <details><summary>All file extensions covered by the official grammars</summary><p><ul><li><strong>Agda</strong> — <code>.agda</code></li><li><strong>Bash / Shell</strong> — <code>.sh</code>, <code>.bash</code>, <code>.zsh</code>, <code>.ksh</code></li><li><strong>C</strong> — <code>.c</code>, <code>.h</code></li><li><strong>C#</strong> — <code>.cs</code>, <code>.csx</code></li><li><strong>C++</strong> — <code>.cc</code>, <code>.cpp</code>, <code>.cxx</code>, <code>.c++</code>, <code>.hpp</code>, <code>.hh</code>, <code>.hxx</code>, <code>.inl</code>, <code>.ipp</code></li><li><strong>CSS</strong> — <code>.css</code></li><li><strong>ERB / EJS</strong> — <code>.erb</code>, <code>.ejs</code></li><li><strong>Go</strong> — <code>.go</code></li><li><strong>Haskell</strong> — <code>.hs</code>, <code>.lhs</code></li><li><strong>HTML</strong> — <code>.html</code>, <code>.htm</code></li><li><strong>Java</strong> — <code>.java</code></li><li><strong>JavaScript / JSX</strong> — <code>.js</code>, <code>.jsx</code>, <code>.mjs</code>, <code>.cjs</code></li><li><strong>JSON / JSONC</strong> — <code>.json</code>, <code>.jsonc</code></li><li><strong>Julia</strong> — <code>.jl</code></li><li><strong>OCaml</strong> — <code>.ml</code>, <code>.mli</code></li><li><strong>PHP</strong> — <code>.php</code>, <code>.phtml</code></li><li><strong>Python</strong> — <code>.py</code>, <code>.pyi</code>, <code>.pyw</code></li><li><strong>Ruby</strong> — <code>.rb</code>, <code>.rake</code>, <code>.gemspec</code></li><li><strong>Rust</strong> — <code>.rs</code></li><li><strong>Scala</strong> — <code>.scala</code>, <code>.sc</code>, <code>.sbt</code></li><li><strong>TypeScript / TSX</strong> — <code>.ts</code>, <code>.mts</code>, <code>.cts</code>, <code>.tsx</code></li><li><strong>Verilog / SystemVerilog</strong> — <code>.v</code>, <code>.vh</code>, <code>.sv</code>, <code>.svh</code></li></ul></p></details>
+        </div>
+        <h3>174 compatible code languages, A to Z</h3>
+        <p>Kimono RAG MCP understands the structure of your code to retrieve useful passages without cutting definitions apart. Find your language in the alphabetical list below, with the file extensions that help you recognize it.</p>
+        <div class="faq">
+          <details><summary>A–C</summary><p><ul><li><strong>Actions</strong> †</li><li><strong>Ada</strong> — <code>.adb</code>, <code>.ads</code></li><li><strong>ADL</strong> — <code>.adl</code></li><li><strong>Applesoft BASIC</strong> †</li><li><strong>Arduino</strong> — <code>.ino</code></li><li><strong>ArkTS</strong> — <code>.ets</code></li><li><strong>Assembly</strong> — <code>.asm</code>, <code>.s</code></li><li><strong>Astro</strong> — <code>.astro</code></li><li><strong>Batch / CMD</strong> — <code>.bat</code>, <code>.cmd</code></li><li><strong>Bicep</strong> — <code>.bicep</code></li><li><strong>BLK</strong> — <code>.blk</code></li><li><strong>BPF C</strong> †</li><li><strong>BSL / OneScript</strong> — <code>.bsl</code>, <code>.os</code></li><li><strong>C comments code split</strong> †</li><li><strong>C preprocessor code split</strong> †</li><li><strong>CFEngine</strong> — <code>.cf</code></li><li><strong>CFML</strong> — <code>.cfm</code>, <code>.cfml</code></li><li><strong>CFQuery</strong> †</li><li><strong>CFScript</strong> — <code>.cfc</code></li><li><strong>Clingo</strong> — <code>.lp</code></li><li><strong>Clojure / ClojureScript / EDN</strong> — <code>.clj</code>, <code>.cljs</code>, <code>.cljc</code>, <code>.edn</code></li><li><strong>CMake</strong> — <code>.cmake</code></li><li><strong>CodeQL</strong> — <code>.ql</code>, <code>.qll</code></li><li><strong>CodeQL database schema</strong> — <code>.dbscheme</code></li><li><strong>Comments</strong> †</li><li><strong>Common Lisp</strong> — <code>.lisp</code>, <code>.cl</code></li><li><strong>Crystal</strong> — <code>.cr</code></li><li><strong>CUDA</strong> — <code>.cu</code>, <code>.cuh</code></li><li><strong>Cypher</strong> — <code>.cypher</code></li></ul></p></details>
+          <details><summary>D–G</summary><p><ul><li><strong>D</strong> — <code>.d</code></li><li><strong>D2</strong> — <code>.d2</code></li><li><strong>Dafny</strong> — <code>.dfy</code></li><li><strong>Dart</strong> — <code>.dart</code></li><li><strong>Dart (Orchard)</strong> †</li><li><strong>daScript</strong> — <code>.das</code></li><li><strong>Device Tree</strong> — <code>.dts</code>, <code>.dtsi</code></li><li><strong>Diff / Patch</strong> — <code>.diff</code>, <code>.patch</code></li><li><strong>DM / BYOND</strong> — <code>.dm</code>, <code>.dme</code></li><li><strong>Dockerfile / Containerfile</strong> — <code>.dockerfile</code>, <code>.containerfile</code></li><li><strong>DSHL</strong> — <code>.dshl</code></li><li><strong>DTD</strong> — <code>.dtd</code></li><li><strong>Elixir</strong> — <code>.ex</code>, <code>.exs</code></li><li><strong>Elm</strong> — <code>.elm</code></li><li><strong>Emacs Lisp</strong> — <code>.el</code></li><li><strong>EPICS database</strong> †</li><li><strong>Erlang</strong> — <code>.erl</code>, <code>.hrl</code></li><li><strong>F#</strong> — <code>.fs</code>, <code>.fsx</code></li><li><strong>F# signatures</strong> — <code>.fsi</code></li><li><strong>FlatBuffers</strong> — <code>.fbs</code></li><li><strong>Fluent Bit</strong> †</li><li><strong>Fortran</strong> — <code>.f</code>, <code>.f90</code>, <code>.f95</code>, <code>.f03</code>, <code>.f08</code>, <code>.for</code></li><li><strong>GDScript</strong> — <code>.gd</code></li><li><strong>Git commit</strong> †</li><li><strong>GitHub Actions expressions</strong> †</li><li><strong>Gleam</strong> — <code>.gleam</code></li><li><strong>GLSL</strong> — <code>.glsl</code>, <code>.vert</code>, <code>.frag</code></li><li><strong>Go (alternative parser)</strong> †</li><li><strong>Go modules</strong> — <code>.mod</code></li><li><strong>Go sums</strong> — <code>.sum</code></li><li><strong>Godot resources</strong> — <code>.tscn</code>, <code>.tres</code></li><li><strong>Godot shaders</strong> — <code>.gdshader</code></li><li><strong>GraphQL</strong> — <code>.graphql</code>, <code>.gql</code></li><li><strong>Groovy / Gradle</strong> — <code>.groovy</code>, <code>.gvy</code>, <code>.gradle</code></li><li><strong>Grug</strong> — <code>.grug</code></li><li><strong>GW-BASIC</strong> — <code>.bas</code></li></ul></p></details>
+          <details><summary>H–L</summary><p><ul><li><strong>Harn</strong> — <code>.harn</code></li><li><strong>HCL / Terraform / Nomad</strong> — <code>.hcl</code>, <code>.tf</code>, <code>.tfvars</code>, <code>.nomad</code></li><li><strong>HEEx</strong> — <code>.heex</code></li><li><strong>HLSL</strong> — <code>.hlsl</code></li><li><strong>Hygen templates</strong> †</li><li><strong>IEC Structured Text</strong> — <code>.st</code></li><li><strong>INI</strong> — <code>.ini</code>, <code>.cfg</code></li><li><strong>Ink</strong> — <code>.ink</code></li><li><strong>Integer BASIC</strong> †</li><li><strong>iRules</strong> — <code>.irul</code></li><li><strong>Java (Orchard)</strong> †</li><li><strong>Javadoc</strong> †</li><li><strong>Jinja dialects</strong> †</li><li><strong>Jinja2</strong> — <code>.jinja</code>, <code>.jinja2</code>, <code>.j2</code></li><li><strong>JSON5</strong> — <code>.json5</code></li><li><strong>Jsonnet</strong> — <code>.jsonnet</code>, <code>.libsonnet</code></li><li><strong>Kconfig</strong> †</li><li><strong>KDL</strong> — <code>.kdl</code></li><li><strong>Kotlin</strong> — <code>.kt</code>, <code>.kts</code></li><li><strong>LAMMPS</strong> †</li><li><strong>LLVM IR</strong> — <code>.ll</code></li><li><strong>LOLCODE</strong> — <code>.lol</code></li><li><strong>Lua</strong> — <code>.lua</code></li><li><strong>Luau</strong> — <code>.luau</code></li></ul></p></details>
+          <details><summary>M–O</summary><p><ul><li><strong>Mage</strong> †</li><li><strong>Make</strong> — <code>.mk</code>, <code>.make</code></li><li><strong>Markdown</strong> — <code>.md</code>, <code>.markdown</code></li><li><strong>MATLAB</strong> †</li><li><strong>MDN</strong> †</li><li><strong>Merlin 6502</strong> †</li><li><strong>Mermaid</strong> — <code>.mmd</code>, <code>.mermaid</code></li><li><strong>Microsoft BASIC 2</strong> †</li><li><strong>MLIR</strong> — <code>.mlir</code></li><li><strong>Mozilla C++ code split</strong> †</li><li><strong>Mozilla JavaScript code split</strong> †</li><li><strong>Mutt configuration</strong> †</li><li><strong>NetLinx</strong> — <code>.axs</code>, <code>.axi</code></li><li><strong>Newick</strong> — <code>.nwk</code>, <code>.newick</code></li><li><strong>Nginx</strong> †</li><li><strong>Nickel</strong> — <code>.ncl</code></li><li><strong>Nim</strong> — <code>.nim</code>, <code>.nims</code></li><li><strong>Nix</strong> — <code>.nix</code></li><li><strong>Objective-C / Objective-C++</strong> — <code>.m</code>, <code>.mm</code></li><li><strong>ObjectScript UDL</strong> — <code>.cls</code></li><li><strong>OCamllex</strong> — <code>.mll</code></li><li><strong>Odin</strong> — <code>.odin</code></li><li><strong>OpenSCAD</strong> — <code>.scad</code></li><li><strong>OWL Manchester syntax</strong> — <code>.omn</code></li></ul></p></details>
+          <details><summary>P–R</summary><p><ul><li><strong>Pact</strong> — <code>.pact</code></li><li><strong>Pascal</strong> — <code>.pas</code>, <code>.dpr</code>, <code>.lpr</code></li><li><strong>PL/pgSQL</strong> †</li><li><strong>PostgreSQL</strong> — <code>.pgsql</code></li><li><strong>PowerShell</strong> — <code>.ps1</code>, <code>.psm1</code>, <code>.psd1</code></li><li><strong>Printf formats</strong> †</li><li><strong>Prisma</strong> — <code>.prisma</code></li><li><strong>Prolog</strong> — <code>.pro</code>, <code>.prolog</code></li><li><strong>Properties</strong> — <code>.properties</code></li><li><strong>Protocol Buffers</strong> — <code>.proto</code></li><li><strong>Puppet</strong> — <code>.pp</code></li><li><strong>Python (Orchard)</strong> †</li><li><strong>QBasic</strong> †</li><li><strong>QML</strong> — <code>.qml</code></li><li><strong>Quirrel</strong> — <code>.nut</code></li><li><strong>R</strong> — <code>.r</code></li><li><strong>Racket</strong> — <code>.rkt</code></li><li><strong>Razor</strong> — <code>.cshtml</code>, <code>.razor</code></li><li><strong>Reinhardt form</strong> †</li><li><strong>Reinhardt head</strong> †</li><li><strong>Reinhardt page</strong> †</li><li><strong>Requirements</strong> †</li><li><strong>reStructuredText</strong> — <code>.rst</code></li><li><strong>Rigz</strong> — <code>.rigz</code></li><li><strong>RISC-V</strong> †</li><li><strong>RSML</strong> — <code>.rsml</code></li><li><strong>Rules</strong> †</li><li><strong>Rush</strong> †</li><li><strong>Rust (Orchard)</strong> †</li></ul></p></details>
+          <details><summary>S–T</summary><p><ul><li><strong>Scheme</strong> — <code>.scm</code>, <code>.ss</code></li><li><strong>SDML</strong> — <code>.sdml</code></li><li><strong>Slang</strong> — <code>.slang</code></li><li><strong>Slint</strong> — <code>.slint</code></li><li><strong>Solidity</strong> — <code>.sol</code></li><li><strong>Soufflé</strong> — <code>.dl</code></li><li><strong>SPARQL</strong> — <code>.sparql</code>, <code>.rq</code></li><li><strong>SQL</strong> — <code>.sql</code></li><li><strong>Starlark / Bazel</strong> — <code>.bzl</code>, <code>.star</code>, <code>.bazel</code></li><li><strong>Svelte</strong> — <code>.svelte</code></li><li><strong>Swift</strong> — <code>.swift</code></li><li><strong>SysML</strong> — <code>.sysml</code></li><li><strong>SystemVerilog</strong> †</li><li><strong>Templ</strong> — <code>.templ</code></li><li><strong>TLA+</strong> — <code>.tla</code></li><li><strong>Tmux</strong> †</li><li><strong>TOML</strong> — <code>.toml</code></li><li><strong>TRACE32</strong> — <code>.cmm</code></li><li><strong>Tree-sitter queries</strong> †</li></ul></p></details>
+          <details><summary>U–Z</summary><p><ul><li><strong>V</strong> †</li><li><strong>Varlink</strong> — <code>.varlink</code></li><li><strong>VHDL</strong> — <code>.vhd</code>, <code>.vhdl</code></li><li><strong>Visual Basic .NET</strong> — <code>.vb</code></li><li><strong>Vue</strong> — <code>.vue</code></li><li><strong>WGSL</strong> — <code>.wgsl</code></li><li><strong>XCompose</strong> †</li><li><strong>XML</strong> — <code>.xml</code>, <code>.xsd</code>, <code>.xsl</code>, <code>.xslt</code>, <code>.wsdl</code>, <code>.plist</code>, <code>.csproj</code>, <code>.fsproj</code>, <code>.vbproj</code>, <code>.props</code>, <code>.targets</code>, <code>.nuspec</code>, <code>.xaml</code>, <code>.axaml</code>, <code>.resx</code>, <code>.storyboard</code></li><li><strong>YAML</strong> — <code>.yml</code>, <code>.yaml</code></li><li><strong>Yarn lock</strong> †</li><li><strong>Zathura configuration</strong> †</li><li><strong>Zig</strong> — <code>.zig</code></li><li><strong>Zsh</strong> †</li></ul></p></details>
+        </div>
+        <p>† Parser catalogued without its own extension mapping in this registry. Official grammars take precedence; a compatible entry does not mean it is automatically selected for every file in that language. The versioned registry <a class="src" href="https://github.com/lcalmejane/kimono-mcp-server/blob/v0.9.9/scripts/tree-sitter-grammars.json" title="Kimono RAG MCP — tree-sitter-grammars.json — v0.9.9" rel="noopener noreferrer" target="_blank">tree-sitter-grammars.json</a> preserves the technical IDs and exact mappings.</p>
+        <ul class="stats">
+          <li><strong>193</strong><span>Tree-sitter registry entries: 24 official + 169 compatible</span></li>
+          <li><strong>174</strong><span>additional languages covered by compatible grammars</span></li>
+          <li><strong>9</strong><span>embedding models in the catalogue</span></li>
+          <li><strong>3</strong><span>snapshot scopes: prompt, session and call</span></li>
+        </ul>
+        <p>These are catalogue counts, not a new speed or token benchmark. The release also reports indexed and Git-kept files per repository, including why some files are metadata-only. On a modified working tree, it can reuse semantic vectors document by document when the corpus fingerprint is unknown.</p>
+        <h2 id="index-documents-with-specialized-extractors">Index documents with specialized extractors</h2>
+        <p>Indexing knowledge and data into a shared knowledge base is the core purpose of Kimono RAG MCP. Several people and agents can query the same instance and retrieve the same references without copying the corpus into every conversation. Reports, specifications, spreadsheets and presentations are first-class sources, not an add-on to code search.</p>
+        <h3>Indexable documents and data</h3>
+        <p>Text files are read directly, without an office document extractor. The default RAG corpus includes the following families:</p>
+        <ul><li><strong>Notes and documentation:</strong> <code>.md</code>, <code>.mdx</code>, <code>.mdc</code>, <code>.txt</code>, <code>.rst</code>, <code>.adoc</code>, <code>.tex</code>, <code>.bib</code>, <code>.rmd</code>, plus extensionless <code>README</code>, <code>LICENSE</code>, <code>NOTICE</code> and <code>CHANGELOG</code> files.</li><li><strong>Data and interchange:</strong> <code>.csv</code>, <code>.tsv</code>, <code>.json</code>, <code>.jsonc</code>, <code>.json5</code>, <code>.xml</code>, <code>.yaml</code>, <code>.yml</code>, <code>.toml</code>.</li><li><strong>Configuration and schemas:</strong> <code>.ini</code>, <code>.cfg</code>, <code>.conf</code>, <code>.properties</code>, <code>.config</code>, <code>.plist</code>, <code>.xsd</code>, <code>.wsdl</code>, <code>.avsc</code>, <code>.prisma</code>, plus project and configuration files recognized by name.</li></ul>
+        <p>Other text sources in the corpus, including the languages and extensions listed above, are searchable too. The syntax parser catalogue alone does not determine which files can be indexed: the RAG corpus has its own customizable selection of extensions and filenames.</p>
+        <h3>Extractors for office documents and PDF</h3>
+        <p>Its specialized document extractors turn supported files into searchable text locally, without modifying the originals. These capabilities are available in 0.9.9; they are not all new in this release.</p>
+        <ul><li><strong>Word — <code>.docx</code>:</strong> extracts text from the main document’s paragraphs, making written decisions and requirements searchable.</li><li><strong>Excel — <code>.xlsx</code>:</strong> extracts cell values with worksheet names and cell addresses. It uses stored values, or the formula text when no value is available; it does not recalculate the workbook.</li><li><strong>PowerPoint — <code>.pptx</code>:</strong> extracts slide text in presentation order, with slide numbers to retain its context.</li><li><strong>PDF — <code>.pdf</code>:</strong> extracts existing text through Poppler’s <code>pdftotext</code>. Image-only scans need OCR beforehand; this extractor does not perform OCR.</li></ul>
+        <p>Document indexing is the foundation for the knowledge and data in the configured corpus: text, Markdown, office documents and structured data form one searchable collection. Specialized parsers enrich that foundation: JSON and JSONC can be split around top-level keys, while compatible parsers cover formats such as YAML and TOML. A missing syntax parser does not prevent standard text indexing. Code parsing is an additional capability, not a requirement for adding knowledge to the base.</p>
+        <p>Extracted document text participates in literal and semantic retrieval alongside the project’s other sources. The assistant can locate a useful passage and read its text representation instead of loading the whole document. Document embeddings are selected separately from code embeddings. When extraction is unavailable or fails, the file remains represented by metadata rather than invented content.</p>
+        <h2 id="choose-embeddings-and-customize-code-and-documents">Choose embeddings and customize code and documents</h2>
+        <h3>The nine embedding models</h3>
+        <p>These are the nine catalogue choices. Each card shows the selectable ID, local engine and vector dimension. Language profiles describe embeddings, not the Tree-sitter grammars above. Profiles come from the versioned catalogue <a class="src" href="https://github.com/lcalmejane/kimono-mcp-server/blob/v0.9.9/src/embedding-models.ts" title="Kimono RAG MCP — embedding-models.ts — v0.9.9" rel="noopener noreferrer" target="_blank">embedding-models.ts</a>.</p>
+        <ul class="mini-cards">
+          <li><strong>Potion Code 16M v2</strong><span><code>code</code> · Model2Vec · 256 dimensions. Code; English; static embeddings for fast local indexing.</span></li>
+          <li><strong>Potion Multilingual 128M</strong><span><code>multilingual-fast</code> · Model2Vec · 256 dimensions. Multilingual documents; static embeddings.</span></li>
+          <li><strong>Multilingual E5 small</strong><span><code>e5</code> · ONNX · 384 dimensions. Multilingual documents; contextual model supplied in the host bundle.</span></li>
+        </ul>
+        <ul class="mini-cards">
+          <li><strong>Jina v2 base code</strong><span><code>jina-code</code> · ONNX · 768 dimensions. Code; catalogue describes 30 programming languages and English text.</span></li>
+          <li><strong>BGE-M3</strong><span><code>bge-m3</code> · ONNX · 1 024 dimensions. Code and documents; multilingual.</span></li>
+          <li><strong>Nomic Embed Text v1.5</strong><span><code>nomic-v1.5</code> · ONNX · 768 dimensions. English documents.</span></li>
+        </ul>
+        <ul class="mini-cards">
+          <li><strong>mxbai-embed-large v1</strong><span><code>mxbai-large</code> · ONNX · 1 024 dimensions. English documents.</span></li>
+          <li><strong>Multilingual E5 large</strong><span><code>e5-large</code> · ONNX · 1 024 dimensions. Multilingual documents; larger contextual model.</span></li>
+          <li><strong>all-MiniLM-L6-v2</strong><span><code>minilm</code> · ONNX · 384 dimensions. English documents; compact contextual model.</span></li>
+        </ul>
+        <h3>What custom mode lets you do</h3>
+        <p>In the model-management panel, choose <code>custom</code> instead of an automatic policy. Two independent pickers let you select one catalogue model for code and another for documents. For example: <strong>Jina v2 base code for source files and Multilingual E5 large for documentation</strong>. This is a configuration choice, not a measured performance claim.</p>
+        <ol class="steps">
+          <li>Compare profiles: code or document use, language, download size, license and estimated memory. Inspecting status never triggers a download.</li>
+          <li>Select the code and document models independently from the nine pinned catalogue entries. Custom mode does not load an arbitrary model or URL.</li>
+          <li>Explicitly approve any required downloads. Revisions, sizes and SHA-256 checksums are verified; the corpus is not sent to an external embedding API.</li>
+          <li>Confirm the configuration. Kimono RAG MCP partitions files by content type, rebuilds the index in the background and activates the new generation only after success. Missing models are reported, not silently substituted.</li>
+          <li>Track requested and active policies. If rebuilding fails, the previous index stays available; existing snapshots retain their selection. Vectors from different models stay separate and search results are fused by rank.</li>
+        </ol>
+        <p><code>auto-speed</code> remains the default policy in 0.9.9; <code>custom</code> gives you control over that model pair. If the corpus contains only code or only documents, only the matching profile is used. Embeddings are computed locally; passages returned to chat may subsequently be sent to your assistant’s model provider.</p>
+        <p>Downloaded ONNX models now receive only the inputs their model graph declares. That avoids sending unsupported inputs to XLM-R models, while the bundled E5 model keeps its existing path.</p>
+        <h2 id="keep-indexing-safe-across-repositories">Keep indexing safe across repositories</h2>
+        <p>Corpus status now accounts for Git-kept files in each repository. Excluded directories, temporary files and environment templates can be counted as metadata only; Git-tracked files remain indexed even when a <code>.gitignore</code> rule matches, and <code>.git/info/exclude</code> is honored. The report explains metadata-only files. On modified trees, Kimono RAG MCP can reuse vectors for unchanged documents. When you change the embedding policy during an indexing run, Kimono RAG MCP stops that run instead of refusing the change. Server shutdown cancels indexing cleanly, releases its locks and keeps the previous generation unless the new one completed successfully.</p>
+        <aside class="callout"><strong class="callout-title">What swarm support means</strong><p>One freeze, a snapshot ID shared by all delegated agents, as many searches and reads as the task needs, then one end after everyone finishes. Kimono RAG MCP shares the captured corpus; the orchestrator coordinates the agents and the snapshot lifecycle.</p></aside>
+        <h2 id="try-the-release">Try the release</h2>
+        <p>Kimono RAG MCP server 0.9.9 is the server release; VS Code extension versions are published separately. The <a href="https://marketplace.visualstudio.com/items?itemName=ai-kido.kimono-rag-mcp" title="Visual Studio Marketplace — Local RAG for code and documentation — in VS Code">Marketplace listing</a> explains the integrated extension flow. For a server you manage yourself, start from the public changelog <a class="src" href="https://github.com/lcalmejane/kimono-mcp-server/blob/v0.9.9/CHANGELOG.md" title="Kimono RAG MCP — Changelog — version 0.9.9" rel="noopener noreferrer" target="_blank">Kimono RAG MCP 0.9.9 changelog</a> and its setup instructions.</p>
+        <ol class="steps">
+          <li>Start a Kimono RAG MCP server configured for your project and enable its tools in your MCP-capable assistant.</li>
+          <li>Ask a real code-and-documentation question, such as the prompt above, and inspect the file locations before opening passages.</li>
+          <li>If your assistant delegates to agents, have its orchestrator freeze once, pass the same snapshot ID to each agent for all searches and reads, and call end once after everyone finishes.</li>
+        </ol>
+        <ol class="references" aria-label="Sources">
+          <li id="ref-1"><span class="ref-pub">Kimono RAG MCP</span> <a href="https://github.com/lcalmejane/kimono-mcp-server/blob/v0.9.9/CHANGELOG.md" rel="noopener noreferrer" target="_blank">Changelog — version 0.9.9</a></li>
+          <li id="ref-2"><span class="ref-pub">Kimono RAG MCP</span> <a href="https://github.com/lcalmejane/kimono-mcp-server/blob/v0.9.9/docs/retrieval.md" rel="noopener noreferrer" target="_blank">MCP retrieval reference</a></li>
+          <li id="ref-3"><span class="ref-pub">Kimono RAG MCP</span> <a href="https://github.com/lcalmejane/kimono-mcp-server/blob/v0.9.9/scripts/tree-sitter-grammars.json" rel="noopener noreferrer" target="_blank">tree-sitter-grammars.json — v0.9.9</a></li>
+          <li id="ref-4"><span class="ref-pub">Kimono RAG MCP</span> <a href="https://github.com/lcalmejane/kimono-mcp-server/blob/v0.9.9/src/embedding-models.ts" rel="noopener noreferrer" target="_blank">embedding-models.ts — v0.9.9</a></li>
+        </ol>
+        </div>
+        </div>
+        <nav class="article-nav" aria-label="News">
+          <a class="older" href="learn-rules.html" rel="prev">Older : /learn: you correct, it proposes, you validate, your agents remember →</a>
+        </nav>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-intro">
+          <a class="footer-brand" href=".././">AI-KIDO</a>
+          <p class="footer-tagline">Give your AI a memory. Give your team a method.</p>
+          <p>Structure knowledge, share rules and build the harnesses your projects need.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-group">
+            <h2>The method</h2>
+            <ul>
+              <li><a href=".././">Discover AI-KIDO</a></li>
+              <li><a href="../harness.html">Create a harness</a></li>
+              <li><a href="../history.html">Our story</a></li>
+              <li><a href="../news.html">News</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h2>Tools</h2>
+            <ul>
+              <li><a href="../install.html">Installation</a></li>
+              <li><a href="../kimono.html">Kimono RAG MCP</a></li>
+              <li><a href="../local-designer.html">Local Designer</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h2>Resources</h2>
+            <ul>
+              <li><a href="https://github.com/lcalmejane/aikido">Documentation</a></li>
+              <li><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Kimono RAG MCP benchmarks</a></li>
+              <li><a href="../technical-friends.html">Technical friends</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <a href="https://github.com/lcalmejane/aikido/blob/main/LICENSE">Method licensed under MIT</a>
+        <nav class="footer-languages" aria-label="Language">
+          <a href="kimono-099.html" hreflang="en" lang="en" aria-current="page">English</a>
+          <a href="../fr/news/kimono-099.html" hreflang="fr" lang="fr">Français</a>
+        </nav>
+      </div>
+      <p class="footer-driven">Driven by the AI-KIDO method · <a href="https://github.com/lcalmejane/aikido" lang="en">AI-KIDO: The Self-Forged Engine</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

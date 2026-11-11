@@ -4,20 +4,20 @@
   "domains": ["search"],
   "date": "2026-10-25",
   "tag": {
-    "en": "Kimono",
-    "fr": "Kimono"
+    "en": "Kimono RAG MCP",
+    "fr": "Kimono RAG MCP"
   },
   "image": "hero-kimono-marketplace",
   "layout": "journal",
   "en": {
     "title": "Kimono RAG MCP is on the VS Code Marketplace",
-    "summary": "Kimono finds passages in code and documents locally and returns file paths and line ranges first. On two tasks, cumulative input tokens fell by 67.5% and 71.4%.",
+    "summary": "Kimono RAG MCP finds passages in code and documents locally and returns file paths and line ranges first. On two tasks, cumulative input tokens fell by 67.5% and 71.4%.",
     "body": [
       "<p>You ask an assistant to prepare a change in a project it has never seen. To understand it, the assistant opens file after file, and every file it opens is paid for again at each step of the conversation. Most of what it reads turns out to be irrelevant.</p>",
       {
         "h2": "The idea in one picture"
       },
-      "<p>Kimono indexes a project on your machine and gives MCP-compatible assistants lexical and semantic search. The key design choice is in what comes back: <strong>file paths and line ranges first, not source text</strong>. The assistant then reads only the ranges it picked. It works with or without an AI-KIDO base, and indexing and embeddings run locally.</p>",
+      "<p>Kimono RAG MCP indexes a project on your machine and gives MCP-compatible assistants lexical and semantic search. The key design choice is in what comes back: <strong>file paths and line ranges first, not source text</strong>. The assistant then reads only the ranges it picked. It works with or without an AI-KIDO base, and indexing and embeddings run locally.</p>",
       {
         "diagram": "kimono-funnel"
       },
@@ -38,7 +38,7 @@
       {
         "h2": "Under the hood"
       },
-      "<p>To find those three places, the assistant opened a frozen snapshot of your project, then ran a search. This is the reply Kimono sent back:</p>",
+      "<p>To find those three places, the assistant opened a frozen snapshot of your project, then ran a search. This is the reply Kimono RAG MCP sent back:</p>",
       {
         "code": "{\"results\":[\n  {\"path\":\"src/api/ping.ts\",\"ranges\":[[1,1]]},\n  {\"path\":\"src/index.ts\",\"ranges\":[[1,1]]},\n  {\"path\":\"docs/architecture.md\",\"ranges\":[[2,2]]}\n],\"snapshotId\":\"cff9f88c-…\"}",
         "lang": "json",
@@ -48,7 +48,7 @@
       {
         "h2": "What we measured"
       },
-      "<p>The public <a href=\"https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md\">benchmark report</a> compares standard Copilot search (<code>grep</code>, <code>glob</code>, <code>view</code>) with Kimono RAG on two repository tasks, using Gemini 3.8 Flash in Copilot CLI 1.0.103 on the same 51-file corpus.</p>",
+      "<p>The public <a href=\"https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md\">benchmark report</a> compares standard Copilot search (<code>grep</code>, <code>glob</code>, <code>view</code>) with Kimono RAG MCP on two repository tasks, using Gemini 3.8 Flash in Copilot CLI 1.0.103 on the same 51-file corpus.</p>",
       {
         "figure": "kimono-benchmark",
         "caption": "Cumulative provider-reported input tokens, including cache-read tokens. Source: benchmark report dated 2026-10-25."
@@ -73,7 +73,7 @@
           }
         ]
       },
-      "<p>In both Kimono sessions, the 8 search queries were grouped in 2 search calls, followed by 4 range reads, for 8 Kimono tool calls in total.</p>",
+      "<p>In both Kimono RAG MCP sessions, the 8 search queries were grouped in 2 search calls, followed by 4 range reads, for 8 Kimono RAG MCP tool calls in total.</p>",
       {
         "h2": "Try it"
       },
@@ -81,20 +81,20 @@
         "steps": [
           "Install <a href=\"https://marketplace.visualstudio.com/items?itemName=ai-kido.kimono-rag-mcp\">Kimono RAG MCP</a> from the Visual Studio Marketplace (VS Code 1.106 or newer, with a chat client that supports MCP).",
           "Open and trust your project folder, run <strong>MCP: List Servers</strong>, start <strong>Kimono</strong> and enable its tools in your chat client.",
-          "Compare on your own task. The details are on the <a href=\"kimono.html#performance\">Kimono page</a>."
+          "Compare on your own task. The details are on the <a href=\"kimono.html#performance\">Kimono RAG MCP page</a>."
         ]
       }
     ]
   },
   "fr": {
     "title": "Kimono RAG MCP est sur le Marketplace de VS Code",
-    "summary": "Kimono trouve des passages dans le code et les documents en local et renvoie d’abord chemins et plages de lignes. Sur deux tâches, les tokens d’entrée cumulés baissent de 67,5 % et 71,4 %.",
+    "summary": "Kimono RAG MCP trouve des passages dans le code et les documents en local et renvoie d’abord chemins et plages de lignes. Sur deux tâches, les tokens d’entrée cumulés baissent de 67,5 % et 71,4 %.",
     "body": [
       "<p>Vous demandez à un assistant de préparer une modification dans un projet qu’il ne connaît pas. Pour le comprendre, il ouvre un fichier après l’autre, et chaque fichier ouvert est facturé à nouveau à chaque étape de la conversation. La plus grande partie de ce qu’il lit se révèle inutile.</p>",
       {
         "h2": "L’idée en une image"
       },
-      "<p>Kimono indexe un projet sur votre machine et donne aux assistants compatibles MCP une recherche lexicale et sémantique. Le choix clé porte sur ce qui revient : <strong>des chemins de fichiers et des plages de lignes, pas du code source</strong>. L’assistant ne lit ensuite que les plages qu’il a retenues. Kimono fonctionne avec ou sans base AI-KIDO, et l’indexation comme les embeddings s’exécutent en local.</p>",
+      "<p>Kimono RAG MCP indexe un projet sur votre machine et donne aux assistants compatibles MCP une recherche lexicale et sémantique. Le choix clé porte sur ce qui revient : <strong>des chemins de fichiers et des plages de lignes, pas du code source</strong>. L’assistant ne lit ensuite que les plages qu’il a retenues. Kimono RAG MCP fonctionne avec ou sans base AI-KIDO, et l’indexation comme les embeddings s’exécutent en local.</p>",
       {
         "diagram": "kimono-funnel"
       },
@@ -115,7 +115,7 @@
       {
         "h2": "Sous le capot"
       },
-      "<p>Pour trouver ces trois endroits, l’assistant a ouvert un snapshot figé de votre projet, puis lancé une recherche. Voici la réponse que Kimono lui a renvoyée :</p>",
+      "<p>Pour trouver ces trois endroits, l’assistant a ouvert un snapshot figé de votre projet, puis lancé une recherche. Voici la réponse que Kimono RAG MCP lui a renvoyée :</p>",
       {
         "code": "{\"results\":[\n  {\"path\":\"src/api/ping.ts\",\"ranges\":[[1,1]]},\n  {\"path\":\"src/index.ts\",\"ranges\":[[1,1]]},\n  {\"path\":\"docs/architecture.md\",\"ranges\":[[2,2]]}\n],\"snapshotId\":\"cff9f88c-…\"}",
         "lang": "json",
@@ -125,7 +125,7 @@
       {
         "h2": "Ce que nous avons mesuré"
       },
-      "<p>Le <a href=\"https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md\">rapport de benchmark</a> public compare la recherche standard de Copilot (<code>grep</code>, <code>glob</code>, <code>view</code>) à Kimono RAG sur deux tâches de dépôt, avec Gemini 3.8 Flash dans Copilot CLI 1.0.103 et le même corpus de 51 fichiers.</p>",
+      "<p>Le <a href=\"https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md\">rapport de benchmark</a> public compare la recherche standard de Copilot (<code>grep</code>, <code>glob</code>, <code>view</code>) à Kimono RAG MCP sur deux tâches de dépôt, avec Gemini 3.8 Flash dans Copilot CLI 1.0.103 et le même corpus de 51 fichiers.</p>",
       {
         "figure": "kimono-benchmark",
         "caption": "Tokens d’entrée cumulés rapportés par le fournisseur, cache en lecture inclus. Source : rapport de benchmark du 25/10/2026."
@@ -150,7 +150,7 @@
           }
         ]
       },
-      "<p>Dans les deux sessions Kimono, les 8 requêtes de recherche ont été regroupées en 2 appels de recherche, suivis de 4 lectures de plages, soit 8 appels d’outils Kimono au total.</p>",
+      "<p>Dans les deux sessions Kimono RAG MCP, les 8 requêtes de recherche ont été regroupées en 2 appels de recherche, suivis de 4 lectures de plages, soit 8 appels d’outils Kimono RAG MCP au total.</p>",
       {
         "h2": "À essayer"
       },
@@ -158,7 +158,7 @@
         "steps": [
           "Installez <a href=\"https://marketplace.visualstudio.com/items?itemName=ai-kido.kimono-rag-mcp\">Kimono RAG MCP</a> depuis le Visual Studio Marketplace (VS Code 1.106 ou plus récent, avec un client de chat compatible MCP).",
           "Ouvrez et approuvez le dossier de votre projet, lancez <strong>MCP: List Servers</strong>, démarrez <strong>Kimono</strong> et activez ses outils dans votre client de chat.",
-          "Comparez sur votre propre tâche. Les détails sont sur la <a href=\"kimono.html#performance\">page Kimono</a>."
+          "Comparez sur votre propre tâche. Les détails sont sur la <a href=\"kimono.html#performance\">page Kimono RAG MCP</a>."
         ]
       }
     ]

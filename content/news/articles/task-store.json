@@ -61,7 +61,7 @@
       {
         "h2": "Following in the directory: what the files say"
       },
-      "<p>Nadia could also look at where these cards live. By default the store sits outside the checkout, in the operating system’s user-data directory, under <code>aikido/tasks/&lt;workspace-id&gt;</code>. The Task Store rejects a path inside the workspace, rejects symlink components in the path, and rejects any write without its exclusive lock. None of it goes into Git, the Memory Bank or Kimono.</p>",
+      "<p>Nadia could also look at where these cards live. By default the store sits outside the checkout, in the operating system’s user-data directory, under <code>aikido/tasks/&lt;workspace-id&gt;</code>. The Task Store rejects a path inside the workspace, rejects symlink components in the path, and rejects any write without its exclusive lock. None of it goes into Git, the Memory Bank or Kimono RAG MCP.</p>",
       {
         "diagram": "task-store-tree",
         "caption": "What the private files say: an authoritative journal, reconstructible projections, and a store.json file that identifies the root."
@@ -179,7 +179,7 @@
       {
         "h2": "Suivre dans le répertoire : ce que les fichiers disent"
       },
-      "<p>Nadia pourrait aussi regarder où vivent ces cartes. Par défaut, le magasin est en dehors du dépôt, dans le répertoire de données utilisateur du système, sous <code>aikido/tasks/&lt;identifiant-d’espace-de-travail&gt;</code>. Le Task Store refuse un chemin situé dans l’espace de travail, refuse les liens symboliques dans le chemin, et refuse toute écriture sans son verrou exclusif. Rien de tout cela ne va dans Git, ni dans la Memory Bank, ni dans Kimono.</p>",
+      "<p>Nadia pourrait aussi regarder où vivent ces cartes. Par défaut, le magasin est en dehors du dépôt, dans le répertoire de données utilisateur du système, sous <code>aikido/tasks/&lt;identifiant-d’espace-de-travail&gt;</code>. Le Task Store refuse un chemin situé dans l’espace de travail, refuse les liens symboliques dans le chemin, et refuse toute écriture sans son verrou exclusif. Rien de tout cela ne va dans Git, ni dans la Memory Bank, ni dans Kimono RAG MCP.</p>",
       {
         "diagram": "task-store-tree",
         "caption": "Ce que les fichiers privés disent : un journal qui fait foi, des projections reconstructibles, un fichier store.json qui identifie la racine."

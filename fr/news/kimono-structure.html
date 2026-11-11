@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller – AI-KIDO</title>
+  <title>Kimono RAG MCP 0.9.6 : voir la forme d’un projet avant de le fouiller – AI-KIDO</title>
   <meta name="description" content="Le nouvel outil aikido_structure renvoie un arbre de fichiers compact avec le type de chaque fichier et son état d’indexation. Un premier regard sur un projet inconnu, en quelques lignes.">
-  <meta property="og:title" content="Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller – AI-KIDO">
+  <meta property="og:title" content="Kimono RAG MCP 0.9.6 : voir la forme d’un projet avant de le fouiller – AI-KIDO">
   <meta property="og:description" content="Le nouvel outil aikido_structure renvoie un arbre de fichiers compact avec le type de chaque fichier et son état d’indexation. Un premier regard sur un projet inconnu, en quelques lignes.">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="fr_FR">
@@ -33,9 +33,9 @@
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="../../assets/js/theme.js?v=1"></script>
   <link rel="stylesheet" href="../../assets/css/home.css?v=10">
-  <link rel="stylesheet" href="../../assets/css/inner.css?v=10">
+  <link rel="stylesheet" href="../../assets/css/inner.css?v=13">
   <link rel="stylesheet" href="../../assets/css/news-layouts.css?v=3">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller","description":"Le nouvel outil aikido_structure renvoie un arbre de fichiers compact avec le type de chaque fichier et son état d’indexation. Un premier regard sur un projet inconnu, en quelques lignes.","datePublished":"2026-11-07","inLanguage":"fr","mainEntityOfPage":"https://www.ai-kido.fr/fr/news/kimono-structure.html","image":"https://www.ai-kido.fr/assets/images/news/kimono-structure.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kimono RAG MCP 0.9.6 : voir la forme d’un projet avant de le fouiller","description":"Le nouvel outil aikido_structure renvoie un arbre de fichiers compact avec le type de chaque fichier et son état d’indexation. Un premier regard sur un projet inconnu, en quelques lignes.","datePublished":"2026-11-07","inLanguage":"fr","mainEntityOfPage":"https://www.ai-kido.fr/fr/news/kimono-structure.html","image":"https://www.ai-kido.fr/assets/images/news/kimono-structure.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
   <script src="../../assets/js/news-navigation.js?v=1" defer></script>
 </head>
 <body class="inner">
@@ -63,7 +63,7 @@
         <details class="nav-group">
           <summary>Outils <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
           <div class="nav-panel">
-            <a href="../kimono.html">Kimono MCP</a>
+            <a href="../kimono.html">Kimono RAG MCP</a>
             <a href="../local-designer.html">Local Designer</a>
           </div>
         </details>
@@ -82,8 +82,8 @@
       <div class="container">
         <p class="back"><a href="../news.html">← Toutes les actualités</a></p>
         <header class="article-head">
-          <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-11-07">7 novembre 2026</time><span class="read">2 min de lecture</span></p>
-          <h1>Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller</h1>
+          <p class="news-meta"><span class="tag">Kimono RAG MCP</span><time datetime="2026-11-07">7 novembre 2026</time><span class="read">2 min de lecture</span></p>
+          <h1>Kimono RAG MCP 0.9.6 : voir la forme d’un projet avant de le fouiller</h1>
           <p class="lead">Le nouvel outil aikido_structure renvoie un arbre de fichiers compact avec le type de chaque fichier et son état d’indexation. Un premier regard sur un projet inconnu, en quelques lignes.</p>
         </header>
         <img class="article-hero" src="../../assets/images/news/kimono-structure.webp" alt="Kido, le petit robot en kimono blanc, se tient dans un dojo avec une lanterne allumée, à côté d’un panneau de bois sculpté d’un arbre dont les branches portent de petites tuiles dorées" width="960" height="576" decoding="async">
@@ -96,19 +96,19 @@
           <div class="article-body">
           <p>Un assistant arrive dans un projet inconnu et doit choisir où regarder. Sans mot-clé évident, la carte lui sert de premier repère.</p>
         <h2 id="l-idee-en-une-image">L’idée en une image</h2>
-        <p>Kimono 0.9.6 ajoute <code>aikido_structure</code>, un outil en lecture seule qui renvoie l’arbre de fichiers de votre snapshot, selon les mêmes règles d’exclusion que le reste de Kimono. Chaque fichier porte un <strong>type</strong> et un indicateur <strong>idx</strong> qui dit si Kimono l’indexe : l’assistant voit tout de suite ce qu’une recherche peut atteindre et ce qu’elle ne peut pas.</p>
+        <p>Kimono RAG MCP 0.9.6 ajoute <code>aikido_structure</code>, un outil en lecture seule qui renvoie l’arbre de fichiers de votre snapshot, selon les mêmes règles d’exclusion que le reste de Kimono RAG MCP. Chaque fichier porte un <strong>type</strong> et un indicateur <strong>idx</strong> qui dit si Kimono RAG MCP l’indexe : l’assistant voit tout de suite ce qu’une recherche peut atteindre et ce qu’elle ne peut pas.</p>
         <figure class="article-figure diagram">
           <svg class="dg-svg dg-type-tree" viewBox="0 0 360 323" role="img" aria-label="Un arbre : la racine du projet contient le dossier prompts, qui contient les hard points et les Truth Tables du projet ; le dossier source est à côté." focusable="false"><title>La forme d’un projet</title><g class="dg-node dg-accent" style="--i:0"><rect class="dg-box" x="16" y="12" width="328" height="35" rx="10"/><text class="dg-t" x="180" y="34.5" text-anchor="middle"><tspan x="180" dy="0">Racine du projet</tspan></text></g><path class="dg-flow" d="M28 47 V86 H42" fill="none"/><g class="dg-node " style="--i:1"><rect class="dg-box" x="42" y="59" width="302" height="54" rx="10"/><text class="dg-t dg-b" x="193" y="77.5" text-anchor="middle"><tspan x="193" dy="0">prompts/</tspan></text><text class="dg-s" x="193" y="97.5" text-anchor="middle"><tspan x="193" dy="0">la Memory Bank</tspan></text></g><path class="dg-flow" d="M54 113 V152 H68" fill="none"/><g class="dg-node " style="--i:2"><rect class="dg-box" x="68" y="125" width="276" height="54" rx="10"/><text class="dg-t dg-b" x="206" y="143.5" text-anchor="middle"><tspan x="206" dy="0">hard_points/</tspan></text><text class="dg-s" x="206" y="163.5" text-anchor="middle"><tspan x="206" dy="0">la méthode</tspan></text></g><path class="dg-flow" d="M54 113 V218 H68" fill="none"/><g class="dg-node " style="--i:3"><rect class="dg-box" x="68" y="191" width="276" height="54" rx="10"/><text class="dg-t dg-b" x="206" y="209.5" text-anchor="middle"><tspan x="206" dy="0">gen/</tspan></text><text class="dg-s" x="206" y="229.5" text-anchor="middle"><tspan x="206" dy="0">les Truth Tables du projet</tspan></text></g><path class="dg-flow" d="M28 47 V284 H42" fill="none"/><g class="dg-node " style="--i:4"><rect class="dg-box" x="42" y="257" width="302" height="54" rx="10"/><text class="dg-t dg-b" x="193" y="275.5" text-anchor="middle"><tspan x="193" dy="0">src/</tspan></text><text class="dg-s" x="193" y="295.5" text-anchor="middle"><tspan x="193" dy="0">le code</tspan></text></g></svg>
         </figure>
         <figure class="article-figure">
-          <img src="../../assets/images/news/kimono-loop-fr.svg" alt="Schéma de la boucle de recherche de Kimono : aikido_snapshot begin fige le corpus, aikido_search renvoie chemins et plages de lignes seulement, aikido_file ranges ne lit que les lignes choisies, aikido_snapshot end libère le snapshot ; aikido_structure est une première étape facultative" width="900" height="266" loading="lazy" decoding="async">
+          <img src="../../assets/images/news/kimono-loop-fr.svg" alt="Schéma de la boucle de recherche de Kimono RAG MCP : aikido_snapshot begin fige le corpus, aikido_search renvoie chemins et plages de lignes seulement, aikido_file ranges ne lit que les lignes choisies, aikido_snapshot end libère le snapshot ; aikido_structure est une première étape facultative" width="900" height="266" loading="lazy" decoding="async">
           <figcaption>aikido_structure est la première étape facultative de la boucle : regarder la forme, puis chercher.</figcaption>
         </figure>
         <h2 id="ce-que-vous-demandez-a-votre-assistant">Ce que vous demandez à votre assistant</h2>
-        <p>Dans VS Code, vous ouvrez le chat de votre assistant avec Kimono connecté et vous écrivez, comme à un collègue :</p>
+        <p>Dans VS Code, vous ouvrez le chat de votre assistant avec Kimono RAG MCP connecté et vous écrivez, comme à un collègue :</p>
         <figure class="code-block">
           <div class="code-lang">text</div>
-          <pre tabindex="0"><code class="language-text">Montre-moi la forme de ce projet, limitée au dossier src. Puis dis-moi quels fichiers Kimono n’indexe pas.</code></pre>
+          <pre tabindex="0"><code class="language-text">Montre-moi la forme de ce projet, limitée au dossier src. Puis dis-moi quels fichiers Kimono RAG MCP n’indexe pas.</code></pre>
           <figcaption>Le prompt tapé par la personne, sur un petit projet d’exemple de huit fichiers.</figcaption>
         </figure>
         <p>L’assistant répond en quelques secondes, sans avoir ouvert un seul fichier. Il vous montre d’abord <code>src</code> : un dossier <code>api/</code> et un fichier <code>index.ts</code>. Il précise ensuite que deux fichiers échappent à la recherche : un fichier d’exclusion (<code>.gitignore</code>) et une image (<code>logo.png</code>). Vous savez déjà ce qu’une recherche pourra trouver, et ce qu’elle ne trouvera jamais.</p>
@@ -143,10 +143,10 @@ src/
           <li><strong>12</strong><span>lignes pour l’arbre complet en texte</span></li>
         </ul>
         <p>La réponse porte aussi un marqueur de version <code>v</code>. Renvoyez-le en <code>since</code> : si rien n’a changé, l’outil répond <code>{"unchanged":true}</code> au lieu de renvoyer l’arbre.</p>
-        <aside class="callout"><strong class="callout-title">À retenir</strong><p>Les types viennent d’une table intégrée qui couvre tout ce que Kimono indexe et des fichiers courants qu’il n’indexe pas. Vous pouvez la remplacer par un fichier de règles (<code>KIMONO_TYPES_FILE</code>). L’outil décrit les fichiers de votre snapshot ; il ne les lit pas.</p></aside>
+        <aside class="callout"><strong class="callout-title">À retenir</strong><p>Les types viennent d’une table intégrée qui couvre tout ce que Kimono RAG MCP indexe et des fichiers courants qu’il n’indexe pas. Vous pouvez la remplacer par un fichier de règles (<code>KIMONO_TYPES_FILE</code>). L’outil décrit les fichiers de votre snapshot ; il ne les lit pas.</p></aside>
         <h2 id="a-essayer">À essayer</h2>
         <ol class="steps">
-          <li>Mettez Kimono à jour en <a href="https://github.com/lcalmejane/kimono-mcp-server/releases/tag/v0.9.6">0.9.6</a> ou plus récent et ouvrez un snapshot avec <code>aikido_snapshot</code>.</li>
+          <li>Mettez Kimono RAG MCP à jour en <a href="https://github.com/lcalmejane/kimono-mcp-server/releases/tag/v0.9.6">0.9.6</a> ou plus récent et ouvrez un snapshot avec <code>aikido_snapshot</code>.</li>
           <li>Appelez <code>aikido_structure</code> sur la racine, puis restreignez avec <code>path</code> et <code>depth</code>.</li>
           <li>Cherchez là où la carte pointe. La liste complète des options est dans le <a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/CHANGELOG.md">changelog</a>.</li>
         </ol>
@@ -183,7 +183,7 @@ src/
             <h2>Les outils</h2>
             <ul>
               <li><a href="../install.html">Installation</a></li>
-              <li><a href="../kimono.html">Kimono MCP</a></li>
+              <li><a href="../kimono.html">Kimono RAG MCP</a></li>
               <li><a href="../local-designer.html">Local Designer</a></li>
             </ul>
           </div>
@@ -191,7 +191,7 @@ src/
             <h2>Ressources</h2>
             <ul>
               <li><a href="https://github.com/lcalmejane/aikido">Documentation</a></li>
-              <li><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Mesures Kimono</a></li>
+              <li><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Mesures Kimono RAG MCP</a></li>
               <li><a href="../technical-friends.html">Sites amis techniques</a></li>
             </ul>
           </div>

@@ -33,7 +33,7 @@
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="../assets/js/theme.js?v=1"></script>
   <link rel="stylesheet" href="../assets/css/home.css?v=10">
-  <link rel="stylesheet" href="../assets/css/inner.css?v=10">
+  <link rel="stylesheet" href="../assets/css/inner.css?v=13">
   <link rel="stylesheet" href="../assets/css/news-layouts.css?v=3">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Task Store: the evening my request became a card","description":"A developer, her editor, a migration too long for one conversation. What separates a plain prompt from a task worth tracking, two ways to follow it, and the direction we are taking for cards.","datePublished":"2026-11-08","inLanguage":"en","mainEntityOfPage":"https://www.ai-kido.fr/news/task-store.html","image":"https://www.ai-kido.fr/assets/images/news/task-store.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
   <script src="../assets/js/news-navigation.js?v=1" defer></script>
@@ -63,7 +63,7 @@
         <details class="nav-group">
           <summary>Tools <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
           <div class="nav-panel">
-            <a href="../kimono.html">Kimono MCP</a>
+            <a href="../kimono.html">Kimono RAG MCP</a>
             <a href="../local-designer.html">Local Designer</a>
           </div>
         </details>
@@ -126,7 +126,7 @@ aikido task resume &lt;id&gt; --revision &lt;n&gt; --acknowledge-rejection</code
           <figcaption>Read, read again, then a single action that changes state, always with the current revision.</figcaption>
         </figure>
         <h2 id="following-in-the-directory-what-the-files-say">Following in the directory: what the files say</h2>
-        <p>Nadia could also look at where these cards live. By default the store sits outside the checkout, in the operating system’s user-data directory, under <code>aikido/tasks/&lt;workspace-id&gt;</code>. The Task Store rejects a path inside the workspace, rejects symlink components in the path, and rejects any write without its exclusive lock. None of it goes into Git, the Memory Bank or Kimono.</p>
+        <p>Nadia could also look at where these cards live. By default the store sits outside the checkout, in the operating system’s user-data directory, under <code>aikido/tasks/&lt;workspace-id&gt;</code>. The Task Store rejects a path inside the workspace, rejects symlink components in the path, and rejects any write without its exclusive lock. None of it goes into Git, the Memory Bank or Kimono RAG MCP.</p>
         <figure class="article-figure diagram">
           <svg class="dg-svg dg-type-tree" viewBox="0 0 360 455" role="img" aria-label="Default location outside the checkout, in the OS user-data directory." focusable="false"><title>The private store on disk</title><g class="dg-node dg-accent" style="--i:0"><rect class="dg-box" x="16" y="12" width="328" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="30.5" text-anchor="middle"><tspan x="180" dy="0">OS user-data directory</tspan></text><text class="dg-s" x="180" y="50.5" text-anchor="middle"><tspan x="180" dy="0">never inside the workspace</tspan></text></g><path class="dg-flow" d="M28 66 V95.5 H42" fill="none"/><g class="dg-node " style="--i:1"><rect class="dg-box" x="42" y="78" width="302" height="35" rx="10"/><text class="dg-t" x="193" y="100.5" text-anchor="middle"><tspan x="193" dy="0">aikido/tasks/</tspan></text></g><path class="dg-flow" d="M54 113 V152 H68" fill="none"/><g class="dg-node " style="--i:2"><rect class="dg-box" x="68" y="125" width="276" height="54" rx="10"/><text class="dg-t dg-b" x="206" y="143.5" text-anchor="middle"><tspan x="206" dy="0">&lt;workspace-id&gt;/</tspan></text><text class="dg-s" x="206" y="163.5" text-anchor="middle"><tspan x="206" dy="0">one store per workspace</tspan></text></g><path class="dg-flow" d="M80 179 V218 H94" fill="none"/><g class="dg-node " style="--i:3"><rect class="dg-box" x="94" y="191" width="250" height="54" rx="10"/><text class="dg-t dg-b" x="219" y="209.5" text-anchor="middle"><tspan x="219" dy="0">store.json</tspan></text><text class="dg-s" x="219" y="229.5" text-anchor="middle"><tspan x="219" dy="0">schema that identifies the root</tspan></text></g><path class="dg-flow" d="M80 179 V284 H94" fill="none"/><g class="dg-node " style="--i:4"><rect class="dg-box" x="94" y="257" width="250" height="54" rx="10"/><text class="dg-t dg-b" x="219" y="275.5" text-anchor="middle"><tspan x="219" dy="0">journal</tspan></text><text class="dg-s" x="219" y="295.5" text-anchor="middle"><tspan x="219" dy="0">authoritative events</tspan></text></g><path class="dg-flow" d="M80 179 V350 H94" fill="none"/><g class="dg-node " style="--i:5"><rect class="dg-box" x="94" y="323" width="250" height="54" rx="10"/><text class="dg-t dg-b" x="219" y="341.5" text-anchor="middle"><tspan x="219" dy="0">projections</tspan></text><text class="dg-s" x="219" y="361.5" text-anchor="middle"><tspan x="219" dy="0">cards and plans, rebuildable</tspan></text></g><path class="dg-flow" d="M80 179 V416 H94" fill="none"/><g class="dg-node " style="--i:6"><rect class="dg-box" x="94" y="389" width="250" height="54" rx="10"/><text class="dg-t dg-b" x="219" y="407.5" text-anchor="middle"><tspan x="219" dy="0">exclusive lock</tspan></text><text class="dg-s" x="219" y="427.5" text-anchor="middle"><tspan x="219" dy="0">no write without it</tspan></text></g></svg>
           <figcaption>What the private files say: an authoritative journal, reconstructible projections, and a store.json file that identifies the root.</figcaption>
@@ -211,7 +211,7 @@ aikido task resume &lt;id&gt; --revision &lt;n&gt; --acknowledge-rejection</code
             <h2>Tools</h2>
             <ul>
               <li><a href="../install.html">Installation</a></li>
-              <li><a href="../kimono.html">Kimono MCP</a></li>
+              <li><a href="../kimono.html">Kimono RAG MCP</a></li>
               <li><a href="../local-designer.html">Local Designer</a></li>
             </ul>
           </div>
@@ -219,7 +219,7 @@ aikido task resume &lt;id&gt; --revision &lt;n&gt; --acknowledge-rejection</code
             <h2>Resources</h2>
             <ul>
               <li><a href="https://github.com/lcalmejane/aikido">Documentation</a></li>
-              <li><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Kimono benchmarks</a></li>
+              <li><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Kimono RAG MCP benchmarks</a></li>
               <li><a href="../technical-friends.html">Technical friends</a></li>
             </ul>
           </div>

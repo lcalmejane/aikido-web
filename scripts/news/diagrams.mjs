@@ -28,6 +28,37 @@ function cycle(d, lang) {
   return { h: y + 12, inner: out.join('') };
 }
 
+function fork(d, lang) {
+  const out = [];
+  const first = d.nodes[0];
+  const last = d.nodes[d.nodes.length - 1];
+  const agents = d.nodes.slice(1, -1);
+  const top = box({ x: 20, y: 12, w: 320, label: tx(first.label, lang), note: tx(first.note, lang), cls: 'dg-accent' });
+  out.push(top.svg);
+  const splitY = 12 + top.h + 16;
+  const agentY = splitY + 24;
+  const gap = 12;
+  const width = (W - 24 - gap * (agents.length - 1)) / agents.length;
+  const branches = agents.map((n, i) => {
+    const x = 12 + i * (width + gap);
+    return { x, b: box({ x, y: agentY, w: width, label: tx(n.label, lang), note: tx(n.note, lang), i: i + 1 }) };
+  });
+  const height = Math.max(...branches.map(({ b }) => b.h));
+  out.push(`<path class="dg-flow" d="M180 ${12 + top.h} V${splitY}"/>`);
+  branches.forEach(({ x, b }) => {
+    const cx = x + width / 2;
+    out.push(`<path class="dg-flow" d="M180 ${splitY} H${cx}"/>`, arrowDown(cx, splitY, agentY));
+    out.push(b.svg.replace(`height="${b.h}"`, `height="${height}"`));
+  });
+  const joinY = agentY + height + 24;
+  branches.forEach(({ x }) => out.push(`<path class="dg-flow" d="M${x + width / 2} ${agentY + height} V${joinY} H180"/>`));
+  const endY = joinY + 24;
+  out.push(arrowDown(180, joinY, endY));
+  const bottom = box({ x: 20, y: endY, w: 320, label: tx(last.label, lang), note: tx(last.note, lang), cls: 'dg-accent', i: d.nodes.length - 1 });
+  out.push(bottom.svg);
+  return { h: endY + bottom.h + 12, inner: out.join('') };
+}
+
 function layers(d, lang) {
   let y = 12; const out = [];
   d.nodes.forEach((n, i) => {
@@ -168,10 +199,10 @@ function quadrant(d, lang) {
   return { h: y + 2, inner: out.join('') };
 }
 
-const TYPES = { flow, cycle, layers, hub, funnel, versus, tree, timeline, bars, pyramid, quadrant };
+const TYPES = { flow, cycle, fork, layers, hub, funnel, versus, tree, timeline, bars, pyramid, quadrant };
 export const DIAGRAM_TYPES = Object.keys(TYPES);
 /** Types qui montrent un flux : les seuls pour lesquels `animate: true` a un sens. */
-export const FLOW_TYPES = ['flow', 'cycle', 'funnel', 'tree', 'timeline'];
+export const FLOW_TYPES = ['flow', 'cycle', 'fork', 'funnel', 'tree', 'timeline'];
 
 /** Rend un schéma (clé = id) pour une langue. Statique sauf `animate: true`. */
 export function renderDiagram(d, lang) {

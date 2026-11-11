@@ -119,6 +119,8 @@
 .mini-cards li { margin: 0; padding: 16px 18px; border: 1px solid var(--line); border-top: 3px solid var(--nl-accent); border-radius: 14px; background: var(--paper); display: flex; flex-direction: column; gap: 6px; }
 .mini-cards strong { font-family: var(--serif); font-size: 1.1rem; }
 .mini-cards span { color: var(--muted); font-size: .94rem; line-height: 1.5; }
+.article-body .grammar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 8rem), 8rem)); grid-auto-rows: 1fr; gap: 8px; margin: 20px 0 28px; padding: 0; list-style: none; }
+.article-body .grammar-grid li { display: flex; align-items: center; justify-content: center; min-height: 40px; margin: 0; padding: 8px; border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 8px; background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: .9rem; font-weight: 650; line-height: 1.4; text-align: center; }
 
 /* Schémas SVG animés */
 .article-figure.diagram { padding: 16px 8px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }

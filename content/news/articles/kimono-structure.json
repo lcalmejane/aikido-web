@@ -4,20 +4,20 @@
   "domains": ["search", "development"],
   "date": "2026-11-07",
   "tag": {
-    "en": "Kimono",
-    "fr": "Kimono"
+    "en": "Kimono RAG MCP",
+    "fr": "Kimono RAG MCP"
   },
   "image": "hero-kimono-structure",
   "layout": "affiche",
   "en": {
-    "title": "Kimono 0.9.6: see the shape of a project before searching it",
+    "title": "Kimono RAG MCP 0.9.6: see the shape of a project before searching it",
     "summary": "The new aikido_structure tool returns a compact file tree with the type of each file and whether it is indexed. A first look at an unfamiliar project, in a few lines.",
     "body": [
       "<p>An assistant lands in an unfamiliar project and needs to choose where to look. Without a useful search term, the first step is the map.</p>",
       {
         "h2": "The idea in one picture"
       },
-      "<p>Kimono 0.9.6 adds <code>aikido_structure</code>, a read-only tool that returns the file tree of your snapshot, under the same ignore rules as the rest of Kimono. Each file carries a <strong>type</strong> and an <strong>idx</strong> flag telling whether Kimono indexes it, so the assistant sees at once what a search can reach and what it cannot.</p>",
+      "<p>Kimono RAG MCP 0.9.6 adds <code>aikido_structure</code>, a read-only tool that returns the file tree of your snapshot, under the same ignore rules as the rest of Kimono RAG MCP. Each file carries a <strong>type</strong> and an <strong>idx</strong> flag telling whether Kimono RAG MCP indexes it, so the assistant sees at once what a search can reach and what it cannot.</p>",
       {
         "diagram": "kimono-tree"
       },
@@ -28,9 +28,9 @@
       {
         "h2": "What you ask your assistant"
       },
-      "<p>In VS Code, you open your assistant’s chat with Kimono connected and write, as you would to a colleague:</p>",
+      "<p>In VS Code, you open your assistant’s chat with Kimono RAG MCP connected and write, as you would to a colleague:</p>",
       {
-        "code": "Show me the shape of this project, limited to the src folder. Then tell me which files Kimono does not index.",
+        "code": "Show me the shape of this project, limited to the src folder. Then tell me which files Kimono RAG MCP does not index.",
         "lang": "text",
         "caption": "The prompt typed by the person, on a small example project of eight files."
       },
@@ -68,7 +68,7 @@
       },
       "<p>The answer also carries a version marker <code>v</code>. Pass it back as <code>since</code> and, if nothing changed, the tool replies <code>{\"unchanged\":true}</code> instead of resending the tree.</p>",
       {
-        "callout": "Types come from a built-in table that covers everything Kimono indexes plus common files it does not. You can override it with a rules file (<code>KIMONO_TYPES_FILE</code>). The tool describes the files of your snapshot; it does not read them.",
+        "callout": "Types come from a built-in table that covers everything Kimono RAG MCP indexes plus common files it does not. You can override it with a rules file (<code>KIMONO_TYPES_FILE</code>). The tool describes the files of your snapshot; it does not read them.",
         "title": "To remember"
       },
       {
@@ -76,7 +76,7 @@
       },
       {
         "steps": [
-          "Update Kimono to <a href=\"https://github.com/lcalmejane/kimono-mcp-server/releases/tag/v0.9.6\">0.9.6</a> or newer and open a snapshot with <code>aikido_snapshot</code>.",
+          "Update Kimono RAG MCP to <a href=\"https://github.com/lcalmejane/kimono-mcp-server/releases/tag/v0.9.6\">0.9.6</a> or newer and open a snapshot with <code>aikido_snapshot</code>.",
           "Call <code>aikido_structure</code> on the root, then scope it with <code>path</code> and <code>depth</code>.",
           "Search where the map points. The full list of options is in the <a href=\"https://github.com/lcalmejane/kimono-mcp-server/blob/main/CHANGELOG.md\">changelog</a>."
         ]
@@ -84,14 +84,14 @@
     ]
   },
   "fr": {
-    "title": "Kimono 0.9.6 : voir la forme d’un projet avant de le fouiller",
+    "title": "Kimono RAG MCP 0.9.6 : voir la forme d’un projet avant de le fouiller",
     "summary": "Le nouvel outil aikido_structure renvoie un arbre de fichiers compact avec le type de chaque fichier et son état d’indexation. Un premier regard sur un projet inconnu, en quelques lignes.",
     "body": [
       "<p>Un assistant arrive dans un projet inconnu et doit choisir où regarder. Sans mot-clé évident, la carte lui sert de premier repère.</p>",
       {
         "h2": "L’idée en une image"
       },
-      "<p>Kimono 0.9.6 ajoute <code>aikido_structure</code>, un outil en lecture seule qui renvoie l’arbre de fichiers de votre snapshot, selon les mêmes règles d’exclusion que le reste de Kimono. Chaque fichier porte un <strong>type</strong> et un indicateur <strong>idx</strong> qui dit si Kimono l’indexe : l’assistant voit tout de suite ce qu’une recherche peut atteindre et ce qu’elle ne peut pas.</p>",
+      "<p>Kimono RAG MCP 0.9.6 ajoute <code>aikido_structure</code>, un outil en lecture seule qui renvoie l’arbre de fichiers de votre snapshot, selon les mêmes règles d’exclusion que le reste de Kimono RAG MCP. Chaque fichier porte un <strong>type</strong> et un indicateur <strong>idx</strong> qui dit si Kimono RAG MCP l’indexe : l’assistant voit tout de suite ce qu’une recherche peut atteindre et ce qu’elle ne peut pas.</p>",
       {
         "diagram": "kimono-tree"
       },
@@ -102,9 +102,9 @@
       {
         "h2": "Ce que vous demandez à votre assistant"
       },
-      "<p>Dans VS Code, vous ouvrez le chat de votre assistant avec Kimono connecté et vous écrivez, comme à un collègue :</p>",
+      "<p>Dans VS Code, vous ouvrez le chat de votre assistant avec Kimono RAG MCP connecté et vous écrivez, comme à un collègue :</p>",
       {
-        "code": "Montre-moi la forme de ce projet, limitée au dossier src. Puis dis-moi quels fichiers Kimono n’indexe pas.",
+        "code": "Montre-moi la forme de ce projet, limitée au dossier src. Puis dis-moi quels fichiers Kimono RAG MCP n’indexe pas.",
         "lang": "text",
         "caption": "Le prompt tapé par la personne, sur un petit projet d’exemple de huit fichiers."
       },
@@ -142,7 +142,7 @@
       },
       "<p>La réponse porte aussi un marqueur de version <code>v</code>. Renvoyez-le en <code>since</code> : si rien n’a changé, l’outil répond <code>{\"unchanged\":true}</code> au lieu de renvoyer l’arbre.</p>",
       {
-        "callout": "Les types viennent d’une table intégrée qui couvre tout ce que Kimono indexe et des fichiers courants qu’il n’indexe pas. Vous pouvez la remplacer par un fichier de règles (<code>KIMONO_TYPES_FILE</code>). L’outil décrit les fichiers de votre snapshot ; il ne les lit pas.",
+        "callout": "Les types viennent d’une table intégrée qui couvre tout ce que Kimono RAG MCP indexe et des fichiers courants qu’il n’indexe pas. Vous pouvez la remplacer par un fichier de règles (<code>KIMONO_TYPES_FILE</code>). L’outil décrit les fichiers de votre snapshot ; il ne les lit pas.",
         "title": "À retenir"
       },
       {
@@ -150,7 +150,7 @@
       },
       {
         "steps": [
-          "Mettez Kimono à jour en <a href=\"https://github.com/lcalmejane/kimono-mcp-server/releases/tag/v0.9.6\">0.9.6</a> ou plus récent et ouvrez un snapshot avec <code>aikido_snapshot</code>.",
+          "Mettez Kimono RAG MCP à jour en <a href=\"https://github.com/lcalmejane/kimono-mcp-server/releases/tag/v0.9.6\">0.9.6</a> ou plus récent et ouvrez un snapshot avec <code>aikido_snapshot</code>.",
           "Appelez <code>aikido_structure</code> sur la racine, puis restreignez avec <code>path</code> et <code>depth</code>.",
           "Cherchez là où la carte pointe. La liste complète des options est dans le <a href=\"https://github.com/lcalmejane/kimono-mcp-server/blob/main/CHANGELOG.md\">changelog</a>."
         ]

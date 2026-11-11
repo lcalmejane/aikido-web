@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>News – AI-KIDO</title>
-  <meta name="description" content="The latest from AI-KIDO: releases, Kimono, the method and the toolbox.">
+  <meta name="description" content="The latest from AI-KIDO: releases, Kimono RAG MCP, the method and the toolbox.">
   <meta property="og:title" content="News – AI-KIDO">
-  <meta property="og:description" content="The latest from AI-KIDO: releases, Kimono, the method and the toolbox.">
+  <meta property="og:description" content="The latest from AI-KIDO: releases, Kimono RAG MCP, the method and the toolbox.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
@@ -33,9 +33,9 @@
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="assets/js/theme.js?v=1"></script>
   <link rel="stylesheet" href="assets/css/home.css?v=10">
-  <link rel="stylesheet" href="assets/css/inner.css?v=10">
+  <link rel="stylesheet" href="assets/css/inner.css?v=13">
   <link rel="stylesheet" href="assets/css/news-layouts.css?v=3">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"News","url":"https://www.ai-kido.fr/news.html","inLanguage":"en","hasPart":[{"@type":"Article","headline":"/learn: you correct, it proposes, you validate, your agents remember","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/news/learn-rules.html"},{"@type":"Article","headline":"Local Designer: validate the look before your agent draws anything","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/news/local-designer.html"},{"@type":"Article","headline":"Greenfield or legacy: which one is the truth, the spec or the code?","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/news/source-hierarchy.html"},{"@type":"Article","headline":"Letting agents talk to each other: swarms, from peer handoffs to AI-KIDO’s guardrails","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/news/swarm-team.html"},{"@type":"Article","headline":"Task Store: the evening my request became a card","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/news/task-store.html"},{"@type":"Article","headline":"Let scripts do what a script can do exactly","datePublished":"2026-11-07","url":"https://www.ai-kido.fr/news/deterministic-tools.html"},{"@type":"Article","headline":"Kimono 0.9.6: see the shape of a project before searching it","datePublished":"2026-11-07","url":"https://www.ai-kido.fr/news/kimono-structure.html"},{"@type":"Article","headline":"Version 1.5: one knowledge base, nine assistants","datePublished":"2026-10-28","url":"https://www.ai-kido.fr/news/version-1-5.html"},{"@type":"Article","headline":"Kimono RAG MCP is on the VS Code Marketplace","datePublished":"2026-10-25","url":"https://www.ai-kido.fr/news/kimono-marketplace.html"},{"@type":"Article","headline":"Kimono MCP: the Memory Bank opens up to connected clients","datePublished":"2026-10-16","url":"https://www.ai-kido.fr/news/kimono-mcp.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"News","url":"https://www.ai-kido.fr/news.html","inLanguage":"en","hasPart":[{"@type":"Article","headline":"Kimono RAG MCP 0.9.9: syntax-aware code, one shared view for every agent","datePublished":"2026-11-11","url":"https://www.ai-kido.fr/news/kimono-099.html"},{"@type":"Article","headline":"/learn: you correct, it proposes, you validate, your agents remember","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/news/learn-rules.html"},{"@type":"Article","headline":"Local Designer: validate the look before your agent draws anything","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/news/local-designer.html"},{"@type":"Article","headline":"Greenfield or legacy: which one is the truth, the spec or the code?","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/news/source-hierarchy.html"},{"@type":"Article","headline":"Letting agents talk to each other: swarms, from peer handoffs to AI-KIDO’s guardrails","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/news/swarm-team.html"},{"@type":"Article","headline":"Task Store: the evening my request became a card","datePublished":"2026-11-08","url":"https://www.ai-kido.fr/news/task-store.html"},{"@type":"Article","headline":"Let scripts do what a script can do exactly","datePublished":"2026-11-07","url":"https://www.ai-kido.fr/news/deterministic-tools.html"},{"@type":"Article","headline":"Kimono RAG MCP 0.9.6: see the shape of a project before searching it","datePublished":"2026-11-07","url":"https://www.ai-kido.fr/news/kimono-structure.html"},{"@type":"Article","headline":"Version 1.5: one knowledge base, nine assistants","datePublished":"2026-10-28","url":"https://www.ai-kido.fr/news/version-1-5.html"},{"@type":"Article","headline":"Kimono RAG MCP is on the VS Code Marketplace","datePublished":"2026-10-25","url":"https://www.ai-kido.fr/news/kimono-marketplace.html"},{"@type":"Article","headline":"Kimono RAG MCP MCP: the Memory Bank opens up to connected clients","datePublished":"2026-10-16","url":"https://www.ai-kido.fr/news/kimono-mcp.html"}]}</script>
   <link rel="stylesheet" href="assets/css/news-pagination.css?v=1">
   <noscript><style>.news-list .news-card[hidden] { display: flex; }</style></noscript>
   <script src="assets/js/news-pagination.js?v=1" defer></script>
@@ -65,7 +65,7 @@
         <details class="nav-group">
           <summary>Tools <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
           <div class="nav-panel">
-            <a href="kimono.html">Kimono MCP</a>
+            <a href="kimono.html">Kimono RAG MCP</a>
             <a href="local-designer.html">Local Designer</a>
           </div>
         </details>
@@ -96,6 +96,13 @@
           <label>Month <select data-news-month><option value="">All months</option><option value="10">October</option><option value="11">November</option></select></label>
         </div>
         <div class="grid cols-3">
+          <article class="card news-card" data-news-date="2026-11-11" data-news-nature="release" data-news-domains="search orchestration">
+            <img class="card-img" src="assets/images/news/kimono-structure.webp" alt="Kido, the small robot in a white karate gi, stands in a dojo holding a lit lantern beside a wooden board carved with a tree whose branches carry small golden tiles" width="960" height="576" loading="lazy" decoding="async">
+            <p class="news-meta"><span class="tag">Release</span><time datetime="2026-11-11">11 November 2026</time></p>
+            <h2><a href="news/kimono-099.html">Kimono RAG MCP 0.9.9: syntax-aware code, one shared view for every agent</a></h2>
+            <p>Kimono RAG MCP server 0.9.9 adds 169 compatible Tree-sitter grammars, nine embedding models and prompt-scoped snapshots that an orchestrator can share with delegated agents.</p>
+            <a class="more" href="news/kimono-099.html">Read more<span class="sr-only"> : Kimono RAG MCP 0.9.9: syntax-aware code, one shared view for every agent</span></a>
+          </article>
           <article class="card news-card" data-news-date="2026-11-08" data-news-nature="guide" data-news-domains="memory">
             <img class="card-img" src="assets/images/news/learn-rules.webp" alt="Kido, the small robot in a karate gi, sits at a low wooden desk in a sunlit dojo and writes with a brush on a tablet, with a stack of wooden tablets and a closed notebook beside it" width="960" height="576" loading="lazy" decoding="async">
             <p class="news-meta"><span class="tag">Method</span><time datetime="2026-11-08">8 November 2026</time></p>
@@ -140,10 +147,10 @@
           </article>
           <article class="card news-card" data-news-date="2026-11-07" data-news-nature="presentation" data-news-domains="search development">
             <img class="card-img" src="assets/images/news/kimono-structure.webp" alt="Kido, the small robot in a white karate gi, stands in a dojo holding a lit lantern beside a wooden board carved with a tree whose branches carry small golden tiles" width="960" height="576" loading="lazy" decoding="async">
-            <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-11-07">7 November 2026</time></p>
-            <h2><a href="news/kimono-structure.html">Kimono 0.9.6: see the shape of a project before searching it</a></h2>
+            <p class="news-meta"><span class="tag">Kimono RAG MCP</span><time datetime="2026-11-07">7 November 2026</time></p>
+            <h2><a href="news/kimono-structure.html">Kimono RAG MCP 0.9.6: see the shape of a project before searching it</a></h2>
             <p>The new aikido_structure tool returns a compact file tree with the type of each file and whether it is indexed. A first look at an unfamiliar project, in a few lines.</p>
-            <a class="more" href="news/kimono-structure.html">Read more<span class="sr-only"> : Kimono 0.9.6: see the shape of a project before searching it</span></a>
+            <a class="more" href="news/kimono-structure.html">Read more<span class="sr-only"> : Kimono RAG MCP 0.9.6: see the shape of a project before searching it</span></a>
           </article>
           <article class="card news-card" data-news-date="2026-10-28" data-news-nature="release" data-news-domains="memory">
             <img class="card-img" src="assets/images/news/version-1-5.webp" alt="Kido, the small robot in a white karate gi, hands a golden card to three smaller robots waiting in line inside a calm tatami room" width="960" height="576" loading="lazy" decoding="async">
@@ -152,19 +159,19 @@
             <p>AI-KIDO 1.5 ships packages for nine assistants, all generated from one source and installed through a plan you read before anything is written. Figures measured on the 1.5.2 package.</p>
             <a class="more" href="news/version-1-5.html">Read more<span class="sr-only"> : Version 1.5: one knowledge base, nine assistants</span></a>
           </article>
-          <article class="card news-card" data-news-date="2026-10-25" data-news-nature="release" data-news-domains="search">
+          <article class="card news-card" data-news-date="2026-10-25" data-news-nature="release" data-news-domains="search" hidden>
             <img class="card-img" src="assets/images/news/kimono-marketplace.webp" alt="Kido, the small robot in a white karate gi, pulls a few glowing golden index cards out of one open drawer in a long wall of wooden filing drawers" width="960" height="576" loading="lazy" decoding="async">
-            <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-10-25">25 October 2026</time></p>
+            <p class="news-meta"><span class="tag">Kimono RAG MCP</span><time datetime="2026-10-25">25 October 2026</time></p>
             <h2><a href="news/kimono-marketplace.html">Kimono RAG MCP is on the VS Code Marketplace</a></h2>
-            <p>Kimono finds passages in code and documents locally and returns file paths and line ranges first. On two tasks, cumulative input tokens fell by 67.5% and 71.4%.</p>
+            <p>Kimono RAG MCP finds passages in code and documents locally and returns file paths and line ranges first. On two tasks, cumulative input tokens fell by 67.5% and 71.4%.</p>
             <a class="more" href="news/kimono-marketplace.html">Read more<span class="sr-only"> : Kimono RAG MCP is on the VS Code Marketplace</span></a>
           </article>
           <article class="card news-card" data-news-date="2026-10-16" data-news-nature="presentation" data-news-domains="search" hidden>
             <img class="card-img" src="assets/images/news/kimono-mcp.webp" alt="Kido, the small robot in a white karate gi, hands a golden card to three smaller robots waiting in line inside a calm tatami room" width="960" height="576" loading="lazy" decoding="async">
-            <p class="news-meta"><span class="tag">Kimono</span><time datetime="2026-10-16">16 October 2026</time></p>
-            <h2><a href="news/kimono-mcp.html">Kimono MCP: the Memory Bank opens up to connected clients</a></h2>
-            <p>In AI-KIDO mode, Kimono serves the same documents, commands, personas and workflows to any MCP client. One shared base, a few documented ways to connect to it.</p>
-            <a class="more" href="news/kimono-mcp.html">Read more<span class="sr-only"> : Kimono MCP: the Memory Bank opens up to connected clients</span></a>
+            <p class="news-meta"><span class="tag">Kimono RAG MCP</span><time datetime="2026-10-16">16 October 2026</time></p>
+            <h2><a href="news/kimono-mcp.html">Kimono RAG MCP MCP: the Memory Bank opens up to connected clients</a></h2>
+            <p>In AI-KIDO mode, Kimono RAG MCP serves the same documents, commands, personas and workflows to any MCP client. One shared base, a few documented ways to connect to it.</p>
+            <a class="more" href="news/kimono-mcp.html">Read more<span class="sr-only"> : Kimono RAG MCP MCP: the Memory Bank opens up to connected clients</span></a>
           </article>
         </div>
         <nav class="news-pagination" aria-label="News pages" hidden>
@@ -199,7 +206,7 @@
             <h2>Tools</h2>
             <ul>
               <li><a href="install.html">Installation</a></li>
-              <li><a href="kimono.html">Kimono MCP</a></li>
+              <li><a href="kimono.html">Kimono RAG MCP</a></li>
               <li><a href="local-designer.html">Local Designer</a></li>
             </ul>
           </div>
@@ -207,7 +214,7 @@
             <h2>Resources</h2>
             <ul>
               <li><a href="https://github.com/lcalmejane/aikido">Documentation</a></li>
-              <li><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Kimono benchmarks</a></li>
+              <li><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Kimono RAG MCP benchmarks</a></li>
               <li><a href="technical-friends.html">Technical friends</a></li>
             </ul>
           </div>

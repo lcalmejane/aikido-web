@@ -56,6 +56,7 @@ function diagramErrors(diagrams) {
     if (d.animate === true && !FLOW_TYPES.includes(d.type)) errors.push(`${at}: animate n'a de sens que pour un flux (${FLOW_TYPES.join(', ')}), pas pour ${d.type}`);
     if (d.type === 'bars') (d.nodes || []).forEach((n, i) => { if (!(Number(n?.value) > 0)) errors.push(`${at}: barre ${i} sans value numérique positive`); });
     if (d.type === 'hub' && !d.center) errors.push(`${at}: center requis`);
+    if (d.type === 'fork' && (d.nodes?.length < 4 || d.nodes?.length > 5 || !Array.isArray(d.nodes))) errors.push(`${at}: fork requiert un début, 2 ou 3 branches et une fin`);
     if (d.type === 'versus' && !(d.left?.items?.length && d.right?.items?.length)) errors.push(`${at}: left.items et right.items requis`);
     if (d.type === 'quadrant') {
       for (const [ax, ks] of [['x', ['left', 'right']], ['y', ['top', 'bottom']]]) for (const k of ks) if (!bi(d.axes?.[ax]?.[k])) errors.push(`${at}: axes.${ax}.${k} EN/FR requis`);

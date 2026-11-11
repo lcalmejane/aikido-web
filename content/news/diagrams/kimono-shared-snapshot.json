@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "kimono-shared-snapshot",
+  "type": "fork",
+  "animate": true,
+  "title": {
+    "en": "One snapshot shared by several agents",
+    "fr": "Un snapshot partagé entre plusieurs agents"
+  },
+  "desc": {
+    "en": "The orchestrator freezes the corpus once and shares one snapshotId with code, documentation and configuration agents. Each runs several searches and reads. The branches converge on one end after all agents finish.",
+    "fr": "L'orchestrateur fige le corpus une fois et partage un snapshotId avec les agents code, documentation et configuration. Chacun effectue plusieurs recherches et lectures. Les branches convergent vers un seul end quand tous ont terminé."
+  },
+  "nodes": [
+    {
+      "label": {"en": "Orchestrator: one freeze · begin", "fr": "Orchestrateur : un freeze · begin"},
+      "note": {"en": "One snapshotId shared by every agent", "fr": "Un snapshotId commun à tous les agents"}
+    },
+    {
+      "label": {"en": "Code agent", "fr": "Agent code"},
+      "note": {"en": "Search × N · Read × N", "fr": "Recherche × N · Lecture × N"}
+    },
+    {
+      "label": {"en": "Docs agent", "fr": "Agent docs"},
+      "note": {"en": "Search × N · Read × N", "fr": "Recherche × N · Lecture × N"}
+    },
+    {
+      "label": {"en": "Config agent", "fr": "Agent config"},
+      "note": {"en": "Search × N · Read × N", "fr": "Recherche × N · Lecture × N"}
+    },
+    {
+      "label": {"en": "Orchestrator: one end", "fr": "Orchestrateur : un seul end"},
+      "note": {"en": "After every agent has finished", "fr": "Quand tous les agents ont terminé"}
+    }
+  ]
+}

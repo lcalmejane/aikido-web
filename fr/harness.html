@@ -30,7 +30,7 @@
   <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
   <script src="../assets/js/theme.js?v=1"></script>
   <link rel="stylesheet" href="../assets/css/home.css?v=10">
-  <link rel="stylesheet" href="../assets/css/inner.css?v=10">
+  <link rel="stylesheet" href="../assets/css/inner.css?v=13">
   <link rel="preload" as="image" href="../assets/images/pages/ph-harness.webp" type="image/webp">
 </head>
 <body class="harness-builder harness-page inner">
@@ -64,7 +64,7 @@
         <details class="nav-group">
           <summary>Outils <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
           <div class="nav-panel">
-            <a href="kimono.html">Kimono MCP</a>
+            <a href="kimono.html">Kimono RAG MCP</a>
             <a href="local-designer.html">Local Designer</a>
           </div>
         </details>
@@ -214,7 +214,7 @@
           <h3>Optimisez les commandes sans changer leur finalité</h3>
           <p><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/optimize-command-with-aikido-agents.md"><code>/optimize-command-with-aikido-agents</code></a> remplace les étapes répétitives d'une commande par des agents spécialisés, sans changer son déroulement. Vérifiez le comportement sur vos cas.</p>
         </div>
-        <p class="note">Les outils exécutables se connectent via votre assistant ou <a href="kimono.html">MCP, notamment Kimono</a> ; créer un skill ne connecte pas un service à lui seul. Les <a href="index.html#agents">agents de maintenance</a> gardent la base organisée ; votre équipe valide les résultats métier.</p>
+        <p class="note">Les outils exécutables se connectent via votre assistant ou <a href="kimono.html">MCP, notamment Kimono RAG MCP</a> ; créer un skill ne connecte pas un service à lui seul. Les <a href="index.html#agents">agents de maintenance</a> gardent la base organisée ; votre équipe valide les résultats métier.</p>
       </div>
     </section>
 
@@ -309,7 +309,7 @@
         </div>
         <p>Quand le travail dépasse un seul contexte, l'agent le découpe en larges lots (40 fichiers ou 400 Ko par défaut). Un lot qui demande du jugement part chez un sous-agent propriétaire exclusif de ses fichiers, et seulement dans ce cas. Chacun répond en quelques lignes au lieu de listes de fichiers, de journaux ou de diffs :</p>
         <pre><code>{"route":"engine","scope":"src/**/*.ts","files":212,"batches":6,"applied":212,"remaining":0,"failed":[],"checks":"ok"}</code></pre>
-        <p class="note">Ce sont les bénéfices que nous attendons de la démarche, et l'agent de refactoring a pour consigne de ne pas annoncer d'économies qu'il n'a pas mesurées. Les seuls chiffres de tokens mesurés sur ce site viennent du <a href="kimono.html#performance">benchmark Kimono</a>, sur deux tâches de recherche ; ils ne constituent pas une réduction mesurée du TCO complet. Les illustrations de cette section ont été générées en local avec <a href="local-designer.html">Local Designer</a>, qui applique le même partage : des scripts contrôlent le brief, le verrou et les couleurs, et un lecteur regarde chaque image.</p>
+        <p class="note">Ce sont les bénéfices que nous attendons de la démarche, et l'agent de refactoring a pour consigne de ne pas annoncer d'économies qu'il n'a pas mesurées. Les seuls chiffres de tokens mesurés sur ce site viennent du <a href="kimono.html#performance">benchmark Kimono RAG MCP</a>, sur deux tâches de recherche ; ils ne constituent pas une réduction mesurée du TCO complet. Les illustrations de cette section ont été générées en local avec <a href="local-designer.html">Local Designer</a>, qui applique le même partage : des scripts contrôlent le brief, le verrou et les couleurs, et un lecteur regarde chaque image.</p>
 
         <div class="callout">
           <h3>Là où un script peut trancher, il tranche. Là où il ne le peut pas, quelqu'un lit et le dit.</h3>
@@ -318,7 +318,7 @@
         <div class="btn-row">
           <a class="btn primary" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/agents/agent-aikido-refactoring.md">Lire l'agent de refactoring</a>
           <a class="btn" href="local-designer.html">Découvrir Local Designer</a>
-          <a class="btn" href="kimono.html#performance">Voir les mesures Kimono</a>
+          <a class="btn" href="kimono.html#performance">Voir les mesures Kimono RAG MCP</a>
         </div>
       </div>
     </section>
@@ -369,7 +369,7 @@
             <h2>Les outils</h2>
             <ul>
               <li><a href="install.html">Installation</a></li>
-              <li><a href="kimono.html">Kimono MCP</a></li>
+              <li><a href="kimono.html">Kimono RAG MCP</a></li>
               <li><a href="local-designer.html">Local Designer</a></li>
             </ul>
           </div>
@@ -377,7 +377,7 @@
             <h2>Ressources</h2>
             <ul>
               <li><a href="https://github.com/lcalmejane/aikido">Documentation</a></li>
-              <li><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Mesures Kimono</a></li>
+              <li><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Mesures Kimono RAG MCP</a></li>
               <li><a href="technical-friends.html">Sites amis techniques</a></li>
             </ul>
           </div>
