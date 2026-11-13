@@ -184,7 +184,7 @@
     </section>
     <section id="commands">
       <div class="container">
-        <h2>Huit commandes pour votre assistant</h2>
+        <h2>Neuf commandes pour votre assistant</h2>
         <p class="sub">À saisir dans votre assistant une fois le skill installé.</p>
         <div class="table-wrap" role="region" aria-label="Commandes de Local Designer" tabindex="0">
           <table class="data">
@@ -196,6 +196,7 @@
               <tr><th scope="row"><code>/aikido-design-style</code></th><td>Choisir, comparer, composer et créer des styles de rendu.</td></tr>
               <tr><th scope="row"><code>/aikido-design-uikit</code></th><td>Créer et maintenir le kit d'interface : jetons, composants, icônes, images de boutons et de zones.</td></tr>
               <tr><th scope="row"><code>/aikido-design-render</code></th><td>Générer des images : ébauche, balayages de réglage, rendu final derrière le verrou de validation.</td></tr>
+              <tr><th scope="row"><code>/aikido-design-config</code></th><td>Configurer les serveurs d'images et la répartition et la cadence des lots de rendus, par questions guidées.</td></tr>
               <tr><th scope="row"><code>/aikido-design-charter</code></th><td>Lire, contrôler, mettre à jour et annoter la charte ; générer sous son identité.</td></tr>
               <tr><th scope="row"><code>/aikido-design-audit</code></th><td>Comparer des images ou un dossier à la palette de la charte et signaler l'écart.</td></tr>
             </tbody>
@@ -210,7 +211,12 @@
         <div class="grid cols-3">
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#terminal"/></svg></span><h3>Draw Things, en HTTP ou gRPC</h3><p>Utilisez l'API HTTP de l'application, ou gRPC, qui liste les vrais modèles du serveur et peut joindre un serveur local, distant ou de délestage que vous gérez.</p></article>
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#home"/></svg></span><h3>Local d'abord</h3><p>Le mode local est le chemin vérifié. Envoyer quoi que ce soit hors de votre machine exige votre accord.</p></article>
-          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#alert-circle"/></svg></span><h3>Des limites assumées</h3><p>Les modèles d'image ignorent parfois les consignes : texte, mains et visages demandent un contrôle. Une seule image est produite à la fois, et ComfyUI est prévu, pas écrit.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#alert-circle"/></svg></span><h3>Des limites assumées</h3><p>Les modèles d'image ignorent parfois les consignes : texte, mains et visages demandent un contrôle. Un serveur produit autant d'images à la fois que vous l'autorisez, et ComfyUI est prévu, pas écrit.</p></article>
+        </div>
+        <div class="grid cols-3">
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#layers"/></svg></span><h3>Un ou plusieurs serveurs</h3><p><code>/aikido-design-config</code> demande pour chaque serveur : type, adresse, port, protocole et TLS. En HTTP, le modèle chargé dans l'application peut servir ; en gRPC, l'outil choisit un modèle listé, ou vous en imposez un.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#grid"/></svg></span><h3>Des lots cadencés</h3><p>Balayages, vignettes de styles et essais de planche sont répartis par priorité, à tour de rôle ou par poids, avec une limite par serveur et au total, des lots, des pauses, des reprises et un passage au serveur suivant si l'un échoue.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#lock"/></svg></span><h3>Les secrets à l'écart</h3><p>La configuration ne contient aucun secret, seulement où le trouver : une variable d'environnement, un fichier protégé ou un chemin Vault lu par un hook. La valeur reste en mémoire le temps du rendu.</p></article>
         </div>
         <p class="note">Le brief, la planche d'ambiance (sans essais rendus), la navigation dans les styles, le kit d'interface et l'analyse d'images n'ont pas besoin de moteur d'image.</p>
       </div>
@@ -220,12 +226,14 @@
         <h2>Installer et démarrer</h2>
         <p class="sub">Le skill s'installe avec le gestionnaire de skills AI-KIDO. Prérequis : Node.js 18 ou plus, cwebp pour l'export WebP, ImageMagick ou sips pour l'analyse d'images, et pour générer, macOS avec Draw Things.</p>
         <ol class="steps">
-          <li><h3>Activer le serveur d'API</h3><p>Dans Draw Things, ouvrez les réglages avancés et activez API Server : gRPC sur le port 7859 (recommandé) ou HTTP sur le port 7860. Laissez l'application ouverte.</p></li>
+          <li><h3>Activer le serveur d'API</h3><p>Dans Draw Things, ouvrez les réglages avancés et activez API Server : gRPC (recommandé) ou HTTP, sur le port 7860. Laissez l'application ouverte.</p></li>
           <li><h3>Vérifier le moteur</h3><p>Lancez <code>status</code> pour voir le modèle et les réglages utilisés, et si la cible est locale ou distante.</p></li>
+          <li><h3>Décrire vos serveurs</h3><p>Lancez <code>/aikido-design-config</code> après l'installation, puis à chaque changement de serveur, de modèle ou de cadence.</p></li>
           <li><h3>Brief, validation, rendu</h3><p>Rédigez le brief, validez une direction sur la planche d'ambiance, puis demandez votre première image.</p></li>
         </ol>
         <pre><code>/skill-manage get --skill local-designer
-node prompts/hard_points/system/local-designer/scripts/local-designer.mjs status</code></pre>
+node prompts/hard_points/system/local-designer/scripts/local-designer.mjs status
+/aikido-design-config</code></pre>
         <p class="note">Le skill provient du <a href="https://github.com/lcalmejane/aikido-skills/tree/main/skills/local-designer" title="local-designer dans le catalogue de skills AI-KIDO">catalogue public de skills AI-KIDO</a>, source par défaut de <code>skills.cfg</code> : parcourez son code, ses références et ses styles de rendu avant de l’installer.</p>
         <div class="btn-row">
           <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/skill-manage.md">Référence de /skill-manage</a>

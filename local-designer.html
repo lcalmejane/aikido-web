@@ -184,7 +184,7 @@
     </section>
     <section id="commands">
       <div class="container">
-        <h2>Eight commands for your assistant</h2>
+        <h2>Nine commands for your assistant</h2>
         <p class="sub">Type them in your assistant once the skill is installed.</p>
         <div class="table-wrap" role="region" aria-label="Local Designer commands" tabindex="0">
           <table class="data">
@@ -196,6 +196,7 @@
               <tr><th scope="row"><code>/aikido-design-style</code></th><td>Choose, compare, compose and create render styles.</td></tr>
               <tr><th scope="row"><code>/aikido-design-uikit</code></th><td>Create and maintain the UI kit: tokens, components, icons, button and zone images.</td></tr>
               <tr><th scope="row"><code>/aikido-design-render</code></th><td>Generate images: draft, tuning sweeps, final render behind the validation lock.</td></tr>
+              <tr><th scope="row"><code>/aikido-design-config</code></th><td>Configure the image servers and how batches of renders are shared out and paced, through guided questions.</td></tr>
               <tr><th scope="row"><code>/aikido-design-charter</code></th><td>Read, check, update and annotate the charter; generate under its identity.</td></tr>
               <tr><th scope="row"><code>/aikido-design-audit</code></th><td>Check images or a folder against the charter palette and report the drift.</td></tr>
             </tbody>
@@ -210,7 +211,12 @@
         <div class="grid cols-3">
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#terminal"/></svg></span><h3>Draw Things, over HTTP or gRPC</h3><p>Use the app's HTTP API, or gRPC, which lists the real models of the server and can reach a local, remote or offload server of your own.</p></article>
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#home"/></svg></span><h3>Local first</h3><p>Local mode is the verified path. Sending anything outside your machine requires your agreement.</p></article>
-          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#alert-circle"/></svg></span><h3>Honest limits</h3><p>Image models sometimes ignore instructions: text, hands and faces need a check. One image is generated at a time, and ComfyUI is planned, not written.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#alert-circle"/></svg></span><h3>Honest limits</h3><p>Image models sometimes ignore instructions: text, hands and faces need a check. A server renders as many images at once as you allow, and ComfyUI is planned, not written.</p></article>
+        </div>
+        <div class="grid cols-3">
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#layers"/></svg></span><h3>One or several servers</h3><p><code>/aikido-design-config</code> asks for each server: type, address, port, protocol and TLS. With HTTP the app's loaded model can be used; with gRPC the tool picks a listed model, or you pin one.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#grid"/></svg></span><h3>Paced batches</h3><p>Sweeps, style thumbnails and mood board trials are shared out by priority, in turn or by weight, with a limit per server and in total, batches, pauses, retries and a move to the next server if one fails.</p></article>
+          <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#lock"/></svg></span><h3>Secrets kept out</h3><p>The configuration holds no secret, only where to find it: an environment variable, a protected file or a Vault path read by a hook. The value stays in memory for the run.</p></article>
         </div>
         <p class="note">The brief, the mood board (without trial renders), style browsing, the UI kit and image analysis need no image engine.</p>
       </div>
@@ -220,12 +226,14 @@
         <h2>Install and start</h2>
         <p class="sub">The skill is installed with the AI-KIDO skills manager. Requirements: Node.js 18 or later, cwebp for WebP export, ImageMagick or sips for image analysis, and for generation macOS with Draw Things.</p>
         <ol class="steps">
-          <li><h3>Enable the API server</h3><p>In Draw Things, open the advanced settings and enable API Server: gRPC on port 7859 (recommended) or HTTP on port 7860. Keep the app open.</p></li>
+          <li><h3>Enable the API server</h3><p>In Draw Things, open the advanced settings and enable API Server: gRPC (recommended) or HTTP, on port 7860. Keep the app open.</p></li>
           <li><h3>Check the engine</h3><p>Run <code>status</code> to see the model and settings in use, and whether the target is local or remote.</p></li>
+          <li><h3>Describe your servers</h3><p>Run <code>/aikido-design-config</code> after installing, and again whenever a server, a model or the pacing changes.</p></li>
           <li><h3>Brief, validate, render</h3><p>Write the brief, validate a direction on the mood board, then ask for your first image.</p></li>
         </ol>
         <pre><code>/skill-manage get --skill local-designer
-node prompts/hard_points/system/local-designer/scripts/local-designer.mjs status</code></pre>
+node prompts/hard_points/system/local-designer/scripts/local-designer.mjs status
+/aikido-design-config</code></pre>
         <p class="note">The skill comes from the public <a href="https://github.com/lcalmejane/aikido-skills/tree/main/skills/local-designer" title="local-designer in the AI-KIDO skills catalog">AI-KIDO skills catalog</a>, the default source in <code>skills.cfg</code>: browse its code, references and render styles before installing.</p>
         <div class="btn-row">
           <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/skill-manage.md">/skill-manage reference</a>
