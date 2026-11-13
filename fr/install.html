@@ -213,17 +213,18 @@ npx @aikido-method/cli@1.5.4 uninstall --yes</code></pre>
     <section id="skills">
       <div class="container">
         <h2>L'étendre avec des skills installables</h2>
-        <p class="sub"><code>/skill-manage</code> recherche, installe, met à jour et retire des skills depuis des sources de confiance.</p>
+        <p class="sub"><code>/skill-manage</code> recherche, installe, met à jour et retire des skills depuis des sources de confiance. Sa source par défaut est le <a href="https://github.com/lcalmejane/aikido-skills" title="Catalogue de skills AI-KIDO sur GitHub">catalogue public de skills AI-KIDO</a>, ouvert à tous.</p>
         <div class="grid cols-3">
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#check-circle"/></svg></span><h3>Sûr par conception</h3><p>Noms et sources validés, liens symboliques refusés, scripts jamais exécutés, sauvegarde de tout ce qui est remplacé.</p></article>
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#info"/></svg></span><h3>Les tiers demandent votre accord</h3><p>Les skills externes ne sont installés qu'après votre confirmation explicite.</p></article>
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#edit"/></svg></span><h3>Vos propres skills</h3><p>Créez des skills avec <code>/create-skill</code> et partagez-les via un dépôt de catalogue que votre équipe maîtrise.</p></article>
         </div>
-        <pre><code>/skill-manage search jira
-/skill-manage get jira
-/skill-manage update jira</code></pre>
+        <pre><code>/skill-manage search --query design
+/skill-manage get --skill local-designer
+/skill-manage update --skill local-designer</code></pre>
         <div class="btn-row">
           <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/skill-manage.md">Référence /skill-manage</a>
+          <a class="btn" href="https://github.com/lcalmejane/aikido-skills">Parcourir le catalogue de skills</a>
           <a class="btn" href="harness.html#skills">Créer vos propres skills</a>
         </div>
       </div>

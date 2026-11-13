@@ -213,17 +213,18 @@ npx @aikido-method/cli@1.5.4 uninstall --yes</code></pre>
     <section id="skills">
       <div class="container">
         <h2>Extend it with installable skills</h2>
-        <p class="sub"><code>/skill-manage</code> searches, installs, updates and removes skills from trusted sources.</p>
+        <p class="sub"><code>/skill-manage</code> searches, installs, updates and removes skills from trusted sources. Its default source is the public <a href="https://github.com/lcalmejane/aikido-skills" title="AI-KIDO skills catalog on GitHub">AI-KIDO skills catalog</a>, open to everyone.</p>
         <div class="grid cols-3">
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#check-circle"/></svg></span><h3>Safe by design</h3><p>Names and sources validated, symbolic links refused, scripts never run, a backup of anything replaced.</p></article>
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#info"/></svg></span><h3>Third parties need your approval</h3><p>External skills are listed with their files and scripts, and installed only after your explicit confirmation.</p></article>
           <article class="card"><span class="ico"><svg class="icon" aria-hidden="true"><use href="#edit"/></svg></span><h3>Your own skills</h3><p>Create skills with <code>/create-skill</code> and share them through a catalog repository your team controls.</p></article>
         </div>
-        <pre><code>/skill-manage search jira
-/skill-manage get jira
-/skill-manage update jira</code></pre>
+        <pre><code>/skill-manage search --query design
+/skill-manage get --skill local-designer
+/skill-manage update --skill local-designer</code></pre>
         <div class="btn-row">
           <a class="btn" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/skill-manage.md">/skill-manage reference</a>
+          <a class="btn" href="https://github.com/lcalmejane/aikido-skills">Browse the skills catalog</a>
           <a class="btn" href="harness.html#skills">Create your own skills</a>
         </div>
       </div>
