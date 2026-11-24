@@ -160,6 +160,8 @@
             <h3>Transformez une tâche récurrente en workflow</h3>
             <p>Créez une commande guidée, vérifiez les doublons et intégrez les agents et bonnes pratiques utiles. Rendez les étapes explicites et réutilisables.</p>
             <a class="harness-command" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/create-command.md"><code>/create-command</code></a>
+            <p>Pour enchaîner des étapes entre agents et personnes, décrivez un workflow avec <code>/workflow-new</code> : il est validé et simulé avant qu’un agent ne l’exécute.</p>
+            <a class="harness-command" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/workflow-new.md"><code>/workflow-new</code></a>
           </article>
           <article class="card" id="skills">
             <span class="ico"><svg class="icon" aria-hidden="true"><use href="#layers"/></svg></span>
@@ -289,6 +291,8 @@
               <tr><th scope="row">Créer un agent<br><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/create-persona.md"><code>/create-persona</code></a>, <a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/compile-agent-from-use.md"><code>/compile-agent-from-use</code></a></th><td>Une fois l'agent créé, host-sync repère les assistants installés sur la machine (en regardant le PATH et les extensions de l'éditeur, sans rien lancer) et rend le nouvel agent disponible dans chacun.</td><td>Définir avec vous le rôle, le périmètre et les instructions.</td></tr>
               <tr><th scope="row">Valider un plan de recherche ou d'analyse<br><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/validate-search-plan.md"><code>/validate-search-plan</code></a></th><td>Contrôle l'en-tête, les sections et les expressions régulières, et affiche un score.</td><td>Décider comment corriger les points signalés.</td></tr>
               <tr><th scope="row">Télécharger un site en Markdown<br><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/system/web/commands/download-site.md"><code>/download-site</code></a></th><td>Télécharge, convertit, refuse d'écraser des fichiers existants et ne publie rien si une conversion échoue.</td><td>Choisir le site et la profondeur, puis exploiter le contenu.</td></tr>
+              <tr><th scope="row">Tester un workflow<br><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/workflow-test.md"><code>/workflow-test</code></a></th><td>Valide le workflow, parcourt chaque chemin avec des agents bouchons jusqu’à la borne de boucle et signale les états non couverts et les chemins bloqués.</td><td>Décrire les étapes et décider quoi changer quand un chemin échoue.</td></tr>
+              <tr><th scope="row">Contrôler les dépendances<br><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/aikido-deps-check.md"><code>/aikido-deps-check</code></a></th><td>Lit les manifestes, interroge les registres et liste chaque version dépassée ou inexistante avec le fichier qui la déclare.</td><td>Choisir les montées à faire et lancer les tests.</td></tr>
               <tr><th scope="row">Échange entre agents</th><td>L'orchestrateur contrôle chaque requête et chaque résultat selon un contrat JSON avant de s'en servir.</td><td>Décider du plan et juger le contenu des résultats.</td></tr>
             </tbody>
           </table>

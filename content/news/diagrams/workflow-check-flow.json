@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "workflow-check-flow",
+  "type": "flow",
+  "title": {
+    "en": "From an idea to a workflow you trust",
+    "fr": "D’une idée à un workflow fiable"
+  },
+  "desc": {
+    "en": "Each step is checked before the next one: written, validated, simulated, changed through a visible diff, then saved.",
+    "fr": "Chaque étape est vérifiée avant la suivante : écrit, validé, simulé, modifié par un diff visible, puis enregistré."
+  },
+  "nodes": [
+    {
+      "label": { "en": "Describe", "fr": "Décrire" },
+      "note": { "en": "/workflow-new asks for steps and ends", "fr": "/workflow-new demande étapes et fins" }
+    },
+    {
+      "label": { "en": "Validate", "fr": "Valider" },
+      "note": { "en": "schema and semantics, no model", "fr": "schéma et sens, sans modèle" }
+    },
+    {
+      "label": { "en": "Simulate", "fr": "Simuler" },
+      "note": { "en": "every path, every state, bounded loops", "fr": "chaque chemin, chaque état, boucles bornées" }
+    },
+    {
+      "label": { "en": "Change", "fr": "Modifier" },
+      "note": { "en": "a sentence becomes a diff you approve", "fr": "une phrase devient un diff que vous approuvez" }
+    },
+    {
+      "label": { "en": "Save", "fr": "Enregistrer" },
+      "note": { "en": "only once the test is complete", "fr": "seulement si le test est complet" }
+    }
+  ]
+}

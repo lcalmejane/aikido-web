@@ -160,6 +160,8 @@
             <h3>Turn recurring work into a workflow</h3>
             <p>Create a guided command, check for duplicates and integrate relevant agents and best practices. Make the steps explicit and reusable.</p>
             <a class="harness-command" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/create-command.md"><code>/create-command</code></a>
+            <p>To chain steps between agents and people, describe a workflow with <code>/workflow-new</code>: it is validated and simulated before any agent runs it.</p>
+            <a class="harness-command" href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/workflow-new.md"><code>/workflow-new</code></a>
           </article>
           <article class="card" id="skills">
             <span class="ico"><svg class="icon" aria-hidden="true"><use href="#layers"/></svg></span>
@@ -289,6 +291,8 @@
               <tr><th scope="row">Create an agent<br><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/create-persona.md"><code>/create-persona</code></a>, <a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/compile-agent-from-use.md"><code>/compile-agent-from-use</code></a></th><td>Once the agent exists, host-sync finds the assistants installed on the machine (by looking at the PATH and the editor extensions, without launching anything) and makes the new agent available in each of them.</td><td>Define the role, the scope and the instructions with you.</td></tr>
               <tr><th scope="row">Validate a search or analysis plan<br><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/validate-search-plan.md"><code>/validate-search-plan</code></a></th><td>Checks the header, sections and regular expressions and prints a score.</td><td>Decide how to fix the points flagged.</td></tr>
               <tr><th scope="row">Download a site as Markdown<br><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/system/web/commands/download-site.md"><code>/download-site</code></a></th><td>Downloads, converts, refuses to overwrite existing files and publishes nothing if one conversion fails.</td><td>Choose the site and the depth, then use the content.</td></tr>
+              <tr><th scope="row">Test a workflow<br><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/workflow-test.md"><code>/workflow-test</code></a></th><td>Validates the workflow, walks every path with stub agents up to the loop bound and reports uncovered states and stuck paths.</td><td>Describe the steps and decide what to change when a path fails.</td></tr>
+              <tr><th scope="row">Check dependencies<br><a href="https://github.com/lcalmejane/aikido/blob/main/prompts/hard_points/commands/aikido-deps-check.md"><code>/aikido-deps-check</code></a></th><td>Reads the manifests, queries the registries and lists each outdated or nonexistent version with the file that declares it.</td><td>Decide which updates to make and run the tests.</td></tr>
               <tr><th scope="row">Exchange between agents</th><td>The orchestrator checks every request and every result against a JSON contract before using it.</td><td>Decide the plan and judge the content of the results.</td></tr>
             </tbody>
           </table>

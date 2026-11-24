@@ -204,6 +204,15 @@
         "en": "Character sheet of Kido in four views side by side: front, three-quarter, side and back, a small white robot with cyan eyes in a cream karate uniform.",
         "fr": "Fiche personnage de Kido en quatre vues côte à côte : face, trois quarts, profil et dos, un petit robot blanc aux yeux cyan en kimono crème."
       }
+    },
+    "hero-version-1-5-5": {
+      "src": "assets/images/news/version-1-5-5.webp",
+      "width": 960,
+      "height": 576,
+      "alt": {
+        "en": "Kido, the small robot in a karate gi, stands on the tatami and points at a wooden marble track on a low table; the marbles have rolled down and wait in a wooden bowl",
+        "fr": "Kido, le petit robot en kimono, debout sur le tatami, désigne un circuit de billes en bois posé sur une table basse ; les billes ont descendu la piste et attendent dans un bol en bois"
+      }
     }
   }
 }

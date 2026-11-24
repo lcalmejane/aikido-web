@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Version 1.5.5: test a workflow before it runs – AI-KIDO</title>
+  <meta name="description" content="AI-KIDO 1.5.5 lets you describe a workflow in plain words, simulate every path before any agent runs it, and change it through a diff you approve. Plus a review command and a dependency check.">
+  <meta property="og:title" content="Version 1.5.5: test a workflow before it runs – AI-KIDO">
+  <meta property="og:description" content="AI-KIDO 1.5.5 lets you describe a workflow in plain words, simulate every path before any agent runs it, and change it through a diff you approve. Plus a review command and a dependency check.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:image" content="https://www.ai-kido.fr/assets/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
+  <meta property="og:image:alt" content="Kido, the small robot in a karate gi, stands on the tatami and points at a wooden marble track on a low table; the marbles have rolled down and wait in a wooden bowl">
+  <meta property="og:url" content="https://www.ai-kido.fr/news/version-1-5-5.html">
+  <meta property="og:site_name" content="AI-KIDO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.ai-kido.fr/assets/images/og.jpg">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://www.ai-kido.fr/news/version-1-5-5.html">
+  <link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/version-1-5-5.html">
+  <link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/version-1-5-5.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/version-1-5-5.html">
+  <link rel="icon" href="../favicon.ico?v=3" sizes="16x16 32x32">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png?v=3">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/favicon-48.png?v=3">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/icon-192.png?v=3">
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=3">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#f6efe0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111524" media="(prefers-color-scheme: dark)">
+  <script src="../assets/js/theme.js?v=1"></script>
+  <link rel="stylesheet" href="../assets/css/home.css?v=10">
+  <link rel="stylesheet" href="../assets/css/inner.css?v=13">
+  <link rel="stylesheet" href="../assets/css/news-layouts.css?v=3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Version 1.5.5: test a workflow before it runs","description":"AI-KIDO 1.5.5 lets you describe a workflow in plain words, simulate every path before any agent runs it, and change it through a diff you approve. Plus a review command and a dependency check.","datePublished":"2026-11-24","inLanguage":"en","mainEntityOfPage":"https://www.ai-kido.fr/news/version-1-5-5.html","image":"https://www.ai-kido.fr/assets/images/news/version-1-5-5.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
+  <script src="../assets/js/news-navigation.js?v=1" defer></script>
+</head>
+<body class="inner">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+</svg>
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="../index.html"><img src="../assets/images/favicon-48.png?v=2" alt="" width="30" height="30"><span class="word">AI<span>-</span>KIDO</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="site-nav">
+      <label class="nav-burger" for="nav-toggle"><svg class="icon" aria-hidden="true"><use href="#menu"/></svg> Menu</label>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <details class="nav-group">
+          <summary>Method <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
+          <div class="nav-panel">
+            <a href="../index.html">Home</a>
+            <a href="../harness.html">Harness creation</a>
+            <a href="../history.html">History</a>
+          </div>
+        </details>
+        <a href="../install.html">Install</a>
+        <a href="../news.html" aria-current="page">News</a>
+        <details class="nav-group">
+          <summary>Tools <svg class="icon" aria-hidden="true"><use href="#chevron-down"/></svg></summary>
+          <div class="nav-panel">
+            <a href="../kimono.html">Kimono RAG MCP</a>
+            <a href="../local-designer.html">Local Designer</a>
+          </div>
+        </details>
+        <a href="https://github.com/lcalmejane/aikido">GitHub</a>
+        <span class="lang" role="group" aria-label="Language">
+          <a class="active" href="version-1-5-5.html" hreflang="en" lang="en" aria-current="true">EN</a>
+          <a href="../fr/news/version-1-5-5.html" hreflang="fr" lang="fr">FR</a>
+        </span>
+      </nav>
+      <button type="button" class="theme-toggle" data-theme-toggle data-label-dark="Switch to dark theme" data-label-light="Switch to light theme" aria-label="Switch to dark theme" title="Switch to dark theme"><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></svg></button>
+    </div>
+    </header>
+
+  <main id="top">
+    <article class="news-article nl-carnet hero-square w-narrow acc-navy lead-serif h2-tag title-normal meta-inline body-spaced rail-toc-cta">
+      <div class="container">
+        <p class="back"><a href="../news.html">← All news</a></p>
+        <header class="article-head">
+          <p class="news-meta"><span class="tag">Release</span><time datetime="2026-11-24">24 November 2026</time></p>
+          <h1>Version 1.5.5: test a workflow before it runs</h1>
+          <p class="lead">AI-KIDO 1.5.5 lets you describe a workflow in plain words, simulate every path before any agent runs it, and change it through a diff you approve. Plus a review command and a dependency check.</p>
+        </header>
+        <img class="article-hero" src="../assets/images/news/version-1-5-5.webp" alt="Kido, the small robot in a karate gi, stands on the tatami and points at a wooden marble track on a low table; the marbles have rolled down and wait in a wooden bowl" width="960" height="576" decoding="async">
+        <div class="article-grid">
+          <div class="article-mobile-tools">
+          <details name="article-tools"><summary>In this article</summary><nav class="article-toc" aria-label="In this article"><strong>In this article</strong><ol><li><a href="#the-idea-in-one-picture">The idea in one picture</a></li><li><a href="#what-camille-does-describe-then-simulate">What Camille does: describe, then simulate</a></li><li><a href="#what-the-simulation-tells-her">What the simulation tells her</a></li><li><a href="#changing-a-step-in-one-sentence">Changing a step in one sentence</a></li><li><a href="#also-in-1-5-5">Also in 1.5.5</a></li><li><a href="#try-it">Try it</a></li></ol></nav></details>
+          <details name="article-tools"><summary>Try AI-KIDO</summary><aside class="article-cta" aria-label="Try AI-KIDO"><strong>Try AI-KIDO</strong><p>Install the Memory Bank in one command and let your assistant read it.</p><a class="cta-btn" href="../install.html">Install</a></aside></details>
+        </div>
+          <nav class="article-toc" aria-label="In this article"><strong>In this article</strong><ol><li><a href="#the-idea-in-one-picture">The idea in one picture</a></li><li><a href="#what-camille-does-describe-then-simulate">What Camille does: describe, then simulate</a></li><li><a href="#what-the-simulation-tells-her">What the simulation tells her</a></li><li><a href="#changing-a-step-in-one-sentence">Changing a step in one sentence</a></li><li><a href="#also-in-1-5-5">Also in 1.5.5</a></li><li><a href="#try-it">Try it</a></li></ol></nav><aside class="article-cta" aria-label="Try AI-KIDO"><strong>Try AI-KIDO</strong><p>Install the Memory Bank in one command and let your assistant read it.</p><a class="cta-btn" href="../install.html">Install</a></aside>
+          <div class="article-body">
+          <p>Camille maintains a small open source library. Every release ends the same way: draft the notes, check that no link is broken, ask a colleague to proofread. She would like an agent to take over the first two steps. What stops her is not the agent’s skill. It is the fear of a loop that never ends, or a branch nobody thought of, discovered on release night.</p>
+        <h2 id="the-idea-in-one-picture">The idea in one picture</h2>
+        <p>In AI-KIDO, a workflow is one readable file, <code>.workflow.md</code>. It holds a diagram, a plain description of each step, and a JSON block that stays the source of truth. Version 1.5.5 adds what was missing around it: tools that check the file step by step, without calling any model, before an agent ever runs it.</p>
+        <figure class="article-figure diagram">
+          <svg class="dg-svg dg-type-flow" viewBox="0 0 360 390" role="img" aria-label="Each step is checked before the next one: written, validated, simulated, changed through a visible diff, then saved." focusable="false"><title>From an idea to a workflow you trust</title><g class="dg-node " style="--i:0"><rect class="dg-box" x="20" y="12" width="320" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="30.5" text-anchor="middle"><tspan x="180" dy="0">Describe</tspan></text><text class="dg-s" x="180" y="50.5" text-anchor="middle"><tspan x="180" dy="0">/workflow-new asks for steps and ends</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="180" y1="66" x2="180" y2="85"/><path class="dg-head" d="M175 82 L180 90 L185 82 Z"/></g><g class="dg-node " style="--i:1"><rect class="dg-box" x="20" y="90" width="320" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="108.5" text-anchor="middle"><tspan x="180" dy="0">Validate</tspan></text><text class="dg-s" x="180" y="128.5" text-anchor="middle"><tspan x="180" dy="0">schema and semantics, no model</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="180" y1="144" x2="180" y2="163"/><path class="dg-head" d="M175 160 L180 168 L185 160 Z"/></g><g class="dg-node " style="--i:2"><rect class="dg-box" x="20" y="168" width="320" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="186.5" text-anchor="middle"><tspan x="180" dy="0">Simulate</tspan></text><text class="dg-s" x="180" y="206.5" text-anchor="middle"><tspan x="180" dy="0">every path, every state, bounded loops</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="180" y1="222" x2="180" y2="241"/><path class="dg-head" d="M175 238 L180 246 L185 238 Z"/></g><g class="dg-node " style="--i:3"><rect class="dg-box" x="20" y="246" width="320" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="264.5" text-anchor="middle"><tspan x="180" dy="0">Change</tspan></text><text class="dg-s" x="180" y="284.5" text-anchor="middle"><tspan x="180" dy="0">a sentence becomes a diff you approve</tspan></text></g><g class="dg-link"><line class="dg-flow" x1="180" y1="300" x2="180" y2="319"/><path class="dg-head" d="M175 316 L180 324 L185 316 Z"/></g><g class="dg-node " style="--i:4"><rect class="dg-box" x="20" y="324" width="320" height="54" rx="10"/><text class="dg-t dg-b" x="180" y="342.5" text-anchor="middle"><tspan x="180" dy="0">Save</tspan></text><text class="dg-s" x="180" y="362.5" text-anchor="middle"><tspan x="180" dy="0">only once the test is complete</tspan></text></g></svg>
+          <figcaption>Each step is checked by a deterministic tool before the next one. Nothing runs for real until the simulation is complete.</figcaption>
+        </figure>
+        <h2 id="what-camille-does-describe-then-simulate">What Camille does: describe, then simulate</h2>
+        <p>In her editor, she types the new command and answers its questions in her own words: the steps, who does each one, and how it ends.</p>
+        <ol class="chat" aria-label="Prompt">
+          <li class="chat-msg chat-you"><span class="chat-who">You</span><div class="chat-bubble"><span class="chat-text">/workflow-new Release notes: draft them from CHANGELOG.md, check every link, redo the draft if a link is broken (three tries at most), then a human review.</span></div></li>
+          <li class="chat-msg chat-assistant"><span class="chat-who">Assistant</span><div class="chat-bubble">Draft <code>release-notes</code> 1.0.0 written and validated.<br>Diagram: Draft → Check links → choice → Human review → done, with a way back to Draft while attempts &lt; 3, otherwise failed.<br>Simulation: <strong>6 paths</strong>, every state covered, nothing stuck. The test is complete: I can save it.</div></li>
+        </ol>
+        <p>She opens the generated file. At the top, the diagram she would have drawn on a whiteboard; below, one short paragraph per step. She reads the workflow like a document, not like code.</p>
+        <figure class="code-block">
+          <div class="code-lang">text</div>
+          <pre tabindex="0"><code class="language-text">stateDiagram-v2
+    state &quot;Draft&quot; as draft
+    state &quot;Check links&quot; as links
+    state links_ok &lt;&lt;choice&gt;&gt;
+    state &quot;Human review&quot; as review
+    [*] --&gt; draft
+    draft --&gt; links
+    links --&gt; links_ok
+    links_ok --&gt; review : links.broken = 0
+    links_ok --&gt; draft : attempts &lt; 3
+    links_ok --&gt; failed : otherwise
+    review --&gt; done
+    done --&gt; [*]
+    failed --&gt; [*]</code></pre>
+          <figcaption>The diagram rendered by <code>aikido task workflow render</code> with the 1.5.5 CLI, unchanged. Editing it and running <code>sync</code> updates the JSON block, and the reverse.</figcaption>
+        </figure>
+        <h2 id="what-the-simulation-tells-her">What the simulation tells her</h2>
+        <p>The test replaces every agent with a stub and walks through all the branches, up to the loop limit she set. Camille sees each path and how it ends: success after zero, one or two redrafts, or failure after three broken attempts. No state is left unvisited, and no path stays stuck.</p>
+        <ul class="stats">
+          <li><strong>6</strong><span>paths simulated for the release notes workflow</span></li>
+          <li><strong>6/6</strong><span>states covered, none stuck</span></li>
+          <li><strong>3</strong><span>visits at most per state, the loop bound set by maxAttempts</span></li>
+        </ul>
+        <p>Under the hood, the summary she read comes from this report, shortened (the full one lists the six trails):</p>
+        <figure class="code-block">
+          <div class="code-lang">json</div>
+          <pre tabindex="0"><code class="language-json">{&quot;status&quot;:&quot;ok&quot;,&quot;valid&quot;:true,&quot;maxVisits&quot;:3,
+ &quot;paths&quot;:[{&quot;trail&quot;:[&quot;draft&quot;,&quot;links&quot;,&quot;links_ok&quot;,&quot;review&quot;,&quot;done&quot;],&quot;end&quot;:&quot;success&quot;}, …],
+ &quot;covered&quot;:[&quot;draft&quot;,&quot;links&quot;,&quot;links_ok&quot;,&quot;review&quot;,&quot;done&quot;,&quot;failed&quot;],
+ &quot;uncovered&quot;:[],&quot;terminals&quot;:[&quot;done&quot;,&quot;failed&quot;],&quot;complete&quot;:true}</code></pre>
+          <figcaption>Real output of <code>aikido task workflow test</code>, <code>@aikido-method/cli</code> 1.5.5, on the workflow above (2026-11-24).</figcaption>
+        </figure>
+        <h2 id="changing-a-step-in-one-sentence">Changing a step in one sentence</h2>
+        <p>The next day, Camille wants anchors checked too. She says it in a sentence. The assistant turns it into a value proposal on one field, the prompt of the “Check links” step, and shows her the diff. Nothing is applied until she agrees, and the changed workflow is validated again.</p>
+        <aside class="callout"><strong class="callout-title">Remember</strong><p>A workflow is saved only when its simulation is complete. A change described in words becomes a diff you approve, never a silent edit. A published version is never edited: a change creates the next version.</p></aside>
+        <h2 id="also-in-1-5-5">Also in 1.5.5</h2>
+        <ul class="mini-cards">
+          <li><strong>/aikido-review</strong><span>Reviews a change against evidence and edits nothing. A finding is kept only with a concrete scenario, re-read lines and the smallest fix; findings are numbered and grouped as Blocking, Important and Minor.</span></li>
+          <li><strong>aikido deps</strong><span>Reports outdated or nonexistent dependency versions. On Kimono v0.9.15 it read 223 dependencies across npm, Cargo, Docker and GitHub: 5 major, 13 minor and 13 patch updates available, 192 up to date.</span></li>
+          <li><strong>Task cards</strong><span>New commands to stop, delete and sync cards, explicit progress, numbered acceptance criteria and a human or automated review mode.</span></li>
+          <li><strong>The workflow/2 format</strong><span>It replaces workflow/1: a workflow saved in the old format must be saved again. Released as a patch, since no production store held workflow/1 data.</span></li>
+        </ul>
+        <p>Scoring a workflow’s automated share and publishing it to a Tatami Core Agent go through <code>/workflow-score</code> and <code>/workflow-publish</code>, which need a configured Core Agent. Everything shown above runs with the CLI alone.</p>
+        <h2 id="try-it">Try it</h2>
+        <ol class="steps">
+          <li>Install or update the CLI: <code>npm install -g @aikido-method/cli@1.5.5</code>, or follow the <a href="../install.html">installation page</a>.</li>
+          <li>In your assistant, type <code>/workflow-new</code> and describe your steps, who does them and how it ends.</li>
+          <li>Read the diagram, check that the test is complete, then save. To run a change past a reviewer first, type <code>/aikido-review</code>.</li>
+        </ol>
+        <ol class="references" aria-label="References">
+          <li id="ref-1"><span class="ref-pub">AI-KIDO</span> <a href="https://github.com/lcalmejane/aikido/blob/1.5.5/CHANGELOG.md" rel="noopener noreferrer" target="_blank">Changelog — version 1.5.5</a></li>
+          <li id="ref-2"><span class="ref-pub">AI-KIDO</span> <a href="https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/system/aikido-workflow/SKILL.md" rel="noopener noreferrer" target="_blank">aikido-workflow skill — 1.5.5</a></li>
+          <li id="ref-3"><span class="ref-pub">AI-KIDO</span> <a href="https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/commands/aikido-review.md" rel="noopener noreferrer" target="_blank">/aikido-review command — 1.5.5</a></li>
+          <li id="ref-4"><span class="ref-pub">AI-KIDO</span> <a href="https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/system/aikido-deps/SKILL.md" rel="noopener noreferrer" target="_blank">aikido-deps skill — 1.5.5</a></li>
+          <li id="ref-5"><span class="ref-pub">Kimono RAG MCP</span> <a href="https://github.com/lcalmejane/kimono-mcp-server/tree/v0.9.15" rel="noopener noreferrer" target="_blank">Repository at v0.9.15</a></li>
+        </ol>
+        </div>
+        </div>
+        <nav class="article-nav" aria-label="News">
+          <a class="older" href="kimono-099.html" rel="prev">Older : Kimono RAG MCP 0.9.9: syntax-aware code, one shared view for every agent →</a>
+        </nav>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-intro">
+          <a class="footer-brand" href=".././">AI-KIDO</a>
+          <p class="footer-tagline">Give your AI a memory. Give your team a method.</p>
+          <p>Structure knowledge, share rules and build the harnesses your projects need.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-group">
+            <h2>The method</h2>
+            <ul>
+              <li><a href=".././">Discover AI-KIDO</a></li>
+              <li><a href="../harness.html">Create a harness</a></li>
+              <li><a href="../history.html">Our story</a></li>
+              <li><a href="../news.html">News</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h2>Tools</h2>
+            <ul>
+              <li><a href="../install.html">Installation</a></li>
+              <li><a href="../kimono.html">Kimono RAG MCP</a></li>
+              <li><a href="../local-designer.html">Local Designer</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h2>Resources</h2>
+            <ul>
+              <li><a href="https://github.com/lcalmejane/aikido">Documentation</a></li>
+              <li><a href="https://github.com/lcalmejane/kimono-mcp-server/blob/main/benchmarks/results/current.md">Kimono RAG MCP benchmarks</a></li>
+              <li><a href="../technical-friends.html">Technical friends</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <a href="https://github.com/lcalmejane/aikido/blob/main/LICENSE">Method licensed under MIT</a>
+        <nav class="footer-languages" aria-label="Language">
+          <a href="version-1-5-5.html" hreflang="en" lang="en" aria-current="page">English</a>
+          <a href="../fr/news/version-1-5-5.html" hreflang="fr" lang="fr">Français</a>
+        </nav>
+      </div>
+      <p class="footer-driven">Driven by the AI-KIDO method · <a href="https://github.com/lcalmejane/aikido" lang="en">AI-KIDO: The Self-Forged Engine</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

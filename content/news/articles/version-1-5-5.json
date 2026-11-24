@@ -1,0 +1,283 @@
+{
+  "slug": "version-1-5-5",
+  "nature": "release",
+  "domains": [
+    "orchestration",
+    "development"
+  ],
+  "date": "2026-11-24",
+  "tag": {
+    "en": "Release",
+    "fr": "Version"
+  },
+  "image": "hero-version-1-5-5",
+  "layout": "carnet",
+  "en": {
+    "title": "Version 1.5.5: test a workflow before it runs",
+    "summary": "AI-KIDO 1.5.5 lets you describe a workflow in plain words, simulate every path before any agent runs it, and change it through a diff you approve. Plus a review command and a dependency check.",
+    "body": [
+      "<p>Camille maintains a small open source library. Every release ends the same way: draft the notes, check that no link is broken, ask a colleague to proofread. She would like an agent to take over the first two steps. What stops her is not the agent’s skill. It is the fear of a loop that never ends, or a branch nobody thought of, discovered on release night.</p>",
+      {
+        "h2": "The idea in one picture"
+      },
+      "<p>In AI-KIDO, a workflow is one readable file, <code>.workflow.md</code>. It holds a diagram, a plain description of each step, and a JSON block that stays the source of truth. Version 1.5.5 adds what was missing around it: tools that check the file step by step, without calling any model, before an agent ever runs it.</p>",
+      {
+        "diagram": "workflow-check-flow",
+        "caption": "Each step is checked by a deterministic tool before the next one. Nothing runs for real until the simulation is complete."
+      },
+      {
+        "h2": "What Camille does: describe, then simulate"
+      },
+      "<p>In her editor, she types the new command and answers its questions in her own words: the steps, who does each one, and how it ends.</p>",
+      {
+        "chat": [
+          {
+            "role": "you",
+            "text": "/workflow-new Release notes: draft them from CHANGELOG.md, check every link, redo the draft if a link is broken (three tries at most), then a human review."
+          },
+          {
+            "role": "assistant",
+            "html": "Draft <code>release-notes</code> 1.0.0 written and validated.<br>Diagram: Draft → Check links → choice → Human review → done, with a way back to Draft while attempts &lt; 3, otherwise failed.<br>Simulation: <strong>6 paths</strong>, every state covered, nothing stuck. The test is complete: I can save it."
+          }
+        ]
+      },
+      "<p>She opens the generated file. At the top, the diagram she would have drawn on a whiteboard; below, one short paragraph per step. She reads the workflow like a document, not like code.</p>",
+      {
+        "code": "stateDiagram-v2\n    state \"Draft\" as draft\n    state \"Check links\" as links\n    state links_ok <<choice>>\n    state \"Human review\" as review\n    [*] --> draft\n    draft --> links\n    links --> links_ok\n    links_ok --> review : links.broken = 0\n    links_ok --> draft : attempts < 3\n    links_ok --> failed : otherwise\n    review --> done\n    done --> [*]\n    failed --> [*]",
+        "lang": "text",
+        "caption": "The diagram rendered by <code>aikido task workflow render</code> with the 1.5.5 CLI, unchanged. Editing it and running <code>sync</code> updates the JSON block, and the reverse."
+      },
+      {
+        "h2": "What the simulation tells her"
+      },
+      "<p>The test replaces every agent with a stub and walks through all the branches, up to the loop limit she set. Camille sees each path and how it ends: success after zero, one or two redrafts, or failure after three broken attempts. No state is left unvisited, and no path stays stuck.</p>",
+      {
+        "stats": [
+          {
+            "value": "6",
+            "label": "paths simulated for the release notes workflow"
+          },
+          {
+            "value": "6/6",
+            "label": "states covered, none stuck"
+          },
+          {
+            "value": "3",
+            "label": "visits at most per state, the loop bound set by maxAttempts"
+          }
+        ]
+      },
+      "<p>Under the hood, the summary she read comes from this report, shortened (the full one lists the six trails):</p>",
+      {
+        "code": "{\"status\":\"ok\",\"valid\":true,\"maxVisits\":3,\n \"paths\":[{\"trail\":[\"draft\",\"links\",\"links_ok\",\"review\",\"done\"],\"end\":\"success\"}, …],\n \"covered\":[\"draft\",\"links\",\"links_ok\",\"review\",\"done\",\"failed\"],\n \"uncovered\":[],\"terminals\":[\"done\",\"failed\"],\"complete\":true}",
+        "lang": "json",
+        "caption": "Real output of <code>aikido task workflow test</code>, <code>@aikido-method/cli</code> 1.5.5, on the workflow above (2026-11-24)."
+      },
+      {
+        "h2": "Changing a step in one sentence"
+      },
+      "<p>The next day, Camille wants anchors checked too. She says it in a sentence. The assistant turns it into a value proposal on one field, the prompt of the “Check links” step, and shows her the diff. Nothing is applied until she agrees, and the changed workflow is validated again.</p>",
+      {
+        "callout": "A workflow is saved only when its simulation is complete. A change described in words becomes a diff you approve, never a silent edit. A published version is never edited: a change creates the next version.",
+        "title": "Remember"
+      },
+      {
+        "h2": "Also in 1.5.5"
+      },
+      {
+        "cards": [
+          {
+            "title": "/aikido-review",
+            "text": "Reviews a change against evidence and edits nothing. A finding is kept only with a concrete scenario, re-read lines and the smallest fix; findings are numbered and grouped as Blocking, Important and Minor."
+          },
+          {
+            "title": "aikido deps",
+            "text": "Reports outdated or nonexistent dependency versions. On Kimono v0.9.15 it read 223 dependencies across npm, Cargo, Docker and GitHub: 5 major, 13 minor and 13 patch updates available, 192 up to date."
+          },
+          {
+            "title": "Task cards",
+            "text": "New commands to stop, delete and sync cards, explicit progress, numbered acceptance criteria and a human or automated review mode."
+          },
+          {
+            "title": "The workflow/2 format",
+            "text": "It replaces workflow/1: a workflow saved in the old format must be saved again. Released as a patch, since no production store held workflow/1 data."
+          }
+        ]
+      },
+      "<p>Scoring a workflow’s automated share and publishing it to a Tatami Core Agent go through <code>/workflow-score</code> and <code>/workflow-publish</code>, which need a configured Core Agent. Everything shown above runs with the CLI alone.</p>",
+      {
+        "h2": "Try it"
+      },
+      {
+        "steps": [
+          "Install or update the CLI: <code>npm install -g @aikido-method/cli@1.5.5</code>, or follow the <a href=\"install.html\">installation page</a>.",
+          "In your assistant, type <code>/workflow-new</code> and describe your steps, who does them and how it ends.",
+          "Read the diagram, check that the test is complete, then save. To run a change past a reviewer first, type <code>/aikido-review</code>."
+        ]
+      },
+      {
+        "references": [
+          {
+            "publisher": "AI-KIDO",
+            "title": "Changelog — version 1.5.5",
+            "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/CHANGELOG.md"
+          },
+          {
+            "publisher": "AI-KIDO",
+            "title": "aikido-workflow skill — 1.5.5",
+            "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/system/aikido-workflow/SKILL.md"
+          },
+          {
+            "publisher": "AI-KIDO",
+            "title": "/aikido-review command — 1.5.5",
+            "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/commands/aikido-review.md"
+          },
+          {
+            "publisher": "AI-KIDO",
+            "title": "aikido-deps skill — 1.5.5",
+            "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/system/aikido-deps/SKILL.md"
+          },
+          {
+            "publisher": "Kimono RAG MCP",
+            "title": "Repository at v0.9.15",
+            "url": "https://github.com/lcalmejane/kimono-mcp-server/tree/v0.9.15"
+          }
+        ]
+      }
+    ]
+  },
+  "fr": {
+    "title": "Version 1.5.5 : tester un workflow avant qu’il tourne",
+    "summary": "AI-KIDO 1.5.5 vous laisse décrire un workflow avec vos mots, simuler chaque chemin avant qu’un agent l’exécute et le modifier par un diff que vous validez. Avec une commande de revue et un contrôle des dépendances.",
+    "body": [
+      "<p>Camille maintient une petite bibliothèque open source. Chaque version se termine de la même façon : rédiger les notes, vérifier qu’aucun lien n’est cassé, demander une relecture à un collègue. Elle aimerait confier les deux premières étapes à un agent. Ce qui la retient n’est pas le talent de l’agent. C’est la peur d’une boucle sans fin, ou d’une branche à laquelle personne n’a pensé, découverte le soir de la sortie.</p>",
+      {
+        "h2": "L’idée en une image"
+      },
+      "<p>Dans AI-KIDO, un workflow est un seul fichier lisible, <code>.workflow.md</code>. Il contient un diagramme, une description simple de chaque étape et un bloc JSON qui reste la source de vérité. La version 1.5.5 ajoute ce qui manquait autour : des outils qui vérifient le fichier étape par étape, sans appeler aucun modèle, avant qu’un agent ne l’exécute.</p>",
+      {
+        "diagram": "workflow-check-flow",
+        "caption": "Chaque étape est vérifiée par un outil déterministe avant la suivante. Rien ne s’exécute pour de vrai avant que la simulation soit complète."
+      },
+      {
+        "h2": "Ce que fait Camille : décrire, puis simuler"
+      },
+      "<p>Dans son éditeur, elle tape la nouvelle commande et répond à ses questions avec ses mots : les étapes, qui fait chacune et comment cela se termine.</p>",
+      {
+        "chat": [
+          {
+            "role": "you",
+            "text": "/workflow-new Notes de version : les rédiger depuis CHANGELOG.md, vérifier chaque lien, refaire la rédaction si un lien est cassé (trois essais au plus), puis une relecture humaine."
+          },
+          {
+            "role": "assistant",
+            "html": "Brouillon <code>release-notes</code> 1.0.0 écrit et validé.<br>Diagramme : Rédaction → Vérifier les liens → choix → Relecture humaine → terminé, avec un retour à la Rédaction tant que les essais sont &lt; 3, sinon échec.<br>Simulation : <strong>6 chemins</strong>, tous les états couverts, aucun blocage. Le test est complet : je peux l’enregistrer."
+          }
+        ]
+      },
+      "<p>Elle ouvre le fichier produit. En haut, le diagramme qu’elle aurait dessiné au tableau ; en dessous, un court paragraphe par étape. Elle lit le workflow comme un document, pas comme du code.</p>",
+      {
+        "code": "stateDiagram-v2\n    state \"Rédaction\" as draft\n    state \"Vérifier les liens\" as links\n    state links_ok <<choice>>\n    state \"Relecture humaine\" as review\n    [*] --> draft\n    draft --> links\n    links --> links_ok\n    links_ok --> review : links.broken = 0\n    links_ok --> draft : attempts < 3\n    links_ok --> failed : otherwise\n    review --> done\n    done --> [*]\n    failed --> [*]",
+        "lang": "text",
+        "caption": "Le diagramme produit par <code>aikido task workflow render --lang fr</code> avec la CLI 1.5.5, tel quel. Le modifier puis lancer <code>sync</code> met à jour le bloc JSON, et inversement."
+      },
+      {
+        "h2": "Ce que la simulation lui apprend"
+      },
+      "<p>Le test remplace chaque agent par un bouchon et parcourt toutes les branches, jusqu’à la limite de boucle qu’elle a fixée. Camille voit chaque chemin et sa fin : succès après zéro, une ou deux reprises, ou échec après trois essais avec un lien cassé. Aucun état n’est laissé de côté, aucun chemin ne reste bloqué.</p>",
+      {
+        "stats": [
+          {
+            "value": "6",
+            "label": "chemins simulés pour le workflow des notes de version"
+          },
+          {
+            "value": "6/6",
+            "label": "états couverts, aucun blocage"
+          },
+          {
+            "value": "3",
+            "label": "passages au plus par état, la borne fixée par maxAttempts"
+          }
+        ]
+      },
+      "<p>Sous le capot, le résumé qu’elle a lu vient de ce rapport, raccourci (le rapport complet liste les six parcours) :</p>",
+      {
+        "code": "{\"status\":\"ok\",\"valid\":true,\"maxVisits\":3,\n \"paths\":[{\"trail\":[\"draft\",\"links\",\"links_ok\",\"review\",\"done\"],\"end\":\"success\"}, …],\n \"covered\":[\"draft\",\"links\",\"links_ok\",\"review\",\"done\",\"failed\"],\n \"uncovered\":[],\"terminals\":[\"done\",\"failed\"],\"complete\":true}",
+        "lang": "json",
+        "caption": "Sortie réelle de <code>aikido task workflow test</code>, <code>@aikido-method/cli</code> 1.5.5, sur le workflow ci-dessus (2026-11-24)."
+      },
+      {
+        "h2": "Modifier une étape en une phrase"
+      },
+      "<p>Le lendemain, Camille veut aussi vérifier les ancres. Elle le dit en une phrase. L’assistant la transforme en proposition de valeur sur un seul champ, la consigne de l’étape « Vérifier les liens », et lui montre le diff. Rien n’est appliqué avant son accord, et le workflow modifié est validé de nouveau.</p>",
+      {
+        "callout": "Un workflow n’est enregistré que si sa simulation est complète. Une modification dite en mots devient un diff que vous validez, jamais une retouche silencieuse. Une version publiée ne se modifie pas : un changement crée la version suivante.",
+        "title": "À retenir"
+      },
+      {
+        "h2": "Aussi dans la 1.5.5"
+      },
+      {
+        "cards": [
+          {
+            "title": "/aikido-review",
+            "text": "Relit un changement sur preuves et ne modifie rien. Une remarque n’est gardée qu’avec un scénario concret, des lignes relues et la correction la plus petite ; elles sont numérotées et classées en Bloquant, Important et Mineur."
+          },
+          {
+            "title": "aikido deps",
+            "text": "Signale les versions de dépendances dépassées ou inexistantes. Sur Kimono v0.9.15, il a lu 223 dépendances npm, Cargo, Docker et GitHub : 5 montées majeures, 13 mineures et 13 correctives disponibles, 192 à jour."
+          },
+          {
+            "title": "Cartes de tâches",
+            "text": "De nouvelles commandes pour arrêter, supprimer et synchroniser les cartes, une progression explicite, des critères d’acceptation numérotés et un mode de revue humain ou automatique."
+          },
+          {
+            "title": "Le format workflow/2",
+            "text": "Il remplace workflow/1 : un workflow enregistré dans l’ancien format doit être enregistré de nouveau. Publié en version corrective, car aucun espace de production ne contenait de données workflow/1."
+          }
+        ]
+      },
+      "<p>Mesurer la part automatisée d’un workflow et le publier vers un Tatami Core Agent passent par <code>/workflow-score</code> et <code>/workflow-publish</code>, qui demandent un Core Agent configuré. Tout ce qui est montré plus haut fonctionne avec la seule CLI.</p>",
+      {
+        "h2": "Essayer"
+      },
+      {
+        "steps": [
+          "Installez ou mettez à jour la CLI : <code>npm install -g @aikido-method/cli@1.5.5</code>, ou suivez la <a href=\"install.html\">page d’installation</a>.",
+          "Dans votre assistant, tapez <code>/workflow-new</code> et décrivez vos étapes, qui les fait et comment cela se termine.",
+          "Lisez le diagramme, vérifiez que le test est complet, puis enregistrez. Pour faire relire un changement d’abord, tapez <code>/aikido-review</code>."
+        ]
+      },
+      {
+        "references": [
+          {
+            "publisher": "AI-KIDO",
+            "title": "Changelog — version 1.5.5",
+            "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/CHANGELOG.md"
+          },
+          {
+            "publisher": "AI-KIDO",
+            "title": "Skill aikido-workflow — 1.5.5",
+            "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/system/aikido-workflow/SKILL.md"
+          },
+          {
+            "publisher": "AI-KIDO",
+            "title": "Commande /aikido-review — 1.5.5",
+            "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/commands/aikido-review.md"
+          },
+          {
+            "publisher": "AI-KIDO",
+            "title": "Skill aikido-deps — 1.5.5",
+            "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/system/aikido-deps/SKILL.md"
+          },
+          {
+            "publisher": "Kimono RAG MCP",
+            "title": "Dépôt à la version v0.9.15",
+            "url": "https://github.com/lcalmejane/kimono-mcp-server/tree/v0.9.15"
+          }
+        ]
+      }
+    ]
+  }
+}
