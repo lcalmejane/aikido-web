@@ -1,265 +1,125 @@
 {
   "slug": "automation-share",
   "nature": "analysis",
-  "domains": [
-    "development",
-    "orchestration"
-  ],
+  "domains": ["development", "orchestration"],
   "date": "2026-11-24",
-  "tag": {
-    "en": "Method",
-    "fr": "Méthode"
-  },
+  "tag": { "en": "Method", "fr": "Méthode" },
   "image": "hero-automation-share",
   "layout": "magazine",
   "en": {
-    "title": "How much of your workflow really needs a model?",
-    "summary": "Moving steps from a prompt to a script makes them predictable and free to rerun. AI-KIDO 1.5.5 measures that shift: each step is classed, and the workflow gets an automated share you can raise.",
+    "title": "Compile your commands: from prompt to script",
+    "summary": "A command, a skill or an agent written in prompts can be compiled: its repeatable steps become tested, shared scripts, and its automated share is measured before and after.",
     "body": [
-      "<p>Camille’s release notes workflow works. Every release, an agent drafts the notes, another opens every link, and she proofreads. But each run costs tokens and a few minutes, and the link check sometimes reports a different result for the same page. She asks herself a simple question: in this chain, which steps truly need a model?</p>",
-      {
-        "h2": "The idea in one picture"
-      },
-      "<p>The industry has several names for this shift. You speak of <em>compiled AI</em> or <em>workflow distillation</em> when the logic of a prompt is frozen into ordinary code that runs the same way every time, at no model cost. <a href=\"https://dspy.ai/\" title=\"DSPy — Program, don’t prompt, your LLMs\">DSPy</a> and <a href=\"https://microsoft.github.io/genaiscript/\" title=\"Microsoft — GenAIScript\">GenAIScript</a> program prompts with typed inputs and outputs instead of free text.</p>",
-      "<p>When a model stays in the loop, <em>constrained decoding</em> keeps its answer usable by a script. <a href=\"https://docs.claude.com/en/docs/build-with-claude/structured-outputs\" title=\"Anthropic — Structured outputs, Claude Platform Docs\">Claude</a> and <a href=\"https://openai.com/index/introducing-structured-outputs-in-the-api/\" title=\"OpenAI — Introducing Structured Outputs in the API\">OpenAI</a> both offer structured outputs that follow a JSON schema.</p>",
-      "<p>AI-KIDO puts a measure on that path. Each step of a workflow falls into one of three classes, and the score is their weighted average.</p>",
-      {
-        "cards": [
-          {
-            "title": "Deterministic · 1",
-            "text": "A script, a command, or a decision taken by the engine itself, such as a choice on a value. Same input, same output."
-          },
-          {
-            "title": "Assisted · 0.5",
-            "text": "A model that must return a validated output schema. It still writes, but its answer can be checked by a script."
-          },
-          {
-            "title": "Open · 0",
-            "text": "A free prompt, or a human decision. Valuable, but neither predictable nor free to rerun."
-          }
-        ]
-      },
-      {
-        "h2": "What Camille does: score, then distill"
-      },
-      "<p>She asks for the score of the version she uses today. The calculation calls no model: it reads the workflow and explains each step.</p>",
-      {
-        "chat": [
-          {
-            "role": "you",
-            "text": "/workflow-score release-notes"
-          },
-          {
-            "role": "assistant",
-            "html": "Automated share of <code>release-notes</code> 1.0.0: <strong>0.25</strong> (static method).<br>Draft: open, agent with a prompt. Check links: open, agent with a prompt. Links OK?: deterministic, choice on a value. Human review: open, human decision."
-          }
-        ]
-      },
-      "<p>The answer surprises her: checking links does not need a model at all. A short script can open each URL and count the broken ones. The draft does need a model, but it can return its sections in a schema that a script verifies. She creates version 1.1.0 with these two changes and keeps the human review.</p>",
-      {
-        "diagram": "automation-share-bars",
-        "caption": "Static automated share, before and after distillation. Same workflow, same result for the reader: only the way each step is executed changes."
-      },
-      "<p>Under the hood, the score is the detail of each step, with its class and its reason. Here is the real output for version 1.1.0:</p>",
-      {
-        "code": "{\"score\":0.63,\"method\":\"static\",\"steps\":[\n {\"id\":\"draft\",\"class\":\"assisted\",\"reason\":\"agent under a validated output schema\"},\n {\"id\":\"links\",\"class\":\"deterministic\",\"reason\":\"script\"},\n {\"id\":\"links_ok\",\"class\":\"deterministic\",\"reason\":\"deterministic choice\"},\n {\"id\":\"review\",\"class\":\"open\",\"reason\":\"human decision\"}]}",
-        "lang": "json",
-        "caption": "Score of version 1.1.0 computed by the Tatami Core Agent 0.1.9 (development preview), 2026-11-24; reasons translated from French, steps shortened to id, class and reason. Both versions pass <code>aikido task workflow validate</code> with the 1.5.5 CLI."
-      },
-      {
-        "h2": "The goal is not 100 %"
-      },
-      "<p>The human review stays open, and that is deliberate. The score does not ask you to remove judgment; it shows where a model is used by habit rather than by need. A step that decides what a release says is worth a model or a person. A step that counts broken links is worth a script.</p>",
-      {
-        "callout": "The score is static: it reads the definition, calls no model and gives no cost estimate. The same workflow always gets the same score, so a change in the score always comes from a change in the workflow.",
-        "title": "Remember"
-      },
-      "<p>In the Core Agent development preview, a second measure follows real runs: it counts the steps actually executed by a script and estimates the tokens avoided, an estimate and never an invoice. The static score tells you what a workflow allows; the measured share tells you what it did.</p>",
-      {
-        "h2": "Two rules behind the score"
-      },
-      "<p>Version 1.5.5 adds two hard points that every AI-KIDO agent follows. The first, <a href=\"https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/code-economy.md\" title=\"AI-KIDO — Code Economy hard point, 1.5.5\">Code Economy</a>, makes the agent stop at the cheapest route that meets the need: no code, then an existing asset, then the platform, and only then new code. Before writing the link checker, an agent first looks for a script the project already has.</p>",
-      "<p>The second, <a href=\"https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/agent-economy.md\" title=\"AI-KIDO — Agent Economy hard point, 1.5.5\">Agent Economy</a>, treats tokens and retries as a budget. A failed call proves nothing about the data it targeted: if the link checker times out, the step is reported as not verified, never as “no broken link”.</p>",
-      "<p>For the other side of the same idea, letting scripts do what a script does exactly, see <a href=\"news/deterministic-tools.html\">our article on deterministic tools</a>.</p>",
-      {
-        "h2": "Try it"
-      },
-      {
-        "steps": [
-          "Install the 1.5.5 CLI: <code>npm install -g @aikido-method/cli@1.5.5</code>, or follow the <a href=\"install.html\">installation page</a>.",
-          "Write or open a workflow with <code>/workflow-new</code>, then look for steps that a script could run or that could return a schema.",
-          "With a Tatami Core Agent configured, type <code>/workflow-score</code> before and after your change, and keep the human steps that matter."
-        ]
-      },
-      {
-        "references": [
-          {
-            "publisher": "Stanford NLP",
-            "title": "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines (arXiv 2310.03714)",
-            "url": "https://arxiv.org/abs/2310.03714"
-          },
-          {
-            "publisher": "DSPy",
-            "title": "DSPy — Program, don’t prompt, your LLMs",
-            "url": "https://dspy.ai/"
-          },
-          {
-            "publisher": "Microsoft",
-            "title": "GenAIScript — Generative AI Scripting",
-            "url": "https://microsoft.github.io/genaiscript/"
-          },
-          {
-            "publisher": "Anthropic",
-            "title": "Structured outputs — Claude Platform Docs",
-            "url": "https://docs.claude.com/en/docs/build-with-claude/structured-outputs"
-          },
-          {
-            "publisher": "OpenAI",
-            "title": "Introducing Structured Outputs in the API",
-            "url": "https://openai.com/index/introducing-structured-outputs-in-the-api/"
-          },
-          {
-            "publisher": "AI-KIDO",
-            "title": "Code Economy hard point — 1.5.5",
-            "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/code-economy.md"
-          },
-          {
-            "publisher": "AI-KIDO",
-            "title": "Agent Economy hard point — 1.5.5",
-            "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/agent-economy.md"
-          },
-          {
-            "publisher": "AI-KIDO",
-            "title": "/workflow-score command — 1.5.5",
-            "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/commands/workflow-score.md"
-          }
-        ]
-      }
+      "<p>Camille’s team wrote two commands for its assistant: <code>/release-notes</code> and <code>/publish-docs</code>. Both work. But both ask a model to check the same links, every time, at the cost of tokens and with results that vary from one run to the next. She wonders which of these steps really need a model, and whether the others could be frozen once and for all.</p>",
+      { "h2": "The idea in one picture" },
+      "<p>The industry has several names for this move. You speak of <em>compiled AI</em> or <em>workflow distillation</em> when the logic of a prompt is frozen into ordinary code that runs the same way every time, at no model cost. <a href=\"https://dspy.ai/\" title=\"DSPy — Program, don’t prompt, your LLMs\">DSPy</a> even uses the word: it compiles declarative model calls into optimized pipelines.</p>",
+      "<p>When a model stays in the loop, <em>constrained decoding</em> keeps its answer usable by a script. <a href=\"https://docs.claude.com/en/docs/build-with-claude/structured-outputs\" title=\"Anthropic — Structured outputs, Claude Platform Docs\">Claude</a> and <a href=\"https://openai.com/index/introducing-structured-outputs-in-the-api/\" title=\"OpenAI — Introducing Structured Outputs in the API\">OpenAI</a> both offer structured outputs that follow a JSON schema; <a href=\"https://microsoft.github.io/genaiscript/\" title=\"Microsoft — GenAIScript\">GenAIScript</a> scripts prompts in JavaScript.</p>",
+      "<p>AI-KIDO applies this to what you already write: commands, skills and agents. Each step falls into one of three classes, and the automated share is their weighted average.</p>",
+      { "cards": [
+        { "title": "Deterministic · 1", "text": "A script or a command written in the step. Same input, same output, no model." },
+        { "title": "Assisted · 0.5", "text": "A model that must return a validated output schema. It still writes, but a script can check it." },
+        { "title": "Open · 0", "text": "A free prompt, a human decision, or a rule the agent must respect. Valuable, but not a script." }
+      ] },
+      { "h2": "What Camille does: compile two commands" },
+      "<p>In Tatami, she asks for both commands to be compiled at once. The compiler cuts each definition into steps and classes them. For the open steps, a model proposes a command; the compiler then checks the result before accepting it, and the team reviews the change like any other.</p>",
+      { "chat": [
+        { "role": "you", "text": "Compile /release-notes and /publish-docs." },
+        { "role": "assistant", "html": "Both compiled, version 1.0.0 → <strong>1.0.1</strong>.<br>/release-notes: 0 → <strong>0.5</strong>. Link check and pull request count now run as scripts; the draft and the proofreading stay with the model and the maintainer.<br>/publish-docs: 0.33 → <strong>0.67</strong>.<br>3 scripts generated, <strong>1 shared</strong>: the link check is the same in both commands, so they call the same script." }
+      ] },
+      "<p>She opens <code>/release-notes</code>. Nothing has disappeared: each step keeps its sentence, and the steps that became scripts now say which one they call.</p>",
+      { "code": "---\ndescription: Prepare the release notes of the library.\nversion: 1.0.1\n---\n\n# /release-notes\n\n1. Draft the release notes from CHANGELOG.md, in the project's usual tone.\n2. Check every link in RELEASE_NOTES.md and list the broken ones. — `node .aikido/scripts/lib/npx-markdown-link-check-e67dc5b86d7d.mjs`\n3. Count the merged pull requests since the last tag. — `node .aikido/scripts/lib/git-log-baf3a03607ce.mjs`\n4. Ask a maintainer to proofread before publishing.", "lang": "markdown", "caption": "The command rewritten by the compiler of the Tatami Core Agent 0.1.9 (development preview), 2026-11-24. The two commands for steps 2 and 3 were proposed by the session’s model, then checked by the compiler." },
+      "<p>Each generated script replays exactly the command it replaces, can show it without running it (<code>--print</code>) and comes with its test. Its name carries a fingerprint of the command: two definitions that do the same thing end up calling the same script.</p>",
+      { "h2": "What the score shows, up to the agent" },
+      "<p>The team’s release agent does little by itself: it chooses the version number with the maintainers, then calls the two commands. Its automated share is the average of its own steps and of what it calls. It therefore rises without anyone touching it.</p>",
+      { "diagram": "automation-share-bars", "caption": "Static automated share before and after compilation. The agent rises from 11 to 39 because the commands it calls were compiled." },
+      { "callout": "A compilation is refused if it changes the number of steps, if a script does not replay the original command, or if the automated share drops. The version is bumped only when the compilation is accepted.", "title": "Remember" },
+      { "h2": "On AI-KIDO’s own commands" },
+      "<p>We ran the compiler on ten public commands of version 1.5.5. Nine were compiled into eleven scripts. <code>/aikido-review</code> was refused, rightly: it has no step a script can run, since reviewing on evidence is a judgment.</p>",
+      { "stats": [
+        { "value": "9/10", "label": "public 1.5.5 commands compiled" },
+        { "value": "11", "label": "scripts generated, each with its test" },
+        { "value": "0", "label": "score changes: their commands were already written as commands" }
+      ] },
+      "<p>The scores did not move, and that teaches something. Many open steps in these commands are guardrails, such as “Do not change any file unless the user asks”. No script replaces a rule of conduct; the goal is not 100 %, but to stop paying a model for what a command does exactly.</p>",
+      { "h2": "And for workflows" },
+      "<p>Workflows have their own score, <code>/workflow-score</code>, which classes each state. On the release notes workflow from <a href=\"news/version-1-5-5.html\">our 1.5.5 article</a>, turning the link check into a script and giving the draft an output schema raises it from 0.25 to 0.63, with the human review left open on purpose.</p>",
+      { "h2": "Two rules behind the compiler" },
+      "<p>Version 1.5.5 adds two hard points that every AI-KIDO agent follows. <a href=\"https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/code-economy.md\" title=\"AI-KIDO — Code Economy hard point, 1.5.5\">Code Economy</a> makes the agent stop at the cheapest route: an existing command or script before new code, which is why the compiler reuses a shared script rather than writing a second one.</p>",
+      "<p><a href=\"https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/agent-economy.md\" title=\"AI-KIDO — Agent Economy hard point, 1.5.5\">Agent Economy</a> treats tokens and retries as a budget, and a failed call proves nothing. If the link script times out, the step is reported as not verified, never as “no broken link”. For the general principle, see <a href=\"news/deterministic-tools.html\">our article on deterministic tools</a>.</p>",
+      { "h2": "Try it" },
+      { "steps": [
+        "Install the 1.5.5 CLI: <code>npm install -g @aikido-method/cli@1.5.5</code>, or follow the <a href=\"install.html\">installation page</a>.",
+        "In your commands and skills, write the repeatable steps as real commands in backquotes: they are deterministic from the start.",
+        "With a Tatami Core Agent configured (development preview), compile your commands, skills or agents, then compare the automated share before and after."
+      ] },
+      { "references": [
+        { "publisher": "Stanford NLP", "title": "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines (arXiv 2310.03714)", "url": "https://arxiv.org/abs/2310.03714" },
+        { "publisher": "DSPy", "title": "DSPy — Program, don’t prompt, your LLMs", "url": "https://dspy.ai/" },
+        { "publisher": "Microsoft", "title": "GenAIScript — Generative AI Scripting", "url": "https://microsoft.github.io/genaiscript/" },
+        { "publisher": "Anthropic", "title": "Structured outputs — Claude Platform Docs", "url": "https://docs.claude.com/en/docs/build-with-claude/structured-outputs" },
+        { "publisher": "OpenAI", "title": "Introducing Structured Outputs in the API", "url": "https://openai.com/index/introducing-structured-outputs-in-the-api/" },
+        { "publisher": "AI-KIDO", "title": "Code Economy hard point — 1.5.5", "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/code-economy.md" },
+        { "publisher": "AI-KIDO", "title": "Agent Economy hard point — 1.5.5", "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/agent-economy.md" },
+        { "publisher": "AI-KIDO", "title": "/workflow-score command — 1.5.5", "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/commands/workflow-score.md" }
+      ] }
     ]
   },
   "fr": {
-    "title": "Quelle part de votre workflow a vraiment besoin d’un modèle ?",
-    "summary": "Faire passer une étape d’un prompt à un script la rend prévisible et gratuite à relancer. AI-KIDO 1.5.5 mesure ce passage : chaque étape est classée, et le workflow reçoit une part automatisée à faire monter.",
+    "title": "Compiler vos commandes : du prompt au script",
+    "summary": "Une commande, un skill ou un agent écrit en prompts peut être compilé : ses étapes répétables deviennent des scripts testés et partagés, et sa part automatisée est mesurée avant et après.",
     "body": [
-      "<p>Le workflow des notes de version de Camille fonctionne. À chaque version, un agent rédige les notes, un autre ouvre chaque lien, et elle relit. Mais chaque exécution coûte des jetons et quelques minutes, et la vérification des liens donne parfois un résultat différent pour la même page. Elle se pose une question simple : dans cette chaîne, quelles étapes ont vraiment besoin d’un modèle ?</p>",
-      {
-        "h2": "L’idée en une image"
-      },
-      "<p>Le métier a plusieurs noms pour ce passage. On parle d’<em>IA compilée</em> ou de <em>distillation de workflow</em> quand la logique d’un prompt est figée dans du code ordinaire, qui s’exécute toujours de la même façon, sans coût de modèle. <a href=\"https://dspy.ai/\" title=\"DSPy — Program, don’t prompt, your LLMs\">DSPy</a> et <a href=\"https://microsoft.github.io/genaiscript/\" title=\"Microsoft — GenAIScript\">GenAIScript</a> programment les prompts avec des entrées et des sorties typées au lieu de texte libre.</p>",
-      "<p>Quand un modèle reste dans la boucle, le <em>décodage contraint</em> garde sa réponse exploitable par un script. <a href=\"https://docs.claude.com/en/docs/build-with-claude/structured-outputs\" title=\"Anthropic — Structured outputs, Claude Platform Docs\">Claude</a> et <a href=\"https://openai.com/index/introducing-structured-outputs-in-the-api/\" title=\"OpenAI — Introducing Structured Outputs in the API\">OpenAI</a> proposent tous deux des sorties structurées qui suivent un schéma JSON.</p>",
-      "<p>AI-KIDO met une mesure sur ce chemin. Chaque étape d’un workflow entre dans l’une de trois classes, et le score est leur moyenne pondérée.</p>",
-      {
-        "cards": [
-          {
-            "title": "Déterministe · 1",
-            "text": "Un script, une commande, ou une décision prise par le moteur lui-même, comme un choix sur une valeur. Même entrée, même sortie."
-          },
-          {
-            "title": "Assistée · 0,5",
-            "text": "Un modèle qui doit renvoyer un schéma de sortie validé. Il écrit toujours, mais sa réponse peut être vérifiée par un script."
-          },
-          {
-            "title": "Ouverte · 0",
-            "text": "Un prompt libre, ou une décision humaine. Précieuse, mais ni prévisible ni gratuite à relancer."
-          }
-        ]
-      },
-      {
-        "h2": "Ce que fait Camille : mesurer, puis distiller"
-      },
-      "<p>Elle demande le score de la version qu’elle utilise aujourd’hui. Le calcul n’appelle aucun modèle : il lit le workflow et explique chaque étape.</p>",
-      {
-        "chat": [
-          {
-            "role": "you",
-            "text": "/workflow-score release-notes"
-          },
-          {
-            "role": "assistant",
-            "html": "Part automatisée de <code>release-notes</code> 1.0.0 : <strong>0,25</strong> (méthode statique).<br>Rédaction : ouverte, agent en prompt. Vérifier les liens : ouverte, agent en prompt. Liens OK ? : déterministe, choix sur une valeur. Relecture humaine : ouverte, décision humaine."
-          }
-        ]
-      },
-      "<p>La réponse la surprend : vérifier des liens n’a besoin d’aucun modèle. Un court script peut ouvrir chaque URL et compter celles qui sont cassées. La rédaction, elle, a besoin d’un modèle, mais elle peut rendre ses sections dans un schéma qu’un script vérifie. Elle crée la version 1.1.0 avec ces deux changements et garde la relecture humaine.</p>",
-      {
-        "diagram": "automation-share-bars",
-        "caption": "Part automatisée statique, avant et après distillation. Même workflow, même résultat pour le lecteur : seule change la façon d’exécuter chaque étape."
-      },
-      "<p>Sous le capot, le score est le détail de chaque étape, avec sa classe et sa raison. Voici la sortie réelle pour la version 1.1.0 :</p>",
-      {
-        "code": "{\"score\":0.63,\"method\":\"static\",\"steps\":[\n {\"id\":\"draft\",\"class\":\"assisted\",\"reason\":\"agent sous schéma de sortie validé\"},\n {\"id\":\"links\",\"class\":\"deterministic\",\"reason\":\"script\"},\n {\"id\":\"links_ok\",\"class\":\"deterministic\",\"reason\":\"choix déterministe\"},\n {\"id\":\"review\",\"class\":\"open\",\"reason\":\"décision humaine\"}]}",
-        "lang": "json",
-        "caption": "Score de la version 1.1.0 calculé par le Tatami Core Agent 0.1.9 (aperçu de développement), le 2026-11-24 ; étapes raccourcies à l’identifiant, la classe et la raison. Les deux versions passent <code>aikido task workflow validate</code> avec la CLI 1.5.5."
-      },
-      {
-        "h2": "Le but n’est pas 100 %"
-      },
-      "<p>La relecture humaine reste ouverte, et c’est voulu. Le score ne demande pas de supprimer le jugement ; il montre où un modèle est utilisé par habitude plutôt que par besoin. Une étape qui décide de ce que dit une version mérite un modèle ou une personne. Une étape qui compte des liens cassés mérite un script.</p>",
-      {
-        "callout": "Le score est statique : il lit la définition, n’appelle aucun modèle et ne donne aucune estimation de coût. Le même workflow obtient toujours le même score, donc un score qui change vient toujours d’un workflow qui a changé.",
-        "title": "À retenir"
-      },
-      "<p>Dans l’aperçu de développement du Core Agent, une seconde mesure suit les exécutions réelles : elle compte les étapes réellement exécutées par un script et estime les jetons évités, une estimation et jamais une facture. Le score statique dit ce qu’un workflow permet ; la part mesurée dit ce qu’il a fait.</p>",
-      {
-        "h2": "Deux règles derrière le score"
-      },
-      "<p>La version 1.5.5 ajoute deux points durs que suit chaque agent AI-KIDO. Le premier, <a href=\"https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/code-economy.md\" title=\"AI-KIDO — point dur Code Economy, 1.5.5\">Code Economy</a>, fait s’arrêter l’agent sur la route la moins chère qui couvre le besoin : pas de code, puis un actif existant, puis la plateforme, et seulement ensuite du code neuf. Avant d’écrire le vérificateur de liens, un agent cherche d’abord un script que le projet possède déjà.</p>",
-      "<p>Le second, <a href=\"https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/agent-economy.md\" title=\"AI-KIDO — point dur Agent Economy, 1.5.5\">Agent Economy</a>, traite les jetons et les nouvelles tentatives comme un budget. Un appel en échec ne prouve rien sur les données visées : si le vérificateur de liens dépasse son délai, l’étape est signalée non vérifiée, jamais « aucun lien cassé ».</p>",
-      "<p>Pour l’autre face de la même idée, laisser les scripts faire ce qu’un script fait exactement, lisez <a href=\"news/deterministic-tools.html\">notre article sur les outils déterministes</a>.</p>",
-      {
-        "h2": "Essayer"
-      },
-      {
-        "steps": [
-          "Installez la CLI 1.5.5 : <code>npm install -g @aikido-method/cli@1.5.5</code>, ou suivez la <a href=\"install.html\">page d’installation</a>.",
-          "Écrivez ou ouvrez un workflow avec <code>/workflow-new</code>, puis repérez les étapes qu’un script pourrait exécuter ou qui pourraient renvoyer un schéma.",
-          "Avec un Tatami Core Agent configuré, tapez <code>/workflow-score</code> avant et après votre changement, et gardez les étapes humaines qui comptent."
-        ]
-      },
-      {
-        "references": [
-          {
-            "publisher": "Stanford NLP",
-            "title": "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines (arXiv 2310.03714)",
-            "url": "https://arxiv.org/abs/2310.03714"
-          },
-          {
-            "publisher": "DSPy",
-            "title": "DSPy — Program, don’t prompt, your LLMs",
-            "url": "https://dspy.ai/"
-          },
-          {
-            "publisher": "Microsoft",
-            "title": "GenAIScript — Generative AI Scripting",
-            "url": "https://microsoft.github.io/genaiscript/"
-          },
-          {
-            "publisher": "Anthropic",
-            "title": "Structured outputs — Claude Platform Docs",
-            "url": "https://docs.claude.com/en/docs/build-with-claude/structured-outputs"
-          },
-          {
-            "publisher": "OpenAI",
-            "title": "Introducing Structured Outputs in the API",
-            "url": "https://openai.com/index/introducing-structured-outputs-in-the-api/"
-          },
-          {
-            "publisher": "AI-KIDO",
-            "title": "Point dur Code Economy — 1.5.5",
-            "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/code-economy.md"
-          },
-          {
-            "publisher": "AI-KIDO",
-            "title": "Point dur Agent Economy — 1.5.5",
-            "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/agent-economy.md"
-          },
-          {
-            "publisher": "AI-KIDO",
-            "title": "Commande /workflow-score — 1.5.5",
-            "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/commands/workflow-score.md"
-          }
-        ]
-      }
+      "<p>L’équipe de Camille a écrit deux commandes pour son assistant : <code>/release-notes</code> et <code>/publish-docs</code>. Les deux fonctionnent. Mais les deux demandent à un modèle de vérifier les mêmes liens, à chaque fois, au prix de jetons et avec des résultats qui varient d’une exécution à l’autre. Elle se demande quelles étapes ont vraiment besoin d’un modèle, et si les autres pourraient être figées une fois pour toutes.</p>",
+      { "h2": "L’idée en une image" },
+      "<p>Le métier a plusieurs noms pour ce passage. On parle d’<em>IA compilée</em> ou de <em>distillation de workflow</em> quand la logique d’un prompt est figée dans du code ordinaire, qui s’exécute toujours de la même façon, sans coût de modèle. <a href=\"https://dspy.ai/\" title=\"DSPy — Program, don’t prompt, your LLMs\">DSPy</a> emploie d’ailleurs le mot : il compile des appels de modèle déclaratifs en chaînes optimisées.</p>",
+      "<p>Quand un modèle reste dans la boucle, le <em>décodage contraint</em> garde sa réponse exploitable par un script. <a href=\"https://docs.claude.com/en/docs/build-with-claude/structured-outputs\" title=\"Anthropic — Structured outputs, Claude Platform Docs\">Claude</a> et <a href=\"https://openai.com/index/introducing-structured-outputs-in-the-api/\" title=\"OpenAI — Introducing Structured Outputs in the API\">OpenAI</a> proposent tous deux des sorties structurées qui suivent un schéma JSON ; <a href=\"https://microsoft.github.io/genaiscript/\" title=\"Microsoft — GenAIScript\">GenAIScript</a> écrit les prompts en JavaScript.</p>",
+      "<p>AI-KIDO applique cette idée à ce que vous écrivez déjà : commandes, skills et agents. Chaque étape entre dans l’une de trois classes, et la part automatisée est leur moyenne pondérée.</p>",
+      { "cards": [
+        { "title": "Déterministe · 1", "text": "Un script ou une commande écrite dans l’étape. Même entrée, même sortie, aucun modèle." },
+        { "title": "Assistée · 0,5", "text": "Un modèle qui doit renvoyer un schéma de sortie validé. Il écrit toujours, mais un script peut le vérifier." },
+        { "title": "Ouverte · 0", "text": "Un prompt libre, une décision humaine, ou une règle que l’agent doit respecter. Précieuse, mais pas un script." }
+      ] },
+      { "h2": "Ce que fait Camille : compiler deux commandes" },
+      "<p>Dans Tatami, elle demande de compiler les deux commandes d’un coup. Le compilateur découpe chaque définition en étapes et les classe. Pour les étapes ouvertes, un modèle propose une commande ; le compilateur vérifie ensuite le résultat avant de l’accepter, et l’équipe relit le changement comme n’importe quel autre.</p>",
+      { "chat": [
+        { "role": "you", "text": "Compile /release-notes et /publish-docs." },
+        { "role": "assistant", "html": "Les deux sont compilées, version 1.0.0 → <strong>1.0.1</strong>.<br>/release-notes : 0 → <strong>0,5</strong>. La vérification des liens et le comptage des pull requests tournent désormais en scripts ; la rédaction et la relecture restent au modèle et au mainteneur.<br>/publish-docs : 0,33 → <strong>0,67</strong>.<br>3 scripts générés, <strong>1 partagé</strong> : la vérification des liens est la même dans les deux commandes, elles appellent donc le même script." }
+      ] },
+      "<p>Elle ouvre <code>/release-notes</code>. Rien n’a disparu : chaque étape garde sa phrase, et celles devenues scripts disent maintenant lequel elles appellent.</p>",
+      { "code": "---\ndescription: Prepare the release notes of the library.\nversion: 1.0.1\n---\n\n# /release-notes\n\n1. Draft the release notes from CHANGELOG.md, in the project's usual tone.\n2. Check every link in RELEASE_NOTES.md and list the broken ones. — `node .aikido/scripts/lib/npx-markdown-link-check-e67dc5b86d7d.mjs`\n3. Count the merged pull requests since the last tag. — `node .aikido/scripts/lib/git-log-baf3a03607ce.mjs`\n4. Ask a maintainer to proofread before publishing.", "lang": "markdown", "caption": "La commande réécrite par le compilateur du Tatami Core Agent 0.1.9 (aperçu de développement), le 2026-11-24 ; commande écrite en anglais par l’équipe. Les commandes des étapes 2 et 3 ont été proposées par le modèle de la session, puis vérifiées par le compilateur." },
+      "<p>Chaque script généré rejoue exactement la commande qu’il remplace, peut l’afficher sans l’exécuter (<code>--print</code>) et vient avec son test. Son nom porte une empreinte de la commande : deux définitions qui font la même chose finissent par appeler le même script.</p>",
+      { "h2": "Ce que montre le score, jusqu’à l’agent" },
+      "<p>L’agent de release de l’équipe fait peu de choses lui-même : il choisit le numéro de version avec les mainteneurs, puis appelle les deux commandes. Sa part automatisée est la moyenne de ses propres étapes et de ce qu’il appelle. Elle monte donc sans que personne ne le touche.</p>",
+      { "diagram": "automation-share-bars", "caption": "Part automatisée statique avant et après compilation. L’agent passe de 11 à 39 parce que les commandes qu’il appelle ont été compilées." },
+      { "callout": "Une compilation est refusée si elle change le nombre d’étapes, si un script ne rejoue pas la commande d’origine, ou si la part automatisée baisse. La version ne monte que si la compilation est acceptée.", "title": "À retenir" },
+      { "h2": "Sur les commandes d’AI-KIDO lui-même" },
+      "<p>Nous avons passé dix commandes publiques de la version 1.5.5 au compilateur. Neuf ont été compilées en onze scripts. <code>/aikido-review</code> a été refusée, à juste titre : elle n’a aucune étape qu’un script peut exécuter, car relire sur preuves est un jugement.</p>",
+      { "stats": [
+        { "value": "9/10", "label": "commandes publiques 1.5.5 compilées" },
+        { "value": "11", "label": "scripts générés, chacun avec son test" },
+        { "value": "0", "label": "score modifié : leurs commandes étaient déjà écrites comme des commandes" }
+      ] },
+      "<p>Les scores n’ont pas bougé, et c’est instructif. Beaucoup d’étapes ouvertes de ces commandes sont des garde-fous, comme « Ne modifier aucun fichier sauf demande de l’utilisateur ». Aucun script ne remplace une règle de conduite ; le but n’est pas 100 %, mais de ne plus payer un modèle pour ce qu’une commande fait exactement.</p>",
+      { "h2": "Et pour les workflows" },
+      "<p>Les workflows ont leur propre score, <code>/workflow-score</code>, qui classe chaque état. Sur le workflow des notes de version de <a href=\"news/version-1-5-5.html\">notre article 1.5.5</a>, faire de la vérification des liens un script et donner un schéma de sortie à la rédaction le fait passer de 0,25 à 0,63, la relecture humaine restant ouverte exprès.</p>",
+      { "h2": "Deux règles derrière le compilateur" },
+      "<p>La version 1.5.5 ajoute deux points durs que suit chaque agent AI-KIDO. <a href=\"https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/code-economy.md\" title=\"AI-KIDO — point dur Code Economy, 1.5.5\">Code Economy</a> fait s’arrêter l’agent sur la route la moins chère : une commande ou un script existant avant du code neuf, et c’est pourquoi le compilateur réutilise un script partagé plutôt que d’en écrire un second.</p>",
+      "<p><a href=\"https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/agent-economy.md\" title=\"AI-KIDO — point dur Agent Economy, 1.5.5\">Agent Economy</a> traite les jetons et les nouvelles tentatives comme un budget, et un appel en échec ne prouve rien. Si le script des liens dépasse son délai, l’étape est signalée non vérifiée, jamais « aucun lien cassé ». Pour le principe général, lisez <a href=\"news/deterministic-tools.html\">notre article sur les outils déterministes</a>.</p>",
+      { "h2": "Essayer" },
+      { "steps": [
+        "Installez la CLI 1.5.5 : <code>npm install -g @aikido-method/cli@1.5.5</code>, ou suivez la <a href=\"install.html\">page d’installation</a>.",
+        "Dans vos commandes et vos skills, écrivez les étapes répétables comme de vraies commandes entre accents graves : elles sont déterministes dès le départ.",
+        "Avec un Tatami Core Agent configuré (aperçu de développement), compilez vos commandes, skills ou agents, puis comparez la part automatisée avant et après."
+      ] },
+      { "references": [
+        { "publisher": "Stanford NLP", "title": "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines (arXiv 2310.03714)", "url": "https://arxiv.org/abs/2310.03714" },
+        { "publisher": "DSPy", "title": "DSPy — Program, don’t prompt, your LLMs", "url": "https://dspy.ai/" },
+        { "publisher": "Microsoft", "title": "GenAIScript — Generative AI Scripting", "url": "https://microsoft.github.io/genaiscript/" },
+        { "publisher": "Anthropic", "title": "Structured outputs — Claude Platform Docs", "url": "https://docs.claude.com/en/docs/build-with-claude/structured-outputs" },
+        { "publisher": "OpenAI", "title": "Introducing Structured Outputs in the API", "url": "https://openai.com/index/introducing-structured-outputs-in-the-api/" },
+        { "publisher": "AI-KIDO", "title": "Point dur Code Economy — 1.5.5", "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/code-economy.md" },
+        { "publisher": "AI-KIDO", "title": "Point dur Agent Economy — 1.5.5", "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/concepts/agent-economy.md" },
+        { "publisher": "AI-KIDO", "title": "Commande /workflow-score — 1.5.5", "url": "https://github.com/lcalmejane/aikido/blob/1.5.5/prompts/hard_points/commands/workflow-score.md" }
+      ] }
     ]
   }
 }

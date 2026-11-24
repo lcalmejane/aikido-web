@@ -3,23 +3,70 @@
   "id": "automation-share-bars",
   "type": "bars",
   "title": {
-    "en": "Automated share of the release notes workflow",
-    "fr": "Part automatisée du workflow des notes de version"
+    "en": "Automated share before and after compilation",
+    "fr": "Part automatisée avant et après compilation"
   },
   "desc": {
-    "en": "Horizontal bars compare the static automated share, in percent: 25 for version 1.0.0, where every task is a prompt, and 63 for version 1.1.0, where the link check is a script and the draft returns a validated schema.",
-    "fr": "Des barres horizontales comparent la part automatisée statique, en pourcentage : 25 pour la version 1.0.0, où chaque tâche est un prompt, et 63 pour la version 1.1.0, où la vérification des liens est un script et la rédaction renvoie un schéma validé."
+    "en": "Horizontal bars show the static automated share, in percent: release-notes reaches 50 after compilation (from 0), publish-docs goes from 33 to 67, and the release agent that calls both from 11 to 39.",
+    "fr": "Des barres horizontales montrent la part automatisée statique, en pourcentage : release-notes atteint 50 après compilation (depuis 0), publish-docs passe de 33 à 67, et l’agent de release qui appelle les deux de 11 à 39."
   },
   "nodes": [
     {
-      "label": { "en": "Version 1.0.0 (%)", "fr": "Version 1.0.0 (%)" },
-      "value": 25,
-      "note": { "en": "two prompts, one choice, one human review", "fr": "deux prompts, un choix, une relecture humaine" }
+      "label": {
+        "en": "/release-notes, after (%)",
+        "fr": "/release-notes, après (%)"
+      },
+      "value": 50,
+      "note": {
+        "en": "from 0: link check and count scripted",
+        "fr": "depuis 0 : liens et comptage scriptés"
+      },
+      "accent": true
     },
     {
-      "label": { "en": "Version 1.1.0 (%)", "fr": "Version 1.1.0 (%)" },
-      "value": 63,
-      "note": { "en": "link check scripted, draft under schema", "fr": "liens vérifiés par script, rédaction sous schéma" },
+      "label": {
+        "en": "/publish-docs, before (%)",
+        "fr": "/publish-docs, avant (%)"
+      },
+      "value": 33,
+      "note": {
+        "en": "the build was already a command",
+        "fr": "le build était déjà une commande"
+      }
+    },
+    {
+      "label": {
+        "en": "/publish-docs, after (%)",
+        "fr": "/publish-docs, après (%)"
+      },
+      "value": 67,
+      "note": {
+        "en": "shares the link script",
+        "fr": "partage le script des liens"
+      },
+      "accent": true
+    },
+    {
+      "label": {
+        "en": "Release agent, before (%)",
+        "fr": "Agent de release, avant (%)"
+      },
+      "value": 11,
+      "note": {
+        "en": "own steps and both commands",
+        "fr": "ses étapes et les deux commandes"
+      }
+    },
+    {
+      "label": {
+        "en": "Release agent, after (%)",
+        "fr": "Agent de release, après (%)"
+      },
+      "value": 39,
+      "note": {
+        "en": "rises with what it calls",
+        "fr": "monte avec ce qu’il appelle"
+      },
       "accent": true
     }
   ]
