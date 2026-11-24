@@ -211,3 +211,6 @@
   .news-article.hero-square .article-hero { max-width: 100%; border-radius: 18px; }
   .news-article.dropcap .article-body > p:first-child::first-letter { font-size: 3em; }
 }
+
+/* Tall figures (diagrams in portrait): never taller than the screen, centred. */
+.news-article .article-figure img { max-height: 80vh; object-fit: contain; }

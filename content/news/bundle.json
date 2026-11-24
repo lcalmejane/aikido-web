@@ -4,7 +4,7 @@
   "minLayouts": 10,
   "noConsecutiveSameLayout": true,
   "stripCount": 3,
-  "cssVersion": 3,
+  "cssVersion": 4,
   "requireVisual": true,
   "maxAnimatedPerArticle": 1,
   "noConsecutiveAnimated": true,

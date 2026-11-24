@@ -213,6 +213,24 @@
         "en": "Kido, the small robot in a karate gi, stands on the tatami and points at a wooden marble track on a low table; the marbles have rolled down and wait in a wooden bowl",
         "fr": "Kido, le petit robot en kimono, debout sur le tatami, désigne un circuit de billes en bois posé sur une table basse ; les billes ont descendu la piste et attendent dans un bol en bois"
       }
+    },
+    "v155-workflow-en": {
+      "src": "assets/images/news/version-1-5-5-workflow-en.webp",
+      "width": 696,
+      "height": 1114,
+      "alt": {
+        "en": "State diagram of the release notes workflow: Draft, then Check links, then a choice. If no link is broken, Human review then done; while attempts are below 3, back to Draft; otherwise failed.",
+        "fr": "Diagramme d’états du workflow des notes de version : Rédaction, puis Vérifier les liens, puis un choix. Si aucun lien n’est cassé, Relecture humaine puis terminé ; tant que les essais sont inférieurs à 3, retour à la Rédaction ; sinon échec."
+      }
+    },
+    "v155-workflow-fr": {
+      "src": "assets/images/news/version-1-5-5-workflow-fr.webp",
+      "width": 696,
+      "height": 1158,
+      "alt": {
+        "en": "State diagram of the release notes workflow: Draft, then Check links, then a choice. If no link is broken, Human review then done; while attempts are below 3, back to Draft; otherwise failed.",
+        "fr": "Diagramme d’états du workflow des notes de version : Rédaction, puis Vérifier les liens, puis un choix. Si aucun lien n’est cassé, Relecture humaine puis terminé ; tant que les essais sont inférieurs à 3, retour à la Rédaction ; sinon échec."
+      }
     }
   }
 }

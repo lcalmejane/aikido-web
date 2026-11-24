@@ -34,7 +34,7 @@
   <script src="../../assets/js/theme.js?v=1"></script>
   <link rel="stylesheet" href="../../assets/css/home.css?v=10">
   <link rel="stylesheet" href="../../assets/css/inner.css?v=13">
-  <link rel="stylesheet" href="../../assets/css/news-layouts.css?v=3">
+  <link rel="stylesheet" href="../../assets/css/news-layouts.css?v=4">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Version 1.5.5 : tester un workflow avant qu’il tourne","description":"AI-KIDO 1.5.5 vous laisse décrire un workflow avec vos mots, simuler chaque chemin avant qu’un agent l’exécute et le modifier par un diff que vous validez. Avec une commande de revue et un contrôle des dépendances.","datePublished":"2026-11-24","inLanguage":"fr","mainEntityOfPage":"https://www.ai-kido.fr/fr/news/version-1-5-5.html","image":"https://www.ai-kido.fr/assets/images/news/version-1-5-5.webp","author":{"@type":"Organization","name":"AI-KIDO"},"publisher":{"@type":"Organization","name":"AI-KIDO"}}</script>
   <script src="../../assets/js/news-navigation.js?v=1" defer></script>
 </head>
@@ -108,23 +108,9 @@
           <li class="chat-msg chat-assistant"><span class="chat-who">Assistant</span><div class="chat-bubble">Brouillon <code>release-notes</code> 1.0.0 écrit et validé.<br>Diagramme : Rédaction → Vérifier les liens → choix → Relecture humaine → terminé, avec un retour à la Rédaction tant que les essais sont &lt; 3, sinon échec.<br>Simulation : <strong>6 chemins</strong>, tous les états couverts, aucun blocage. Le test est complet : je peux l’enregistrer.</div></li>
         </ol>
         <p>Elle ouvre le fichier produit. En haut, le diagramme qu’elle aurait dessiné au tableau ; en dessous, un court paragraphe par étape. Elle lit le workflow comme un document, pas comme du code.</p>
-        <figure class="code-block">
-          <div class="code-lang">text</div>
-          <pre tabindex="0"><code class="language-text">stateDiagram-v2
-    state &quot;Rédaction&quot; as draft
-    state &quot;Vérifier les liens&quot; as links
-    state links_ok &lt;&lt;choice&gt;&gt;
-    state &quot;Relecture humaine&quot; as review
-    [*] --&gt; draft
-    draft --&gt; links
-    links --&gt; links_ok
-    links_ok --&gt; review : links.broken = 0
-    links_ok --&gt; draft : attempts &lt; 3
-    links_ok --&gt; failed : otherwise
-    review --&gt; done
-    done --&gt; [*]
-    failed --&gt; [*]</code></pre>
-          <figcaption>Le diagramme produit par <code>aikido task workflow render --lang fr</code> avec la CLI 1.5.5, tel quel. Le modifier puis lancer <code>sync</code> met à jour le bloc JSON, et inversement.</figcaption>
+        <figure class="article-figure">
+          <img src="../../assets/images/news/version-1-5-5-workflow-fr.webp" alt="Diagramme d’états du workflow des notes de version : Rédaction, puis Vérifier les liens, puis un choix. Si aucun lien n’est cassé, Relecture humaine puis terminé ; tant que les essais sont inférieurs à 3, retour à la Rédaction ; sinon échec." width="696" height="1158" loading="lazy" decoding="async">
+          <figcaption>Le diagramme du <code>.workflow.md</code> produit, tel que Mermaid le dessine dans n’importe quel lecteur Markdown (VS Code, GitHub). Généré par <code>aikido task workflow render --lang fr</code> avec la CLI 1.5.5 ; le modifier puis lancer <code>sync</code> met à jour le bloc JSON, et inversement.</figcaption>
         </figure>
         <h2 id="ce-que-la-simulation-lui-apprend">Ce que la simulation lui apprend</h2>
         <p>Le test remplace chaque agent par un bouchon et parcourt toutes les branches, jusqu’à la limite de boucle qu’elle a fixée. Camille voit chaque chemin et sa fin : succès après zéro, une ou deux reprises, ou échec après trois essais avec un lien cassé. Aucun état n’est laissé de côté, aucun chemin ne reste bloqué.</p>

@@ -106,7 +106,11 @@ test('déplacement chronologique : anciens et nouveaux voisins restent cohérent
   fs.writeFileSync(file, JSON.stringify(article));
   const result = buildAll(dir, { articles: ['learn-rules'] });
   assert.equal(result.errors, undefined, result.errors?.join('\n'));
-  assert.deepEqual(new Set(result.articles), new Set(['learn-rules', 'local-designer', 'kimono-mcp']));
+  // The neighbours depend on the published articles: check the move itself, a bounded rebuild, then that
+  // every output matches a full build (old and new neighbours included).
+  assert.ok(result.articles.includes('learn-rules'));
+  assert.ok(result.articles.includes('kimono-mcp'), 'the new older neighbour is rebuilt');
+  assert.ok(result.articles.length < buildAll(dir).articles.length, 'a targeted move does not rebuild every article');
   for (const [rel, content] of buildAll(dir).files) {
     assert.equal(result.files.get(rel) ?? fs.readFileSync(path.join(dir, rel), 'utf8'), content, rel);
   }
