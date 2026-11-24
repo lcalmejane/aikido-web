@@ -114,6 +114,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news.html"/>
   </url>
   <url>
+    <loc>https://www.ai-kido.fr/news/automation-share.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/automation-share.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/automation-share.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/automation-share.html"/>
+  </url>
+  <url>
+    <loc>https://www.ai-kido.fr/fr/news/automation-share.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/automation-share.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ai-kido.fr/fr/news/automation-share.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ai-kido.fr/news/automation-share.html"/>
+  </url>
+  <url>
     <loc>https://www.ai-kido.fr/news/version-1-5-5.html</loc>
     <lastmod>2026-11-24</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ai-kido.fr/news/version-1-5-5.html"/>

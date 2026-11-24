@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "automation-share-bars",
+  "type": "bars",
+  "title": {
+    "en": "Automated share of the release notes workflow",
+    "fr": "Part automatisée du workflow des notes de version"
+  },
+  "desc": {
+    "en": "Horizontal bars compare the static automated share, in percent: 25 for version 1.0.0, where every task is a prompt, and 63 for version 1.1.0, where the link check is a script and the draft returns a validated schema.",
+    "fr": "Des barres horizontales comparent la part automatisée statique, en pourcentage : 25 pour la version 1.0.0, où chaque tâche est un prompt, et 63 pour la version 1.1.0, où la vérification des liens est un script et la rédaction renvoie un schéma validé."
+  },
+  "nodes": [
+    {
+      "label": { "en": "Version 1.0.0 (%)", "fr": "Version 1.0.0 (%)" },
+      "value": 25,
+      "note": { "en": "two prompts, one choice, one human review", "fr": "deux prompts, un choix, une relecture humaine" }
+    },
+    {
+      "label": { "en": "Version 1.1.0 (%)", "fr": "Version 1.1.0 (%)" },
+      "value": 63,
+      "note": { "en": "link check scripted, draft under schema", "fr": "liens vérifiés par script, rédaction sous schéma" },
+      "accent": true
+    }
+  ]
+}
